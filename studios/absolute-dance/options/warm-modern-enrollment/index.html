@@ -1,0 +1,1720 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Absolute Dance | Dance Lessons in Midland, TX</title>
+    <meta name="description" content="A warm, family-centered dance studio in Midland, TX with classes for young dancers through teens. Ballet, tap, jazz, hip-hop, lyrical, tumble, and teams.">
+    <link rel="icon" href="../../assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      /* Hallmark - pre-emit critique: P5 H5 E5 S5 R4 V5 */
+      :root {
+        --font-sans: "Geist", "Satoshi", "Helvetica Now", Helvetica, sans-serif;
+        --font-display: "Recoleta", "Canela", "GT Sectra", Georgia, serif;
+
+        --color-ink: #17383b;
+        --color-ink-soft: #48676a;
+        --color-paper: #fbfffe;
+        --color-mist: #effbf9;
+        --color-aqua: #16c9b2;
+        --color-aqua-soft: #d7f6f1;
+        --color-aqua-pale: #f3fffc;
+        --color-teal: #075b60;
+        --color-teal-deep: #063b40;
+        --color-pink: #ed2d83;
+        --color-pink-soft: #ffe2f0;
+        --color-coral: #ff8ea9;
+        --color-white: #ffffff;
+        --color-line: rgba(7, 91, 96, 0.15);
+        --color-line-strong: rgba(7, 91, 96, 0.28);
+        --color-shadow: rgba(8, 54, 58, 0.14);
+        --color-shadow-strong: rgba(8, 54, 58, 0.24);
+        --color-hero-a: rgba(6, 59, 64, 0.78);
+        --color-hero-b: rgba(6, 59, 64, 0.34);
+        --color-hero-c: rgba(237, 45, 131, 0.2);
+
+        --image-hero: url("../../assets/hero-bg.jpg");
+        --image-studio: url("../../assets/studio-bg.jpg");
+        --image-faculty: url("../../assets/faculty-bg.jpg");
+
+        --radius-button: 999px;
+        --radius-panel: 8px;
+        --radius-soft: 18px;
+        --max-page: 1180px;
+        --shadow-soft: 0 20px 45px var(--color-shadow);
+        --shadow-lift: 0 28px 60px var(--color-shadow-strong);
+        --transition: 220ms ease;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        overflow-x: clip;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--color-paper);
+        color: var(--color-ink);
+        font-family: var(--font-sans);
+        font-size: 17px;
+        line-height: 1.6;
+        text-rendering: optimizeLegibility;
+      }
+
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      summary {
+        font: inherit;
+      }
+
+      .site-shell {
+        background:
+          linear-gradient(180deg, var(--color-aqua-pale), var(--color-paper) 420px),
+          var(--color-paper);
+        min-height: 100vh;
+      }
+
+      .site-header {
+        background: var(--color-white);
+        border-bottom: 1px solid var(--color-line);
+        position: relative;
+        z-index: 20;
+      }
+
+      .nav-wrap {
+        align-items: center;
+        display: flex;
+        gap: 24px;
+        height: 72px;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: var(--max-page);
+        padding: 0 24px;
+      }
+
+      .brand {
+        align-items: center;
+        display: inline-flex;
+        flex: 0 0 auto;
+        min-width: 0;
+      }
+
+      .brand img {
+        height: auto;
+        max-height: 42px;
+        width: 230px;
+      }
+
+      .nav-links {
+        align-items: center;
+        display: flex;
+        gap: 22px;
+        justify-content: center;
+        margin-left: auto;
+      }
+
+      .nav-links a {
+        color: var(--color-teal-deep);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0;
+        white-space: nowrap;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: var(--color-pink);
+      }
+
+      .header-actions {
+        align-items: center;
+        display: flex;
+        flex: 0 0 auto;
+        gap: 10px;
+      }
+
+      .menu-toggle {
+        align-items: center;
+        background: var(--color-aqua-soft);
+        border: 1px solid var(--color-line);
+        border-radius: var(--radius-button);
+        color: var(--color-teal);
+        cursor: pointer;
+        display: none;
+        height: 42px;
+        justify-content: center;
+        width: 46px;
+      }
+
+      .menu-toggle span,
+      .menu-toggle span::before,
+      .menu-toggle span::after {
+        background: currentColor;
+        border-radius: var(--radius-button);
+        content: "";
+        display: block;
+        height: 2px;
+        position: relative;
+        width: 18px;
+      }
+
+      .menu-toggle span::before {
+        position: absolute;
+        top: -6px;
+      }
+
+      .menu-toggle span::after {
+        position: absolute;
+        top: 6px;
+      }
+
+      .btn {
+        align-items: center;
+        border: 1px solid transparent;
+        border-radius: var(--radius-button);
+        cursor: pointer;
+        display: inline-flex;
+        font-size: 14px;
+        font-weight: 800;
+        gap: 9px;
+        justify-content: center;
+        letter-spacing: 0;
+        line-height: 1;
+        min-height: 46px;
+        padding: 0 20px;
+        position: relative;
+        transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
+        white-space: nowrap;
+      }
+
+      .btn svg {
+        height: 17px;
+        width: 17px;
+      }
+
+      .btn-primary {
+        background: var(--color-pink);
+        box-shadow: 0 12px 26px rgba(237, 45, 131, 0.24);
+        color: var(--color-white);
+      }
+
+      .btn-primary:hover,
+      .btn-primary:focus-visible {
+        box-shadow: 0 18px 36px rgba(237, 45, 131, 0.32);
+        transform: translateY(-2px) scale(1.015);
+      }
+
+      .btn-secondary {
+        background: var(--color-white);
+        border-color: var(--color-line-strong);
+        color: var(--color-teal);
+      }
+
+      .btn-secondary:hover,
+      .btn-secondary:focus-visible {
+        border-color: var(--color-aqua);
+        box-shadow: 0 14px 30px var(--color-shadow);
+        transform: translateY(-2px);
+      }
+
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.13);
+        border-color: rgba(255, 255, 255, 0.42);
+        color: var(--color-white);
+      }
+
+      .btn-ghost:hover,
+      .btn-ghost:focus-visible {
+        background: rgba(255, 255, 255, 0.21);
+        transform: translateY(-2px);
+      }
+
+      .section {
+        padding: 88px 24px;
+      }
+
+      .section-inner {
+        margin: 0 auto;
+        max-width: var(--max-page);
+      }
+
+      .section-kicker {
+        color: var(--color-pink);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        margin: 0 0 12px;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      .display {
+        font-family: var(--font-display);
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        color: var(--color-white);
+        font-size: clamp(3.25rem, 7vw, 4.2rem);
+        line-height: 0.98;
+        max-width: 720px;
+        overflow-wrap: anywhere;
+      }
+
+      h1 em,
+      h2 em {
+        color: var(--color-coral);
+        font-style: italic;
+      }
+
+      h2 {
+        color: var(--color-teal-deep);
+        font-size: clamp(2.25rem, 4vw, 3rem);
+        line-height: 1.08;
+        max-width: 760px;
+        overflow-wrap: anywhere;
+      }
+
+      h3 {
+        color: var(--color-teal-deep);
+        font-size: clamp(1.25rem, 2vw, 1.55rem);
+        line-height: 1.18;
+      }
+
+      .lead {
+        color: var(--color-ink-soft);
+        font-size: clamp(1rem, 1.7vw, 1.12rem);
+        line-height: 1.65;
+      }
+
+      .hero {
+        background:
+          linear-gradient(90deg, var(--color-hero-a), var(--color-hero-b) 58%, var(--color-hero-c)),
+          var(--image-hero) center center / cover no-repeat;
+        color: var(--color-white);
+        display: grid;
+        min-height: clamp(560px, 74svh, 690px);
+        overflow: hidden;
+        padding: 82px 24px 44px;
+        position: relative;
+      }
+
+      .hero::after {
+        animation: heroGlow 12s ease-in-out infinite alternate;
+        background: linear-gradient(110deg, transparent 0%, rgba(22, 201, 178, 0.16) 48%, rgba(255, 255, 255, 0.1) 58%, transparent 100%);
+        content: "";
+        inset: 0;
+        opacity: 0.75;
+        pointer-events: none;
+        position: absolute;
+        transform: translateX(-18%);
+      }
+
+      .hero-inner {
+        align-content: center;
+        display: grid;
+        gap: 30px;
+        margin: 0 auto;
+        max-width: var(--max-page);
+        position: relative;
+        width: 100%;
+        z-index: 1;
+      }
+
+      .hero-copy {
+        max-width: 780px;
+      }
+
+      .hero-copy .section-kicker {
+        color: var(--color-aqua-soft);
+        margin-bottom: 16px;
+      }
+
+      .hero-copy .lead {
+        color: rgba(255, 255, 255, 0.88);
+        margin-top: 18px;
+        max-width: 650px;
+      }
+
+      .hero-actions {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .trust-pill {
+        align-items: center;
+        backdrop-filter: blur(18px);
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: var(--radius-button);
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.16);
+        display: inline-flex;
+        gap: 13px;
+        max-width: min(100%, 560px);
+        padding: 10px 16px 10px 10px;
+      }
+
+      .trust-faces {
+        display: flex;
+        flex: 0 0 auto;
+      }
+
+      .trust-faces img {
+        border: 2px solid var(--color-white);
+        border-radius: 50%;
+        height: 42px;
+        object-fit: cover;
+        width: 42px;
+      }
+
+      .trust-faces img + img {
+        margin-left: -12px;
+      }
+
+      .trust-pill strong {
+        display: block;
+        font-size: 13px;
+        line-height: 1.25;
+      }
+
+      .trust-pill span {
+        color: rgba(255, 255, 255, 0.82);
+        display: block;
+        font-size: 12px;
+        line-height: 1.3;
+      }
+
+      .trust-strip {
+        background: var(--color-teal);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--color-white);
+        overflow: hidden;
+      }
+
+      .trust-track {
+        animation: calmMarquee 28s linear infinite;
+        display: flex;
+        gap: 18px;
+        padding: 14px 24px;
+        width: max-content;
+      }
+
+      .trust-item {
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: var(--radius-button);
+        display: inline-flex;
+        gap: 10px;
+        padding: 9px 16px;
+        white-space: nowrap;
+      }
+
+      .trust-item svg {
+        color: var(--color-aqua);
+        height: 18px;
+        width: 18px;
+      }
+
+      .decision-grid {
+        align-items: center;
+        display: grid;
+        gap: 44px;
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      }
+
+      .image-frame {
+        border-radius: var(--radius-soft);
+        box-shadow: var(--shadow-soft);
+        min-height: 500px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .image-frame img,
+      .culture-photo img,
+      .map-card img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .image-frame .caption {
+        background: var(--color-white);
+        border-radius: var(--radius-panel);
+        bottom: 18px;
+        box-shadow: 0 16px 35px var(--color-shadow);
+        color: var(--color-teal);
+        font-size: 14px;
+        font-weight: 800;
+        left: 18px;
+        padding: 12px 14px;
+        position: absolute;
+      }
+
+      .choice-panel {
+        display: grid;
+        gap: 22px;
+      }
+
+      .choice-panel .lead {
+        max-width: 660px;
+      }
+
+      .care-list {
+        display: grid;
+        gap: 14px;
+        margin-top: 4px;
+      }
+
+      .care-line {
+        align-items: flex-start;
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 30px minmax(0, 1fr);
+      }
+
+      .care-line svg {
+        background: var(--color-aqua-soft);
+        border-radius: 50%;
+        color: var(--color-teal);
+        height: 30px;
+        padding: 7px;
+        width: 30px;
+      }
+
+      .care-line strong {
+        color: var(--color-teal-deep);
+        display: block;
+        line-height: 1.25;
+      }
+
+      .care-line span {
+        color: var(--color-ink-soft);
+        display: block;
+        font-size: 15px;
+        line-height: 1.5;
+        margin-top: 3px;
+      }
+
+      .stats-row {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 10px;
+      }
+
+      .stat {
+        background: var(--color-aqua-pale);
+        border: 1px solid var(--color-line);
+        border-radius: var(--radius-panel);
+        padding: 18px;
+      }
+
+      .stat strong {
+        color: var(--color-teal);
+        display: block;
+        font-size: clamp(1.75rem, 3vw, 2.4rem);
+        line-height: 1;
+      }
+
+      .stat span {
+        color: var(--color-ink-soft);
+        display: block;
+        font-size: 13px;
+        line-height: 1.35;
+        margin-top: 8px;
+      }
+
+      .classes {
+        background:
+          linear-gradient(180deg, var(--color-mist), var(--color-paper));
+      }
+
+      .section-head {
+        align-items: end;
+        display: grid;
+        gap: 24px;
+        grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.45fr);
+        margin-bottom: 36px;
+      }
+
+      .section-head .lead {
+        max-width: 480px;
+      }
+
+      .class-bento {
+        display: grid;
+        gap: 18px;
+        grid-auto-rows: minmax(154px, auto);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .class-card {
+        background: var(--color-white);
+        border: 1px solid var(--color-line);
+        border-radius: var(--radius-panel);
+        box-shadow: 0 12px 30px rgba(8, 54, 58, 0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        justify-content: space-between;
+        min-width: 0;
+        padding: 22px;
+        transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      }
+
+      .class-card:hover,
+      .class-card:focus-within {
+        border-color: var(--color-aqua);
+        box-shadow: var(--shadow-lift);
+        transform: translateY(-5px);
+      }
+
+      .class-card.wide {
+        background:
+          linear-gradient(135deg, var(--color-white), var(--color-aqua-pale));
+        grid-column: span 2;
+      }
+
+      .class-card.accent {
+        background:
+          linear-gradient(135deg, var(--color-teal), var(--color-teal-deep));
+        color: var(--color-white);
+      }
+
+      .class-card.accent h3,
+      .class-card.accent p {
+        color: var(--color-white);
+      }
+
+      .class-icon {
+        align-items: center;
+        background: var(--color-aqua-soft);
+        border-radius: 50%;
+        color: var(--color-teal);
+        display: grid;
+        height: 46px;
+        justify-items: center;
+        width: 46px;
+      }
+
+      .class-card.accent .class-icon {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--color-aqua);
+      }
+
+      .class-icon svg {
+        height: 25px;
+        width: 25px;
+      }
+
+      .class-card h3 {
+        font-size: 22px;
+        margin-bottom: 7px;
+      }
+
+      .class-card p {
+        color: var(--color-ink-soft);
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .culture {
+        background: var(--color-white);
+      }
+
+      .culture-layout {
+        display: grid;
+        gap: 42px;
+        grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+      }
+
+      .culture-copy {
+        align-self: center;
+        display: grid;
+        gap: 22px;
+      }
+
+      .culture-note {
+        background: var(--color-mist);
+        border-left: 4px solid var(--color-pink);
+        border-radius: var(--radius-panel);
+        color: var(--color-teal-deep);
+        font-size: 18px;
+        line-height: 1.55;
+        padding: 22px;
+      }
+
+      .culture-gallery {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr);
+      }
+
+      .culture-photo {
+        border-radius: var(--radius-soft);
+        box-shadow: var(--shadow-soft);
+        min-height: 420px;
+        overflow: hidden;
+      }
+
+      .culture-photo.small-stack {
+        display: grid;
+        gap: 18px;
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+        min-height: 420px;
+      }
+
+      .culture-photo.small-stack img {
+        border-radius: var(--radius-soft);
+        box-shadow: var(--shadow-soft);
+        height: 128px;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .proof {
+        background:
+          linear-gradient(180deg, var(--color-aqua-pale), var(--color-mist));
+      }
+
+      .proof-grid {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-top: 34px;
+      }
+
+      .quote-card {
+        background: var(--color-white);
+        border: 1px solid var(--color-line);
+        border-radius: var(--radius-panel);
+        box-shadow: var(--shadow-soft);
+        display: grid;
+        gap: 22px;
+        grid-template-columns: 118px minmax(0, 1fr);
+        padding: 24px;
+      }
+
+      .quote-card img {
+        border-radius: var(--radius-panel);
+        height: 118px;
+        object-fit: cover;
+        width: 118px;
+      }
+
+      .quote-card blockquote {
+        color: var(--color-teal-deep);
+        font-family: var(--font-display);
+        font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+        line-height: 1.22;
+        margin: 0;
+      }
+
+      .quote-card cite {
+        color: var(--color-pink);
+        display: block;
+        font-style: normal;
+        font-weight: 800;
+        margin-top: 16px;
+      }
+
+      .logistics {
+        background: var(--color-paper);
+      }
+
+      .logistics-grid {
+        align-items: stretch;
+        display: grid;
+        gap: 32px;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      }
+
+      .contact-panel {
+        background: var(--color-teal-deep);
+        border-radius: var(--radius-soft);
+        color: var(--color-white);
+        display: grid;
+        gap: 24px;
+        padding: clamp(28px, 5vw, 44px);
+      }
+
+      .contact-panel h2,
+      .contact-panel .lead,
+      .contact-panel .section-kicker {
+        color: var(--color-white);
+      }
+
+      .contact-panel .section-kicker {
+        color: var(--color-aqua);
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 13px;
+      }
+
+      .contact-row {
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius-panel);
+        display: grid;
+        gap: 13px;
+        grid-template-columns: 36px minmax(0, 1fr);
+        padding: 12px;
+      }
+
+      .contact-row svg {
+        color: var(--color-aqua);
+        height: 22px;
+        justify-self: center;
+        width: 22px;
+      }
+
+      .contact-row span,
+      .contact-row a {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 15px;
+        line-height: 1.35;
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .contact-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .map-card {
+        border-radius: var(--radius-soft);
+        box-shadow: var(--shadow-soft);
+        min-height: 500px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .map-card a {
+        display: block;
+        height: 100%;
+      }
+
+      .map-label {
+        background: var(--color-white);
+        border-radius: var(--radius-button);
+        bottom: 18px;
+        box-shadow: var(--shadow-soft);
+        color: var(--color-teal);
+        font-size: 14px;
+        font-weight: 800;
+        left: 18px;
+        padding: 11px 16px;
+        position: absolute;
+        white-space: nowrap;
+      }
+
+      .faq {
+        background: var(--color-mist);
+      }
+
+      .faq-layout {
+        display: grid;
+        gap: 42px;
+        grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+      }
+
+      .faq-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      details {
+        background: var(--color-white);
+        border: 1px solid var(--color-line);
+        border-radius: var(--radius-panel);
+        box-shadow: 0 12px 26px rgba(8, 54, 58, 0.06);
+        overflow: hidden;
+      }
+
+      summary {
+        align-items: center;
+        color: var(--color-teal-deep);
+        cursor: pointer;
+        display: grid;
+        font-weight: 800;
+        gap: 18px;
+        grid-template-columns: minmax(0, 1fr) 28px;
+        list-style: none;
+        padding: 20px 22px;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      summary::after {
+        align-items: center;
+        background: var(--color-aqua-soft);
+        border-radius: 50%;
+        color: var(--color-teal);
+        content: "+";
+        display: grid;
+        font-weight: 800;
+        height: 28px;
+        justify-items: center;
+        width: 28px;
+      }
+
+      details[open] summary::after {
+        content: "-";
+      }
+
+      .faq-answer {
+        animation: faqIn 220ms ease;
+        color: var(--color-ink-soft);
+        padding: 0 22px 22px;
+      }
+
+      .final-cta {
+        background:
+          linear-gradient(135deg, var(--color-teal), var(--color-teal-deep));
+        color: var(--color-white);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .final-cta::before {
+        animation: ctaSweep 14s ease-in-out infinite alternate;
+        background: linear-gradient(100deg, transparent, rgba(22, 201, 178, 0.24), rgba(237, 45, 131, 0.16), transparent);
+        content: "";
+        inset: 0;
+        opacity: 0.8;
+        position: absolute;
+        transform: translateX(-22%);
+      }
+
+      .final-cta .section-inner {
+        align-items: center;
+        display: grid;
+        gap: 28px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .final-cta h2,
+      .final-cta .lead,
+      .final-cta .section-kicker {
+        color: var(--color-white);
+      }
+
+      .final-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: flex-end;
+      }
+
+      .site-footer {
+        background: var(--color-teal-deep);
+        color: rgba(255, 255, 255, 0.78);
+        padding: 42px 24px;
+      }
+
+      .footer-grid {
+        display: grid;
+        gap: 28px;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr) minmax(0, 0.8fr);
+        margin: 0 auto;
+        max-width: var(--max-page);
+      }
+
+      .footer-logo {
+        background: var(--color-white);
+        border-radius: var(--radius-panel);
+        display: inline-flex;
+        margin-bottom: 16px;
+        padding: 10px 12px;
+      }
+
+      .footer-logo img {
+        width: 210px;
+      }
+
+      .site-footer h3 {
+        color: var(--color-white);
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+
+      .site-footer p,
+      .site-footer a {
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .footer-links {
+        display: grid;
+        gap: 8px;
+      }
+
+      .copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        color: rgba(255, 255, 255, 0.62);
+        font-size: 13px;
+        margin: 34px auto 0;
+        max-width: var(--max-page);
+        padding-top: 20px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 680ms ease, transform 680ms ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .drift {
+        will-change: transform;
+      }
+
+      @keyframes heroGlow {
+        from {
+          transform: translateX(-18%);
+        }
+        to {
+          transform: translateX(18%);
+        }
+      }
+
+      @keyframes ctaSweep {
+        from {
+          transform: translateX(-22%);
+        }
+        to {
+          transform: translateX(22%);
+        }
+      }
+
+      @keyframes calmMarquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes faqIn {
+        from {
+          opacity: 0;
+          transform: translateY(-5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 1060px) {
+        .nav-links {
+          gap: 16px;
+        }
+
+        .header-actions .btn-secondary {
+          display: none;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .nav-wrap {
+          height: 64px;
+          padding: 0 18px;
+        }
+
+        .brand img {
+          width: 190px;
+        }
+
+        .menu-toggle {
+          display: inline-flex;
+        }
+
+        .nav-links {
+          background: var(--color-white);
+          border-bottom: 1px solid var(--color-line);
+          box-shadow: var(--shadow-soft);
+          display: none;
+          gap: 0;
+          left: 0;
+          padding: 8px 18px 18px;
+          position: absolute;
+          right: 0;
+          top: 64px;
+        }
+
+        .site-header.is-open .nav-links {
+          display: grid;
+        }
+
+        .nav-links a {
+          border-bottom: 1px solid var(--color-line);
+          padding: 13px 0;
+        }
+
+        .header-actions .btn-primary {
+          min-height: 42px;
+          padding: 0 15px;
+        }
+
+        .section {
+          padding: 64px 20px;
+        }
+
+        .hero {
+          min-height: 660px;
+          padding: 70px 20px 38px;
+        }
+
+        h1 {
+          font-size: clamp(2.35rem, 9vw, 3.1rem);
+          line-height: 1.03;
+        }
+
+        h2 {
+          font-size: clamp(1.85rem, 7vw, 2.35rem);
+        }
+
+        .decision-grid,
+        .culture-layout,
+        .logistics-grid,
+        .faq-layout,
+        .final-cta .section-inner {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .section-head {
+          align-items: start;
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .class-bento {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .proof-grid,
+        .footer-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .final-actions {
+          justify-content: flex-start;
+        }
+      }
+
+      @media (max-width: 620px) {
+        body {
+          font-size: 16px;
+        }
+
+        .header-actions .btn-primary {
+          display: none;
+        }
+
+        .brand img {
+          width: 166px;
+        }
+
+        .hero {
+          background-position: 60% center;
+          min-height: 650px;
+        }
+
+        .hero-actions,
+        .contact-actions,
+        .final-actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .trust-pill {
+          align-items: flex-start;
+          border-radius: var(--radius-soft);
+        }
+
+        .stats-row,
+        .class-bento,
+        .culture-gallery {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .class-card.wide {
+          grid-column: auto;
+        }
+
+        .image-frame,
+        .map-card {
+          min-height: 360px;
+        }
+
+        .culture-photo,
+        .culture-photo.small-stack {
+          min-height: 0;
+        }
+
+        .culture-photo.small-stack img,
+        .culture-photo img {
+          height: auto;
+          min-height: 230px;
+        }
+
+        .quote-card {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .quote-card img {
+          height: 96px;
+          width: 96px;
+        }
+
+        .map-label {
+          left: 12px;
+          right: 12px;
+          text-align: center;
+          white-space: normal;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .nav-wrap {
+          gap: 12px;
+        }
+
+        .brand img {
+          width: 145px;
+        }
+
+        .menu-toggle {
+          width: 42px;
+        }
+
+        .section {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.001ms !important;
+        }
+
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+
+        .drift,
+        .trust-track {
+          transform: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header" id="top">
+        <div class="nav-wrap">
+          <a class="brand" href="https://absolutedance.org/" aria-label="Absolute Dance home">
+            <img src="../../assets/logo-2.png" alt="Absolute Dance">
+          </a>
+          <nav class="nav-links" aria-label="Primary navigation">
+            <a href="#classes">Classes</a>
+            <a href="https://absolutedance.org/faculty/">Faculty</a>
+            <a href="https://absolutedance.org/teams/">Teams</a>
+            <a href="#proof">Parent Proof</a>
+            <a href="#visit">Visit</a>
+          </nav>
+          <div class="header-actions">
+            <a class="btn btn-secondary" href="https://app.thestudiodirector.com/absolutedance/portal.sd?page=Login" target="_blank" rel="noopener">Parent Portal</a>
+            <a class="btn btn-primary" href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3" target="_blank" rel="noopener">Register</a>
+            <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-menu" aria-expanded="false">
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-inner">
+            <div class="hero-copy reveal">
+              <p class="section-kicker">Dance lessons in Midland, TX</p>
+              <h1>Inspiring the Dancer's <em>Heart</em></h1>
+              <p class="lead">A trusted local dance home where children build confidence, creativity, discipline, friendship, and joy through excellent teaching and genuine care.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3" target="_blank" rel="noopener">
+                  Register for Classes
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                </a>
+                <a class="btn btn-ghost" href="#classes">Find the Right Class</a>
+              </div>
+            </div>
+            <div class="trust-pill reveal" aria-label="Parent testimonial preview">
+              <div class="trust-faces">
+                <img src="../../assets/nancy-o.jpg" alt="Nancy O.">
+                <img src="../../assets/edward-b.jpg" alt="Edward B.">
+              </div>
+              <div>
+                <strong>Parents notice the care.</strong>
+                <span>Real families mention caring teachers, eager dancers, and a place children look forward to each week.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="trust-strip" aria-label="Parent reassurance">
+          <div class="trust-track">
+            <span class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18"/><path d="M5 8c4 0 7-2 7-5 0 3 3 5 7 5"/><path d="M5 16c4 0 7 2 7 5 0-3 3-5 7-5"/></svg>
+              Classes for ages 2 and up
+            </span>
+            <span class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-7h6v7"/></svg>
+              10,000 square foot facility
+            </span>
+            <span class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 18c2-4 10-4 12 0"/><circle cx="12" cy="8" r="4"/></svg>
+              Teachers who know each dancer
+            </span>
+            <span class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              Portal, schedule, and registration online
+            </span>
+            <span class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18"/><path d="M5 8c4 0 7-2 7-5 0 3 3 5 7 5"/><path d="M5 16c4 0 7 2 7 5 0-3 3-5 7-5"/></svg>
+              Classes for ages 2 and up
+            </span>
+            <span class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-7h6v7"/></svg>
+              10,000 square foot facility
+            </span>
+            <span class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 18c2-4 10-4 12 0"/><circle cx="12" cy="8" r="4"/></svg>
+              Teachers who know each dancer
+            </span>
+            <span class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              Portal, schedule, and registration online
+            </span>
+          </div>
+        </div>
+
+        <section class="section decision" id="choose">
+          <div class="section-inner decision-grid">
+            <figure class="image-frame reveal">
+              <img class="drift" src="../../assets/studio-bg.jpg" alt="Absolute Dance dancers and studio culture">
+              <figcaption class="caption">A dance family in Midland</figcaption>
+            </figure>
+            <div class="choice-panel reveal">
+              <p class="section-kicker">For parents choosing a studio</p>
+              <h2>A place where your child can feel known, encouraged, and well taught.</h2>
+              <p class="lead">Choosing a dance class should feel clear, not overwhelming. Absolute Dance gives families a warm starting point, steady instruction, and a studio culture built around confidence, self-discipline, creativity, and care.</p>
+              <div class="care-list" aria-label="Studio promises">
+                <div class="care-line">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg>
+                  <div><strong>Care first.</strong><span>Teachers help dancers feel safe enough to try, grow, and belong.</span></div>
+                </div>
+                <div class="care-line">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19h16"/><path d="M5 15c4-8 10-8 14 0"/><path d="M8 12h8"/></svg>
+                  <div><strong>Skill with structure.</strong><span>Classes build technique, focus, musicality, and confidence step by step.</span></div>
+                </div>
+                <div class="care-line">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 19c8-2 10-9 9-15-6-1-13 1-15 9"/><path d="M2 22c3-6 8-10 15-13"/></svg>
+                  <div><strong>Room to grow.</strong><span>Young dancers, teens, recreational students, and team dancers can all find a path.</span></div>
+                </div>
+              </div>
+              <div class="stats-row" aria-label="Studio facts">
+                <div class="stat"><strong><span data-count="2">2</span>+</strong><span>Starting age for classes</span></div>
+                <div class="stat"><strong><span data-count="5">5</span></strong><span>Dance studios in the facility</span></div>
+                <div class="stat"><strong><span data-count="10000">10,000</span></strong><span>Square feet for dance, gym, and homework space</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section classes" id="classes">
+          <div class="section-inner">
+            <div class="section-head reveal">
+              <div>
+                <p class="section-kicker">Class paths</p>
+                <h2>Scan the options, then choose the path that fits your dancer.</h2>
+              </div>
+              <p class="lead">Families can start with age, style, or interest. Absolute Dance offers beginner-friendly classes and deeper training for dancers ready for more.</p>
+            </div>
+
+            <div class="class-bento reveal" aria-label="Class options">
+              <article class="class-card wide">
+                <div class="class-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M7 18c3-1 7-1 10 0"/><path d="M8 14c2-3 6-3 8 0"/><path d="M12 4v8"/><path d="m9 7 3-3 3 3"/></svg>
+                </div>
+                <div><h3>Ages 2+</h3><p>A gentle first step into movement, music, classroom rhythm, and confidence.</p></div>
+              </article>
+              <article class="class-card">
+                <div class="class-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 17c4 2 10 2 14 0"/><path d="M7 14c1-4 9-4 10 0"/><circle cx="9" cy="8" r="2"/><circle cx="15" cy="8" r="2"/></svg>
+                </div>
+                <div><h3>Ages 3-4</h3><p>Playful classes that build coordination, listening, and early dance joy.</p></div>
+              </article>
+              <article class="class-card">
+                <div class="class-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 18c4-5 12-5 16 0"/><path d="M8 12h8"/><path d="M12 6v8"/></svg>
+                </div>
+                <div><h3>Ages 5-9</h3><p>Foundational classes with more skill, structure, friendship, and performance confidence.</p></div>
+              </article>
+              <article class="class-card">
+                <div class="class-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M6 18c3-6 9-9 12-12"/><path d="M7 18h8"/><path d="M15 14l4 4"/></svg>
+                </div>
+                <div><h3>Ages 10+</h3><p>Classes for older dancers who want technique, expression, discipline, and community.</p></div>
+              </article>
+              <article class="class-card">
+                <div class="class-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M7 19c3-6 6-10 10-14"/><path d="M5 18c5 3 10 3 14 0"/><path d="M15 7c1 2 1 4 0 6"/></svg>
+                </div>
+                <div><h3>Ballet</h3><p>Technique, posture, discipline, and artistry for strong dance foundations.</p></div>
+              </article>
+              <article class="class-card">
+                <div class="class-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M6 18h12"/><path d="M8 18V8l6 5v5"/><path d="M15 18c0-3 2-5 4-6"/></svg>
+                </div>
+                <div><h3>Tap</h3><p>Rhythm, timing, musicality, and lively footwork in an upbeat class setting.</p></div>
+              </article>
+              <article class="class-card">
+                <div class="class-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 18c4-1 8-5 9-12"/><path d="M13 10c3 1 5 4 6 8"/><path d="M9 14l6 2"/></svg>
+                </div>
+                <div><h3>Jazz</h3><p>Energy, style, turns, leaps, and performance quality for growing dancers.</p></div>
+              </article>
+              <article class="class-card">
+                <div class="class-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 15c4-2 5-7 8-7s4 5 8 7"/><path d="M6 19h12"/><path d="M8 12l4 4 4-4"/></svg>
+                </div>
+                <div><h3>Hip-hop</h3><p>Musicality, confidence, groove, and stage presence in a high-energy style.</p></div>
+              </article>
+              <article class="class-card">
+                <div class="class-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 17c5-8 11-8 16 0"/><path d="M8 15c2 2 6 2 8 0"/><path d="M12 5v8"/></svg>
+                </div>
+                <div><h3>Lyrical</h3><p>Emotion, storytelling, extension, and expression for dancers ready to connect movement with music.</p></div>
+              </article>
+              <article class="class-card">
+                <div class="class-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 18c2-6 12-6 14 0"/><path d="M8 14a4 4 0 1 1 8 0"/><path d="M12 10V5"/></svg>
+                </div>
+                <div><h3>Tumble</h3><p>Strength, coordination, flexibility, and tumbling skills in a supportive setting.</p></div>
+              </article>
+              <article class="class-card accent">
+                <div class="class-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 4 14.5 9l5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9L9.5 9z"/></svg>
+                </div>
+                <div><h3>Teams</h3><p>Performance and competitive pathways for dancers who want more training, teamwork, and stage experience.</p></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section culture" id="culture">
+          <div class="section-inner culture-layout">
+            <div class="culture-copy reveal">
+              <p class="section-kicker">Studio culture</p>
+              <h2>Teaching students so much more than just dance.</h2>
+              <p class="lead">Absolute Dance is built around excellent instruction and a family culture where dancers are encouraged to work hard, support one another, and grow inside and outside the studio.</p>
+              <p class="culture-note">Dancers gain technique, but they also gain confidence, self-discipline, friendship, mentorship, and a place that can feel like a second home.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="https://absolutedance.org/faculty/">Meet the Faculty</a>
+                <a class="btn btn-secondary" href="https://absolutedance.org/teams/">Explore Teams</a>
+              </div>
+            </div>
+            <div class="culture-gallery reveal" aria-label="Absolute Dance culture photos">
+              <figure class="culture-photo">
+                <img class="drift" src="../../assets/faculty-bg.jpg" alt="Absolute Dance faculty and dancers">
+              </figure>
+              <figure class="culture-photo small-stack">
+                <img src="../../assets/team-hero-img.jpg" alt="Absolute Dance team dancers">
+                <img src="../../assets/competitive-team.jpg" alt="Absolute Dance competitive team dancers">
+                <img src="../../assets/gallery-1.jpeg" alt="Absolute Dance studio gallery moment">
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="section proof" id="proof">
+          <div class="section-inner">
+            <div class="section-head reveal">
+              <div>
+                <p class="section-kicker">Parent proof</p>
+                <h2>Families can feel the difference in the way teachers care.</h2>
+              </div>
+              <p class="lead">These testimonials are from the current Absolute Dance website and use the real parent images shown there.</p>
+            </div>
+            <div class="proof-grid">
+              <article class="quote-card reveal">
+                <img src="../../assets/nancy-o.jpg" alt="Nancy O.">
+                <div>
+                  <blockquote>"Miss Maddy and the teachers at Absolute Dance are just INCREDIBLE! They genuinely care about every single dancer and we couldn't be more grateful!"</blockquote>
+                  <cite>Nancy O.</cite>
+                </div>
+              </article>
+              <article class="quote-card reveal">
+                <img src="../../assets/edward-b.jpg" alt="Edward B.">
+                <div>
+                  <blockquote>"Sophia very eagerly looks forward to class every single week. The teachers are truly amazing. Hands down the best dance school in the area!"</blockquote>
+                  <cite>Edward B.</cite>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section logistics" id="visit">
+          <div class="section-inner logistics-grid">
+            <div class="contact-panel reveal">
+              <div>
+                <p class="section-kicker">Contact and logistics</p>
+                <h2>Have questions? We are happy to help.</h2>
+                <p class="lead">Call, email, use the parent portal, or visit the studio at 5109 Sunmore Circle.</p>
+              </div>
+              <div class="contact-list">
+                <div class="contact-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/></svg>
+                  <span>Monday to Thursday, 2:00pm to 7:00pm</span>
+                </div>
+                <div class="contact-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg>
+                  <a href="tel:4326992190">432-699-2190</a>
+                </div>
+                <div class="contact-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+                  <a href="mailto:info@absolutedance.org">info@absolutedance.org</a>
+                </div>
+                <div class="contact-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-5.3 7-12A7 7 0 0 0 5 10c0 6.7 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                  <a href="https://maps.app.goo.gl/XrrW5cg4Zsa4KJME8" target="_blank" rel="noopener">5109 Sunmore Circle, Midland TX 79707</a>
+                </div>
+              </div>
+              <div class="contact-actions">
+                <a class="btn btn-primary" href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3" target="_blank" rel="noopener">Register for Classes</a>
+                <a class="btn btn-ghost" href="https://app.thestudiodirector.com/absolutedance/portal.sd?page=Login" target="_blank" rel="noopener">Parent Portal</a>
+              </div>
+            </div>
+            <figure class="map-card reveal">
+              <a href="https://maps.app.goo.gl/XrrW5cg4Zsa4KJME8" target="_blank" rel="noopener" aria-label="Open Absolute Dance on Google Maps">
+                <img src="../../assets/map.png" alt="Map showing Absolute Dance in Midland, TX">
+                <figcaption class="map-label">5109 Sunmore Circle, Midland TX 79707</figcaption>
+              </a>
+            </figure>
+          </div>
+        </section>
+
+        <section class="section faq" id="faq">
+          <div class="section-inner faq-layout">
+            <div class="reveal">
+              <p class="section-kicker">Parent questions</p>
+              <h2>Quick answers before you register.</h2>
+              <p class="lead" style="margin-top: 18px;">If you are comparing studios or returning for a new season, these are the practical details families usually need first.</p>
+            </div>
+            <div class="faq-list reveal">
+              <details>
+                <summary>What age can my child start?</summary>
+                <div class="faq-answer">Classes are available for ages 2 and up, with age-appropriate options for young dancers, elementary students, older dancers, and teens.</div>
+              </details>
+              <details>
+                <summary>How do we choose the right class?</summary>
+                <div class="faq-answer">Start with your child's age, then choose the style that feels most natural. Ballet, tap, jazz, hip-hop, lyrical, tumble, and teams give families clear entry points for different interests and goals.</div>
+              </details>
+              <details>
+                <summary>Can returning families use the parent portal?</summary>
+                <div class="faq-answer">Yes. Returning families can use the Parent Portal to manage account details, classes, and payments.</div>
+              </details>
+              <details>
+                <summary>Where is the studio located?</summary>
+                <div class="faq-answer">Absolute Dance is located at 5109 Sunmore Circle, Midland TX 79707. The map above links directly to the studio location.</div>
+              </details>
+              <details>
+                <summary>What is the easiest next step?</summary>
+                <div class="faq-answer">Register online if you know your class direction. If you are still deciding, call 432-699-2190 or email info@absolutedance.org and the studio can help you choose.</div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <section class="section final-cta">
+          <div class="section-inner">
+            <div class="reveal">
+              <p class="section-kicker">Ready when you are</p>
+              <h2>Give your dancer a studio home they can look forward to each week.</h2>
+              <p class="lead" style="margin-top: 16px; max-width: 640px;">Start with registration, or send a question if you want help choosing the right fit.</p>
+            </div>
+            <div class="final-actions reveal">
+              <a class="btn btn-primary" href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3" target="_blank" rel="noopener">Register for Classes</a>
+              <a class="btn btn-ghost" href="mailto:info@absolutedance.org">Ask a Question</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-grid">
+          <div>
+            <a class="footer-logo" href="https://absolutedance.org/">
+              <img src="../../assets/logo-2.png" alt="Absolute Dance">
+            </a>
+            <p>Absolute Dance is a children's dance studio in Midland with an award-winning team dedicated to excellent dance instruction and confident young people.</p>
+          </div>
+          <div>
+            <h3>Studio</h3>
+            <div class="footer-links">
+              <a href="https://absolutedance.org/our-studio/">Our Studio</a>
+              <a href="https://absolutedance.org/faculty/">Faculty</a>
+              <a href="https://absolutedance.org/2026-2027-fall-class-schedule/">Class Schedule</a>
+              <a href="https://absolutedance.org/teams/">Teams</a>
+            </div>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <div class="footer-links">
+              <a href="tel:4326992190">432-699-2190</a>
+              <a href="mailto:info@absolutedance.org">info@absolutedance.org</a>
+              <a href="https://maps.app.goo.gl/XrrW5cg4Zsa4KJME8" target="_blank" rel="noopener">5109 Sunmore Circle, Midland TX 79707</a>
+              <a href="https://www.facebook.com/AbsoluteDanceMidland" target="_blank" rel="noopener">Facebook</a>
+              <a href="https://www.instagram.com/absolutedancemidland/?hl=en" target="_blank" rel="noopener">Instagram</a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">&copy; 2026 Absolute Dance. Redesigned homepage concept using current Absolute Dance website content and imagery.</div>
+      </footer>
+    </div>
+
+    <script>
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const header = document.querySelector(".site-header");
+      const menuToggle = document.querySelector(".menu-toggle");
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = header.classList.toggle("is-open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+      });
+
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          header.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open navigation");
+        });
+      });
+
+      if (!prefersReducedMotion) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.16 });
+
+        document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+
+        const counters = document.querySelectorAll("[data-count]");
+        const counterObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const target = Number(el.dataset.count);
+            const duration = 900;
+            const start = performance.now();
+            const update = (time) => {
+              const progress = Math.min((time - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              const value = Math.round(target * eased);
+              el.textContent = target >= 1000 ? value.toLocaleString("en-US") : String(value);
+              if (progress < 1) requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);
+            counterObserver.unobserve(el);
+          });
+        }, { threshold: 0.5 });
+
+        counters.forEach((counter) => counterObserver.observe(counter));
+
+        const driftImages = document.querySelectorAll(".drift");
+        window.addEventListener("scroll", () => {
+          const viewport = window.innerHeight;
+          driftImages.forEach((image) => {
+            const rect = image.getBoundingClientRect();
+            if (rect.bottom < 0 || rect.top > viewport) return;
+            const offset = (rect.top - viewport / 2) * -0.018;
+            image.style.transform = `scale(1.04) translateY(${offset}px)`;
+          });
+        }, { passive: true });
+      } else {
+        document.querySelectorAll(".reveal").forEach((element) => element.classList.add("is-visible"));
+        document.querySelectorAll("[data-count]").forEach((el) => {
+          const target = Number(el.dataset.count);
+          el.textContent = target >= 1000 ? target.toLocaleString("en-US") : String(target);
+        });
+      }
+    </script>
+  </body>
+</html>

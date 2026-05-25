@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Absolute Dance Website Options | StudioLAB</title>
+    <meta name="description" content="Absolute Dance website template options prepared by StudioLAB.">
+    <link rel="icon" href="assets/favicon.png">
+    <style>
+      :root {
+        --ink: #12383d;
+        --muted: #61777b;
+        --paper: #fbfffe;
+        --bar: #ffffff;
+        --teal: #075b60;
+        --aqua: #16c9b2;
+        --pink: #ed2d83;
+        --line: rgba(7, 91, 96, 0.18);
+        --shadow: rgba(6, 51, 58, 0.16);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      body {
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      a,
+      button {
+        color: inherit;
+        font: inherit;
+      }
+
+      .demo-bar {
+        align-items: center;
+        background: var(--bar);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 10px 30px var(--shadow);
+        display: grid;
+        gap: 16px;
+        grid-template-columns: minmax(220px, 1fr) auto auto;
+        min-height: 72px;
+        padding: 12px 18px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .demo-title {
+        align-items: center;
+        display: flex;
+        gap: 14px;
+        min-width: 0;
+      }
+
+      .demo-title img {
+        height: auto;
+        max-height: 34px;
+        width: min(210px, 44vw);
+      }
+
+      .demo-title span {
+        border-left: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.25;
+        padding-left: 14px;
+      }
+
+      .option-tabs {
+        background: #eefbf8;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        display: flex;
+        gap: 6px;
+        padding: 5px;
+      }
+
+      .option-tab {
+        background: transparent;
+        border: 0;
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 800;
+        padding: 10px 14px;
+        white-space: nowrap;
+      }
+
+      .option-tab[aria-selected="true"] {
+        background: var(--pink);
+        box-shadow: 0 12px 24px rgba(237, 45, 131, 0.24);
+        color: #ffffff;
+      }
+
+      .bar-actions {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+      }
+
+      .bar-link {
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        display: inline-flex;
+        font-size: 13px;
+        font-weight: 800;
+        min-height: 42px;
+        padding: 0 14px;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .bar-link.primary {
+        background: var(--teal);
+        border-color: var(--teal);
+        color: #ffffff;
+      }
+
+      .demo-frame {
+        border: 0;
+        display: block;
+        height: calc(100vh - 72px);
+        width: 100%;
+      }
+
+      @media (max-width: 860px) {
+        html,
+        body {
+          overflow: auto;
+        }
+
+        .demo-bar {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .demo-title {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .demo-title span {
+          border-left: 0;
+          padding-left: 0;
+        }
+
+        .option-tabs,
+        .bar-actions {
+          overflow-x: auto;
+          width: 100%;
+        }
+
+        .demo-frame {
+          height: 78vh;
+          min-height: 720px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="demo-bar">
+      <a class="demo-title" href="../../">
+        <img src="assets/logo-2.png" alt="Absolute Dance">
+        <span>Website template options</span>
+      </a>
+
+      <nav class="option-tabs" aria-label="Design options">
+        <button class="option-tab" type="button" data-src="options/warm-modern-enrollment/" aria-selected="true">Warm Modern Enrollment</button>
+      </nav>
+
+      <div class="bar-actions">
+        <a class="bar-link" href="options/warm-modern-enrollment/" target="_blank" rel="noopener" id="open-option">Open option</a>
+        <a class="bar-link primary" href="mailto:info@studiolabsoftware.com?subject=Absolute%20Dance%20Website%20Template%20Feedback">Send feedback</a>
+      </div>
+    </header>
+
+    <iframe class="demo-frame" title="Absolute Dance selected website option" src="options/warm-modern-enrollment/"></iframe>
+
+    <script>
+      const frame = document.querySelector(".demo-frame");
+      const openOption = document.querySelector("#open-option");
+      const tabs = [...document.querySelectorAll(".option-tab")];
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((item) => item.setAttribute("aria-selected", "false"));
+          tab.setAttribute("aria-selected", "true");
+          frame.src = tab.dataset.src;
+          openOption.href = tab.dataset.src;
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Studio Website Templates | StudioLAB</title>
+    <meta name="description" content="StudioLAB website template demos for dance studio clients.">
+    <style>
+      :root {
+        --ink: #102f35;
+        --muted: #5e7478;
+        --paper: #fbfffe;
+        --aqua: #16c9b2;
+        --teal: #075b60;
+        --deep: #04333a;
+        --pink: #ed2d83;
+        --line: rgba(7, 91, 96, 0.16);
+        --shadow: rgba(6, 51, 58, 0.14);
+        --radius: 14px;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        overflow-x: clip;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at top left, rgba(22, 201, 178, 0.22), transparent 34rem),
+          linear-gradient(180deg, #f2fffc, var(--paper) 42%);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .wrap {
+        margin: 0 auto;
+        max-width: 1120px;
+        padding: 36px 24px 72px;
+      }
+
+      header {
+        align-items: center;
+        display: flex;
+        gap: 24px;
+        justify-content: space-between;
+        margin-bottom: 72px;
+      }
+
+      .brand {
+        display: grid;
+        gap: 4px;
+      }
+
+      .brand strong {
+        color: var(--deep);
+        font-size: 18px;
+        letter-spacing: 0;
+      }
+
+      .brand span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .pill {
+        align-items: center;
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--teal);
+        display: inline-flex;
+        font-size: 13px;
+        font-weight: 700;
+        gap: 8px;
+        padding: 10px 14px;
+        white-space: nowrap;
+      }
+
+      .pill::before {
+        background: var(--pink);
+        border-radius: 999px;
+        content: "";
+        height: 8px;
+        width: 8px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 22px;
+        margin-bottom: 44px;
+        max-width: 760px;
+      }
+
+      h1 {
+        color: var(--deep);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.5rem, 8vw, 4.8rem);
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 0.98;
+        margin: 0;
+      }
+
+      p {
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.65;
+        margin: 0;
+      }
+
+      .studio-grid {
+        display: grid;
+        gap: 22px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .studio-card {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: 0 24px 60px var(--shadow);
+        display: grid;
+        gap: 22px;
+        overflow: hidden;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+
+      .studio-card:hover {
+        box-shadow: 0 30px 70px rgba(6, 51, 58, 0.2);
+        transform: translateY(-3px);
+      }
+
+      .preview {
+        background:
+          linear-gradient(135deg, rgba(7, 91, 96, 0.72), rgba(237, 45, 131, 0.24)),
+          url("studios/absolute-dance/assets/hero-bg.jpg") center / cover;
+        min-height: 220px;
+      }
+
+      .card-copy {
+        display: grid;
+        gap: 10px;
+        padding: 0 24px 24px;
+      }
+
+      .card-copy h2 {
+        color: var(--deep);
+        font-size: 24px;
+        margin: 0;
+      }
+
+      .meta {
+        color: var(--pink);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .card-action {
+        align-items: center;
+        color: var(--teal);
+        display: inline-flex;
+        font-size: 14px;
+        font-weight: 800;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      @media (max-width: 640px) {
+        header {
+          align-items: flex-start;
+          flex-direction: column;
+          margin-bottom: 52px;
+        }
+
+        .wrap {
+          padding: 24px 18px 56px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <a class="brand" href="./">
+          <strong>Studio Website Templates</strong>
+          <span>StudioLAB client demo library</span>
+        </a>
+        <span class="pill">Template demos</span>
+      </header>
+
+      <main>
+        <section class="hero">
+          <h1>Website concepts studios can review from one clean link.</h1>
+          <p>Each studio gets its own demo folder with style options in a simple header bar, so a client can flick through concepts and tell StudioLAB which direction feels right.</p>
+        </section>
+
+        <section class="studio-grid" aria-label="Studio website demos">
+          <a class="studio-card" href="studios/absolute-dance/">
+            <div class="preview" role="img" aria-label="Absolute Dance website preview"></div>
+            <div class="card-copy">
+              <span class="meta">Midland, TX</span>
+              <h2>Absolute Dance</h2>
+              <p>Warm, modern, family-centred enrollment homepage concept using the studio's real brand and imagery.</p>
+              <span class="card-action">Open demo →</span>
+            </div>
+          </a>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
