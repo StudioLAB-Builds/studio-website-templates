@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Studio Website Templates | StudioLAB</title>
-    <meta name="description" content="StudioLAB website template demos for dance studio clients.">
+    <title>StudioLAB Website Templates</title>
+    <meta name="description" content="StudioLAB website template hub for assigning and reviewing studio website concepts.">
     <style>
       :root {
         --ink: #102f35;
-        --muted: #5e7478;
+        --muted: #5f767a;
         --paper: #fbfffe;
+        --mist: #eefbf8;
         --aqua: #16c9b2;
         --teal: #075b60;
         --deep: #04333a;
         --pink: #ed2d83;
         --line: rgba(7, 91, 96, 0.16);
         --shadow: rgba(6, 51, 58, 0.14);
-        --radius: 14px;
         font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
@@ -33,8 +33,8 @@
 
       body {
         background:
-          radial-gradient(circle at top left, rgba(22, 201, 178, 0.22), transparent 34rem),
-          linear-gradient(180deg, #f2fffc, var(--paper) 42%);
+          radial-gradient(circle at top left, rgba(22, 201, 178, 0.24), transparent 34rem),
+          linear-gradient(180deg, #f3fffc, var(--paper) 44%);
         color: var(--ink);
       }
 
@@ -43,29 +43,33 @@
         text-decoration: none;
       }
 
-      .wrap {
-        margin: 0 auto;
-        max-width: 1120px;
-        padding: 36px 24px 72px;
+      img {
+        display: block;
+        max-width: 100%;
       }
 
-      header {
+      .wrap {
+        margin: 0 auto;
+        max-width: 1180px;
+        padding: 32px 24px 76px;
+      }
+
+      .topbar {
         align-items: center;
         display: flex;
         gap: 24px;
         justify-content: space-between;
-        margin-bottom: 72px;
+        margin-bottom: 70px;
       }
 
       .brand {
         display: grid;
-        gap: 4px;
+        gap: 3px;
       }
 
       .brand strong {
         color: var(--deep);
-        font-size: 18px;
-        letter-spacing: 0;
+        font-size: 19px;
       }
 
       .brand span {
@@ -73,7 +77,13 @@
         font-size: 13px;
       }
 
-      .pill {
+      .topnav {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+      }
+
+      .nav-pill {
         align-items: center;
         background: #ffffff;
         border: 1px solid var(--line);
@@ -81,142 +91,226 @@
         color: var(--teal);
         display: inline-flex;
         font-size: 13px;
-        font-weight: 700;
-        gap: 8px;
-        padding: 10px 14px;
+        font-weight: 800;
+        min-height: 40px;
+        padding: 0 14px;
         white-space: nowrap;
       }
 
-      .pill::before {
-        background: var(--pink);
-        border-radius: 999px;
-        content: "";
-        height: 8px;
-        width: 8px;
+      .nav-pill.primary {
+        background: var(--teal);
+        border-color: var(--teal);
+        color: #ffffff;
       }
 
       .hero {
         display: grid;
-        gap: 22px;
-        margin-bottom: 44px;
-        max-width: 760px;
+        gap: 24px;
+        margin-bottom: 46px;
+        max-width: 780px;
+      }
+
+      .kicker {
+        color: var(--pink);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1,
+      h2 {
+        color: var(--deep);
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 1;
       }
 
       h1 {
-        color: var(--deep);
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(2.5rem, 8vw, 4.8rem);
-        font-weight: 500;
-        letter-spacing: 0;
-        line-height: 0.98;
-        margin: 0;
+        font-size: clamp(2.8rem, 8vw, 5.2rem);
+      }
+
+      h2 {
+        font-size: clamp(2rem, 4vw, 3.2rem);
       }
 
       p {
         color: var(--muted);
         font-size: 17px;
         line-height: 1.65;
-        margin: 0;
       }
 
-      .studio-grid {
+      .section-head {
+        align-items: end;
+        display: flex;
+        gap: 24px;
+        justify-content: space-between;
+        margin: 54px 0 22px;
+      }
+
+      .section-head p {
+        max-width: 430px;
+      }
+
+      .studio-grid,
+      .utility-grid {
         display: grid;
         gap: 22px;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       }
 
-      .studio-card {
+      .studio-card,
+      .utility-card {
         background: #ffffff;
         border: 1px solid var(--line);
-        border-radius: var(--radius);
+        border-radius: 12px;
         box-shadow: 0 24px 60px var(--shadow);
-        display: grid;
-        gap: 22px;
         overflow: hidden;
-        transition: transform 180ms ease, box-shadow 180ms ease;
+        transition: box-shadow 180ms ease, transform 180ms ease;
       }
 
-      .studio-card:hover {
-        box-shadow: 0 30px 70px rgba(6, 51, 58, 0.2);
+      .studio-card:hover,
+      .utility-card:hover {
+        box-shadow: 0 30px 72px rgba(6, 51, 58, 0.2);
         transform: translateY(-3px);
       }
 
       .preview {
         background:
-          linear-gradient(135deg, rgba(7, 91, 96, 0.72), rgba(237, 45, 131, 0.24)),
+          linear-gradient(135deg, rgba(7, 91, 96, 0.76), rgba(237, 45, 131, 0.2)),
           url("studios/absolute-dance/assets/hero-bg.jpg") center / cover;
-        min-height: 220px;
+        min-height: 230px;
       }
 
       .card-copy {
         display: grid;
         gap: 10px;
-        padding: 0 24px 24px;
-      }
-
-      .card-copy h2 {
-        color: var(--deep);
-        font-size: 24px;
-        margin: 0;
+        padding: 24px;
       }
 
       .meta {
         color: var(--pink);
-        font-size: 13px;
-        font-weight: 800;
-        letter-spacing: 0.08em;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
       }
 
-      .card-action {
-        align-items: center;
+      .card-copy h3 {
+        color: var(--deep);
+        font-size: 25px;
+        line-height: 1.15;
+      }
+
+      .action {
         color: var(--teal);
         display: inline-flex;
         font-size: 14px;
-        font-weight: 800;
-        gap: 8px;
-        margin-top: 8px;
+        font-weight: 900;
+        margin-top: 6px;
       }
 
-      @media (max-width: 640px) {
-        header {
-          align-items: flex-start;
-          flex-direction: column;
-          margin-bottom: 52px;
+      .utility-card {
+        display: grid;
+        gap: 10px;
+        padding: 24px;
+      }
+
+      .utility-card h3 {
+        color: var(--deep);
+        font-size: 22px;
+      }
+
+      @media (max-width: 720px) {
+        .wrap {
+          padding: 24px 18px 58px;
         }
 
-        .wrap {
-          padding: 24px 18px 56px;
+        .topbar,
+        .section-head {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .topnav {
+          flex-wrap: wrap;
         }
       }
     </style>
   </head>
   <body>
     <div class="wrap">
-      <header>
+      <header class="topbar">
         <a class="brand" href="./">
-          <strong>Studio Website Templates</strong>
-          <span>StudioLAB client demo library</span>
+          <strong>StudioLAB Website Templates</strong>
+          <span>Internal hub for studio demo links</span>
         </a>
-        <span class="pill">Template demos</span>
+        <nav class="topnav" aria-label="Template hub navigation">
+          <a class="nav-pill primary" href="#studios">Studios</a>
+          <a class="nav-pill" href="styles/">Style Shortlists</a>
+        </nav>
       </header>
 
       <main>
         <section class="hero">
-          <h1>Website concepts studios can review from one clean link.</h1>
-          <p>Each studio gets its own demo folder with style options in a simple header bar, so a client can flick through concepts and tell StudioLAB which direction feels right.</p>
+          <span class="kicker">Template assignment hub</span>
+          <h1>Choose a studio, then send their template gallery link.</h1>
+          <p>This is the StudioLAB home page for website-generated templates. Each studio gets its own folder and gallery, with labelled demos that can be reviewed, shortlisted, removed, or combined as the design work evolves.</p>
         </section>
 
-        <section class="studio-grid" aria-label="Studio website demos">
-          <a class="studio-card" href="studios/absolute-dance/">
-            <div class="preview" role="img" aria-label="Absolute Dance website preview"></div>
-            <div class="card-copy">
-              <span class="meta">Midland, TX</span>
-              <h2>Absolute Dance</h2>
-              <p>Warm, modern, family-centred enrollment homepage concept using the studio's real brand and imagery.</p>
-              <span class="card-action">Open demo →</span>
+        <section id="studios" aria-label="Studio folders">
+          <div class="section-head">
+            <div>
+              <span class="kicker">Studio folders</span>
+              <h2>Select a studio</h2>
             </div>
-          </a>
+            <p>Start here when you need the single link for a studio to review its generated website template options.</p>
+          </div>
+
+          <div class="studio-grid">
+            <a class="studio-card" href="studios/absolute-dance/">
+              <div class="preview" role="img" aria-label="Absolute Dance website template preview"></div>
+              <div class="card-copy">
+                <span class="meta">Midland, TX · 4 demos</span>
+                <h3>Absolute Dance</h3>
+                <p>Current website reference plus three generated starting points using the studio's real imagery and content.</p>
+                <span class="action">Open Absolute Dance templates →</span>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section aria-label="Style tools">
+          <div class="section-head">
+            <div>
+              <span class="kicker">Reusable style thinking</span>
+              <h2>Build style shortlists</h2>
+            </div>
+            <p>Use the shortlist tools on a studio gallery to collect demos that could become reusable general styles for future studios.</p>
+          </div>
+
+          <div class="utility-grid">
+            <a class="utility-card" href="styles/">
+              <span class="meta">Internal tool</span>
+              <h3>Style Shortlists</h3>
+              <p>View selected demos from a studio gallery and start grouping them into broader style directions.</p>
+              <span class="action">Open style shortlists →</span>
+            </a>
+            <a class="utility-card" href="https://github.com/StudioLAB-Builds/studio-website-templates">
+              <span class="meta">Repository</span>
+              <h3>GitHub Repo</h3>
+              <p>Manage folders, add new studio templates, remove unused demos, and publish updates through GitHub Pages.</p>
+              <span class="action">Open repo →</span>
+            </a>
+          </div>
         </section>
       </main>
     </div>

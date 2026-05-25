@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo 3 · Editorial Community | Absolute Dance</title>
+    <meta name="description" content="Absolute Dance editorial community website concept.">
+    <link rel="icon" href="../../assets/favicon.png">
+    <style>
+      :root {
+        --ink: #16363a;
+        --muted: #667b7e;
+        --paper: #fcfffd;
+        --mist: #effaf8;
+        --aqua: #16c9b2;
+        --teal: #075b60;
+        --pink: #ed2d83;
+        --line: rgba(7, 91, 96, 0.16);
+        --shadow: rgba(6, 51, 58, 0.16);
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+
+      html,
+      body {
+        margin: 0;
+        overflow-x: clip;
+      }
+
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 17px;
+        line-height: 1.65;
+      }
+
+      a { color: inherit; text-decoration: none; }
+      img { display: block; max-width: 100%; }
+
+      .template-return-bar {
+        align-items: center;
+        background: var(--teal);
+        color: #fff;
+        display: flex;
+        gap: 16px;
+        justify-content: space-between;
+        padding: 12px 20px;
+      }
+
+      .template-return-bar a,
+      .template-return-bar span {
+        color: #fff;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .template-return-bar span {
+        color: rgba(255,255,255,.72);
+      }
+
+      .nav {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1180px;
+        padding: 22px 24px;
+      }
+
+      .nav img { width: min(240px, 52vw); }
+
+      .nav-links {
+        align-items: center;
+        display: flex;
+        gap: 20px;
+        color: var(--teal);
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .button {
+        align-items: center;
+        border-radius: 999px;
+        display: inline-flex;
+        font-size: 14px;
+        font-weight: 800;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        white-space: nowrap;
+      }
+
+      .button.primary { background: var(--pink); color: #fff; }
+      .button.secondary { border: 1px solid var(--line); color: var(--teal); }
+
+      .hero {
+        display: grid;
+        gap: 36px;
+        grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+        margin: 0 auto;
+        max-width: 1180px;
+        padding: 70px 24px 96px;
+      }
+
+      .hero-copy {
+        align-self: center;
+        display: grid;
+        gap: 22px;
+      }
+
+      .kicker {
+        color: var(--pink);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 1;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 8vw, 5.8rem);
+      }
+
+      h2 {
+        font-size: clamp(2.2rem, 5vw, 4rem);
+      }
+
+      p { color: var(--muted); margin: 0; }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .photo-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 1fr .78fr;
+      }
+
+      .photo-grid img {
+        border-radius: 8px;
+        box-shadow: 0 22px 60px var(--shadow);
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .photo-grid img:first-child {
+        min-height: 560px;
+      }
+
+      .photo-stack {
+        display: grid;
+        gap: 18px;
+      }
+
+      .photo-stack img {
+        min-height: 271px;
+      }
+
+      .story-band {
+        background: var(--mist);
+        padding: 88px 24px;
+      }
+
+      .story-inner,
+      .classes,
+      .proof {
+        margin: 0 auto;
+        max-width: 1180px;
+      }
+
+      .story-inner {
+        display: grid;
+        gap: 34px;
+        grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+      }
+
+      .values {
+        display: grid;
+        gap: 16px;
+      }
+
+      .value {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 16px 40px rgba(6, 51, 58, .08);
+        padding: 22px;
+      }
+
+      .value strong {
+        color: var(--teal);
+        display: block;
+        font-size: 19px;
+        margin-bottom: 5px;
+      }
+
+      .classes {
+        padding: 92px 24px;
+      }
+
+      .class-line {
+        border-bottom: 1px solid var(--line);
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 170px minmax(0, 1fr) auto;
+        padding: 22px 0;
+      }
+
+      .class-line strong { color: var(--teal); }
+      .class-line span { color: var(--muted); }
+
+      .proof {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 0 24px 92px;
+      }
+
+      .quote {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 20px 48px var(--shadow);
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 86px 1fr;
+        padding: 22px;
+      }
+
+      .quote img {
+        border-radius: 8px;
+        height: 86px;
+        object-fit: cover;
+        width: 86px;
+      }
+
+      .quote blockquote {
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 22px;
+        line-height: 1.25;
+        margin: 0;
+      }
+
+      .quote cite {
+        color: var(--pink);
+        display: block;
+        font-style: normal;
+        font-weight: 900;
+        margin-top: 12px;
+      }
+
+      .final {
+        background: var(--teal);
+        color: #fff;
+        padding: 72px 24px;
+      }
+
+      .final-inner {
+        align-items: center;
+        display: flex;
+        gap: 24px;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1180px;
+      }
+
+      .final h2,
+      .final p { color: #fff; }
+
+      @media (max-width: 900px) {
+        .template-return-bar,
+        .nav,
+        .final-inner {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .nav-links { flex-wrap: wrap; }
+
+        .hero,
+        .story-inner,
+        .proof,
+        .photo-grid,
+        .class-line {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .photo-grid img:first-child,
+        .photo-stack img {
+          min-height: 260px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="template-return-bar">
+      <a href="../../">← Back to Absolute Dance templates</a>
+      <span>Demo 3 · Editorial Community</span>
+    </div>
+
+    <header class="nav">
+      <a href="https://absolutedance.org/"><img src="../../assets/logo-2.png" alt="Absolute Dance"></a>
+      <nav class="nav-links" aria-label="Demo navigation">
+        <a href="#story">Story</a>
+        <a href="#classes">Classes</a>
+        <a href="#proof">Parents</a>
+        <a class="button primary" href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3">Register</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="kicker">Dance lessons in Midland, TX</span>
+          <h1>A dance home with heart, structure, and room to grow.</h1>
+          <p>For families who want excellent instruction without losing the warmth of a studio where every dancer feels seen.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3">Register for Classes</a>
+            <a class="button secondary" href="#classes">Compare Class Paths</a>
+          </div>
+        </div>
+        <div class="photo-grid">
+          <img src="../../assets/faculty-bg.jpg" alt="Absolute Dance dancers and faculty">
+          <div class="photo-stack">
+            <img src="../../assets/gallery-2.jpeg" alt="Absolute Dance gallery photo">
+            <img src="../../assets/team-hero-img.jpg" alt="Absolute Dance team dancers">
+          </div>
+        </div>
+      </section>
+
+      <section class="story-band" id="story">
+        <div class="story-inner">
+          <div>
+            <span class="kicker">Why families choose Absolute Dance</span>
+            <h2>Confidence is taught in the room before it reaches the stage.</h2>
+          </div>
+          <div class="values">
+            <div class="value"><strong>Known by name</strong><span>Teachers build trust with dancers so class feels safe, personal, and encouraging.</span></div>
+            <div class="value"><strong>Technique with care</strong><span>Classes develop skill, focus, discipline, creativity, and performance confidence.</span></div>
+            <div class="value"><strong>Growth beyond dance</strong><span>Students learn friendship, resilience, responsibility, and joy inside a supportive studio culture.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="classes" id="classes">
+        <span class="kicker">Class menu</span>
+        <h2 style="margin-bottom: 28px;">Start with age, style, or ambition.</h2>
+        <div class="class-line"><strong>Ages 2+</strong><span>A gentle first class experience for little dancers.</span><a class="button secondary" href="https://absolutedance.org/2026-2027-fall-class-schedule/">View</a></div>
+        <div class="class-line"><strong>Ages 3-9</strong><span>Foundational movement, classroom rhythm, friendship, and confidence.</span><a class="button secondary" href="https://absolutedance.org/2026-2027-fall-class-schedule/">View</a></div>
+        <div class="class-line"><strong>Ages 10+</strong><span>Technique, expression, discipline, and deeper dance pathways.</span><a class="button secondary" href="https://absolutedance.org/2026-2027-fall-class-schedule/">View</a></div>
+        <div class="class-line"><strong>Dance Styles</strong><span>Ballet, tap, jazz, hip-hop, lyrical, and tumble.</span><a class="button secondary" href="https://absolutedance.org/2026-2027-fall-class-schedule/">View</a></div>
+        <div class="class-line"><strong>Teams</strong><span>Performance and competitive options for committed dancers.</span><a class="button secondary" href="https://absolutedance.org/teams/">Explore</a></div>
+      </section>
+
+      <section class="proof" id="proof">
+        <article class="quote">
+          <img src="../../assets/nancy-o.jpg" alt="Nancy O.">
+          <div><blockquote>"They genuinely care about every single dancer and we couldn't be more grateful!"</blockquote><cite>Nancy O.</cite></div>
+        </article>
+        <article class="quote">
+          <img src="../../assets/edward-b.jpg" alt="Edward B.">
+          <div><blockquote>"Sophia very eagerly looks forward to class every single week."</blockquote><cite>Edward B.</cite></div>
+        </article>
+      </section>
+
+      <section class="final">
+        <div class="final-inner">
+          <div><span class="kicker">Next step</span><h2>Find the class your dancer will look forward to.</h2></div>
+          <a class="button primary" href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3">Register for Classes</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

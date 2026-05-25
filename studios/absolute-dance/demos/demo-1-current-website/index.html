@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo 1 · Current Website Reference | Absolute Dance</title>
+    <meta name="description" content="Absolute Dance current website reference demo.">
+    <link rel="icon" href="../../assets/favicon.png">
+    <style>
+      :root {
+        --ink: #545454;
+        --paper: #ffffff;
+        --aqua: #16c9b2;
+        --teal: #15988b;
+        --pink: #f240b1;
+        --charcoal: #3a3a3a;
+        --line: rgba(84, 84, 84, 0.16);
+        --shadow: rgba(58, 58, 58, 0.16);
+        --hero: url("../../assets/hero-bg.jpg");
+        --studio: url("../../assets/studio-bg.jpg");
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        overflow-x: clip;
+      }
+
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .template-return-bar {
+        align-items: center;
+        background: #063b40;
+        color: #ffffff;
+        display: flex;
+        gap: 16px;
+        justify-content: space-between;
+        padding: 12px 20px;
+      }
+
+      .template-return-bar a,
+      .template-return-bar span {
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .template-return-bar span {
+        color: rgba(255, 255, 255, 0.72);
+        font-weight: 700;
+      }
+
+      .site-header {
+        background: #ffffff;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        align-items: center;
+        display: flex;
+        gap: 28px;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1180px;
+        min-height: 78px;
+        padding: 0 24px;
+      }
+
+      .logo img {
+        width: min(250px, 54vw);
+      }
+
+      .nav-links {
+        align-items: center;
+        display: flex;
+        gap: 20px;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .nav-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn {
+        align-items: center;
+        border-radius: 3px;
+        display: inline-flex;
+        font-size: 13px;
+        font-weight: 800;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 16px;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .btn-dark {
+        background: var(--charcoal);
+        color: #ffffff;
+      }
+
+      .btn-aqua {
+        background: var(--aqua);
+        color: #ffffff;
+      }
+
+      .btn-pink {
+        background: var(--pink);
+        border-radius: 8px;
+        color: #ffffff;
+      }
+
+      .hero {
+        background:
+          linear-gradient(90deg, rgba(58, 58, 58, 0.72), rgba(58, 58, 58, 0.24)),
+          var(--hero) center / cover;
+        color: #ffffff;
+        min-height: 520px;
+        padding: 120px 24px;
+      }
+
+      .hero-inner,
+      .section-inner {
+        margin: 0 auto;
+        max-width: 1120px;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 5vw, 3.1rem);
+        line-height: 1.05;
+        margin: 0 0 20px;
+        max-width: 580px;
+        text-transform: uppercase;
+      }
+
+      .eyebrow {
+        font-size: 20px;
+        font-weight: 300;
+        margin: 0 0 28px;
+        text-transform: uppercase;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .intro {
+        padding: 64px 24px;
+        text-align: center;
+      }
+
+      .intro h2 {
+        color: var(--ink);
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 500;
+        line-height: 1.45;
+        margin: 0 auto;
+        max-width: 960px;
+      }
+
+      .quick-links {
+        background:
+          linear-gradient(180deg, rgba(22, 201, 178, 0.1), rgba(242, 64, 177, 0.07)),
+          #ffffff;
+        padding: 60px 24px;
+      }
+
+      .link-grid {
+        display: grid;
+        gap: 22px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .link-card {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 16px 38px var(--shadow);
+        display: grid;
+        gap: 10px;
+        padding: 28px;
+      }
+
+      .link-card strong {
+        color: var(--charcoal);
+        font-size: 22px;
+      }
+
+      .link-card span {
+        color: var(--ink);
+      }
+
+      .split {
+        align-items: center;
+        display: grid;
+        gap: 42px;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        padding: 72px 24px;
+      }
+
+      .photo {
+        border-radius: 8px;
+        box-shadow: 0 22px 50px var(--shadow);
+        min-height: 380px;
+        overflow: hidden;
+      }
+
+      .photo img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      h2 {
+        color: var(--charcoal);
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.08;
+        margin: 0 0 18px;
+      }
+
+      .footer {
+        background: #3a3a3a;
+        color: #ffffff;
+        padding: 42px 24px;
+      }
+
+      .footer-grid {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 0 auto;
+        max-width: 1120px;
+      }
+
+      .footer strong {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .footer p {
+        margin: 0;
+      }
+
+      @media (max-width: 880px) {
+        .nav,
+        .nav-links,
+        .nav-actions,
+        .template-return-bar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hero {
+          min-height: 540px;
+          padding: 96px 20px;
+        }
+
+        .link-grid,
+        .split,
+        .footer-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="template-return-bar">
+      <a href="../../">← Back to Absolute Dance templates</a>
+      <span>Demo 1 · Current Website Reference</span>
+    </div>
+
+    <header class="site-header">
+      <div class="nav">
+        <a class="logo" href="https://absolutedance.org/"><img src="../../assets/logo-2.png" alt="Absolute Dance"></a>
+        <nav class="nav-links" aria-label="Reference navigation">
+          <a href="https://absolutedance.org/our-studio/">About Us</a>
+          <a href="https://absolutedance.org/2026-2027-fall-class-schedule/">Classes</a>
+          <a href="https://absolutedance.org/teams/">Teams</a>
+          <a href="https://absolutedance.org/calendar/">Events</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-dark" href="https://app.thestudiodirector.com/absolutedance/portal.sd?page=Login">2025-2026 Portal</a>
+          <a class="btn btn-aqua" href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3">Register</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <h1>Inspiring the Dancers Heart</h1>
+          <p class="eyebrow">Dance Lessons in Midland, TX</p>
+          <div class="hero-actions">
+            <a class="btn btn-pink" href="https://absolutedance.org/faculty/">Meet Staff</a>
+            <a class="btn btn-aqua" href="https://absolutedance.org/studio-policies/">More Info</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro">
+        <div class="section-inner">
+          <h2>Our dedication, integrity, and long-standing commitment to every student inspires them to be their ultimate best, inside and outside the studio.</h2>
+        </div>
+      </section>
+
+      <section class="quick-links">
+        <div class="section-inner link-grid">
+          <a class="link-card" href="https://app.thestudiodirector.com/absolutedance/portal.sd?page=Login">
+            <strong>Register for Classes</strong>
+            <span>Come check out the schedule for ages 2 and up.</span>
+          </a>
+          <a class="link-card" href="https://app.thestudiodirector.com/absolutedance/portal.sd?page=Login">
+            <strong>My Account</strong>
+            <span>Manage classes and payments.</span>
+          </a>
+          <a class="link-card" href="https://absolutedance.org/calendar/">
+            <strong>Upcoming Events</strong>
+            <span>Mark your calendar.</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section-inner split">
+        <div>
+          <h2>Safe, positive, and built for dancers of all ages.</h2>
+          <p>Absolute Dance fuels a passion for the art of dance while helping students build self-esteem, self-discipline, and character.</p>
+        </div>
+        <figure class="photo">
+          <img src="../../assets/studio-bg.jpg" alt="Absolute Dance studio moment">
+        </figure>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div><strong>Opening Hours</strong><p>Monday to Thursday, 2:00pm to 7:00pm</p></div>
+        <div><strong>Contact</strong><p>432-699-2190<br>info@absolutedance.org</p></div>
+        <div><strong>Visit</strong><p>5109 Sunmore Circle, Midland TX 79707</p></div>
+      </div>
+    </footer>
+  </body>
+</html>

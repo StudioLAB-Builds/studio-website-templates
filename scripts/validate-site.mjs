@@ -20,16 +20,33 @@ function expect(condition, message) {
 
 const rootIndex = read("index.html");
 const studioIndex = read("studios/absolute-dance/index.html");
-const optionIndex = read("studios/absolute-dance/options/warm-modern-enrollment/index.html");
+const styleIndex = read("styles/index.html");
 
-expect(rootIndex.includes("Studio Website Templates"), "Root index missing project title.");
+expect(rootIndex.includes("StudioLAB Website Templates"), "Root index missing project title.");
 expect(rootIndex.includes("studios/absolute-dance/"), "Root index missing Absolute Dance link.");
-expect(studioIndex.includes("Warm Modern Enrollment"), "Absolute Dance selector missing option label.");
-expect(studioIndex.includes("options/warm-modern-enrollment/"), "Absolute Dance selector missing option path.");
-expect(optionIndex.includes("Dance lessons in Midland, TX"), "Absolute Dance option missing expected homepage copy.");
-expect(optionIndex.includes("../../assets/logo-2.png"), "Absolute Dance option does not use repo-relative assets.");
-expect(!optionIndex.includes("absolute-dance-assets/"), "Absolute Dance option still points at output assets.");
+expect(rootIndex.includes("styles/"), "Root index missing style shortlist link.");
+expect(studioIndex.includes("Demo 1"), "Absolute Dance gallery missing Demo 1.");
+expect(studioIndex.includes("Demo 2"), "Absolute Dance gallery missing Demo 2.");
+expect(studioIndex.includes("Demo 3"), "Absolute Dance gallery missing Demo 3.");
+expect(studioIndex.includes("Demo 4"), "Absolute Dance gallery missing Demo 4.");
+expect(studioIndex.includes("View selected styles"), "Absolute Dance gallery missing shortlist action.");
+expect(styleIndex.includes("Style shortlists"), "Style shortlist page missing title.");
 expect(fs.existsSync(path.join(root, ".nojekyll")), "Missing .nojekyll for GitHub Pages.");
+
+const demos = [
+  ["demo-1-current-website", "Current Website Reference"],
+  ["demo-2-warm-modern-enrollment", "Warm Modern Enrollment"],
+  ["demo-3-editorial-community", "Editorial Community"],
+  ["demo-4-bold-class-pathways", "Bold Class Pathways"]
+];
+
+for (const [slug, label] of demos) {
+  const demoIndex = read(`studios/absolute-dance/demos/${slug}/index.html`);
+  expect(demoIndex.includes(label), `${slug} missing label: ${label}`);
+  expect(demoIndex.includes("Back to Absolute Dance templates"), `${slug} missing return link.`);
+  expect(demoIndex.includes("../../assets/"), `${slug} does not use shared studio assets.`);
+  expect(fs.existsSync(path.join(root, `studios/absolute-dance/previews/${slug}.png`)), `Missing preview image for ${slug}.`);
+}
 
 const requiredAssets = [
   "logo-2.png",

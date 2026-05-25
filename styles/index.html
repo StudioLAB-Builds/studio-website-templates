@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Style Shortlists | StudioLAB Website Templates</title>
+    <meta name="description" content="StudioLAB style shortlist tool for selected website template demos.">
+    <style>
+      :root {
+        --ink: #102f35;
+        --muted: #5f767a;
+        --paper: #fbfffe;
+        --mist: #eefbf8;
+        --teal: #075b60;
+        --deep: #04333a;
+        --aqua: #16c9b2;
+        --pink: #ed2d83;
+        --line: rgba(7, 91, 96, 0.16);
+        --shadow: rgba(6, 51, 58, 0.14);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        overflow-x: clip;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at top left, rgba(22, 201, 178, 0.22), transparent 34rem),
+          linear-gradient(180deg, #f3fffc, var(--paper) 44%);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .wrap {
+        margin: 0 auto;
+        max-width: 1180px;
+        padding: 30px 24px 76px;
+      }
+
+      .topbar {
+        align-items: center;
+        display: flex;
+        gap: 22px;
+        justify-content: space-between;
+        margin-bottom: 58px;
+      }
+
+      .crumb {
+        color: var(--teal);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .pill {
+        align-items: center;
+        background: var(--teal);
+        border-radius: 999px;
+        color: #ffffff;
+        display: inline-flex;
+        font-size: 13px;
+        font-weight: 900;
+        min-height: 40px;
+        padding: 0 14px;
+        white-space: nowrap;
+      }
+
+      .hero {
+        display: grid;
+        gap: 20px;
+        margin-bottom: 36px;
+        max-width: 790px;
+      }
+
+      .kicker {
+        color: var(--pink);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1,
+      h2 {
+        color: var(--deep);
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 1;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 8vw, 5rem);
+      }
+
+      h2 {
+        font-size: clamp(2rem, 4vw, 3.1rem);
+      }
+
+      p {
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.65;
+      }
+
+      .panel {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        box-shadow: 0 22px 60px var(--shadow);
+        display: grid;
+        gap: 20px;
+        margin-bottom: 28px;
+        padding: 24px;
+      }
+
+      .selected-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .style-card {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        display: grid;
+        overflow: hidden;
+      }
+
+      .style-card img {
+        aspect-ratio: 16 / 10;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        width: 100%;
+      }
+
+      .style-copy {
+        display: grid;
+        gap: 8px;
+        padding: 18px;
+      }
+
+      .demo-label {
+        color: var(--pink);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .style-copy h3 {
+        color: var(--deep);
+        font-size: 22px;
+        line-height: 1.15;
+      }
+
+      .style-copy a {
+        color: var(--teal);
+        font-size: 14px;
+        font-weight: 900;
+        margin-top: 4px;
+      }
+
+      .empty {
+        background: var(--mist);
+        border-left: 4px solid var(--pink);
+        border-radius: 10px;
+        padding: 18px 20px;
+      }
+
+      .notes {
+        display: grid;
+        gap: 14px;
+      }
+
+      .notes li {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      @media (max-width: 680px) {
+        .wrap {
+          padding: 24px 18px 58px;
+        }
+
+        .topbar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="topbar">
+        <a class="crumb" href="../">← StudioLAB Website Templates</a>
+        <a class="pill" href="../studios/absolute-dance/">Absolute Dance templates</a>
+      </header>
+
+      <main>
+        <section class="hero">
+          <span class="kicker">Internal style tool</span>
+          <h1>Style shortlists for reusable template directions.</h1>
+          <p>Select demos from a studio gallery, then use this page to review them as possible general styles for future studio projects. This gives us a starting point for turning one-off studio concepts into reusable design directions.</p>
+        </section>
+
+        <section class="panel">
+          <div>
+            <span class="kicker" id="source-label">Selected demos</span>
+            <h2 id="panel-title">No shortlist selected yet.</h2>
+          </div>
+          <div id="selected-grid" class="selected-grid"></div>
+          <div id="empty-state" class="empty">
+            <p>Go to a studio template gallery, tick the demos you want to compare, then choose “View selected styles”.</p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <span class="kicker">How to use this later</span>
+          <ul class="notes">
+            <li>Shortlist the demos that feel reusable across more than one studio.</li>
+            <li>Group them by design intent, such as warm enrollment, bold class pathways, editorial culture, or current-site refresh.</li>
+            <li>When a pattern keeps showing up, promote it into a general style folder that can be adapted for future studios.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const demos = {
+        'absolute-dance': {
+          label: 'Absolute Dance',
+          base: '../studios/absolute-dance/',
+          items: {
+            'demo-1-current-website': {
+              number: 'Demo 1',
+              title: 'Current Website Reference',
+              description: 'Baseline reference for the current website direction.',
+              preview: 'previews/demo-1-current-website.png',
+              href: 'demos/demo-1-current-website/'
+            },
+            'demo-2-warm-modern-enrollment': {
+              number: 'Demo 2',
+              title: 'Warm Modern Enrollment',
+              description: 'Family-centred parent journey with polished enrollment flow.',
+              preview: 'previews/demo-2-warm-modern-enrollment.png',
+              href: 'demos/demo-2-warm-modern-enrollment/'
+            },
+            'demo-3-editorial-community': {
+              number: 'Demo 3',
+              title: 'Editorial Community',
+              description: 'Story-led studio culture and parent reassurance direction.',
+              preview: 'previews/demo-3-editorial-community.png',
+              href: 'demos/demo-3-editorial-community/'
+            },
+            'demo-4-bold-class-pathways': {
+              number: 'Demo 4',
+              title: 'Bold Class Pathways',
+              description: 'Enrollment-first class comparison and practical next-step direction.',
+              preview: 'previews/demo-4-bold-class-pathways.png',
+              href: 'demos/demo-4-bold-class-pathways/'
+            }
+          }
+        }
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const studioKey = params.get('studio');
+      const selected = (params.get('demos') || '').split(',').filter(Boolean);
+      const grid = document.querySelector('#selected-grid');
+      const empty = document.querySelector('#empty-state');
+      const panelTitle = document.querySelector('#panel-title');
+      const sourceLabel = document.querySelector('#source-label');
+
+      if (studioKey && demos[studioKey] && selected.length) {
+        const studio = demos[studioKey];
+        sourceLabel.textContent = `${studio.label} shortlist`;
+        panelTitle.textContent = `${selected.length} selected style ${selected.length === 1 ? 'direction' : 'directions'}`;
+        empty.hidden = true;
+        selected.forEach((key) => {
+          const item = studio.items[key];
+          if (!item) return;
+          const card = document.createElement('article');
+          card.className = 'style-card';
+          card.innerHTML = `
+            <img src="${studio.base}${item.preview}" alt="${item.number} ${item.title} preview">
+            <div class="style-copy">
+              <span class="demo-label">${item.number}</span>
+              <h3>${item.title}</h3>
+              <p>${item.description}</p>
+              <a href="${studio.base}${item.href}">Open ${item.number} →</a>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+    </script>
+  </body>
+</html>
