@@ -29,7 +29,10 @@ expect(studioIndex.includes("Demo 1"), "Absolute Dance gallery missing Demo 1.")
 expect(studioIndex.includes("Demo 2"), "Absolute Dance gallery missing Demo 2.");
 expect(studioIndex.includes("Demo 3"), "Absolute Dance gallery missing Demo 3.");
 expect(studioIndex.includes("Demo 4"), "Absolute Dance gallery missing Demo 4.");
-expect(studioIndex.includes("View selected styles"), "Absolute Dance gallery missing shortlist action.");
+expect(!studioIndex.includes("StudioLAB Website Templates"), "Absolute Dance gallery exposes the master template hub.");
+expect(!studioIndex.includes("styles/"), "Absolute Dance gallery exposes internal style tools.");
+expect(!studioIndex.includes("mailto:"), "Absolute Dance gallery exposes feedback email.");
+expect(!/shortlist|selected|Clear selection|View demos/i.test(studioIndex), "Absolute Dance gallery still includes internal selection or jump controls.");
 expect(styleIndex.includes("Style shortlists"), "Style shortlist page missing title.");
 expect(fs.existsSync(path.join(root, ".nojekyll")), "Missing .nojekyll for GitHub Pages.");
 
@@ -43,7 +46,8 @@ const demos = [
 for (const [slug, label] of demos) {
   const demoIndex = read(`studios/absolute-dance/demos/${slug}/index.html`);
   expect(demoIndex.includes(label), `${slug} missing label: ${label}`);
-  expect(demoIndex.includes("Back to Absolute Dance templates"), `${slug} missing return link.`);
+  expect(demoIndex.includes("Back to template options"), `${slug} missing same-gallery return link.`);
+  expect(!demoIndex.includes("StudioLAB Website Templates"), `${slug} exposes the master template hub.`);
   expect(demoIndex.includes("../../assets/"), `${slug} does not use shared studio assets.`);
   expect(fs.existsSync(path.join(root, `studios/absolute-dance/previews/${slug}.png`)), `Missing preview image for ${slug}.`);
 }

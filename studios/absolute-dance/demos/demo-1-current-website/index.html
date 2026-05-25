@@ -296,7 +296,7 @@
   </head>
   <body>
     <div class="template-return-bar">
-      <a href="../../">← Back to Absolute Dance templates</a>
+      <a class="gallery-return" href="../../">← Back to template options</a>
       <span>Demo 1 · Current Website Reference</span>
     </div>
 
@@ -369,5 +369,10 @@
         <div><strong>Visit</strong><p>5109 Sunmore Circle, Midland TX 79707</p></div>
       </div>
     </footer>
+    <script>
+      if (new URLSearchParams(window.location.search).get('hub') === '1') {
+        document.querySelector('.gallery-return').href = '../../?hub=1';
+      }
+    </script>
   </body>
 </html>

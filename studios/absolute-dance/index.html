@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Absolute Dance Website Templates | StudioLAB</title>
-    <meta name="description" content="Absolute Dance website template gallery prepared by StudioLAB.">
+    <title>Absolute Dance Website Template Options</title>
+    <meta name="description" content="Absolute Dance website template options prepared for review.">
     <link rel="icon" href="assets/favicon.png">
     <style>
       :root {
@@ -44,11 +44,6 @@
         text-decoration: none;
       }
 
-      button,
-      input {
-        font: inherit;
-      }
-
       img {
         display: block;
         max-width: 100%;
@@ -57,60 +52,36 @@
       .wrap {
         margin: 0 auto;
         max-width: 1220px;
-        padding: 28px 24px 78px;
+        padding: 42px 24px 78px;
       }
 
-      .topbar {
+      .hub-bar {
         align-items: center;
-        display: flex;
-        gap: 22px;
-        justify-content: space-between;
-        margin-bottom: 52px;
-      }
-
-      .crumb {
-        color: var(--teal);
-        font-size: 13px;
-        font-weight: 900;
-      }
-
-      .top-actions {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .pill {
-        align-items: center;
-        background: #ffffff;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        color: var(--teal);
-        display: inline-flex;
-        font-size: 13px;
-        font-weight: 900;
-        min-height: 40px;
-        padding: 0 14px;
-        white-space: nowrap;
-      }
-
-      .pill.primary {
-        background: var(--teal);
-        border-color: var(--teal);
+        background: var(--deep);
         color: #ffffff;
+        display: none;
+        gap: 16px;
+        justify-content: space-between;
+        padding: 11px 20px;
       }
 
-      .hero {
-        display: grid;
-        gap: 32px;
-        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.42fr);
-        margin-bottom: 42px;
+      .hub-bar a,
+      .hub-bar span {
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 900;
       }
 
-      .hero-copy {
+      .hub-bar span {
+        color: rgba(255, 255, 255, 0.68);
+        font-weight: 700;
+      }
+
+      .intro {
         display: grid;
-        gap: 18px;
+        gap: 28px;
+        margin-bottom: 38px;
+        max-width: 850px;
       }
 
       .studio-logo {
@@ -124,7 +95,7 @@
       }
 
       .studio-logo img {
-        width: min(280px, 64vw);
+        width: min(300px, 70vw);
       }
 
       .kicker {
@@ -137,103 +108,24 @@
 
       h1,
       h2,
-      h3,
       p {
         margin: 0;
       }
 
-      h1,
-      h2 {
+      h1 {
         color: var(--deep);
         font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.7rem, 8vw, 5rem);
         font-weight: 500;
         letter-spacing: 0;
         line-height: 1;
-      }
-
-      h1 {
-        font-size: clamp(2.8rem, 8vw, 5.1rem);
-      }
-
-      h2 {
-        font-size: clamp(2rem, 4vw, 3.2rem);
       }
 
       p {
         color: var(--muted);
         font-size: 17px;
         line-height: 1.65;
-      }
-
-      .send-card {
-        align-self: end;
-        background: var(--deep);
-        border-radius: 12px;
-        box-shadow: 0 26px 64px rgba(6, 51, 58, 0.22);
-        color: #ffffff;
-        display: grid;
-        gap: 14px;
-        padding: 24px;
-      }
-
-      .send-card p {
-        color: rgba(255, 255, 255, 0.78);
-      }
-
-      .send-card strong {
-        color: #ffffff;
-        font-size: 22px;
-        line-height: 1.15;
-      }
-
-      .toolbar {
-        align-items: center;
-        background: #ffffff;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        box-shadow: 0 18px 44px rgba(6, 51, 58, 0.08);
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        justify-content: space-between;
-        margin: 34px 0 24px;
-        padding: 14px;
-      }
-
-      .toolbar span {
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      .toolbar-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .button {
-        align-items: center;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        cursor: pointer;
-        display: inline-flex;
-        font-size: 13px;
-        font-weight: 900;
-        justify-content: center;
-        min-height: 40px;
-        padding: 0 14px;
-        white-space: nowrap;
-      }
-
-      .button.primary {
-        background: var(--pink);
-        border-color: var(--pink);
-        color: #ffffff;
-      }
-
-      .button:disabled {
-        cursor: not-allowed;
-        opacity: 0.45;
+        max-width: 720px;
       }
 
       .demo-grid {
@@ -276,13 +168,6 @@
         padding: 22px;
       }
 
-      .demo-label-row {
-        align-items: center;
-        display: flex;
-        gap: 12px;
-        justify-content: space-between;
-      }
-
       .demo-label {
         background: var(--aqua);
         border-radius: 999px;
@@ -293,58 +178,38 @@
         letter-spacing: 0.08em;
         padding: 7px 10px;
         text-transform: uppercase;
-      }
-
-      .shortlist {
-        align-items: center;
-        color: var(--teal);
-        display: inline-flex;
-        font-size: 13px;
-        font-weight: 900;
-        gap: 6px;
-        white-space: nowrap;
-      }
-
-      .shortlist input {
-        accent-color: var(--pink);
+        width: fit-content;
       }
 
       .demo-copy h2 {
-        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--deep);
         font-size: 24px;
         font-weight: 900;
         line-height: 1.12;
       }
 
-      .demo-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .note {
-        background: var(--mist);
-        border-left: 4px solid var(--pink);
-        border-radius: 10px;
-        color: var(--muted);
-        margin-top: 34px;
-        padding: 18px 20px;
+      .button {
+        align-items: center;
+        background: var(--pink);
+        border-radius: 999px;
+        color: #ffffff;
+        display: inline-flex;
+        font-size: 13px;
+        font-weight: 900;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 16px;
+        white-space: nowrap;
+        width: fit-content;
       }
 
       @media (max-width: 900px) {
         .wrap {
-          padding: 22px 18px 62px;
+          padding: 30px 18px 62px;
         }
 
-        .topbar,
-        .hero,
         .demo-grid {
-          align-items: flex-start;
           grid-template-columns: minmax(0, 1fr);
-        }
-
-        .topbar {
-          flex-direction: column;
         }
 
         .preview-link {
@@ -354,141 +219,73 @@
     </style>
   </head>
   <body>
-    <div class="wrap">
-      <header class="topbar">
-        <a class="crumb" href="../../">← StudioLAB Website Templates</a>
-        <div class="top-actions">
-          <a class="pill" href="../../styles/">Style Shortlists</a>
-          <a class="pill primary" href="mailto:info@studiolabsoftware.com?subject=Absolute%20Dance%20Template%20Feedback">Send feedback</a>
+    <main class="wrap">
+      <section class="intro" aria-label="Absolute Dance website template options">
+        <div class="studio-logo"><img src="assets/logo-2.png" alt="Absolute Dance"></div>
+        <div>
+          <span class="kicker">Website template options</span>
+          <h1>Absolute Dance website template options.</h1>
         </div>
-      </header>
+        <p>We have prepared a set of starting-point homepage directions for Absolute Dance. Open each demo to compare the overall feel, layout, and parent journey.</p>
+      </section>
 
-      <main>
-        <section class="hero">
-          <div class="hero-copy">
-            <a class="studio-logo" href="https://absolutedance.org/"><img src="assets/logo-2.png" alt="Absolute Dance"></a>
-            <span class="kicker">Client template gallery</span>
-            <h1>Absolute Dance website template options.</h1>
-            <p>Use this page as the single link for Absolute Dance. Each demo is labelled clearly so the studio can review the direction, compare options, and tell StudioLAB what to keep, combine, or remove.</p>
+      <section class="demo-grid" aria-label="Absolute Dance demos">
+        <article class="demo-card">
+          <a class="preview-link demo-link" href="demos/demo-1-current-website/"><img src="previews/demo-1-current-website.png" alt="Demo 1 Current Website Reference preview"></a>
+          <div class="demo-copy">
+            <span class="demo-label">Demo 1</span>
+            <h2>Current Website Reference</h2>
+            <p>A cleaned-up reference of the current site direction, useful as the baseline for what already exists.</p>
+            <a class="button demo-link" href="demos/demo-1-current-website/">View Demo 1</a>
           </div>
-          <aside class="send-card">
-            <strong>Send this page to the studio.</strong>
-            <p>They can open each demo, return here, and reference the demo number in feedback.</p>
-            <a class="button primary" href="#demos">View demos</a>
-          </aside>
-        </section>
+        </article>
 
-        <section id="demos" aria-label="Absolute Dance demos">
-          <div class="toolbar">
-            <span id="selected-count">Select demos to build a style shortlist later.</span>
-            <div class="toolbar-actions">
-              <button class="button" type="button" id="clear-selection">Clear selection</button>
-              <button class="button primary" type="button" id="view-shortlist" disabled>View selected styles</button>
-            </div>
+        <article class="demo-card">
+          <a class="preview-link demo-link" href="demos/demo-2-warm-modern-enrollment/"><img src="previews/demo-2-warm-modern-enrollment.png" alt="Demo 2 Warm Modern Enrollment preview"></a>
+          <div class="demo-copy">
+            <span class="demo-label">Demo 2</span>
+            <h2>Warm Modern Enrollment</h2>
+            <p>A family-centred redesign with a polished parent journey and real Absolute Dance imagery.</p>
+            <a class="button demo-link" href="demos/demo-2-warm-modern-enrollment/">View Demo 2</a>
           </div>
+        </article>
 
-          <div class="demo-grid">
-            <article class="demo-card" data-demo="demo-1-current-website">
-              <a class="preview-link" href="demos/demo-1-current-website/"><img src="previews/demo-1-current-website.png" alt="Demo 1 Current Website Reference preview"></a>
-              <div class="demo-copy">
-                <div class="demo-label-row">
-                  <span class="demo-label">Demo 1</span>
-                  <label class="shortlist"><input type="checkbox" value="demo-1-current-website"> Shortlist</label>
-                </div>
-                <h2>Current Website Reference</h2>
-                <p>A cleaned-up reference of the current site direction, useful as the baseline for what already exists.</p>
-                <div class="demo-actions">
-                  <a class="button primary" href="demos/demo-1-current-website/">View Demo 1</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="demo-card" data-demo="demo-2-warm-modern-enrollment">
-              <a class="preview-link" href="demos/demo-2-warm-modern-enrollment/"><img src="previews/demo-2-warm-modern-enrollment.png" alt="Demo 2 Warm Modern Enrollment preview"></a>
-              <div class="demo-copy">
-                <div class="demo-label-row">
-                  <span class="demo-label">Demo 2</span>
-                  <label class="shortlist"><input type="checkbox" value="demo-2-warm-modern-enrollment"> Shortlist</label>
-                </div>
-                <h2>Warm Modern Enrollment</h2>
-                <p>The latest family-centred redesign with a polished parent journey and real Absolute Dance imagery.</p>
-                <div class="demo-actions">
-                  <a class="button primary" href="demos/demo-2-warm-modern-enrollment/">View Demo 2</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="demo-card" data-demo="demo-3-editorial-community">
-              <a class="preview-link" href="demos/demo-3-editorial-community/"><img src="previews/demo-3-editorial-community.png" alt="Demo 3 Editorial Community preview"></a>
-              <div class="demo-copy">
-                <div class="demo-label-row">
-                  <span class="demo-label">Demo 3</span>
-                  <label class="shortlist"><input type="checkbox" value="demo-3-editorial-community"> Shortlist</label>
-                </div>
-                <h2>Editorial Community</h2>
-                <p>A softer story-led concept that puts studio culture, trust, and parent reassurance first.</p>
-                <div class="demo-actions">
-                  <a class="button primary" href="demos/demo-3-editorial-community/">View Demo 3</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="demo-card" data-demo="demo-4-bold-class-pathways">
-              <a class="preview-link" href="demos/demo-4-bold-class-pathways/"><img src="previews/demo-4-bold-class-pathways.png" alt="Demo 4 Bold Class Pathways preview"></a>
-              <div class="demo-copy">
-                <div class="demo-label-row">
-                  <span class="demo-label">Demo 4</span>
-                  <label class="shortlist"><input type="checkbox" value="demo-4-bold-class-pathways"> Shortlist</label>
-                </div>
-                <h2>Bold Class Pathways</h2>
-                <p>A more direct enrollment layout for parents who want to compare ages, styles, teams, and next steps quickly.</p>
-                <div class="demo-actions">
-                  <a class="button primary" href="demos/demo-4-bold-class-pathways/">View Demo 4</a>
-                </div>
-              </div>
-            </article>
+        <article class="demo-card">
+          <a class="preview-link demo-link" href="demos/demo-3-editorial-community/"><img src="previews/demo-3-editorial-community.png" alt="Demo 3 Editorial Community preview"></a>
+          <div class="demo-copy">
+            <span class="demo-label">Demo 3</span>
+            <h2>Editorial Community</h2>
+            <p>A softer story-led concept that puts studio culture, trust, and parent reassurance first.</p>
+            <a class="button demo-link" href="demos/demo-3-editorial-community/">View Demo 3</a>
           </div>
+        </article>
 
-          <p class="note">When giving feedback, reference the demo number. For example: “Use the homepage feeling from Demo 2, but the class selection section from Demo 4.”</p>
-        </section>
-      </main>
-    </div>
+        <article class="demo-card">
+          <a class="preview-link demo-link" href="demos/demo-4-bold-class-pathways/"><img src="previews/demo-4-bold-class-pathways.png" alt="Demo 4 Bold Class Pathways preview"></a>
+          <div class="demo-copy">
+            <span class="demo-label">Demo 4</span>
+            <h2>Bold Class Pathways</h2>
+            <p>A more direct enrollment layout for parents who want to compare ages, styles, teams, and next steps quickly.</p>
+            <a class="button demo-link" href="demos/demo-4-bold-class-pathways/">View Demo 4</a>
+          </div>
+        </article>
+      </section>
+    </main>
 
     <script>
-      const checks = [...document.querySelectorAll('.shortlist input')];
-      const selectedCount = document.querySelector('#selected-count');
-      const clearSelection = document.querySelector('#clear-selection');
-      const viewShortlist = document.querySelector('#view-shortlist');
-
-      function selectedValues() {
-        return checks.filter((check) => check.checked).map((check) => check.value);
-      }
-
-      function syncSelection() {
-        const values = selectedValues();
-        selectedCount.textContent = values.length
-          ? `${values.length} demo${values.length === 1 ? '' : 's'} selected for a style shortlist.`
-          : 'Select demos to build a style shortlist later.';
-        viewShortlist.disabled = values.length === 0;
-      }
-
-      checks.forEach((check) => check.addEventListener('change', syncSelection));
-      clearSelection.addEventListener('click', () => {
-        checks.forEach((check) => {
-          check.checked = false;
+      const hubMode = new URLSearchParams(window.location.search).get('hub') === '1';
+      if (hubMode) {
+        const hubBar = document.createElement('div');
+        hubBar.className = 'hub-bar';
+        hubBar.innerHTML = '<a href="../../">← StudioLAB studio hub</a><span>Internal navigation mode</span>';
+        hubBar.style.display = 'flex';
+        document.body.prepend(hubBar);
+        document.querySelectorAll('.demo-link').forEach((link) => {
+          const url = new URL(link.getAttribute('href'), window.location.href);
+          url.searchParams.set('hub', '1');
+          link.href = url.pathname.split('/studios/absolute-dance/')[1] + url.search;
         });
-        syncSelection();
-      });
-
-      viewShortlist.addEventListener('click', () => {
-        const values = selectedValues();
-        if (!values.length) return;
-        const params = new URLSearchParams({
-          studio: 'absolute-dance',
-          demos: values.join(',')
-        });
-        window.location.href = `../../styles/?${params.toString()}`;
-      });
+      }
     </script>
   </body>
 </html>

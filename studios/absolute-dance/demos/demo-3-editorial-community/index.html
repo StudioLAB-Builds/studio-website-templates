@@ -308,7 +308,7 @@
   </head>
   <body>
     <div class="template-return-bar">
-      <a href="../../">← Back to Absolute Dance templates</a>
+      <a class="gallery-return" href="../../">← Back to template options</a>
       <span>Demo 3 · Editorial Community</span>
     </div>
 
@@ -384,5 +384,10 @@
         </div>
       </section>
     </main>
+    <script>
+      if (new URLSearchParams(window.location.search).get('hub') === '1') {
+        document.querySelector('.gallery-return').href = '../../?hub=1';
+      }
+    </script>
   </body>
 </html>

@@ -1306,7 +1306,7 @@
   </head>
   <body>
     <div class="template-return-bar">
-      <a href="../../" aria-label="Return to Absolute Dance template gallery">← Back to Absolute Dance templates</a>
+      <a class="gallery-return" href="../../" aria-label="Return to template options">← Back to template options</a>
       <span>Demo 2 · Warm Modern Enrollment</span>
     </div>
     <div class="site-shell">
@@ -1752,6 +1752,10 @@
           const target = Number(el.dataset.count);
           el.textContent = target >= 1000 ? target.toLocaleString("en-US") : String(target);
         });
+      }
+
+      if (new URLSearchParams(window.location.search).get('hub') === '1') {
+        document.querySelector('.gallery-return').href = '../../?hub=1';
       }
     </script>
   </body>
