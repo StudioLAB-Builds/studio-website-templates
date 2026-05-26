@@ -4,6 +4,10 @@ A shareable template library for StudioLAB-generated studio website concepts.
 
 The root page is the internal StudioLAB hub. From there, select a studio folder and send that studio's clean gallery link to the client. Each studio gallery is generated from a `templates.json` manifest so drafts can be kept in the repo without being shown to the studio.
 
+## For AI Tools
+
+If you are an AI assistant opening this repo, start with `CLAUDE.md` at the root. It explains repo conventions, the brand context source, and the multi-AI variation workflow. Brand and design context lives in the separate knowledge base repo: `https://github.com/StudioLAB-Builds/studiolab-context`.
+
 ## Current Structure
 
 ```text
