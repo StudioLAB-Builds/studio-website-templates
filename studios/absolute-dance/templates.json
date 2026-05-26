@@ -45,6 +45,18 @@
       "status": "visible",
       "order": 30,
       "source": "Claude-generated demo, 2026-05-26"
+    },
+    {
+      "id": "demo-4-program-pathways",
+      "label": "Demo 4",
+      "title": "Program Pathways",
+      "description": "A hub-style homepage organized around three clear parent decision pathways, with rich class cards, a weekly schedule snapshot, faculty grid, and inline contact form.",
+      "path": "demos/demo-4-program-pathways/",
+      "preview": "previews/demo-4-program-pathways.png",
+      "previewAlt": "Demo 4 Program Pathways preview",
+      "status": "visible",
+      "order": 40,
+      "source": "Claude-generated demo with kcdancehq.com.au as structural reference, 2026-05-26"
     }
   ]
 }

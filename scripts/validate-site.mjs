@@ -28,15 +28,16 @@ const hiddenAbsoluteTemplates = absoluteManifest.templates.filter((template) => 
 expect(rootIndex.includes("StudioLAB Website Templates"), "Root index missing project title.");
 expect(rootIndex.includes("studios/absolute-dance/"), "Root index missing Absolute Dance link.");
 expect(rootIndex.includes("styles/"), "Root index missing style shortlist link.");
-expect(visibleAbsoluteTemplates.length === 3, "Absolute Dance should currently have exactly three visible templates.");
+expect(visibleAbsoluteTemplates.length === 4, "Absolute Dance should currently have exactly four visible templates.");
 expect(visibleAbsoluteTemplates.some((template) => template.id === "demo-1-warm-modern-enrollment"), "Absolute Dance visible templates should include Demo 1 warm modern enrollment.");
 expect(visibleAbsoluteTemplates.some((template) => template.id === "demo-2-conversion-journey"), "Absolute Dance visible templates should include Demo 2 conversion journey.");
 expect(visibleAbsoluteTemplates.some((template) => template.id === "demo-3-editorial-feature"), "Absolute Dance visible templates should include Demo 3 editorial feature.");
+expect(visibleAbsoluteTemplates.some((template) => template.id === "demo-4-program-pathways"), "Absolute Dance visible templates should include Demo 4 program pathways.");
 expect(hiddenAbsoluteTemplates.length === 0, "Absolute Dance should have no hidden templates after cleanup.");
 expect(studioIndex.includes("Demo 1"), "Absolute Dance gallery missing visible Demo 1.");
 expect(studioIndex.includes("Demo 2"), "Absolute Dance gallery missing visible Demo 2.");
 expect(studioIndex.includes("Demo 3"), "Absolute Dance gallery missing visible Demo 3.");
-expect(!studioIndex.includes("Demo 4"), "Absolute Dance gallery should not expose a Demo 4 after renumbering.");
+expect(studioIndex.includes("Demo 4"), "Absolute Dance gallery missing visible Demo 4.");
 expect(!studioIndex.includes("StudioLAB Website Templates"), "Absolute Dance gallery exposes the master template hub.");
 expect(!studioIndex.includes("styles/"), "Absolute Dance gallery exposes internal style tools.");
 expect(!studioIndex.includes("mailto:"), "Absolute Dance gallery exposes feedback email.");

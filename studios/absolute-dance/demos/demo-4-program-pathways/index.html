@@ -1,0 +1,2492 @@
+<!doctype html>
+<!--
+  Demo 4 · Program Pathways
+  Direction: A hub-style information architecture organized around three clear
+  parent decision pathways (browse classes, register, schedule a tour). The
+  structural reference is kcdancehq.com.au, whose homepage uses a three-feature
+  card row as its primary navigation device, a welcome narrative, a service
+  area / facility statement, an upcoming-classes block with inline schedule,
+  testimonials with a secondary CTA, and a multi-column footer.
+
+  What was kept from kcdancehq:
+  - Three-feature pathway cards immediately under the hero as the primary
+    "what do I do next" surface.
+  - Studio story narrative with years and family count.
+  - Facility highlights (studios, observation, parking) treated as trust signals.
+  - Upcoming-classes block with inline schedule (day, age, length, level).
+  - Faculty grid (kcdancehq defers to a Team page; we surface the team here).
+  - Inline contact form pattern.
+  - Multi-column footer with sitemap + contact + social.
+
+  What was improved:
+  - Single primary CTA in the hero (kcdancehq stacked "Enrol Now" with "Class
+    Types" which competes for attention); the pathway cards below now carry the
+    multi-action surface in a clearer, scannable form.
+  - Class cards carry rich metadata (age, day pattern, length, level) rather
+    than text-only listings.
+  - Stronger hierarchy: kicker, headline, lead, body, micro on every section.
+  - A proper FAQ accordion (kcdancehq doesn't have one).
+  - Sticky mobile bottom bar with the single most important action.
+  - Real Absolute Dance copy, contact details, faculty references, and parent
+    quotes pulled from the live site and earlier demos.
+
+  Brand identity: continues the established Absolute Dance teal + pink palette
+  from Demos 1 and 2, but trades the soft aqua wash for a warm paper hub feel.
+  Type pairing is Sora display + Inter body, which is distinct from Demo 1
+  (Geist + Recoleta) and Demo 3 (Fraunces + Inter) so the four demos feel like
+  four directions in one brand family rather than four versions of the same page.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Absolute Dance | Program Pathways</title>
+    <meta name="description" content="A children's dance studio in Midland, TX. Browse classes, register for the season, or schedule a tour. Ballet, tap, jazz, hip-hop, lyrical, tumble, and teams for ages 2 and up.">
+    <link rel="icon" href="../../assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --font-display: "Sora", "Geist", "Helvetica Now", Helvetica, sans-serif;
+        --font-body: "Inter", "Geist", "Helvetica Neue", Helvetica, sans-serif;
+
+        --color-ink: #0e2a2d;
+        --color-ink-soft: #4c6669;
+        --color-ink-mute: #7a8e90;
+        --color-paper: #fbf6ef;
+        --color-paper-warm: #f4ecdf;
+        --color-card: #ffffff;
+        --color-rule: rgba(14, 42, 45, 0.12);
+        --color-rule-soft: rgba(14, 42, 45, 0.06);
+
+        --color-teal: #0d6b6f;
+        --color-teal-deep: #073b3f;
+        --color-teal-ink: #052529;
+        --color-aqua: #16c9b2;
+        --color-aqua-soft: #e6f8f4;
+        --color-pink: #ed2d83;
+        --color-pink-soft: #ffe2ed;
+        --color-pink-deep: #b3185f;
+        --color-coral: #f57e6c;
+        --color-amber: #f5b545;
+
+        --radius-pill: 999px;
+        --radius-card: 18px;
+        --radius-sm: 10px;
+
+        --shadow-card: 0 22px 48px rgba(7, 59, 63, 0.10);
+        --shadow-card-lift: 0 30px 64px rgba(7, 59, 63, 0.18);
+        --shadow-pop: 0 12px 28px rgba(7, 59, 63, 0.16);
+
+        --page: 1200px;
+        --gutter: clamp(20px, 4vw, 48px);
+        --section: clamp(72px, 9vw, 120px);
+        --transition: 220ms ease;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--color-paper);
+        color: var(--color-ink);
+        font-family: var(--font-body);
+        font-size: 17px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        overflow-x: clip;
+      }
+
+      img, svg { display: block; max-width: 100%; }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button, summary { font: inherit; }
+
+      h1, h2, h3, h4 {
+        font-family: var(--font-display);
+        color: var(--color-teal-ink);
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        margin: 0;
+      }
+
+      h1 { font-size: clamp(2.5rem, 5.4vw, 4.1rem); line-height: 1.02; letter-spacing: -0.02em; }
+      h2 { font-size: clamp(1.9rem, 3.4vw, 2.65rem); line-height: 1.08; }
+      h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.2; }
+      h4 { font-size: 0.98rem; line-height: 1.3; }
+
+      p { margin: 0; }
+
+      .template-return-bar {
+        align-items: center;
+        background: var(--color-teal-ink);
+        color: #f3ede0;
+        display: flex;
+        gap: 14px;
+        justify-content: space-between;
+        padding: 11px 20px;
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+
+      .template-return-bar a {
+        color: #f3ede0;
+        font-weight: 700;
+      }
+
+      .template-return-bar a:hover { color: var(--color-pink-soft); }
+
+      .template-return-bar span {
+        color: rgba(243, 237, 224, 0.7);
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .site-shell { background: var(--color-paper); }
+
+      /* Header */
+      .site-header {
+        background: rgba(251, 246, 239, 0.92);
+        backdrop-filter: saturate(140%) blur(8px);
+        border-bottom: 1px solid var(--color-rule-soft);
+        position: sticky;
+        top: 0;
+        z-index: 40;
+      }
+
+      .nav-wrap {
+        align-items: center;
+        display: flex;
+        gap: 24px;
+        height: 76px;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: var(--page);
+        padding: 0 var(--gutter);
+      }
+
+      .brand { display: inline-flex; align-items: center; }
+      .brand img { height: auto; max-height: 44px; width: 220px; }
+
+      .primary-nav {
+        align-items: center;
+        display: flex;
+        gap: 26px;
+        margin-left: auto;
+      }
+
+      .primary-nav a {
+        color: var(--color-teal-ink);
+        font-size: 14.5px;
+        font-weight: 600;
+        position: relative;
+        padding: 6px 0;
+      }
+
+      .primary-nav a:hover { color: var(--color-pink); }
+
+      .primary-nav a.has-pin::after {
+        background: var(--color-pink);
+        border-radius: 999px;
+        content: "";
+        height: 4px;
+        left: 50%;
+        position: absolute;
+        bottom: -2px;
+        transform: translateX(-50%);
+        width: 4px;
+      }
+
+      .header-actions {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+      }
+
+      .menu-toggle {
+        align-items: center;
+        background: var(--color-aqua-soft);
+        border: 1px solid var(--color-rule);
+        border-radius: var(--radius-pill);
+        color: var(--color-teal);
+        cursor: pointer;
+        display: none;
+        height: 44px;
+        justify-content: center;
+        width: 48px;
+      }
+
+      .menu-toggle span,
+      .menu-toggle span::before,
+      .menu-toggle span::after {
+        background: currentColor;
+        border-radius: 999px;
+        content: "";
+        display: block;
+        height: 2px;
+        position: relative;
+        width: 18px;
+      }
+
+      .menu-toggle span::before { position: absolute; top: -6px; }
+      .menu-toggle span::after { position: absolute; top: 6px; }
+
+      /* Buttons */
+      .btn {
+        align-items: center;
+        border: 1px solid transparent;
+        border-radius: var(--radius-pill);
+        cursor: pointer;
+        display: inline-flex;
+        font-family: var(--font-body);
+        font-size: 14.5px;
+        font-weight: 700;
+        gap: 9px;
+        justify-content: center;
+        line-height: 1;
+        min-height: 46px;
+        padding: 0 22px;
+        text-align: center;
+        transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      }
+
+      .btn svg { height: 17px; width: 17px; }
+
+      .btn-primary {
+        background: var(--color-teal);
+        color: #f4ecdf;
+      }
+      .btn-primary:hover { background: var(--color-teal-deep); transform: translateY(-1px); box-shadow: var(--shadow-pop); }
+
+      .btn-pink {
+        background: var(--color-pink);
+        color: #fff;
+      }
+      .btn-pink:hover { background: var(--color-pink-deep); transform: translateY(-1px); box-shadow: var(--shadow-pop); }
+
+      .btn-secondary {
+        background: transparent;
+        border-color: var(--color-teal);
+        color: var(--color-teal);
+      }
+      .btn-secondary:hover { background: var(--color-teal); color: #f4ecdf; }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--color-teal-ink);
+        border-color: var(--color-rule);
+      }
+      .btn-ghost:hover { background: var(--color-teal-ink); color: var(--color-paper); border-color: var(--color-teal-ink); }
+
+      /* Kicker */
+      .kicker {
+        align-items: center;
+        color: var(--color-pink);
+        display: inline-flex;
+        font-family: var(--font-display);
+        font-size: 12.5px;
+        font-weight: 700;
+        gap: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .kicker::before {
+        background: var(--color-pink);
+        border-radius: 999px;
+        content: "";
+        display: inline-block;
+        height: 6px;
+        width: 26px;
+      }
+
+      .section { padding: var(--section) 0; position: relative; }
+      .section-inner { margin: 0 auto; max-width: var(--page); padding: 0 var(--gutter); }
+      .section-head { display: grid; gap: 18px; max-width: 720px; margin-bottom: 56px; }
+      .section-head .lead { color: var(--color-ink-soft); font-size: 1.08rem; max-width: 600px; }
+
+      /* Hero */
+      .hero {
+        padding: clamp(48px, 7vw, 96px) 0 clamp(72px, 8vw, 112px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        background:
+          radial-gradient(circle at 88% 18%, rgba(237, 45, 131, 0.10), transparent 55%),
+          radial-gradient(circle at 8% 92%, rgba(22, 201, 178, 0.16), transparent 55%);
+        content: "";
+        inset: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .hero-grid {
+        align-items: stretch;
+        display: grid;
+        gap: clamp(36px, 5vw, 64px);
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        margin: 0 auto;
+        max-width: var(--page);
+        padding: 0 var(--gutter);
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-copy { align-self: center; max-width: 600px; }
+      .hero-copy h1 { margin-top: 18px; }
+      .hero-copy h1 .accent {
+        background: linear-gradient(120deg, var(--color-pink), var(--color-coral));
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        font-style: italic;
+        font-weight: 700;
+      }
+
+      .hero-lead {
+        color: var(--color-ink-soft);
+        font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+        line-height: 1.55;
+        margin-top: 22px;
+        max-width: 540px;
+      }
+
+      .hero-cta-row {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 32px;
+      }
+
+      .hero-cta-row .btn-primary { min-height: 54px; padding: 0 28px; font-size: 15px; }
+      .hero-cta-row .link {
+        color: var(--color-teal-ink);
+        font-weight: 600;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-color: var(--color-pink-soft);
+        text-decoration-thickness: 2px;
+      }
+      .hero-cta-row .link:hover { color: var(--color-pink); }
+
+      .hero-microproof {
+        align-items: center;
+        color: var(--color-ink-soft);
+        display: flex;
+        font-size: 14px;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .hero-microproof .faces {
+        display: flex;
+      }
+      .hero-microproof .faces img {
+        background: var(--color-card);
+        border: 3px solid var(--color-paper);
+        border-radius: 50%;
+        height: 38px;
+        width: 38px;
+        object-fit: cover;
+      }
+      .hero-microproof .faces img + img { margin-left: -10px; }
+
+      .hero-visual {
+        align-self: stretch;
+        position: relative;
+      }
+
+      .hero-image-card {
+        background: var(--color-card);
+        border-radius: var(--radius-card);
+        box-shadow: var(--shadow-card-lift);
+        overflow: hidden;
+        position: relative;
+        min-height: 460px;
+        height: 100%;
+      }
+
+      .hero-image-card img {
+        height: 100%;
+        left: 0;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      .hero-image-card::after {
+        background: linear-gradient(180deg, rgba(5, 37, 41, 0) 40%, rgba(5, 37, 41, 0.55));
+        content: "";
+        inset: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .hero-image-tag {
+        align-items: center;
+        background: rgba(251, 246, 239, 0.96);
+        backdrop-filter: blur(6px);
+        border-radius: var(--radius-pill);
+        color: var(--color-teal-deep);
+        display: inline-flex;
+        font-size: 12.5px;
+        font-weight: 700;
+        gap: 8px;
+        left: 22px;
+        letter-spacing: 0.06em;
+        padding: 9px 14px;
+        position: absolute;
+        text-transform: uppercase;
+        top: 22px;
+        z-index: 2;
+      }
+
+      .hero-image-tag::before {
+        background: var(--color-pink);
+        border-radius: 999px;
+        content: "";
+        display: inline-block;
+        height: 7px;
+        width: 7px;
+      }
+
+      .hero-image-caption {
+        bottom: 22px;
+        color: #fff;
+        font-family: var(--font-display);
+        font-size: 16px;
+        font-weight: 600;
+        left: 22px;
+        position: absolute;
+        right: 80px;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+        z-index: 2;
+      }
+
+      .hero-quickstats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .hero-quickstats .stat {
+        background: var(--color-card);
+        border: 1px solid var(--color-rule-soft);
+        border-radius: var(--radius-sm);
+        padding: 14px 14px;
+        text-align: center;
+      }
+      .hero-quickstats strong {
+        color: var(--color-teal-deep);
+        display: block;
+        font-family: var(--font-display);
+        font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+      .hero-quickstats span {
+        color: var(--color-ink-mute);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      /* Pathways */
+      .pathways {
+        background: var(--color-paper);
+        padding-top: 0;
+      }
+
+      .pathways-inner {
+        margin: 0 auto;
+        max-width: var(--page);
+        padding: 0 var(--gutter);
+      }
+
+      .pathway-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: -40px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .pathway {
+        background: var(--color-card);
+        border-radius: var(--radius-card);
+        box-shadow: var(--shadow-card);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 32px 28px;
+        position: relative;
+        transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+        border: 1px solid var(--color-rule-soft);
+      }
+
+      .pathway:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-card-lift);
+      }
+
+      .pathway-num {
+        color: var(--color-pink);
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .pathway-icon {
+        align-items: center;
+        background: var(--color-aqua-soft);
+        border-radius: 14px;
+        color: var(--color-teal);
+        display: flex;
+        height: 52px;
+        justify-content: center;
+        width: 52px;
+      }
+
+      .pathway:nth-child(2) .pathway-icon { background: var(--color-pink-soft); color: var(--color-pink-deep); }
+      .pathway:nth-child(3) .pathway-icon { background: rgba(245, 181, 69, 0.18); color: #8e5d10; }
+
+      .pathway-icon svg { height: 24px; width: 24px; }
+
+      .pathway h3 { font-size: 1.4rem; }
+
+      .pathway p {
+        color: var(--color-ink-soft);
+        font-size: 15.5px;
+        line-height: 1.55;
+      }
+
+      .pathway-action {
+        align-items: center;
+        color: var(--color-teal-deep);
+        display: inline-flex;
+        font-family: var(--font-display);
+        font-size: 14.5px;
+        font-weight: 700;
+        gap: 8px;
+        margin-top: auto;
+        padding-top: 8px;
+      }
+
+      .pathway-action svg { height: 14px; transition: transform var(--transition); width: 14px; }
+      .pathway:hover .pathway-action svg { transform: translateX(4px); }
+      .pathway:nth-child(2) .pathway-action { color: var(--color-pink-deep); }
+
+      /* Story */
+      .story {
+        background: var(--color-paper);
+      }
+
+      .story-grid {
+        align-items: center;
+        display: grid;
+        gap: clamp(40px, 6vw, 80px);
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      }
+
+      .story-copy h2 { margin-top: 16px; }
+      .story-copy .lead {
+        color: var(--color-ink-soft);
+        font-size: 1.12rem;
+        line-height: 1.6;
+        margin-top: 22px;
+      }
+      .story-copy p { color: var(--color-ink-soft); margin-top: 18px; }
+
+      .story-stats {
+        display: grid;
+        gap: 0;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin-top: 36px;
+        border-top: 1px solid var(--color-rule);
+        border-bottom: 1px solid var(--color-rule);
+      }
+
+      .story-stat {
+        padding: 22px 4px 22px 18px;
+        position: relative;
+      }
+
+      .story-stat + .story-stat {
+        border-left: 1px solid var(--color-rule);
+      }
+
+      .story-stat strong {
+        color: var(--color-teal-deep);
+        display: block;
+        font-family: var(--font-display);
+        font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .story-stat span {
+        color: var(--color-ink-mute);
+        display: block;
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        margin-top: 8px;
+        text-transform: uppercase;
+      }
+
+      .story-visual {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: 1.4fr 1fr;
+        grid-template-rows: auto auto;
+      }
+
+      .story-visual figure {
+        border-radius: var(--radius-card);
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .story-visual .v-main {
+        grid-row: span 2;
+        min-height: 460px;
+      }
+
+      .story-visual .v-side {
+        min-height: 220px;
+      }
+
+      .story-visual img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .story-visual .v-badge {
+        background: var(--color-teal-deep);
+        border-radius: var(--radius-card);
+        color: var(--color-paper);
+        padding: 22px 22px;
+        align-self: end;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .story-visual .v-badge strong {
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-weight: 700;
+      }
+      .story-visual .v-badge span {
+        color: rgba(244, 236, 223, 0.78);
+        font-size: 13px;
+      }
+
+      /* Trust strip */
+      .trust-strip {
+        background: var(--color-teal-ink);
+        color: var(--color-paper);
+        padding: 22px 0;
+      }
+
+      .trust-strip-inner {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(20px, 4vw, 40px);
+        justify-content: center;
+        margin: 0 auto;
+        max-width: var(--page);
+        padding: 0 var(--gutter);
+        text-align: center;
+      }
+
+      .trust-strip-item {
+        align-items: center;
+        color: rgba(244, 236, 223, 0.92);
+        display: inline-flex;
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 600;
+        gap: 10px;
+        letter-spacing: 0.04em;
+      }
+
+      .trust-strip-item svg { height: 16px; width: 16px; color: var(--color-aqua); }
+
+      /* Programs */
+      .programs { background: var(--color-paper-warm); }
+
+      .program-tabs {
+        align-items: center;
+        background: var(--color-card);
+        border: 1px solid var(--color-rule-soft);
+        border-radius: var(--radius-pill);
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-bottom: 32px;
+        padding: 5px;
+      }
+
+      .program-tabs button {
+        background: transparent;
+        border: none;
+        border-radius: var(--radius-pill);
+        color: var(--color-ink-soft);
+        cursor: pointer;
+        font-family: var(--font-body);
+        font-size: 13.5px;
+        font-weight: 600;
+        padding: 9px 16px;
+        transition: background var(--transition), color var(--transition);
+      }
+
+      .program-tabs button:hover { color: var(--color-teal-deep); }
+      .program-tabs button[aria-pressed="true"] {
+        background: var(--color-teal-deep);
+        color: var(--color-paper);
+      }
+
+      .class-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .class-card {
+        background: var(--color-card);
+        border: 1px solid var(--color-rule-soft);
+        border-radius: var(--radius-card);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 26px 26px 24px;
+        position: relative;
+        transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      }
+
+      .class-card:hover {
+        border-color: var(--color-teal);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-card);
+      }
+
+      .class-card[data-track="team"] {
+        background: linear-gradient(180deg, #fff, #fff8fa);
+        border-color: rgba(237, 45, 131, 0.22);
+      }
+
+      .class-card[data-track="team"]::before {
+        background: var(--color-pink);
+        border-radius: 0 var(--radius-card) 0 var(--radius-card);
+        color: #fff;
+        content: "Audition based";
+        font-family: var(--font-display);
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        padding: 5px 10px;
+        position: absolute;
+        right: 0;
+        text-transform: uppercase;
+        top: 0;
+      }
+
+      .class-head {
+        align-items: flex-start;
+        display: flex;
+        gap: 14px;
+        justify-content: space-between;
+      }
+
+      .class-icon {
+        align-items: center;
+        background: var(--color-aqua-soft);
+        border-radius: 12px;
+        color: var(--color-teal);
+        display: flex;
+        flex: 0 0 auto;
+        height: 44px;
+        justify-content: center;
+        width: 44px;
+      }
+
+      .class-icon svg { height: 20px; width: 20px; }
+
+      .class-card h3 {
+        flex: 1;
+        font-size: 1.18rem;
+      }
+
+      .class-card p {
+        color: var(--color-ink-soft);
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .class-meta {
+        align-items: center;
+        border-top: 1px solid var(--color-rule-soft);
+        color: var(--color-ink-soft);
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 13px;
+        gap: 6px 14px;
+        margin-top: auto;
+        padding-top: 14px;
+      }
+
+      .class-meta .dot { background: var(--color-rule); border-radius: 999px; height: 4px; width: 4px; }
+
+      .class-meta strong {
+        color: var(--color-teal-deep);
+        font-family: var(--font-display);
+        font-weight: 700;
+      }
+
+      /* Schedule snapshot */
+      .schedule {
+        background: var(--color-paper);
+      }
+
+      .schedule-card {
+        background: var(--color-teal-ink);
+        border-radius: var(--radius-card);
+        color: var(--color-paper);
+        display: grid;
+        gap: 0;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        overflow: hidden;
+        box-shadow: var(--shadow-card-lift);
+      }
+
+      .schedule-copy {
+        padding: clamp(36px, 5vw, 56px);
+      }
+
+      .schedule-copy h2 { color: var(--color-paper); }
+      .schedule-copy .kicker { color: var(--color-aqua); }
+      .schedule-copy .kicker::before { background: var(--color-aqua); }
+      .schedule-copy p {
+        color: rgba(244, 236, 223, 0.82);
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-top: 18px;
+      }
+
+      .schedule-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .schedule-actions .btn-primary { background: var(--color-pink); color: #fff; }
+      .schedule-actions .btn-primary:hover { background: var(--color-pink-deep); }
+      .schedule-actions .btn-ghost { color: var(--color-paper); border-color: rgba(244, 236, 223, 0.4); }
+      .schedule-actions .btn-ghost:hover { background: var(--color-paper); color: var(--color-teal-deep); border-color: var(--color-paper); }
+
+      .schedule-list {
+        background: rgba(255, 255, 255, 0.04);
+        padding: clamp(28px, 4vw, 40px);
+      }
+
+      .schedule-item {
+        align-items: center;
+        border-bottom: 1px solid rgba(244, 236, 223, 0.12);
+        display: grid;
+        gap: 10px 14px;
+        grid-template-columns: 64px 1fr auto;
+        padding: 16px 0;
+      }
+
+      .schedule-item:first-child { padding-top: 0; }
+      .schedule-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+      .schedule-day {
+        background: rgba(22, 201, 178, 0.18);
+        border-radius: var(--radius-sm);
+        color: var(--color-aqua);
+        font-family: var(--font-display);
+        font-size: 12.5px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        padding: 10px 0;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .schedule-info {
+        min-width: 0;
+      }
+
+      .schedule-info strong {
+        color: var(--color-paper);
+        display: block;
+        font-family: var(--font-display);
+        font-size: 1.02rem;
+        font-weight: 600;
+      }
+
+      .schedule-info span {
+        color: rgba(244, 236, 223, 0.66);
+        display: block;
+        font-size: 13px;
+        margin-top: 2px;
+      }
+
+      .schedule-time {
+        color: var(--color-paper);
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      /* Studio facility */
+      .facility {
+        background: var(--color-paper);
+      }
+
+      .facility-layout {
+        align-items: stretch;
+        display: grid;
+        gap: clamp(36px, 5vw, 56px);
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      }
+
+      .facility-copy h2 { margin-top: 16px; }
+      .facility-copy .lead {
+        color: var(--color-ink-soft);
+        font-size: 1.08rem;
+        margin-top: 22px;
+      }
+
+      .facility-list {
+        display: grid;
+        gap: 18px;
+        margin-top: 32px;
+      }
+
+      .facility-item {
+        align-items: flex-start;
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 44px minmax(0, 1fr);
+      }
+
+      .facility-item .icon {
+        align-items: center;
+        background: var(--color-pink-soft);
+        border-radius: 12px;
+        color: var(--color-pink-deep);
+        display: flex;
+        height: 44px;
+        justify-content: center;
+        width: 44px;
+      }
+
+      .facility-item:nth-child(odd) .icon { background: var(--color-aqua-soft); color: var(--color-teal); }
+
+      .facility-item .icon svg { height: 22px; width: 22px; }
+
+      .facility-item strong {
+        color: var(--color-teal-deep);
+        display: block;
+        font-family: var(--font-display);
+        font-size: 1.02rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .facility-item span {
+        color: var(--color-ink-soft);
+        display: block;
+        font-size: 14.5px;
+        line-height: 1.5;
+      }
+
+      .facility-gallery {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1.2fr 1fr 1fr;
+      }
+
+      .facility-gallery figure {
+        border-radius: var(--radius-card);
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .facility-gallery img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .facility-gallery .g-1 { grid-column: span 2; min-height: 240px; }
+      .facility-gallery .g-2,
+      .facility-gallery .g-3,
+      .facility-gallery .g-4,
+      .facility-gallery .g-5 { min-height: 160px; }
+      .facility-gallery .g-2 { grid-row: 2; }
+      .facility-gallery .g-3 { grid-row: 2; }
+      .facility-gallery .g-4 { grid-row: 3; grid-column: 1 / -1; min-height: 180px; }
+
+      /* Faculty */
+      .faculty {
+        background: var(--color-paper-warm);
+      }
+
+      .faculty-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .faculty-card {
+        background: var(--color-card);
+        border-radius: var(--radius-card);
+        overflow: hidden;
+        transition: transform var(--transition), box-shadow var(--transition);
+      }
+
+      .faculty-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+
+      .faculty-photo {
+        aspect-ratio: 4 / 5;
+        background: var(--color-aqua-soft);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .faculty-photo img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .faculty-body {
+        padding: 22px 22px 26px;
+      }
+
+      .faculty-card h3 {
+        font-size: 1.15rem;
+      }
+
+      .faculty-role {
+        color: var(--color-pink);
+        display: block;
+        font-family: var(--font-display);
+        font-size: 12.5px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-top: 6px;
+        text-transform: uppercase;
+      }
+
+      .faculty-styles {
+        color: var(--color-ink-soft);
+        font-size: 13.5px;
+        line-height: 1.5;
+        margin-top: 10px;
+      }
+
+      /* Testimonials */
+      .testimonials {
+        background: var(--color-paper);
+      }
+
+      .test-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .test-card {
+        background: var(--color-card);
+        border: 1px solid var(--color-rule-soft);
+        border-radius: var(--radius-card);
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        padding: 32px 30px;
+        position: relative;
+      }
+
+      .test-card::before {
+        color: var(--color-pink-soft);
+        content: "\201C";
+        font-family: var(--font-display);
+        font-size: 88px;
+        font-weight: 700;
+        left: 22px;
+        line-height: 1;
+        position: absolute;
+        top: 12px;
+      }
+
+      .test-card blockquote {
+        color: var(--color-teal-ink);
+        font-family: var(--font-display);
+        font-size: 1.18rem;
+        font-weight: 500;
+        line-height: 1.45;
+        margin: 0;
+        position: relative;
+        z-index: 1;
+      }
+
+      .test-attrib {
+        align-items: center;
+        border-top: 1px solid var(--color-rule-soft);
+        display: flex;
+        gap: 14px;
+        margin-top: auto;
+        padding-top: 22px;
+      }
+
+      .test-attrib img {
+        border-radius: 50%;
+        height: 52px;
+        object-fit: cover;
+        width: 52px;
+      }
+
+      .test-attrib strong {
+        color: var(--color-teal-deep);
+        display: block;
+        font-family: var(--font-display);
+        font-size: 0.98rem;
+        font-weight: 600;
+      }
+      .test-attrib span {
+        color: var(--color-ink-mute);
+        display: block;
+        font-size: 13px;
+      }
+
+      /* FAQ */
+      .faq {
+        background: var(--color-paper);
+      }
+
+      .faq-layout {
+        display: grid;
+        gap: 48px;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      }
+
+      .faq-side h2 { margin-top: 16px; }
+      .faq-side p { color: var(--color-ink-soft); margin-top: 20px; }
+
+      .faq-side .btn { margin-top: 28px; }
+
+      .faq-list { display: grid; gap: 12px; }
+
+      details.faq-item {
+        background: var(--color-card);
+        border: 1px solid var(--color-rule-soft);
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        transition: border-color var(--transition), box-shadow var(--transition);
+      }
+
+      details.faq-item[open] {
+        border-color: var(--color-teal);
+        box-shadow: var(--shadow-card);
+      }
+
+      details.faq-item summary {
+        align-items: center;
+        color: var(--color-teal-deep);
+        cursor: pointer;
+        display: grid;
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 600;
+        gap: 16px;
+        grid-template-columns: minmax(0, 1fr) 30px;
+        list-style: none;
+        padding: 20px 24px;
+      }
+
+      details.faq-item summary::-webkit-details-marker { display: none; }
+
+      details.faq-item summary::after {
+        align-items: center;
+        background: var(--color-aqua-soft);
+        border-radius: 50%;
+        color: var(--color-teal);
+        content: "+";
+        display: grid;
+        font-weight: 700;
+        height: 30px;
+        justify-items: center;
+        transition: transform var(--transition), background var(--transition);
+        width: 30px;
+      }
+
+      details.faq-item[open] summary::after {
+        background: var(--color-teal);
+        color: var(--color-paper);
+        content: "\2013";
+      }
+
+      .faq-answer {
+        color: var(--color-ink-soft);
+        padding: 0 24px 22px;
+      }
+
+      /* Visit / contact */
+      .visit {
+        background: var(--color-paper-warm);
+      }
+
+      .visit-layout {
+        display: grid;
+        gap: clamp(32px, 5vw, 56px);
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      }
+
+      .visit-info {
+        background: var(--color-card);
+        border-radius: var(--radius-card);
+        padding: clamp(28px, 4vw, 44px);
+        box-shadow: var(--shadow-card);
+      }
+
+      .visit-info h2 { margin-top: 14px; }
+
+      .visit-rows {
+        display: grid;
+        gap: 18px;
+        margin-top: 28px;
+      }
+
+      .visit-row {
+        align-items: flex-start;
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 44px minmax(0, 1fr);
+      }
+
+      .visit-row .icon {
+        align-items: center;
+        background: var(--color-aqua-soft);
+        border-radius: 12px;
+        color: var(--color-teal);
+        display: flex;
+        height: 44px;
+        justify-content: center;
+        width: 44px;
+      }
+
+      .visit-row .icon svg { height: 22px; width: 22px; }
+
+      .visit-row strong {
+        color: var(--color-ink-mute);
+        display: block;
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 3px;
+        text-transform: uppercase;
+      }
+
+      .visit-row a, .visit-row span {
+        color: var(--color-teal-deep);
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      .visit-row a:hover { color: var(--color-pink); }
+
+      .visit-cta-row {
+        align-items: center;
+        border-top: 1px solid var(--color-rule);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 32px;
+        padding-top: 28px;
+      }
+
+      .visit-form {
+        background: var(--color-teal-deep);
+        border-radius: var(--radius-card);
+        color: var(--color-paper);
+        padding: clamp(28px, 4vw, 44px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .visit-form::before {
+        background: radial-gradient(circle at 90% 12%, rgba(237, 45, 131, 0.22), transparent 60%);
+        content: "";
+        inset: 0;
+        pointer-events: none;
+        position: absolute;
+      }
+
+      .visit-form > * { position: relative; z-index: 1; }
+
+      .visit-form h3 {
+        color: var(--color-paper);
+        font-size: 1.55rem;
+      }
+
+      .visit-form p {
+        color: rgba(244, 236, 223, 0.78);
+        font-size: 14.5px;
+        margin-top: 12px;
+      }
+
+      .visit-form form {
+        display: grid;
+        gap: 14px;
+        margin-top: 26px;
+      }
+
+      .visit-form .field-row {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .visit-form label {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        color: rgba(244, 236, 223, 0.7);
+      }
+
+      .visit-form input,
+      .visit-form textarea,
+      .visit-form select {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(244, 236, 223, 0.18);
+        border-radius: var(--radius-sm);
+        color: var(--color-paper);
+        font-family: var(--font-body);
+        font-size: 15px;
+        padding: 13px 14px;
+        width: 100%;
+        transition: border-color var(--transition), background var(--transition);
+      }
+
+      .visit-form input::placeholder,
+      .visit-form textarea::placeholder { color: rgba(244, 236, 223, 0.5); }
+
+      .visit-form input:focus,
+      .visit-form textarea:focus,
+      .visit-form select:focus {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: var(--color-aqua);
+        outline: none;
+      }
+
+      .visit-form textarea { min-height: 110px; resize: vertical; }
+
+      .visit-form button {
+        background: var(--color-pink);
+        border: none;
+        border-radius: var(--radius-pill);
+        color: #fff;
+        cursor: pointer;
+        font-family: var(--font-body);
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 6px;
+        min-height: 50px;
+        padding: 0 24px;
+        transition: background var(--transition), transform var(--transition);
+      }
+
+      .visit-form button:hover { background: var(--color-pink-deep); transform: translateY(-1px); }
+
+      .visit-form .form-note {
+        color: rgba(244, 236, 223, 0.55);
+        font-size: 12.5px;
+        margin-top: 14px;
+      }
+
+      .map-strip {
+        margin-top: 28px;
+      }
+
+      .map-strip a {
+        display: block;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .map-strip img {
+        display: block;
+        max-height: 220px;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .map-strip-label {
+        background: rgba(7, 59, 63, 0.92);
+        bottom: 14px;
+        border-radius: var(--radius-pill);
+        color: var(--color-paper);
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 600;
+        left: 14px;
+        padding: 10px 14px;
+        position: absolute;
+      }
+
+      /* Final CTA */
+      .final-cta {
+        background: var(--color-paper);
+        padding-bottom: clamp(96px, 10vw, 140px);
+      }
+
+      .final-card {
+        background:
+          radial-gradient(circle at 18% 22%, rgba(237, 45, 131, 0.22), transparent 50%),
+          radial-gradient(circle at 88% 80%, rgba(22, 201, 178, 0.18), transparent 55%),
+          var(--color-teal-ink);
+        border-radius: var(--radius-card);
+        color: var(--color-paper);
+        display: grid;
+        gap: 28px;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+        padding: clamp(36px, 5vw, 64px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .final-card .kicker { color: var(--color-aqua); }
+      .final-card .kicker::before { background: var(--color-aqua); }
+      .final-card h2 { color: var(--color-paper); margin-top: 14px; }
+      .final-card p {
+        color: rgba(244, 236, 223, 0.82);
+        font-size: 1.05rem;
+        margin-top: 18px;
+        max-width: 540px;
+      }
+
+      .final-actions {
+        align-items: center;
+        align-self: end;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-self: end;
+      }
+
+      .final-actions .btn-pink { min-height: 54px; padding: 0 28px; font-size: 15px; }
+      .final-actions .btn-ghost { color: var(--color-paper); border-color: rgba(244, 236, 223, 0.4); }
+      .final-actions .btn-ghost:hover { background: var(--color-paper); color: var(--color-teal-deep); border-color: var(--color-paper); }
+
+      /* Footer */
+      .site-footer {
+        background: var(--color-teal-ink);
+        color: rgba(244, 236, 223, 0.76);
+        padding: 64px 0 28px;
+      }
+
+      .footer-grid {
+        display: grid;
+        gap: 36px;
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.85fr) minmax(0, 0.85fr) minmax(0, 1fr);
+        margin: 0 auto;
+        max-width: var(--page);
+        padding: 0 var(--gutter);
+      }
+
+      .footer-brand img {
+        background: var(--color-paper);
+        border-radius: var(--radius-sm);
+        max-height: 52px;
+        padding: 10px 12px;
+        width: 220px;
+      }
+
+      .footer-brand p {
+        color: rgba(244, 236, 223, 0.7);
+        font-size: 14px;
+        line-height: 1.55;
+        margin-top: 18px;
+        max-width: 320px;
+      }
+
+      .footer-socials {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .footer-socials a {
+        align-items: center;
+        background: rgba(244, 236, 223, 0.08);
+        border-radius: 50%;
+        color: var(--color-paper);
+        display: flex;
+        height: 38px;
+        justify-content: center;
+        transition: background var(--transition), color var(--transition);
+        width: 38px;
+      }
+
+      .footer-socials a:hover { background: var(--color-pink); color: #fff; }
+      .footer-socials svg { height: 16px; width: 16px; }
+
+      .site-footer h4 {
+        color: var(--color-paper);
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+      }
+
+      .footer-links {
+        display: grid;
+        gap: 10px;
+      }
+
+      .footer-links a {
+        color: rgba(244, 236, 223, 0.72);
+        font-size: 14px;
+      }
+      .footer-links a:hover { color: var(--color-pink-soft); }
+
+      .footer-meta {
+        align-items: center;
+        border-top: 1px solid rgba(244, 236, 223, 0.1);
+        color: rgba(244, 236, 223, 0.5);
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 12.5px;
+        gap: 14px;
+        justify-content: space-between;
+        margin: 56px auto 0;
+        max-width: var(--page);
+        padding: 24px var(--gutter) 0;
+      }
+
+      /* Sticky mobile CTA */
+      .mobile-cta {
+        align-items: center;
+        background: var(--color-teal-deep);
+        bottom: 0;
+        box-shadow: 0 -10px 28px rgba(7, 59, 63, 0.18);
+        display: none;
+        gap: 10px;
+        justify-content: space-between;
+        left: 0;
+        padding: 12px 16px;
+        position: fixed;
+        right: 0;
+        z-index: 50;
+      }
+
+      .mobile-cta span {
+        color: var(--color-paper);
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .mobile-cta a {
+        background: var(--color-pink);
+        border-radius: var(--radius-pill);
+        color: #fff;
+        font-size: 13.5px;
+        font-weight: 700;
+        padding: 11px 18px;
+      }
+
+      /* Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 600ms ease, transform 600ms ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive */
+      @media (max-width: 1060px) {
+        .primary-nav { gap: 18px; }
+        .header-actions .btn-secondary { display: none; }
+        .faculty-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+
+      @media (max-width: 920px) {
+        .nav-wrap { height: 64px; padding: 0 18px; }
+        .brand img { width: 180px; max-height: 38px; }
+        .menu-toggle { display: inline-flex; }
+        .primary-nav {
+          background: var(--color-card);
+          border-top: 1px solid var(--color-rule);
+          display: none;
+          flex-direction: column;
+          gap: 0;
+          left: 0;
+          padding: 8px 18px 18px;
+          position: absolute;
+          right: 0;
+          top: 64px;
+          box-shadow: var(--shadow-card);
+        }
+        .site-header.is-open .primary-nav { display: flex; }
+        .primary-nav a {
+          border-bottom: 1px solid var(--color-rule-soft);
+          padding: 14px 0;
+          width: 100%;
+        }
+        .header-actions .btn-primary { padding: 0 16px; min-height: 42px; }
+
+        .hero-grid { grid-template-columns: minmax(0, 1fr); }
+        .hero-image-card { min-height: 340px; }
+
+        .pathway-grid { grid-template-columns: minmax(0, 1fr); margin-top: -28px; }
+
+        .story-grid,
+        .facility-layout,
+        .faq-layout,
+        .visit-layout,
+        .final-card { grid-template-columns: minmax(0, 1fr); }
+
+        .final-actions { justify-self: start; }
+
+        .class-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+        .schedule-card { grid-template-columns: minmax(0, 1fr); }
+
+        .test-grid { grid-template-columns: minmax(0, 1fr); }
+
+        .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+        .story-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .story-stat:nth-child(3) { border-left: none; border-top: 1px solid var(--color-rule); }
+        .story-stat:nth-child(4) { border-top: 1px solid var(--color-rule); }
+        .story-stat:nth-child(odd) { border-left: none; }
+
+        .facility-gallery { grid-template-columns: 1fr; grid-template-rows: auto; }
+        .facility-gallery .g-1 { grid-column: auto; min-height: 220px; }
+        .facility-gallery .g-2,
+        .facility-gallery .g-3,
+        .facility-gallery .g-4 { grid-row: auto; grid-column: auto; min-height: 180px; }
+
+        .story-visual { grid-template-columns: 1fr 1fr; }
+        .story-visual .v-main { grid-row: span 1; grid-column: span 2; min-height: 280px; }
+        .story-visual .v-side { min-height: 160px; }
+
+        .mobile-cta { display: flex; }
+        body { padding-bottom: 76px; }
+      }
+
+      @media (max-width: 600px) {
+        .class-grid { grid-template-columns: minmax(0, 1fr); }
+        .faculty-grid { grid-template-columns: minmax(0, 1fr); }
+        .hero-quickstats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .visit-form .field-row { grid-template-columns: minmax(0, 1fr); }
+        .footer-grid { grid-template-columns: minmax(0, 1fr); }
+        .schedule-item { grid-template-columns: 56px 1fr; }
+        .schedule-time { grid-column: 2; }
+        .trust-strip-inner { flex-direction: column; gap: 14px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after {
+          animation-duration: 0.001ms !important;
+          transition-duration: 0.001ms !important;
+        }
+        .reveal { opacity: 1; transform: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="template-return-bar">
+      <a class="gallery-return" href="../../" aria-label="Return to template options">&larr; Back to template options</a>
+      <span>Demo 4 &middot; Program Pathways</span>
+    </div>
+
+    <div class="site-shell">
+      <header class="site-header" id="top">
+        <div class="nav-wrap">
+          <a class="brand" href="https://absolutedance.org/" aria-label="Absolute Dance home">
+            <img src="../../assets/logo-2.png" alt="Absolute Dance">
+          </a>
+          <nav class="primary-nav" aria-label="Primary navigation">
+            <a href="#pathways" class="has-pin">Get started</a>
+            <a href="#programs">Programs</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#facility">Studio</a>
+            <a href="#faculty">Faculty</a>
+            <a href="#visit">Visit</a>
+          </nav>
+          <div class="header-actions">
+            <a class="btn btn-secondary" href="https://app.thestudiodirector.com/absolutedance/portal.sd?page=Login" target="_blank" rel="noopener">Parent Portal</a>
+            <a class="btn btn-primary" href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3" target="_blank" rel="noopener">Register</a>
+            <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-menu" aria-expanded="false">
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- Hero -->
+        <section class="hero">
+          <div class="hero-grid">
+            <div class="hero-copy reveal">
+              <span class="kicker">Midland, TX &middot; Ages 2 and up</span>
+              <h1>A clear next step into dance for <span class="accent">every family</span>.</h1>
+              <p class="hero-lead">Three studios under one roof, teachers who know each dancer by name, and a parent journey built so choosing the right class never feels like guesswork.</p>
+              <div class="hero-cta-row">
+                <a class="btn btn-primary" href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3" target="_blank" rel="noopener">
+                  Register for the season
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                </a>
+                <a class="link" href="#pathways">Or pick your starting point</a>
+              </div>
+              <div class="hero-microproof">
+                <div class="faces">
+                  <img src="../../assets/nancy-o.jpg" alt="Parent Nancy O.">
+                  <img src="../../assets/edward-b.jpg" alt="Parent Edward B.">
+                </div>
+                <span>Parents in Midland call it the best dance home in the area.</span>
+              </div>
+            </div>
+            <div class="hero-visual reveal">
+              <div class="hero-image-card">
+                <img src="../../assets/hero-bg.jpg" alt="Absolute Dance dancers in class">
+                <span class="hero-image-tag">Enrolling now</span>
+                <p class="hero-image-caption">Fall classes filling for the 2026 to 2027 season.</p>
+              </div>
+              <div class="hero-quickstats">
+                <div class="stat"><strong>5</strong><span>Studios</span></div>
+                <div class="stat"><strong>10,000</strong><span>Sq ft facility</span></div>
+                <div class="stat"><strong>2+</strong><span>Starting age</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pathways -->
+        <section class="pathways" id="pathways" aria-label="Parent pathways">
+          <div class="pathways-inner">
+            <div class="pathway-grid">
+              <article class="pathway reveal">
+                <span class="pathway-num">Path 01</span>
+                <div class="pathway-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="4" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                </div>
+                <h3>Browse class types</h3>
+                <p>See every program by age and style, with day pattern and class length, so you can match your dancer in minutes.</p>
+                <a class="pathway-action" href="#programs">
+                  See class options
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                </a>
+              </article>
+              <article class="pathway reveal">
+                <span class="pathway-num">Path 02</span>
+                <div class="pathway-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3 7-7"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
+                </div>
+                <h3>Register for the season</h3>
+                <p>Already know the class you want? Register through the family portal and the studio handles placement, paperwork, and your schedule.</p>
+                <a class="pathway-action" href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3" target="_blank" rel="noopener">
+                  Start registration
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                </a>
+              </article>
+              <article class="pathway reveal">
+                <span class="pathway-num">Path 03</span>
+                <div class="pathway-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+                </div>
+                <h3>Schedule a studio tour</h3>
+                <p>Still deciding? Visit the studio, meet the team, and watch a class so you can see the culture before you commit.</p>
+                <a class="pathway-action" href="#visit">
+                  Plan a visit
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                </a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Story -->
+        <section class="section story" id="story">
+          <div class="section-inner">
+            <div class="story-grid">
+              <div class="story-copy reveal">
+                <span class="kicker">Who we are</span>
+                <h2>An award-winning dance home, built around your dancer.</h2>
+                <p class="lead">Absolute Dance has spent years helping young dancers in Midland grow into confident performers and confident young people. Families come for the teaching, and they stay because their kids genuinely look forward to class each week.</p>
+                <p>The studio runs on the belief that dedication, integrity, and a long-standing commitment to every student inspires dancers to be their best, inside and outside the studio. That is what the founder writes on the wall, and it is what every teacher carries into the room.</p>
+                <div class="story-stats">
+                  <div class="story-stat"><strong>500+</strong><span>Dancers each season</span></div>
+                  <div class="story-stat"><strong>5</strong><span>Dance studios on site</span></div>
+                  <div class="story-stat"><strong>7</strong><span>Class styles offered</span></div>
+                  <div class="story-stat"><strong>2+</strong><span>Youngest starting age</span></div>
+                </div>
+              </div>
+              <div class="story-visual reveal">
+                <figure class="v-main">
+                  <img src="../../assets/studio-bg.jpg" alt="Absolute Dance studio space and dancers">
+                </figure>
+                <figure class="v-side">
+                  <img src="../../assets/gallery-1.jpeg" alt="A class in session at Absolute Dance">
+                </figure>
+                <div class="v-badge">
+                  <strong>Award-winning team</strong>
+                  <span>Recognised for excellent teaching and student care.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Trust strip -->
+        <div class="trust-strip" aria-label="Studio reassurance">
+          <div class="trust-strip-inner">
+            <span class="trust-strip-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              Family-owned and locally trusted
+            </span>
+            <span class="trust-strip-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18"/><path d="M5 8c4 0 7-2 7-5 0 3 3 5 7 5"/><path d="M5 16c4 0 7 2 7 5 0-3 3-5 7-5"/></svg>
+              Classes for ages 2 through teen
+            </span>
+            <span class="trust-strip-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-7h6v7"/></svg>
+              Purpose-built 10,000 sq ft facility
+            </span>
+            <span class="trust-strip-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              Online portal for schedule and payments
+            </span>
+          </div>
+        </div>
+
+        <!-- Programs -->
+        <section class="section programs" id="programs">
+          <div class="section-inner">
+            <div class="section-head reveal">
+              <span class="kicker">Programs</span>
+              <h2>Pick the path that fits your dancer.</h2>
+              <p class="lead">Recreational classes run weekly through the fall season. Team programs train year round. Every class is taught by faculty who know the technique and the dancer.</p>
+              <div class="program-tabs" role="group" aria-label="Filter classes">
+                <button type="button" data-filter="all" aria-pressed="true">All programs</button>
+                <button type="button" data-filter="early">Early years</button>
+                <button type="button" data-filter="rec">Recreational</button>
+                <button type="button" data-filter="team">Teams</button>
+              </div>
+            </div>
+
+            <div class="class-grid" aria-label="Class catalog">
+              <article class="class-card reveal" data-track="early">
+                <div class="class-head">
+                  <div class="class-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3v6"/><path d="M9 6h6"/><circle cx="12" cy="15" r="5"/></svg></div>
+                  <h3>Tiny Movers</h3>
+                </div>
+                <p>A first taste of dance for the youngest students. Movement, music, and classroom rhythm in a happy, parent-friendly format.</p>
+                <div class="class-meta">
+                  <strong>Ages 2 to 3</strong><span class="dot"></span>
+                  <span>Tuesdays</span><span class="dot"></span>
+                  <span>30 min</span>
+                </div>
+              </article>
+
+              <article class="class-card reveal" data-track="early">
+                <div class="class-head">
+                  <div class="class-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="9" cy="8" r="2"/><circle cx="15" cy="8" r="2"/><path d="M5 19c1.5-4 5.5-5 7-5s5.5 1 7 5"/></svg></div>
+                  <h3>Pre-Dance</h3>
+                </div>
+                <p>Playful ballet and tap fundamentals for ages 3 and 4. Builds coordination, listening, and the first sense of being a dancer.</p>
+                <div class="class-meta">
+                  <strong>Ages 3 to 4</strong><span class="dot"></span>
+                  <span>Mon &amp; Thu</span><span class="dot"></span>
+                  <span>45 min</span>
+                </div>
+              </article>
+
+              <article class="class-card reveal" data-track="rec">
+                <div class="class-head">
+                  <div class="class-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 4v16"/><path d="M7 8c2 0 5-2 5-4"/><path d="M17 8c-2 0-5-2-5-4"/><path d="M7 16c2 0 5 2 5 4"/><path d="M17 16c-2 0-5 2-5 4"/></svg></div>
+                  <h3>Ballet</h3>
+                </div>
+                <p>Technique, posture, discipline, and artistry. The foundation behind every other style on the floor.</p>
+                <div class="class-meta">
+                  <strong>Ages 5 and up</strong><span class="dot"></span>
+                  <span>Weekly</span><span class="dot"></span>
+                  <span>Beginner to advanced</span>
+                </div>
+              </article>
+
+              <article class="class-card reveal" data-track="rec">
+                <div class="class-head">
+                  <div class="class-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M6 18h12"/><path d="M8 18V8l6 5v5"/><path d="M15 18c0-3 2-5 4-6"/></svg></div>
+                  <h3>Tap</h3>
+                </div>
+                <p>Rhythm, musicality, and footwork in an upbeat class setting. Dancers leave smiling and thinking in counts.</p>
+                <div class="class-meta">
+                  <strong>Ages 5 and up</strong><span class="dot"></span>
+                  <span>Weekly</span><span class="dot"></span>
+                  <span>Multi-level</span>
+                </div>
+              </article>
+
+              <article class="class-card reveal" data-track="rec">
+                <div class="class-head">
+                  <div class="class-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 18c4-1 8-5 9-12"/><path d="M13 10c3 1 5 4 6 8"/><path d="M9 14l6 2"/></svg></div>
+                  <h3>Jazz</h3>
+                </div>
+                <p>Energy, turns, leaps, and performance quality. Dancers build confidence on stage as well as in the studio.</p>
+                <div class="class-meta">
+                  <strong>Ages 6 and up</strong><span class="dot"></span>
+                  <span>Weekly</span><span class="dot"></span>
+                  <span>Beginner to advanced</span>
+                </div>
+              </article>
+
+              <article class="class-card reveal" data-track="rec">
+                <div class="class-head">
+                  <div class="class-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 15c4-2 5-7 8-7s4 5 8 7"/><path d="M6 19h12"/><path d="M8 12l4 4 4-4"/></svg></div>
+                  <h3>Hip-hop</h3>
+                </div>
+                <p>Musicality, groove, and stage presence in a high-energy style. Loud, fun, and serious about the craft.</p>
+                <div class="class-meta">
+                  <strong>Ages 6 and up</strong><span class="dot"></span>
+                  <span>Weekly</span><span class="dot"></span>
+                  <span>Multi-level</span>
+                </div>
+              </article>
+
+              <article class="class-card reveal" data-track="rec">
+                <div class="class-head">
+                  <div class="class-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M4 17c5-8 11-8 16 0"/><path d="M8 15c2 2 6 2 8 0"/><path d="M12 5v8"/></svg></div>
+                  <h3>Lyrical</h3>
+                </div>
+                <p>Emotion, storytelling, and extension. For dancers ready to connect movement with music and meaning.</p>
+                <div class="class-meta">
+                  <strong>Ages 8 and up</strong><span class="dot"></span>
+                  <span>Weekly</span><span class="dot"></span>
+                  <span>Intermediate</span>
+                </div>
+              </article>
+
+              <article class="class-card reveal" data-track="rec">
+                <div class="class-head">
+                  <div class="class-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 18c2-6 12-6 14 0"/><path d="M8 14a4 4 0 1 1 8 0"/><path d="M12 10V5"/></svg></div>
+                  <h3>Tumble</h3>
+                </div>
+                <p>Strength, flexibility, and tumbling skills in a supportive setting. Great pairing with any dance style.</p>
+                <div class="class-meta">
+                  <strong>Ages 5 and up</strong><span class="dot"></span>
+                  <span>Weekly</span><span class="dot"></span>
+                  <span>All levels</span>
+                </div>
+              </article>
+
+              <article class="class-card reveal" data-track="team">
+                <div class="class-head">
+                  <div class="class-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 4 14.5 9l5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9L9.5 9z"/></svg></div>
+                  <h3>Competitive Teams</h3>
+                </div>
+                <p>Year-round training, competitions, and stage experience for dancers ready to commit to teamwork and growth.</p>
+                <div class="class-meta">
+                  <strong>Ages 6 and up</strong><span class="dot"></span>
+                  <span>Year round</span><span class="dot"></span>
+                  <span>By audition</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Schedule -->
+        <section class="section schedule" id="schedule">
+          <div class="section-inner">
+            <div class="schedule-card reveal">
+              <div class="schedule-copy">
+                <span class="kicker">2026 to 2027 season</span>
+                <h2>A snapshot of what the week looks like.</h2>
+                <p>This is a sample of classes that typically run each week. The full schedule, including levels and start dates, is available through the registration portal.</p>
+                <div class="schedule-actions">
+                  <a class="btn btn-primary" href="https://absolutedance.org/2026-2027-fall-class-schedule/" target="_blank" rel="noopener">View full schedule</a>
+                  <a class="btn btn-ghost" href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3" target="_blank" rel="noopener">Register now</a>
+                </div>
+              </div>
+              <div class="schedule-list" aria-label="Sample weekly schedule">
+                <div class="schedule-item">
+                  <div class="schedule-day">Mon</div>
+                  <div class="schedule-info">
+                    <strong>Pre-Dance Combo</strong>
+                    <span>Ages 3 to 4 &middot; 45 min</span>
+                  </div>
+                  <div class="schedule-time">4:30 pm</div>
+                </div>
+                <div class="schedule-item">
+                  <div class="schedule-day">Tue</div>
+                  <div class="schedule-info">
+                    <strong>Tiny Movers</strong>
+                    <span>Ages 2 to 3 &middot; 30 min</span>
+                  </div>
+                  <div class="schedule-time">3:45 pm</div>
+                </div>
+                <div class="schedule-item">
+                  <div class="schedule-day">Tue</div>
+                  <div class="schedule-info">
+                    <strong>Ballet I</strong>
+                    <span>Ages 5 to 7 &middot; 60 min</span>
+                  </div>
+                  <div class="schedule-time">5:00 pm</div>
+                </div>
+                <div class="schedule-item">
+                  <div class="schedule-day">Wed</div>
+                  <div class="schedule-info">
+                    <strong>Hip-hop Crew</strong>
+                    <span>Ages 8 to 11 &middot; 60 min</span>
+                  </div>
+                  <div class="schedule-time">5:30 pm</div>
+                </div>
+                <div class="schedule-item">
+                  <div class="schedule-day">Thu</div>
+                  <div class="schedule-info">
+                    <strong>Jazz / Lyrical Combo</strong>
+                    <span>Ages 10 and up &middot; 75 min</span>
+                  </div>
+                  <div class="schedule-time">6:00 pm</div>
+                </div>
+                <div class="schedule-item">
+                  <div class="schedule-day">Sat</div>
+                  <div class="schedule-info">
+                    <strong>Tumble Workshop</strong>
+                    <span>Ages 5 and up &middot; 45 min</span>
+                  </div>
+                  <div class="schedule-time">10:00 am</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Facility -->
+        <section class="section facility" id="facility">
+          <div class="section-inner">
+            <div class="facility-layout">
+              <div class="facility-copy reveal">
+                <span class="kicker">Inside the studio</span>
+                <h2>A facility designed for dancers and easy for families.</h2>
+                <p class="lead">Ten thousand square feet of dance space, plus the practical extras that make a Monday-to-Thursday routine work for parents and siblings too.</p>
+                <div class="facility-list">
+                  <div class="facility-item">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 11h18"/></svg></div>
+                    <div><strong>Five sprung-floor studios</strong><span>Dedicated rooms so classes never overlap or rush.</span></div>
+                  </div>
+                  <div class="facility-item">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg></div>
+                    <div><strong>Parent observation windows</strong><span>See class in progress without disrupting the lesson.</span></div>
+                  </div>
+                  <div class="facility-item">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h10"/></svg></div>
+                    <div><strong>Homework room and lounge</strong><span>A calm space for siblings and after-school routine.</span></div>
+                  </div>
+                  <div class="facility-item">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 17h14l-1.5-6h-11z"/><path d="M7 11V8a5 5 0 0 1 10 0v3"/></svg></div>
+                    <div><strong>Easy parking and drop-off</strong><span>Direct entry from the lot so pickup runs smoothly.</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="facility-gallery reveal">
+                <figure class="g-1"><img src="../../assets/faculty-bg.jpg" alt="Absolute Dance faculty teaching a class"></figure>
+                <figure class="g-2"><img src="../../assets/team-hero-img.jpg" alt="Team dancers at Absolute Dance"></figure>
+                <figure class="g-3"><img src="../../assets/competitive-team.jpg" alt="Competitive team performance"></figure>
+                <figure class="g-4"><img src="../../assets/gallery-2.jpeg" alt="Studio interior at Absolute Dance"></figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Faculty -->
+        <section class="section faculty" id="faculty">
+          <div class="section-inner">
+            <div class="section-head reveal">
+              <span class="kicker">Meet the faculty</span>
+              <h2>Teachers who know each dancer.</h2>
+              <p class="lead">Every class is led by a teacher chosen as much for the way they care about kids as for what they know about technique. Full bios live on the faculty page.</p>
+            </div>
+            <div class="faculty-grid">
+              <article class="faculty-card reveal">
+                <div class="faculty-photo"><img src="../../assets/faculty-bg.jpg" alt="Miss Maddy at Absolute Dance"></div>
+                <div class="faculty-body">
+                  <h3>Miss Maddy</h3>
+                  <span class="faculty-role">Lead Instructor</span>
+                  <p class="faculty-styles">Ballet, jazz, lyrical. Parents call her out by name when they talk about why their dancer loves coming back.</p>
+                </div>
+              </article>
+              <article class="faculty-card reveal">
+                <div class="faculty-photo"><img src="../../assets/team-hero-img.jpg" alt="Team coach at Absolute Dance"></div>
+                <div class="faculty-body">
+                  <h3>Team Coaching Staff</h3>
+                  <span class="faculty-role">Competitive Program</span>
+                  <p class="faculty-styles">Choreography, competition prep, and the day-to-day work of building a strong, supportive team culture.</p>
+                </div>
+              </article>
+              <article class="faculty-card reveal">
+                <div class="faculty-photo"><img src="../../assets/competitive-team.jpg" alt="Tumble and tap faculty"></div>
+                <div class="faculty-body">
+                  <h3>Tumble &amp; Tap Faculty</h3>
+                  <span class="faculty-role">Skill Specialists</span>
+                  <p class="faculty-styles">Tumbling, tap, and hip-hop specialists who keep things rigorous, age appropriate, and genuinely fun.</p>
+                </div>
+              </article>
+              <article class="faculty-card reveal">
+                <div class="faculty-photo"><img src="../../assets/gallery-1.jpeg" alt="Pre-dance teacher with young dancers"></div>
+                <div class="faculty-body">
+                  <h3>Pre-Dance Team</h3>
+                  <span class="faculty-role">Early Years</span>
+                  <p class="faculty-styles">The teachers who make a two-year-old feel safe in the room. Patient, warm, and brilliant with little dancers.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section testimonials" id="testimonials">
+          <div class="section-inner">
+            <div class="section-head reveal">
+              <span class="kicker">Parent proof</span>
+              <h2>What Midland families actually say.</h2>
+              <p class="lead">Real quotes from the Absolute Dance website, with the parents who wrote them.</p>
+            </div>
+            <div class="test-grid">
+              <article class="test-card reveal">
+                <blockquote>Miss Maddy and the teachers at Absolute Dance are just incredible. They genuinely care about every single dancer and we couldn't be more grateful.</blockquote>
+                <div class="test-attrib">
+                  <img src="../../assets/nancy-o.jpg" alt="Nancy O.">
+                  <div>
+                    <strong>Nancy O.</strong>
+                    <span>Absolute Dance parent</span>
+                  </div>
+                </div>
+              </article>
+              <article class="test-card reveal">
+                <blockquote>Sophia very eagerly looks forward to class every single week. The teachers are truly amazing. Hands down the best dance school in the area.</blockquote>
+                <div class="test-attrib">
+                  <img src="../../assets/edward-b.jpg" alt="Edward B.">
+                  <div>
+                    <strong>Edward B.</strong>
+                    <span>Absolute Dance parent</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section faq" id="faq">
+          <div class="section-inner">
+            <div class="faq-layout">
+              <div class="faq-side reveal">
+                <span class="kicker">Parent questions</span>
+                <h2>Practical answers, before you commit.</h2>
+                <p>The questions families ask most often when comparing studios or starting a new season. Anything else, the front desk is happy to help.</p>
+                <a class="btn btn-primary" href="mailto:info@absolutedance.org">Email a question</a>
+              </div>
+              <div class="faq-list reveal">
+                <details class="faq-item" open>
+                  <summary>What age can my dancer start?</summary>
+                  <div class="faq-answer">Classes are available for ages 2 and up, with age-appropriate options for tiny movers, elementary dancers, older students, and teens. The Pre-Dance and Tiny Movers programs are designed for the youngest students.</div>
+                </details>
+                <details class="faq-item">
+                  <summary>How do we choose the right class?</summary>
+                  <div class="faq-answer">Start with your dancer's age, then pick the style that feels most natural for them. Ballet, tap, jazz, hip-hop, lyrical, and tumble are all available. If you're not sure, the studio team is glad to help you choose during a quick call or visit.</div>
+                </details>
+                <details class="faq-item">
+                  <summary>How do registration and payments work?</summary>
+                  <div class="faq-answer">Registration is online through the family portal. You can manage your account, classes, and payments there. Returning families keep their existing portal login.</div>
+                </details>
+                <details class="faq-item">
+                  <summary>Can parents watch class?</summary>
+                  <div class="faq-answer">Yes. Each studio has an observation area or window so families can watch without disrupting the lesson. There's also a homework room and lounge for siblings while class is running.</div>
+                </details>
+                <details class="faq-item">
+                  <summary>Do you offer competitive teams?</summary>
+                  <div class="faq-answer">Yes. Competitive teams train year round and perform at regional competitions. Placement is by audition and is open to dancers ages 6 and up who are ready for the extra commitment.</div>
+                </details>
+                <details class="faq-item">
+                  <summary>Where is the studio?</summary>
+                  <div class="faq-answer">Absolute Dance is at 5109 Sunmore Circle, Midland TX 79707. Easy parking, direct entry, and a five minute drive from most of west Midland.</div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Visit -->
+        <section class="section visit" id="visit">
+          <div class="section-inner">
+            <div class="visit-layout">
+              <div class="visit-info reveal">
+                <span class="kicker">Visit the studio</span>
+                <h2>Come see the space before you commit.</h2>
+                <p style="color: var(--color-ink-soft); margin-top: 22px;">Call, email, or send the form on the right and the studio team will help you pick a class, plan a tour, or answer a question before you register.</p>
+
+                <div class="visit-rows">
+                  <div class="visit-row">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg></div>
+                    <div>
+                      <strong>Studio hours</strong>
+                      <span>Monday to Thursday, 2:00 pm to 7:00 pm</span>
+                    </div>
+                  </div>
+                  <div class="visit-row">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9z"/></svg></div>
+                    <div>
+                      <strong>Phone</strong>
+                      <a href="tel:4326992190">432-699-2190</a>
+                    </div>
+                  </div>
+                  <div class="visit-row">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg></div>
+                    <div>
+                      <strong>Email</strong>
+                      <a href="mailto:info@absolutedance.org">info@absolutedance.org</a>
+                    </div>
+                  </div>
+                  <div class="visit-row">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-5.3 7-12A7 7 0 0 0 5 10c0 6.7 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+                    <div>
+                      <strong>Studio</strong>
+                      <a href="https://maps.app.goo.gl/XrrW5cg4Zsa4KJME8" target="_blank" rel="noopener">5109 Sunmore Circle, Midland TX 79707</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="visit-cta-row">
+                  <a class="btn btn-primary" href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3" target="_blank" rel="noopener">Register for classes</a>
+                  <a class="btn btn-ghost" href="https://app.thestudiodirector.com/absolutedance/portal.sd?page=Login" target="_blank" rel="noopener">Parent portal</a>
+                </div>
+
+                <div class="map-strip">
+                  <a href="https://maps.app.goo.gl/XrrW5cg4Zsa4KJME8" target="_blank" rel="noopener" aria-label="Open Absolute Dance on Google Maps">
+                    <img src="../../assets/map.png" alt="Map showing Absolute Dance in Midland, TX">
+                    <span class="map-strip-label">Open in Google Maps</span>
+                  </a>
+                </div>
+              </div>
+
+              <aside class="visit-form reveal" aria-label="Ask a question">
+                <h3>Send a quick question.</h3>
+                <p>The studio reads every message. Expect a reply within one business day.</p>
+                <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thank you, we will be in touch'; this.querySelector('button').disabled=true;">
+                  <div class="field-row">
+                    <div>
+                      <label for="firstName">First name</label>
+                      <input id="firstName" name="firstName" type="text" placeholder="Jamie" required>
+                    </div>
+                    <div>
+                      <label for="lastName">Last name</label>
+                      <input id="lastName" name="lastName" type="text" placeholder="Rivera" required>
+                    </div>
+                  </div>
+                  <div>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="parent@example.com" required>
+                  </div>
+                  <div>
+                    <label for="dancerAge">Dancer age</label>
+                    <select id="dancerAge" name="dancerAge">
+                      <option>Ages 2 to 3</option>
+                      <option>Ages 3 to 4</option>
+                      <option>Ages 5 to 7</option>
+                      <option>Ages 8 to 11</option>
+                      <option>Ages 12 and up</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="message">Your question</label>
+                    <textarea id="message" name="message" placeholder="What style are you thinking about, or what would help you decide?"></textarea>
+                  </div>
+                  <button type="submit">Send the question</button>
+                  <p class="form-note">This is a template demo. The form does not send messages yet.</p>
+                </form>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta">
+          <div class="section-inner">
+            <div class="final-card reveal">
+              <div>
+                <span class="kicker">One next step</span>
+                <h2>Give your dancer a studio home worth looking forward to.</h2>
+                <p>Pick a class, register, or send a question. Whichever path fits today, the studio team will take it from there.</p>
+              </div>
+              <div class="final-actions">
+                <a class="btn btn-pink" href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3" target="_blank" rel="noopener">
+                  Register for classes
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                </a>
+                <a class="btn btn-ghost" href="mailto:info@absolutedance.org">Ask a question</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="https://absolutedance.org/" aria-label="Absolute Dance home"><img src="../../assets/logo-2.png" alt="Absolute Dance"></a>
+            <p>A children's dance studio in Midland, Texas, with an award-winning team and a culture built around confident young people.</p>
+            <div class="footer-socials">
+              <a href="https://www.facebook.com/AbsoluteDanceMidland" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7h2.5l.5-3.5h-3V8.5c0-1 .3-1.7 1.7-1.7H17V4.2c-.3 0-1.4-.2-2.6-.2-2.6 0-4.4 1.6-4.4 4.5v2H7V14h3v7z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/absolutedancemidland/?hl=en" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4>Studio</h4>
+            <div class="footer-links">
+              <a href="https://absolutedance.org/our-studio/">Our studio</a>
+              <a href="https://absolutedance.org/faculty/">Faculty</a>
+              <a href="https://absolutedance.org/teams/">Teams</a>
+              <a href="https://absolutedance.org/2026-2027-fall-class-schedule/">Class schedule</a>
+            </div>
+          </div>
+          <div>
+            <h4>Get started</h4>
+            <div class="footer-links">
+              <a href="#programs">Browse classes</a>
+              <a href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3" target="_blank" rel="noopener">Register</a>
+              <a href="https://app.thestudiodirector.com/absolutedance/portal.sd?page=Login" target="_blank" rel="noopener">Parent portal</a>
+              <a href="#visit">Schedule a tour</a>
+            </div>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <div class="footer-links">
+              <a href="tel:4326992190">432-699-2190</a>
+              <a href="mailto:info@absolutedance.org">info@absolutedance.org</a>
+              <a href="https://maps.app.goo.gl/XrrW5cg4Zsa4KJME8" target="_blank" rel="noopener">5109 Sunmore Circle, Midland TX 79707</a>
+              <a href="#visit">Mon to Thu, 2pm to 7pm</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-meta">
+          <span>&copy; 2026 Absolute Dance. Demo homepage built from current website content and imagery.</span>
+          <span>Demo 4 &middot; Program Pathways</span>
+        </div>
+      </footer>
+
+      <div class="mobile-cta" role="region" aria-label="Quick register">
+        <span>Enrolling now</span>
+        <a href="https://app.studiolabsoftware.com/familyregister/f8a1edf7-39a4-40dc-a765-2dc32f16e1a3" target="_blank" rel="noopener">Register today</a>
+      </div>
+    </div>
+
+    <script>
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const header = document.querySelector(".site-header");
+      const menuToggle = document.querySelector(".menu-toggle");
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = header.classList.toggle("is-open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+      });
+
+      document.querySelectorAll(".primary-nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          header.classList.remove("is-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open navigation");
+        });
+      });
+
+      // Program filter
+      const tabs = document.querySelectorAll(".program-tabs button");
+      const cards = document.querySelectorAll(".class-card");
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => t.setAttribute("aria-pressed", "false"));
+          tab.setAttribute("aria-pressed", "true");
+          const filter = tab.dataset.filter;
+          cards.forEach((card) => {
+            const track = card.dataset.track;
+            const show = filter === "all" || track === filter;
+            card.style.display = show ? "" : "none";
+          });
+        });
+      });
+
+      if (!prefersReducedMotion) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.16 });
+        document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+      } else {
+        document.querySelectorAll(".reveal").forEach((element) => element.classList.add("is-visible"));
+      }
+
+      if (new URLSearchParams(window.location.search).get('hub') === '1') {
+        const ret = document.querySelector('.gallery-return');
+        if (ret) ret.href = '../../?hub=1';
+      }
+    </script>
+  </body>
+</html>
