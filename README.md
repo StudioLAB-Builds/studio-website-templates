@@ -22,11 +22,9 @@ If you are an AI assistant opening this repo, start with `CLAUDE.md` at the root
 │       ├── assets/
 │       ├── previews/
 │       └── demos/
-│           ├── demo-1-current-website/
-│           ├── demo-2-warm-modern-enrollment/
-│           ├── demo-3-conversion-journey/
-│           ├── demo-3-editorial-community/
-│           └── demo-4-bold-class-pathways/
+│           ├── demo-1-warm-modern-enrollment/
+│           ├── demo-2-conversion-journey/
+│           └── demo-3-editorial-feature/
 └── scripts/
     └── validate-site.mjs
 ```
