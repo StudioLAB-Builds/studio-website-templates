@@ -33,42 +33,6 @@
       "status": "visible",
       "order": 30,
       "source": "Earlier prompt-built conversion homepage"
-    },
-    {
-      "id": "demo-1-current-website",
-      "label": "Demo 1",
-      "title": "Current Website Reference",
-      "description": "A reference version of the current site direction. Hidden from the studio gallery because it is not a polished generated template option.",
-      "path": "demos/demo-1-current-website/",
-      "preview": "previews/demo-1-current-website.png",
-      "previewAlt": "Demo 1 Current Website Reference preview",
-      "status": "hidden",
-      "order": 10,
-      "source": "Reference only"
-    },
-    {
-      "id": "demo-3-editorial-community",
-      "label": "Hidden Draft 3",
-      "title": "Editorial Community",
-      "description": "A self-generated concept that is hidden until it is replaced or rebuilt from a proper prompt.",
-      "path": "demos/demo-3-editorial-community/",
-      "preview": "previews/demo-3-editorial-community.png",
-      "previewAlt": "Hidden Draft 3 Editorial Community preview",
-      "status": "hidden",
-      "order": 130,
-      "source": "Hidden self-generated concept"
-    },
-    {
-      "id": "demo-4-bold-class-pathways",
-      "label": "Hidden Draft 4",
-      "title": "Bold Class Pathways",
-      "description": "A self-generated concept that is hidden until it is replaced or rebuilt from a proper prompt.",
-      "path": "demos/demo-4-bold-class-pathways/",
-      "preview": "previews/demo-4-bold-class-pathways.png",
-      "previewAlt": "Hidden Draft 4 Bold Class Pathways preview",
-      "status": "hidden",
-      "order": 140,
-      "source": "Hidden self-generated concept"
     }
   ]
 }
