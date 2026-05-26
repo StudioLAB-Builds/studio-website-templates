@@ -33,6 +33,18 @@
       "status": "visible",
       "order": 30,
       "source": "Earlier prompt-built conversion homepage"
+    },
+    {
+      "id": "demo-4-editorial-feature",
+      "label": "Demo 4",
+      "title": "Editorial Feature",
+      "description": "A print-magazine profile of the studio with large serif type, numbered feature sections, and editorial photo plates.",
+      "path": "demos/demo-4-editorial-feature/",
+      "preview": "previews/demo-4-editorial-feature.png",
+      "previewAlt": "Demo 4 Editorial Feature preview",
+      "status": "visible",
+      "order": 40,
+      "source": "Claude-generated demo, 2026-05-26"
     }
   ]
 }
