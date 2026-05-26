@@ -3,316 +3,1063 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>StudioLAB Website Templates</title>
-    <meta name="description" content="StudioLAB website template hub for assigning and reviewing studio website concepts.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>StudioLAB Admin</title>
+    <meta name="description" content="Internal admin dashboard.">
     <style>
       :root {
-        --ink: #102f35;
+        --ink: #0c2a2f;
         --muted: #5f767a;
-        --paper: #fbfffe;
-        --mist: #eefbf8;
+        --paper: #f7faf9;
+        --surface: #ffffff;
+        --mist: #eef6f4;
         --aqua: #16c9b2;
         --teal: #075b60;
         --deep: #04333a;
         --pink: #ed2d83;
         --line: rgba(7, 91, 96, 0.16);
-        --shadow: rgba(6, 51, 58, 0.14);
+        --line-strong: rgba(7, 91, 96, 0.28);
+        --shadow-sm: 0 1px 2px rgba(6, 51, 58, 0.06);
+        --shadow-md: 0 6px 18px rgba(6, 51, 58, 0.08);
+        --radius: 10px;
+        --radius-sm: 6px;
+        --green: #14a06a;
+        --red: #c8434a;
+        --amber: #b97a00;
         font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100%; }
       body {
-        margin: 0;
-        min-height: 100%;
-        overflow-x: clip;
-      }
-
-      body {
-        background:
-          radial-gradient(circle at top left, rgba(22, 201, 178, 0.24), transparent 34rem),
-          linear-gradient(180deg, #f3fffc, var(--paper) 44%);
+        background: var(--paper);
         color: var(--ink);
+        font-size: 14px;
+        line-height: 1.5;
       }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
+      a { color: inherit; text-decoration: none; }
+      button { font: inherit; cursor: pointer; }
+      h1, h2, h3, h4, p { margin: 0; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; }
 
-      img {
-        display: block;
-        max-width: 100%;
-      }
-
-      .wrap {
-        margin: 0 auto;
-        max-width: 1180px;
-        padding: 32px 24px 76px;
-      }
-
-      .topbar {
-        align-items: center;
-        display: flex;
-        gap: 24px;
-        justify-content: space-between;
-        margin-bottom: 70px;
-      }
-
-      .brand {
+      /* App shell */
+      .app {
         display: grid;
-        gap: 3px;
+        grid-template-columns: 240px 1fr;
+        min-height: 100vh;
       }
 
-      .brand strong {
-        color: var(--deep);
-        font-size: 19px;
+      .sidebar {
+        background: var(--deep);
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        padding: 22px 18px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
       }
 
-      .brand span {
-        color: var(--muted);
+      .sidebar .brand {
+        display: grid;
+        gap: 2px;
+        margin-bottom: 28px;
+      }
+
+      .sidebar .brand strong {
+        color: #ffffff;
+        font-size: 16px;
+        letter-spacing: 0.01em;
+      }
+
+      .sidebar .brand span {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .sidebar nav {
+        display: grid;
+        gap: 2px;
+      }
+
+      .nav-item {
+        align-items: center;
+        border-radius: var(--radius-sm);
+        color: rgba(255, 255, 255, 0.75);
+        display: flex;
         font-size: 13px;
+        font-weight: 600;
+        gap: 10px;
+        padding: 9px 11px;
+        transition: background 120ms ease, color 120ms ease;
       }
 
-      .topnav {
+      .nav-item.active {
+        background: rgba(255, 255, 255, 0.10);
+        color: #ffffff;
+      }
+
+      .nav-item:not(.active):hover {
+        background: rgba(255, 255, 255, 0.06);
+        color: #ffffff;
+      }
+
+      .nav-item .dot {
+        background: currentColor;
+        border-radius: 50%;
+        height: 6px;
+        opacity: 0.5;
+        width: 6px;
+      }
+
+      .sidebar-spacer { flex: 1; }
+
+      .conn-pill {
+        align-items: center;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        color: #ffffff;
+        display: inline-flex;
+        font-size: 11px;
+        font-weight: 700;
+        gap: 8px;
+        letter-spacing: 0.04em;
+        margin-bottom: 12px;
+        padding: 6px 11px;
+        text-transform: uppercase;
+        width: fit-content;
+      }
+
+      .conn-pill .conn-led {
+        background: var(--amber);
+        border-radius: 50%;
+        height: 7px;
+        width: 7px;
+      }
+
+      .conn-pill[data-state="connected"] .conn-led { background: var(--green); }
+      .conn-pill[data-state="offline"] .conn-led { background: var(--red); }
+
+      .sidebar small {
+        color: rgba(255, 255, 255, 0.45);
+        display: block;
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .sidebar small code {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 4px;
+        color: rgba(255, 255, 255, 0.85);
+        padding: 1px 5px;
+      }
+
+      /* Main */
+      main {
+        padding: 28px 36px 56px;
+        min-width: 0;
+      }
+
+      .page-head {
+        align-items: flex-start;
+        display: flex;
+        gap: 18px;
+        justify-content: space-between;
+        margin-bottom: 22px;
+      }
+
+      .page-head h1 {
+        color: var(--deep);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 1.1;
+      }
+
+      .page-head p {
+        color: var(--muted);
+        font-size: 14px;
+        margin-top: 6px;
+        max-width: 540px;
+      }
+
+      .page-actions {
         align-items: center;
         display: flex;
-        gap: 10px;
+        flex-shrink: 0;
+        gap: 8px;
       }
 
-      .nav-pill {
+      /* Buttons */
+      .btn {
         align-items: center;
-        background: #ffffff;
+        background: var(--surface);
         border: 1px solid var(--line);
-        border-radius: 999px;
-        color: var(--teal);
+        border-radius: var(--radius-sm);
+        color: var(--ink);
         display: inline-flex;
-        font-size: 13px;
-        font-weight: 800;
-        min-height: 40px;
-        padding: 0 14px;
-        white-space: nowrap;
+        font-size: 12.5px;
+        font-weight: 600;
+        gap: 6px;
+        min-height: 32px;
+        padding: 0 12px;
+        transition: background 120ms ease, border-color 120ms ease;
       }
 
-      .nav-pill.primary {
+      .btn:hover { background: var(--mist); border-color: var(--line-strong); }
+      .btn:disabled { cursor: not-allowed; opacity: 0.5; }
+
+      .btn-primary {
         background: var(--teal);
         border-color: var(--teal);
         color: #ffffff;
       }
 
-      .hero {
+      .btn-primary:hover { background: var(--deep); border-color: var(--deep); }
+
+      .btn-ghost {
+        background: transparent;
+        border-color: transparent;
+        color: var(--teal);
+      }
+
+      .btn-ghost:hover { background: var(--mist); }
+
+      .btn-small {
+        font-size: 11.5px;
+        min-height: 26px;
+        padding: 0 9px;
+      }
+
+      .btn-icon {
+        height: 28px;
+        justify-content: center;
+        padding: 0;
+        width: 28px;
+      }
+
+      /* Stats row */
+      .stats {
         display: grid;
-        gap: 24px;
-        margin-bottom: 46px;
-        max-width: 780px;
+        gap: 12px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin-bottom: 24px;
       }
 
-      .kicker {
-        color: var(--pink);
-        font-size: 12px;
-        font-weight: 900;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      h1,
-      h2,
-      h3,
-      p {
-        margin: 0;
-      }
-
-      h1,
-      h2 {
-        color: var(--deep);
-        font-family: Georgia, "Times New Roman", serif;
-        font-weight: 500;
-        letter-spacing: 0;
-        line-height: 1;
-      }
-
-      h1 {
-        font-size: clamp(2.8rem, 8vw, 5.2rem);
-      }
-
-      h2 {
-        font-size: clamp(2rem, 4vw, 3.2rem);
-      }
-
-      p {
-        color: var(--muted);
-        font-size: 17px;
-        line-height: 1.65;
-      }
-
-      .section-head {
-        align-items: end;
-        display: flex;
-        gap: 24px;
-        justify-content: space-between;
-        margin: 54px 0 22px;
-      }
-
-      .section-head p {
-        max-width: 430px;
-      }
-
-      .studio-grid,
-      .utility-grid {
-        display: grid;
-        gap: 22px;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      }
-
-      .studio-card,
-      .utility-card {
-        background: #ffffff;
+      .stat {
+        background: var(--surface);
         border: 1px solid var(--line);
-        border-radius: 12px;
-        box-shadow: 0 24px 60px var(--shadow);
-        overflow: hidden;
-        transition: box-shadow 180ms ease, transform 180ms ease;
+        border-radius: var(--radius);
+        padding: 14px 16px;
       }
 
-      .studio-card:hover,
-      .utility-card:hover {
-        box-shadow: 0 30px 72px rgba(6, 51, 58, 0.2);
-        transform: translateY(-3px);
-      }
-
-      .preview {
-        background:
-          linear-gradient(135deg, rgba(7, 91, 96, 0.76), rgba(237, 45, 131, 0.2)),
-          url("studios/absolute-dance/assets/hero-bg.jpg") center / cover;
-        min-height: 230px;
-      }
-
-      .card-copy {
-        display: grid;
-        gap: 10px;
-        padding: 24px;
-      }
-
-      .meta {
-        color: var(--pink);
-        font-size: 12px;
-        font-weight: 900;
-        letter-spacing: 0.1em;
+      .stat .label {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
         text-transform: uppercase;
       }
 
-      .card-copy h3 {
+      .stat .value {
         color: var(--deep);
-        font-size: 25px;
-        line-height: 1.15;
+        font-family: Georgia, serif;
+        font-size: 28px;
+        font-weight: 500;
+        line-height: 1.1;
+        margin-top: 4px;
       }
 
-      .action {
+      /* Card / panel */
+      .panel {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+
+      .panel-head {
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        gap: 14px;
+        justify-content: space-between;
+        padding: 14px 18px;
+      }
+
+      .panel-head h2 {
+        color: var(--deep);
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .panel-head .panel-meta {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      /* Studios table */
+      .studios-table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      .studios-table th,
+      .studios-table td {
+        border-bottom: 1px solid var(--line);
+        padding: 12px 18px;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      .studios-table tbody tr:last-child td { border-bottom: none; }
+
+      .studios-table th {
+        background: var(--mist);
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .studios-table td.col-name { color: var(--deep); font-weight: 600; }
+      .studios-table td.col-counts { color: var(--muted); font-size: 12.5px; }
+
+      .studios-table tr.studio-row { cursor: pointer; transition: background 120ms ease; }
+      .studios-table tr.studio-row:hover td { background: rgba(238, 246, 244, 0.6); }
+      .studios-table tr.studio-row.is-open td { background: var(--mist); }
+
+      .pill {
+        align-items: center;
+        background: var(--mist);
+        border-radius: 999px;
         color: var(--teal);
         display: inline-flex;
-        font-size: 14px;
-        font-weight: 900;
-        margin-top: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        gap: 5px;
+        letter-spacing: 0.04em;
+        padding: 3px 9px;
+        text-transform: uppercase;
       }
 
-      .utility-card {
+      .pill.pill-visible { background: rgba(20, 160, 106, 0.12); color: var(--green); }
+      .pill.pill-hidden { background: rgba(200, 67, 74, 0.10); color: var(--red); }
+
+      .share-cell {
+        align-items: center;
+        display: flex;
+        gap: 6px;
+      }
+
+      .share-url {
+        background: var(--mist);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        color: var(--teal);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11.5px;
+        max-width: 260px;
+        overflow: hidden;
+        padding: 4px 8px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .row-actions {
+        align-items: center;
+        display: flex;
+        gap: 6px;
+        justify-content: flex-end;
+      }
+
+      /* Drawer */
+      .drawer-backdrop {
+        background: rgba(6, 35, 39, 0.32);
+        inset: 0;
+        opacity: 0;
+        pointer-events: none;
+        position: fixed;
+        transition: opacity 180ms ease;
+        z-index: 40;
+      }
+
+      .drawer {
+        background: var(--paper);
+        border-left: 1px solid var(--line);
+        bottom: 0;
+        box-shadow: -16px 0 40px rgba(6, 51, 58, 0.12);
+        display: flex;
+        flex-direction: column;
+        max-width: 560px;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transform: translateX(100%);
+        transition: transform 220ms ease;
+        width: 100%;
+        z-index: 50;
+      }
+
+      .drawer.is-open { transform: translateX(0); }
+      .drawer-backdrop.is-open { opacity: 1; pointer-events: auto; }
+
+      .drawer-head {
+        align-items: center;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        gap: 12px;
+        justify-content: space-between;
+        padding: 16px 22px;
+      }
+
+      .drawer-head h2 {
+        color: var(--deep);
+        font-family: Georgia, serif;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 1.1;
+      }
+
+      .drawer-head .sub {
+        color: var(--muted);
+        font-size: 12px;
+        margin-top: 2px;
+      }
+
+      .drawer-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 18px 22px 28px;
+      }
+
+      .drawer-section {
+        margin-bottom: 20px;
+      }
+
+      .drawer-section h3 {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+      }
+
+      .share-block {
+        align-items: center;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        display: flex;
+        gap: 8px;
+        padding: 8px 8px 8px 14px;
+      }
+
+      .share-block .url {
+        color: var(--teal);
+        flex: 1;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .template-list {
         display: grid;
         gap: 10px;
-        padding: 24px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
       }
 
-      .utility-card h3 {
+      .template-item {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 14px 16px;
+      }
+
+      .template-item.is-hidden { background: #fafbfb; opacity: 0.82; }
+
+      .template-item-head {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        margin-bottom: 6px;
+      }
+
+      .template-item-head h4 {
         color: var(--deep);
-        font-size: 22px;
+        font-size: 14px;
+        font-weight: 700;
       }
 
-      @media (max-width: 720px) {
-        .wrap {
-          padding: 24px 18px 58px;
-        }
+      .template-item-head .label {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        margin-bottom: 2px;
+        text-transform: uppercase;
+      }
 
-        .topbar,
-        .section-head {
-          align-items: flex-start;
-          flex-direction: column;
-        }
+      .template-item p {
+        color: var(--muted);
+        font-size: 12.5px;
+        margin-top: 4px;
+      }
 
-        .topnav {
-          flex-wrap: wrap;
-        }
+      .template-item .item-actions {
+        align-items: center;
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      /* Toggle switch */
+      .switch {
+        align-items: center;
+        cursor: pointer;
+        display: inline-flex;
+        gap: 8px;
+        font-size: 11.5px;
+        font-weight: 700;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        user-select: none;
+      }
+
+      .switch input { position: absolute; opacity: 0; pointer-events: none; }
+
+      .switch .track {
+        background: rgba(7, 91, 96, 0.18);
+        border-radius: 999px;
+        height: 18px;
+        position: relative;
+        transition: background 140ms ease;
+        width: 32px;
+      }
+
+      .switch .track::after {
+        background: #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        content: "";
+        height: 14px;
+        left: 2px;
+        position: absolute;
+        top: 2px;
+        transition: left 140ms ease;
+        width: 14px;
+      }
+
+      .switch input:checked + .track { background: var(--green); }
+      .switch input:checked + .track::after { left: 16px; }
+      .switch input:disabled + .track { opacity: 0.5; cursor: not-allowed; }
+      .switch.is-loading .track { opacity: 0.6; }
+
+      /* Toast */
+      .toast-area {
+        bottom: 18px;
+        display: grid;
+        gap: 8px;
+        left: 50%;
+        position: fixed;
+        transform: translateX(-50%);
+        z-index: 100;
+      }
+
+      .toast {
+        animation: toast-in 180ms ease;
+        background: var(--deep);
+        border-radius: 999px;
+        color: #ffffff;
+        font-size: 12.5px;
+        font-weight: 600;
+        padding: 9px 16px;
+      }
+
+      .toast.toast-error { background: var(--red); }
+      .toast.toast-ok { background: var(--green); }
+
+      @keyframes toast-in {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Banner */
+      .banner {
+        align-items: center;
+        background: rgba(185, 122, 0, 0.10);
+        border: 1px solid rgba(185, 122, 0, 0.30);
+        border-radius: var(--radius);
+        color: var(--amber);
+        display: flex;
+        font-size: 12.5px;
+        font-weight: 600;
+        gap: 12px;
+        margin-bottom: 18px;
+        padding: 10px 14px;
+      }
+
+      .banner code {
+        background: rgba(185, 122, 0, 0.15);
+        border-radius: 4px;
+        padding: 1px 6px;
+      }
+
+      .empty {
+        color: var(--muted);
+        font-size: 13px;
+        padding: 28px;
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        .app { grid-template-columns: 1fr; }
+        .sidebar { position: static; height: auto; padding: 16px 18px; }
+        .sidebar nav { grid-auto-flow: column; grid-auto-columns: max-content; overflow-x: auto; }
+        .sidebar-spacer { display: none; }
+        main { padding: 22px 18px 48px; }
+        .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .studios-table th:nth-child(4),
+        .studios-table td:nth-child(4) { display: none; }
+        .drawer { max-width: 100%; }
       }
     </style>
   </head>
   <body>
-    <div class="wrap">
-      <header class="topbar">
-        <a class="brand" href="./">
-          <strong>StudioLAB Website Templates</strong>
-          <span>Internal hub for studio template links</span>
-        </a>
-        <nav class="topnav" aria-label="Template hub navigation">
-          <a class="nav-pill primary" href="#studios">Studios</a>
-          <a class="nav-pill" href="styles/">Style Shortlists</a>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <strong>StudioLAB Admin</strong>
+          <span>Template management</span>
+        </div>
+        <nav aria-label="Sections">
+          <a class="nav-item active" href="#studios"><span class="dot"></span>Studios</a>
+          <a class="nav-item" href="#styles" data-disabled="true" title="Coming soon"><span class="dot"></span>Style Shortlists</a>
+          <a class="nav-item" href="#templates" data-disabled="true" title="Coming soon"><span class="dot"></span>Template Library</a>
         </nav>
-      </header>
+        <div class="sidebar-spacer"></div>
+        <div class="conn-pill" id="conn-pill" data-state="checking">
+          <span class="conn-led"></span>
+          <span class="conn-label">Checking…</span>
+        </div>
+        <small>Local admin runs via <code>npm run admin</code> from this repo.</small>
+      </aside>
 
       <main>
-        <section class="hero">
-          <span class="kicker">Template assignment hub</span>
-          <h1>Choose a studio, then send their template gallery link.</h1>
-          <p>This is the StudioLAB home page for website-generated templates. Each studio gets its own folder and gallery, with labelled demos controlled by a simple manifest so options can be shown, hidden, replaced, or combined as the design work evolves.</p>
+        <div class="page-head">
+          <div>
+            <h1>Studios</h1>
+            <p>Manage which template demos each studio sees. Toggles write to the manifest and regenerate the studio gallery immediately.</p>
+          </div>
+          <div class="page-actions">
+            <button class="btn" id="refresh-btn" type="button">Refresh</button>
+          </div>
+        </div>
+
+        <div id="banner-slot"></div>
+
+        <section class="stats" aria-label="Summary stats">
+          <div class="stat"><span class="label">Studios</span><span class="value" id="stat-studios">—</span></div>
+          <div class="stat"><span class="label">Total templates</span><span class="value" id="stat-total">—</span></div>
+          <div class="stat"><span class="label">Visible</span><span class="value" id="stat-visible">—</span></div>
+          <div class="stat"><span class="label">Hidden</span><span class="value" id="stat-hidden">—</span></div>
         </section>
 
-        <section id="studios" aria-label="Studio folders">
-          <div class="section-head">
-            <div>
-              <span class="kicker">Studio folders</span>
-              <h2>Select a studio</h2>
-            </div>
-            <p>Start here when you need the single link for a studio to review its generated website template options.</p>
+        <section class="panel" id="studios" aria-label="Studios">
+          <div class="panel-head">
+            <h2>All studios</h2>
+            <span class="panel-meta" id="panel-meta">—</span>
           </div>
-
-          <div class="studio-grid">
-            <a class="studio-card" href="studios/absolute-dance/?hub=1">
-              <div class="preview" role="img" aria-label="Absolute Dance website template preview"></div>
-              <div class="card-copy">
-                <span class="meta">Midland, TX · 2 visible templates</span>
-                <h3>Absolute Dance</h3>
-                <p>The warm modern enrollment and conversion journey directions are currently visible. Rough concepts stay hidden from the studio gallery.</p>
-                <span class="action">Open Absolute Dance templates →</span>
-              </div>
-            </a>
-          </div>
-        </section>
-
-        <section aria-label="Style tools">
-          <div class="section-head">
-            <div>
-              <span class="kicker">Reusable style thinking</span>
-              <h2>Build style shortlists</h2>
-            </div>
-            <p>Use this area later for reusable style groupings once selected studio templates are ready to compare across projects.</p>
-          </div>
-
-          <div class="utility-grid">
-            <a class="utility-card" href="styles/">
-              <span class="meta">Internal tool</span>
-              <h3>Style Shortlists</h3>
-              <p>View selected demos from a studio gallery and start grouping them into broader style directions.</p>
-              <span class="action">Open style shortlists →</span>
-            </a>
-            <a class="utility-card" href="https://github.com/StudioLAB-Builds/studio-website-templates">
-              <span class="meta">Repository</span>
-              <h3>GitHub Repo</h3>
-              <p>Manage folders, add new studio templates, remove unused demos, and publish updates through GitHub Pages.</p>
-              <span class="action">Open repo →</span>
-            </a>
+          <div id="studios-body">
+            <p class="empty">Loading studios…</p>
           </div>
         </section>
       </main>
     </div>
+
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    <aside class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer-head">
+        <div>
+          <h2 id="drawer-title">Studio</h2>
+          <div class="sub" id="drawer-sub"></div>
+        </div>
+        <button class="btn btn-ghost btn-icon" id="drawer-close" aria-label="Close" type="button">✕</button>
+      </div>
+      <div class="drawer-body" id="drawer-body">
+        <p class="empty">Loading…</p>
+      </div>
+    </aside>
+
+    <div class="toast-area" id="toast-area" aria-live="polite"></div>
+
+    <script>
+      const PUBLIC_BASE_FALLBACK = "https://studiolab-builds.github.io/studio-website-templates";
+      const state = {
+        connected: false,
+        publicBase: PUBLIC_BASE_FALLBACK,
+        studios: [],
+        openSlug: null
+      };
+
+      const $ = (sel, root) => (root || document).querySelector(sel);
+      const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
+
+      function esc(v) {
+        return String(v == null ? "" : v).replace(/[&<>"']/g, (c) => ({
+          "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+        })[c]);
+      }
+
+      function toast(message, kind) {
+        const area = $("#toast-area");
+        const el = document.createElement("div");
+        el.className = `toast ${kind === "error" ? "toast-error" : kind === "ok" ? "toast-ok" : ""}`;
+        el.textContent = message;
+        area.appendChild(el);
+        setTimeout(() => el.remove(), 3000);
+      }
+
+      async function copyToClipboard(text) {
+        try {
+          await navigator.clipboard.writeText(text);
+          toast("Copied to clipboard", "ok");
+        } catch (err) {
+          toast("Copy failed — select the URL manually", "error");
+        }
+      }
+
+      function setConn(stateValue, label) {
+        const pill = $("#conn-pill");
+        pill.dataset.state = stateValue;
+        $(".conn-label", pill).textContent = label;
+      }
+
+      function setBanner(html) {
+        $("#banner-slot").innerHTML = html || "";
+      }
+
+      async function api(path, opts) {
+        const res = await fetch(path, {
+          headers: { "Content-Type": "application/json" },
+          cache: "no-store",
+          ...opts
+        });
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          throw new Error(body.error || `Request failed (${res.status})`);
+        }
+        return res.json();
+      }
+
+      async function checkConnection() {
+        try {
+          const data = await api("/api/health");
+          state.connected = true;
+          state.publicBase = data.publicBase || PUBLIC_BASE_FALLBACK;
+          setConn("connected", "Live admin");
+          setBanner("");
+          return true;
+        } catch (err) {
+          state.connected = false;
+          setConn("offline", "Read-only");
+          setBanner(`
+            <div class="banner" role="status">
+              <span>Admin server isn't running. View is read-only. To make changes, run <code>npm run admin</code> and refresh.</span>
+            </div>
+          `);
+          return false;
+        }
+      }
+
+      async function loadStudios() {
+        $("#studios-body").innerHTML = `<p class="empty">Loading studios…</p>`;
+        try {
+          if (state.connected) {
+            const data = await api("/api/studios");
+            state.studios = data.studios;
+            state.publicBase = data.publicBase || state.publicBase;
+          } else {
+            state.studios = await loadStudiosStaticFallback();
+          }
+        } catch (err) {
+          $("#studios-body").innerHTML = `<p class="empty">Could not load studios: ${esc(err.message)}</p>`;
+          return;
+        }
+        renderStats();
+        renderStudios();
+      }
+
+      async function loadStudiosStaticFallback() {
+        const STUDIOS = [{ slug: "absolute-dance" }, { slug: "royalty-dance-company" }];
+        const out = [];
+        for (const { slug } of STUDIOS) {
+          try {
+            const res = await fetch(`studios/${slug}/templates.json`, { cache: "no-store" });
+            if (!res.ok) continue;
+            const manifest = await res.json();
+            const templates = Array.isArray(manifest.templates) ? manifest.templates : [];
+            out.push({
+              slug,
+              name: manifest.studio?.name || slug,
+              location: manifest.studio?.location || "",
+              shareUrl: `${state.publicBase}/studios/${slug}/`,
+              visibleCount: templates.filter((t) => t.status === "visible").length,
+              hiddenCount: templates.filter((t) => t.status === "hidden").length,
+              totalCount: templates.length
+            });
+          } catch (err) {
+            console.error(err);
+          }
+        }
+        return out;
+      }
+
+      function renderStats() {
+        const s = state.studios;
+        const total = s.reduce((acc, x) => acc + x.totalCount, 0);
+        const visible = s.reduce((acc, x) => acc + x.visibleCount, 0);
+        const hidden = s.reduce((acc, x) => acc + x.hiddenCount, 0);
+        $("#stat-studios").textContent = s.length;
+        $("#stat-total").textContent = total;
+        $("#stat-visible").textContent = visible;
+        $("#stat-hidden").textContent = hidden;
+        $("#panel-meta").textContent = `${s.length} studio${s.length === 1 ? "" : "s"}`;
+      }
+
+      function renderStudios() {
+        const body = $("#studios-body");
+        if (!state.studios.length) {
+          body.innerHTML = `<p class="empty">No studios found.</p>`;
+          return;
+        }
+        body.innerHTML = `
+          <table class="studios-table" aria-label="Studios">
+            <thead>
+              <tr>
+                <th>Studio</th>
+                <th>Location</th>
+                <th>Visible</th>
+                <th>Hidden</th>
+                <th>Share link</th>
+                <th aria-label="Actions"></th>
+              </tr>
+            </thead>
+            <tbody>
+              ${state.studios.map(renderStudioRow).join("")}
+            </tbody>
+          </table>
+        `;
+        body.addEventListener("click", onTableClick);
+      }
+
+      function renderStudioRow(studio) {
+        return `
+          <tr class="studio-row" data-slug="${esc(studio.slug)}">
+            <td class="col-name">${esc(studio.name)}</td>
+            <td>${esc(studio.location || "—")}</td>
+            <td class="col-counts">${studio.visibleCount}</td>
+            <td class="col-counts">${studio.hiddenCount}</td>
+            <td>
+              <div class="share-cell">
+                <span class="share-url" title="${esc(studio.shareUrl)}">${esc(studio.shareUrl)}</span>
+                <button class="btn btn-small" type="button" data-copy="${esc(studio.shareUrl)}">Copy</button>
+              </div>
+            </td>
+            <td>
+              <div class="row-actions">
+                <button class="btn btn-small" type="button" data-open-studio="${esc(studio.slug)}">Manage</button>
+                <a class="btn btn-small" href="studios/${esc(studio.slug)}/" target="_blank" rel="noopener noreferrer">Preview ↗</a>
+              </div>
+            </td>
+          </tr>
+        `;
+      }
+
+      function onTableClick(event) {
+        const copyBtn = event.target.closest("[data-copy]");
+        if (copyBtn) {
+          event.stopPropagation();
+          copyToClipboard(copyBtn.dataset.copy);
+          return;
+        }
+        const openBtn = event.target.closest("[data-open-studio]");
+        if (openBtn) {
+          event.stopPropagation();
+          openStudioDrawer(openBtn.dataset.openStudio);
+          return;
+        }
+        if (event.target.closest("a")) return;
+        const row = event.target.closest(".studio-row");
+        if (row) openStudioDrawer(row.dataset.slug);
+      }
+
+      async function openStudioDrawer(slug) {
+        state.openSlug = slug;
+        $$(".studio-row").forEach((row) => row.classList.toggle("is-open", row.dataset.slug === slug));
+        const drawer = $("#drawer");
+        const backdrop = $("#drawer-backdrop");
+        drawer.classList.add("is-open");
+        backdrop.classList.add("is-open");
+        drawer.setAttribute("aria-hidden", "false");
+
+        const body = $("#drawer-body");
+        body.innerHTML = `<p class="empty">Loading…</p>`;
+
+        try {
+          const studio = state.connected
+            ? await api(`/api/studios/${encodeURIComponent(slug)}`)
+            : await loadStudioStaticFallback(slug);
+          renderDrawer(studio);
+        } catch (err) {
+          body.innerHTML = `<p class="empty">Failed to load: ${esc(err.message)}</p>`;
+        }
+      }
+
+      async function loadStudioStaticFallback(slug) {
+        const res = await fetch(`studios/${slug}/templates.json`, { cache: "no-store" });
+        if (!res.ok) throw new Error(`Manifest unavailable (${res.status})`);
+        const manifest = await res.json();
+        const templates = Array.isArray(manifest.templates) ? manifest.templates : [];
+        return {
+          slug,
+          name: manifest.studio?.name || slug,
+          location: manifest.studio?.location || "",
+          shareUrl: `${state.publicBase}/studios/${slug}/`,
+          visibleCount: templates.filter((t) => t.status === "visible").length,
+          hiddenCount: templates.filter((t) => t.status === "hidden").length,
+          totalCount: templates.length,
+          manifest
+        };
+      }
+
+      function renderDrawer(studio) {
+        $("#drawer-title").textContent = studio.name;
+        $("#drawer-sub").textContent = `${studio.location || "—"} · ${studio.visibleCount} visible · ${studio.hiddenCount} hidden`;
+
+        const templates = (studio.manifest?.templates || []).slice().sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+        const body = $("#drawer-body");
+        body.innerHTML = `
+          <div class="drawer-section">
+            <h3>Studio share link</h3>
+            <div class="share-block">
+              <span class="url" title="${esc(studio.shareUrl)}">${esc(studio.shareUrl)}</span>
+              <button class="btn btn-small" type="button" data-copy="${esc(studio.shareUrl)}">Copy</button>
+              <a class="btn btn-small" href="${esc(studio.shareUrl)}" target="_blank" rel="noopener noreferrer">Open ↗</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <h3>Templates (${templates.length})</h3>
+            <ul class="template-list">
+              ${templates.map((tpl) => renderTemplateItem(studio, tpl)).join("")}
+            </ul>
+          </div>
+        `;
+
+        body.addEventListener("click", onDrawerClick);
+        body.addEventListener("change", onDrawerChange);
+      }
+
+      function renderTemplateItem(studio, tpl) {
+        const directUrl = `${state.publicBase}/studios/${studio.slug}/${tpl.path}`;
+        const isVisible = tpl.status === "visible";
+        const disabled = state.connected ? "" : "disabled";
+        return `
+          <li class="template-item ${isVisible ? "" : "is-hidden"}" data-template="${esc(tpl.id)}">
+            <div class="template-item-head">
+              <div>
+                <div class="label">${esc(tpl.label || "")}</div>
+                <h4>${esc(tpl.title || tpl.id)}</h4>
+              </div>
+              <label class="switch" title="Toggle visibility to the studio">
+                <input type="checkbox" data-toggle="${esc(tpl.id)}" ${isVisible ? "checked" : ""} ${disabled}>
+                <span class="track" aria-hidden="true"></span>
+                <span>${isVisible ? "Visible" : "Hidden"}</span>
+              </label>
+            </div>
+            <p>${esc(tpl.description || "")}</p>
+            <div class="item-actions">
+              <span class="pill ${isVisible ? "pill-visible" : "pill-hidden"}">${isVisible ? "On" : "Off"}</span>
+              <span class="share-url" style="max-width: 320px;" title="${esc(directUrl)}">${esc(directUrl)}</span>
+              <button class="btn btn-small" type="button" data-copy="${esc(directUrl)}">Copy URL</button>
+              <a class="btn btn-small" href="studios/${esc(studio.slug)}/${esc(tpl.path)}" target="_blank" rel="noopener noreferrer">Preview ↗</a>
+            </div>
+          </li>
+        `;
+      }
+
+      function onDrawerClick(event) {
+        const copyBtn = event.target.closest("[data-copy]");
+        if (copyBtn) {
+          event.preventDefault();
+          copyToClipboard(copyBtn.dataset.copy);
+        }
+      }
+
+      async function onDrawerChange(event) {
+        const input = event.target.closest("input[data-toggle]");
+        if (!input) return;
+        if (!state.connected) {
+          input.checked = !input.checked;
+          toast("Read-only — start the admin server to make changes", "error");
+          return;
+        }
+        const slug = state.openSlug;
+        const templateId = input.dataset.toggle;
+        const status = input.checked ? "visible" : "hidden";
+        const switchEl = input.closest(".switch");
+        switchEl?.classList.add("is-loading");
+        input.disabled = true;
+        try {
+          await api(`/api/studios/${encodeURIComponent(slug)}/templates/${encodeURIComponent(templateId)}`, {
+            method: "PATCH",
+            body: JSON.stringify({ status })
+          });
+          toast(`${status === "visible" ? "Showing" : "Hiding"} ${templateId}`, "ok");
+          await loadStudios();
+          await openStudioDrawer(slug);
+        } catch (err) {
+          input.checked = !input.checked;
+          toast(err.message || "Update failed", "error");
+        } finally {
+          switchEl?.classList.remove("is-loading");
+          input.disabled = false;
+        }
+      }
+
+      function closeDrawer() {
+        state.openSlug = null;
+        $("#drawer").classList.remove("is-open");
+        $("#drawer-backdrop").classList.remove("is-open");
+        $("#drawer").setAttribute("aria-hidden", "true");
+        $$(".studio-row").forEach((row) => row.classList.remove("is-open"));
+      }
+
+      $("#drawer-close").addEventListener("click", closeDrawer);
+      $("#drawer-backdrop").addEventListener("click", closeDrawer);
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
+      $("#refresh-btn").addEventListener("click", async () => {
+        await checkConnection();
+        await loadStudios();
+      });
+
+      (async function init() {
+        await checkConnection();
+        await loadStudios();
+      })();
+    </script>
   </body>
 </html>

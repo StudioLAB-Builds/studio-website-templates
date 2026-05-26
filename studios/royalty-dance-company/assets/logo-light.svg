@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-label="Royalty Dance Company">
+  <defs>
+    <linearGradient id="rdcGoldLight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4d98d"/>
+      <stop offset="55%" stop-color="#e8c374"/>
+      <stop offset="100%" stop-color="#c9a25a"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(8,12)">
+    <g fill="none" stroke="url(#rdcGoldLight)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M6 38 L14 14 L24 30 L34 8 L44 30 L54 14 L62 38 Z"/>
+      <path d="M6 38 L62 38 L60 48 L8 48 Z"/>
+      <circle cx="14" cy="10" r="2.6" fill="url(#rdcGoldLight)" stroke="none"/>
+      <circle cx="34" cy="4" r="2.8" fill="url(#rdcGoldLight)" stroke="none"/>
+      <circle cx="54" cy="10" r="2.6" fill="url(#rdcGoldLight)" stroke="none"/>
+      <path d="M34 22 l2.6 5.4 l5.9 .9 l-4.3 4.1 l1 5.8 l-5.2 -2.8 l-5.2 2.8 l1 -5.8 l-4.3 -4.1 l5.9 -.9 z" fill="url(#rdcGoldLight)" stroke="none"/>
+    </g>
+  </g>
+  <g transform="translate(86,28)" font-family="'GT Sectra', 'Recoleta', Georgia, serif" fill="#fbf6e9">
+    <text x="0" y="22" font-size="22" font-weight="500" letter-spacing="0.04em">Royalty</text>
+    <text x="0" y="46" font-size="13" font-weight="400" letter-spacing="0.32em" font-family="'Inter', 'Söhne', system-ui, sans-serif">DANCE COMPANY</text>
+  </g>
+</svg>

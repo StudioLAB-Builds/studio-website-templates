@@ -1,0 +1,1387 @@
+<!doctype html>
+<!--
+  Royalty Dance Company - Demo 1: Premium Editorial
+  Direction: Editorial luxury treatment that mirrors the studio's royal brand metaphor.
+  Cream paper, deep burgundy, antique gold, large editorial serif typography.
+  Inspired by print-quality fashion editorials and heritage performing-arts mastheads.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Royalty Dance Company | Dance Classes in Fredericksburg, VA</title>
+    <meta name="description" content="A premium dance studio in Fredericksburg, VA. Ballet, jazz, tap, lyrical, contemporary, hip hop, and acro for ages 3 and up. Recreational classes and competitive teams.">
+    <link rel="icon" href="../../assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --font-display: "Cormorant Garamond", "GT Sectra", "Recoleta", Georgia, serif;
+        --font-sans: "Inter", "Söhne", "Helvetica Now", system-ui, sans-serif;
+        --paper: #f7f1e5;
+        --paper-warm: #efe6d2;
+        --ink: #2a121f;
+        --ink-soft: #5a4754;
+        --burgundy: #5b1c2e;
+        --burgundy-deep: #3a0f1d;
+        --gold: #b88746;
+        --gold-soft: #d9b87a;
+        --gold-pale: #f0dfae;
+        --blush: #ecd4cb;
+        --line: rgba(58, 15, 29, 0.18);
+        --line-soft: rgba(58, 15, 29, 0.08);
+        --shadow: 0 30px 60px rgba(58, 15, 29, 0.14);
+        --shadow-soft: 0 14px 30px rgba(58, 15, 29, 0.08);
+        --radius: 4px;
+        --radius-lg: 10px;
+        --max: 1240px;
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { margin: 0; overflow-x: clip; scroll-behavior: smooth; }
+      body {
+        font-family: var(--font-sans);
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 17px;
+        line-height: 1.65;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: inherit; text-decoration: none; }
+      img, svg { display: block; max-width: 100%; }
+      button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+
+      .return-bar {
+        background: var(--burgundy-deep);
+        color: var(--gold-pale);
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 10px 24px;
+      }
+      .return-bar a { display: inline-flex; gap: 8px; align-items: center; }
+      .return-bar a:hover { color: var(--gold-soft); }
+
+      .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+      /* HEADER */
+      .header {
+        border-bottom: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 22px 0;
+        gap: 24px;
+      }
+      .header .logo { color: var(--burgundy); height: 52px; }
+      .header .logo img { height: 52px; width: auto; }
+      .nav {
+        display: flex;
+        gap: 28px;
+        font-size: 14px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        font-weight: 500;
+      }
+      .nav a:hover { color: var(--burgundy); }
+      .header-cta {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      .portal-link {
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        border-bottom: 1px solid var(--gold);
+        padding-bottom: 2px;
+      }
+      .portal-link:hover { color: var(--burgundy); border-color: var(--burgundy); }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 22px;
+        font-size: 14px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 600;
+        border-radius: 999px;
+        transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+        white-space: nowrap;
+        line-height: 1;
+      }
+      .btn-primary {
+        background: var(--burgundy);
+        color: var(--paper);
+        box-shadow: 0 18px 32px rgba(91, 28, 46, 0.28), inset 0 0 0 1px rgba(216, 184, 122, 0.35);
+      }
+      .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 22px 38px rgba(91, 28, 46, 0.36), inset 0 0 0 1px rgba(216, 184, 122, 0.5); }
+      .btn-ghost {
+        border: 1px solid var(--burgundy);
+        color: var(--burgundy);
+      }
+      .btn-ghost:hover { background: var(--burgundy); color: var(--paper); }
+      .btn-gold {
+        background: var(--gold);
+        color: var(--burgundy-deep);
+      }
+      .btn-gold:hover { background: var(--gold-soft); transform: translateY(-1px); }
+
+      /* HERO */
+      .hero {
+        position: relative;
+        padding: 80px 0 96px;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse at 20% 10%, rgba(217, 184, 122, 0.22), transparent 50%),
+          radial-gradient(ellipse at 90% 90%, rgba(91, 28, 46, 0.10), transparent 55%);
+        pointer-events: none;
+      }
+      .hero-inner {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 64px;
+        align-items: center;
+      }
+      .hero-eyebrow {
+        font-size: 13px;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+        margin-bottom: 26px;
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        width: 36px;
+        height: 1px;
+        background: var(--gold);
+      }
+      .hero h1 {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: clamp(3.6rem, 7vw, 6.4rem);
+        line-height: 1.02;
+        color: var(--burgundy-deep);
+        margin: 0 0 26px;
+        letter-spacing: -0.012em;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--gold);
+        font-weight: 500;
+      }
+      .hero-sub {
+        font-size: 19px;
+        line-height: 1.6;
+        color: var(--ink-soft);
+        max-width: 540px;
+        margin: 0 0 36px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 42px;
+      }
+      .hero-meta {
+        display: flex;
+        gap: 36px;
+        padding-top: 32px;
+        border-top: 1px solid var(--line);
+      }
+      .hero-meta .stat {
+        display: grid;
+        gap: 2px;
+      }
+      .hero-meta .num {
+        font-family: var(--font-display);
+        font-size: 38px;
+        color: var(--burgundy);
+        font-weight: 600;
+        line-height: 1;
+      }
+      .hero-meta .label {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+      .hero-visual {
+        position: relative;
+        padding: 0 0 0 30px;
+      }
+      .hero-visual .frame {
+        position: relative;
+        aspect-ratio: 4 / 5;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+      .hero-visual .frame img {
+        width: 100%; height: 100%; object-fit: cover;
+      }
+      .hero-visual::after {
+        content: "";
+        position: absolute;
+        right: -22px;
+        top: -22px;
+        width: 50%;
+        height: 60%;
+        border: 1px solid var(--gold);
+        border-radius: var(--radius);
+        z-index: -1;
+      }
+      .hero-badge {
+        position: absolute;
+        left: -36px;
+        bottom: 48px;
+        background: var(--paper);
+        padding: 18px 22px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        max-width: 240px;
+        display: grid;
+        gap: 8px;
+        font-size: 13px;
+        line-height: 1.55;
+        color: var(--ink-soft);
+      }
+      .hero-badge strong {
+        color: var(--burgundy);
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 1.3;
+      }
+      .hero-badge .stars { color: var(--gold); font-size: 14px; letter-spacing: 1px; }
+
+      /* TRUST STRIP */
+      .trust-strip {
+        background: var(--burgundy-deep);
+        color: var(--gold-pale);
+        padding: 26px 0;
+        overflow: hidden;
+      }
+      .trust-inner {
+        display: flex;
+        align-items: center;
+        gap: 56px;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-size: 14px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      .trust-inner span { display: inline-flex; align-items: center; gap: 12px; }
+      .trust-inner .dot { color: var(--gold); }
+
+      /* SECTION SHELL */
+      .section {
+        padding: 110px 0;
+        position: relative;
+      }
+      .section-head {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 64px;
+      }
+      .eyebrow {
+        display: inline-flex;
+        gap: 12px;
+        align-items: center;
+        font-size: 12px;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+        margin-bottom: 18px;
+      }
+      .eyebrow::before, .eyebrow::after {
+        content: "";
+        width: 24px;
+        height: 1px;
+        background: var(--gold);
+      }
+      .section-head h2 {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: clamp(2.4rem, 4vw, 3.6rem);
+        line-height: 1.1;
+        color: var(--burgundy-deep);
+        margin: 0 0 18px;
+        letter-spacing: -0.01em;
+      }
+      .section-head h2 em { font-style: italic; color: var(--gold); }
+      .section-head p {
+        font-size: 18px;
+        color: var(--ink-soft);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* DIRECTOR LETTER */
+      .director {
+        background: var(--paper-warm);
+        position: relative;
+      }
+      .director::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse at 80% 20%, rgba(184, 135, 70, 0.10), transparent 50%);
+        pointer-events: none;
+      }
+      .director-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 72px;
+        align-items: center;
+      }
+      .director-image {
+        position: relative;
+        aspect-ratio: 5/6;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+      .director-image img { width: 100%; height: 100%; object-fit: cover; }
+      .director-image::after {
+        content: "";
+        position: absolute;
+        right: -18px;
+        bottom: -18px;
+        width: 60%;
+        height: 50%;
+        border: 1px solid var(--gold);
+        z-index: -1;
+      }
+      .director-copy h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2.4rem, 4vw, 3.4rem);
+        font-weight: 500;
+        line-height: 1.12;
+        color: var(--burgundy-deep);
+        margin: 14px 0 20px;
+      }
+      .director-copy h2 em { font-style: italic; color: var(--gold); }
+      .director-copy p {
+        color: var(--ink-soft);
+        font-size: 17px;
+        line-height: 1.7;
+        margin: 0 0 14px;
+      }
+      .director-sig {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-top: 28px;
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 22px;
+        color: var(--burgundy);
+      }
+      .director-sig small {
+        display: block;
+        font-family: var(--font-sans);
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        font-style: normal;
+        margin-top: 4px;
+      }
+
+      /* FACULTY */
+      .faculty-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+      }
+      .faculty-card {
+        background: var(--paper);
+        border: 1px solid var(--line-soft);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: transform 220ms ease, box-shadow 220ms ease;
+      }
+      .faculty-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+      .faculty-photo {
+        aspect-ratio: 4/5;
+        background: var(--paper-warm);
+        overflow: hidden;
+      }
+      .faculty-photo img {
+        width: 100%; height: 100%; object-fit: cover;
+        filter: saturate(0.85) contrast(1.02);
+      }
+      .faculty-meta {
+        padding: 20px 22px 24px;
+        border-top: 1px solid var(--gold);
+      }
+      .faculty-meta h3 {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: 22px;
+        color: var(--burgundy-deep);
+        margin: 0 0 4px;
+        line-height: 1.2;
+      }
+      .faculty-meta p {
+        margin: 0;
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+      }
+
+      /* CLASS CATALOG (bento) */
+      .classes {
+        background: var(--burgundy-deep);
+        color: var(--paper);
+      }
+      .classes .section-head h2 { color: var(--paper); }
+      .classes .section-head h2 em { color: var(--gold-soft); }
+      .classes .section-head p { color: rgba(247, 241, 229, 0.7); }
+      .classes .eyebrow { color: var(--gold-soft); }
+      .classes .eyebrow::before, .classes .eyebrow::after { background: var(--gold-soft); }
+      .bento {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: 160px;
+        gap: 18px;
+      }
+      .bento .tile {
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, rgba(247, 241, 229, 0.06), rgba(247, 241, 229, 0.02));
+        border: 1px solid rgba(217, 184, 122, 0.18);
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 220ms ease, background 220ms ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .bento .tile:hover {
+        transform: translateY(-3px);
+        background: linear-gradient(180deg, rgba(217, 184, 122, 0.12), rgba(247, 241, 229, 0.03));
+      }
+      .bento .tile .icon {
+        width: 42px; height: 42px;
+        color: var(--gold-soft);
+      }
+      .bento .tile h3 {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 1.1;
+        margin: 0 0 6px;
+        color: var(--paper);
+      }
+      .bento .tile p { margin: 0; color: rgba(247, 241, 229, 0.72); font-size: 14px; line-height: 1.55; }
+      .bento .tile .ages {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold-soft);
+        font-weight: 600;
+        margin-top: 6px;
+      }
+      .tile-hero {
+        grid-column: span 6;
+        grid-row: span 2;
+        background:
+          linear-gradient(180deg, rgba(58, 15, 29, 0.4), rgba(58, 15, 29, 0.86)),
+          url('https://images.unsplash.com/photo-1485178575877-1a13bf489dfe?auto=format&fit=crop&w=1200&q=80');
+        background-size: cover;
+        background-position: center;
+      }
+      .tile-wide { grid-column: span 6; }
+      .tile-std { grid-column: span 3; }
+      .tile-tall { grid-column: span 3; grid-row: span 2; }
+
+      /* SCHEDULE */
+      .schedule {
+        background: var(--paper-warm);
+      }
+      .schedule-board {
+        border: 1px solid var(--line);
+        background: var(--paper);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+      }
+      .schedule-row {
+        display: grid;
+        grid-template-columns: 160px repeat(5, 1fr);
+        border-top: 1px solid var(--line-soft);
+      }
+      .schedule-row:first-child {
+        border-top: 0;
+        background: var(--burgundy);
+        color: var(--paper);
+      }
+      .schedule-row > div {
+        padding: 18px 18px;
+        border-left: 1px solid var(--line-soft);
+        font-size: 14px;
+      }
+      .schedule-row > div:first-child { border-left: 0; font-weight: 600; color: var(--burgundy-deep); }
+      .schedule-row:first-child > div:first-child { color: var(--paper); }
+      .schedule-row .blk {
+        font-family: var(--font-display);
+        color: var(--burgundy);
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+      .schedule-row .blk small {
+        display: block;
+        font-family: var(--font-sans);
+        font-size: 12px;
+        color: var(--ink-soft);
+        letter-spacing: 0.05em;
+        font-weight: 500;
+        margin-top: 4px;
+      }
+      .schedule-foot {
+        text-align: center;
+        margin-top: 28px;
+        color: var(--ink-soft);
+        font-size: 14px;
+      }
+
+      /* RECITAL + TEAMS */
+      .duo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .duo-card {
+        position: relative;
+        border-radius: var(--radius);
+        overflow: hidden;
+        min-height: 480px;
+        color: var(--paper);
+        padding: 56px 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 18px;
+        box-shadow: var(--shadow);
+      }
+      .duo-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        z-index: 0;
+      }
+      .duo-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(58, 15, 29, 0.2) 0%, rgba(58, 15, 29, 0.88) 80%);
+        z-index: 1;
+      }
+      .duo-card .inner { position: relative; z-index: 2; }
+      .duo-card h3 {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 1.1;
+        margin: 0 0 12px;
+      }
+      .duo-card p { margin: 0; color: rgba(247, 241, 229, 0.85); line-height: 1.6; }
+      .duo-card .tag {
+        display: inline-block;
+        font-size: 12px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold-soft);
+        margin-bottom: 14px;
+        font-weight: 600;
+      }
+      .duo-recital::before { background-image: linear-gradient(180deg, rgba(58, 15, 29, 0.1), rgba(58, 15, 29, 0.4)), url('https://images.unsplash.com/photo-1551845041-63e8e76836ea?auto=format&fit=crop&w=1200&q=80'); }
+      .duo-teams::before { background-image: linear-gradient(180deg, rgba(58, 15, 29, 0.1), rgba(58, 15, 29, 0.4)), url('https://images.unsplash.com/photo-1574870111867-089730e5a72b?auto=format&fit=crop&w=1200&q=80'); }
+      .duo-list {
+        display: grid;
+        gap: 8px;
+        margin-top: 6px;
+        font-size: 14px;
+        color: rgba(247, 241, 229, 0.9);
+      }
+      .duo-list span::before { content: "◆"; color: var(--gold-soft); margin-right: 10px; font-size: 10px; }
+
+      /* TESTIMONIALS */
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 32px;
+      }
+      .testimonial-feature, .testimonial-card {
+        background: var(--paper);
+        border: 1px solid var(--line-soft);
+        border-radius: var(--radius);
+        padding: 44px 42px;
+        position: relative;
+        box-shadow: var(--shadow-soft);
+      }
+      .testimonial-feature {
+        background:
+          linear-gradient(135deg, rgba(184, 135, 70, 0.06), transparent 50%),
+          var(--paper);
+        padding: 56px 56px;
+      }
+      .testimonial-feature blockquote {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 1.35;
+        color: var(--burgundy-deep);
+        margin: 0 0 28px;
+        position: relative;
+      }
+      .testimonial-feature blockquote::before {
+        content: """;
+        position: absolute;
+        left: -42px;
+        top: -42px;
+        font-size: 110px;
+        color: var(--gold);
+        opacity: 0.55;
+        font-family: var(--font-display);
+        line-height: 1;
+      }
+      .author-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .author-row img {
+        width: 56px; height: 56px; border-radius: 999px; object-fit: cover;
+      }
+      .author-row .who {
+        display: grid; gap: 2px;
+      }
+      .author-row .who strong { color: var(--burgundy-deep); font-weight: 600; font-size: 15px; }
+      .author-row .who small { color: var(--ink-soft); font-size: 13px; }
+      .testimonial-card {
+        display: grid; gap: 18px;
+      }
+      .testimonial-card p {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 19px;
+        line-height: 1.45;
+        color: var(--burgundy-deep);
+        margin: 0;
+      }
+      .stars { color: var(--gold); letter-spacing: 2px; font-size: 15px; }
+
+      /* PORTAL + TRIAL CTAS */
+      .actions-band {
+        background: var(--paper-warm);
+        border-top: 1px solid var(--line-soft);
+        border-bottom: 1px solid var(--line-soft);
+      }
+      .actions-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .action-card {
+        padding: 56px 48px;
+        background: var(--paper);
+        border-radius: var(--radius);
+        border: 1px solid var(--line-soft);
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+      }
+      .action-card.gold {
+        background: linear-gradient(135deg, var(--burgundy), var(--burgundy-deep));
+        color: var(--paper);
+        border: 1px solid var(--gold);
+      }
+      .action-card h3 {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 1.15;
+        margin: 0 0 14px;
+        color: var(--burgundy-deep);
+      }
+      .action-card.gold h3 { color: var(--paper); }
+      .action-card p { margin: 0 0 24px; color: var(--ink-soft); line-height: 1.6; }
+      .action-card.gold p { color: rgba(247, 241, 229, 0.82); }
+      .action-card .tag {
+        font-size: 12px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: var(--gold);
+        margin-bottom: 14px;
+        display: inline-block;
+      }
+      .action-card.gold .tag { color: var(--gold-soft); }
+
+      /* FAQ */
+      .faq {
+        max-width: 880px;
+        margin: 0 auto;
+      }
+      .faq details {
+        border-bottom: 1px solid var(--line);
+        padding: 26px 0;
+      }
+      .faq details[open] summary { color: var(--burgundy); }
+      .faq summary {
+        list-style: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 1.3;
+        color: var(--burgundy-deep);
+        transition: color 200ms ease;
+      }
+      .faq summary::-webkit-details-marker { display: none; }
+      .faq summary::after {
+        content: "+";
+        font-family: var(--font-sans);
+        font-size: 28px;
+        color: var(--gold);
+        font-weight: 300;
+        transition: transform 200ms ease;
+      }
+      .faq details[open] summary::after { content: "−"; }
+      .faq .a {
+        margin-top: 14px;
+        color: var(--ink-soft);
+        line-height: 1.7;
+      }
+
+      /* FINAL CTA */
+      .final {
+        background: var(--burgundy-deep);
+        color: var(--paper);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .final::before {
+        content: "";
+        position: absolute; inset: 0;
+        background:
+          radial-gradient(ellipse at center, rgba(217, 184, 122, 0.18), transparent 60%);
+      }
+      .final-inner {
+        position: relative;
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      .final h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2.6rem, 5vw, 4.2rem);
+        font-weight: 500;
+        line-height: 1.08;
+        margin: 0 0 24px;
+        color: var(--paper);
+      }
+      .final h2 em { font-style: italic; color: var(--gold-soft); }
+      .final p { font-size: 18px; color: rgba(247, 241, 229, 0.78); margin: 0 0 36px; }
+      .final-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+      .final .btn-ghost { color: var(--gold-soft); border-color: var(--gold-soft); }
+      .final .btn-ghost:hover { background: var(--gold-soft); color: var(--burgundy-deep); }
+
+      /* FOOTER */
+      .footer {
+        background: var(--burgundy-deep);
+        color: var(--gold-pale);
+        padding: 64px 0 32px;
+        border-top: 1px solid rgba(217, 184, 122, 0.15);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 48px;
+      }
+      .footer h4 {
+        font-family: var(--font-display);
+        font-weight: 500;
+        font-size: 19px;
+        color: var(--paper);
+        margin: 0 0 16px;
+      }
+      .footer p, .footer a, .footer li {
+        color: rgba(247, 241, 229, 0.66);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+      .footer a:hover { color: var(--gold-soft); }
+      .footer-base {
+        border-top: 1px solid rgba(217, 184, 122, 0.15);
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: rgba(247, 241, 229, 0.55);
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .footer-logo img { height: 56px; }
+
+      @media (max-width: 1080px) {
+        .hero-inner { grid-template-columns: 1fr; }
+        .hero-visual { padding: 0; }
+        .hero-visual::after { display: none; }
+        .director-grid { grid-template-columns: 1fr; gap: 40px; }
+        .faculty-grid { grid-template-columns: repeat(2, 1fr); }
+        .bento { grid-auto-rows: 140px; }
+        .tile-hero { grid-column: span 12; }
+        .tile-wide { grid-column: span 12; }
+        .tile-std { grid-column: span 6; }
+        .tile-tall { grid-column: span 6; grid-row: span 1; }
+        .testimonials-grid { grid-template-columns: 1fr; }
+        .duo { grid-template-columns: 1fr; }
+        .actions-grid { grid-template-columns: 1fr; }
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 720px) {
+        .nav, .header-cta .portal-link { display: none; }
+        .header-cta .btn { padding: 12px 18px; font-size: 13px; }
+        .hero { padding: 56px 0; }
+        .section { padding: 70px 0; }
+        .faculty-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
+        .schedule-row { grid-template-columns: 90px repeat(2, 1fr); }
+        .schedule-row > div:nth-child(n+4) { display: none; }
+        .testimonial-feature blockquote::before { left: -8px; top: -28px; font-size: 80px; }
+        .testimonial-feature { padding: 36px 26px; }
+        .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+        .footer-base { flex-direction: column; align-items: flex-start; }
+        .duo-card { padding: 36px 28px; min-height: 380px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="return-bar">
+      <div class="wrap" style="padding: 0;">
+        <a href="../../">← Back to template options</a>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="wrap header-inner">
+        <a class="logo" href="#"><img src="../../assets/logo.svg" alt="Royalty Dance Company"></a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#studio">Studio</a>
+          <a href="#classes">Classes</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#recital">Recital</a>
+          <a href="#faculty">Faculty</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="header-cta">
+          <a class="portal-link" href="#portal">Family Portal</a>
+          <a class="btn btn-primary" href="#trial">Book a Trial Class</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div>
+          <div class="hero-eyebrow">Fredericksburg, Virginia</div>
+          <h1>Where every dancer learns to <em>crown up</em>.</h1>
+          <p class="hero-sub">A premier studio for ballet, jazz, lyrical, contemporary, tap, acro, and hip hop. Recreational classes from age three, plus award-winning competitive teams that travel the country.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#trial">Book a free trial class</a>
+            <a class="btn btn-ghost" href="#classes">See class catalog</a>
+          </div>
+          <div class="hero-meta">
+            <div class="stat"><span class="num">7</span><span class="label">Years on stage</span></div>
+            <div class="stat"><span class="num">320+</span><span class="label">Dancers enrolled</span></div>
+            <div class="stat"><span class="num">9</span><span class="label">Class styles</span></div>
+            <div class="stat"><span class="num">14</span><span class="label">Competition wins</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="frame">
+            <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=900&q=80" alt="A young dancer mid-pose">
+          </div>
+          <div class="hero-badge">
+            <span class="stars">★★★★★</span>
+            <strong>"My daughter found her people here."</strong>
+            <span>Erin H., mom to Mila, age 8</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <div class="trust-strip">
+      <div class="wrap trust-inner">
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z"/></svg> 2025 National Finalists</span>
+        <span class="dot">◆</span>
+        <span>Recreational + Competitive Teams</span>
+        <span class="dot">◆</span>
+        <span>Ages 3 through Senior</span>
+        <span class="dot">◆</span>
+        <span>Family-Owned Since 2019</span>
+      </div>
+    </div>
+
+    <!-- DIRECTOR LETTER -->
+    <section class="section director" id="studio">
+      <div class="wrap director-grid">
+        <div class="director-image">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80" alt="Studio director portrait">
+        </div>
+        <div class="director-copy">
+          <span class="eyebrow">A note from the director</span>
+          <h2>Built to grow a confident dancer, <em>not</em> a competition trophy.</h2>
+          <p>Royalty Dance Company opened in 2019 to give families in Fredericksburg a place where technique, artistry, and self-belief get equal attention. Our students leave class standing a little taller, whether they came in for one Saturday tap class or train six nights a week with our competitive team.</p>
+          <p>Every faculty member is a working professional dancer or choreographer. Every class plan is built around the age and level of the dancers in the room. And every family hears from us before they need to ask, because the experience your child has at the studio shapes the experience they have on stage.</p>
+          <div class="director-sig">
+            Yesenia M.
+            <small>Founder &amp; Artistic Director</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACULTY -->
+    <section class="section" id="faculty" style="background: var(--paper);">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Meet the faculty</span>
+          <h2>Working artists teaching <em>your dancer</em>.</h2>
+          <p>Every instructor brings stage credits, choreography work, or collegiate dance experience. The result is a faculty that teaches the why behind every step.</p>
+        </div>
+        <div class="faculty-grid">
+          <article class="faculty-card">
+            <div class="faculty-photo"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80" alt="Faculty portrait"></div>
+            <div class="faculty-meta">
+              <h3>Yesenia M.</h3>
+              <p>Artistic Director · Ballet</p>
+            </div>
+          </article>
+          <article class="faculty-card">
+            <div class="faculty-photo"><img src="https://images.unsplash.com/photo-1542206395-9feb3edaa68d?auto=format&fit=crop&w=500&q=80" alt="Faculty portrait"></div>
+            <div class="faculty-meta">
+              <h3>Marcus T.</h3>
+              <p>Hip Hop · Contemporary</p>
+            </div>
+          </article>
+          <article class="faculty-card">
+            <div class="faculty-photo"><img src="https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=500&q=80" alt="Faculty portrait"></div>
+            <div class="faculty-meta">
+              <h3>Cassidy R.</h3>
+              <p>Jazz · Tap · Turns &amp; Leaps</p>
+            </div>
+          </article>
+          <article class="faculty-card">
+            <div class="faculty-photo"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=500&q=80" alt="Faculty portrait"></div>
+            <div class="faculty-meta">
+              <h3>Daniela P.</h3>
+              <p>Lyrical · Contemporary</p>
+            </div>
+          </article>
+          <article class="faculty-card">
+            <div class="faculty-photo"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80" alt="Faculty portrait"></div>
+            <div class="faculty-meta">
+              <h3>Brielle K.</h3>
+              <p>Acro · Tumbling</p>
+            </div>
+          </article>
+          <article class="faculty-card">
+            <div class="faculty-photo"><img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=500&q=80" alt="Faculty portrait"></div>
+            <div class="faculty-meta">
+              <h3>Alex J.</h3>
+              <p>Junior Ballet · Tiny Royals</p>
+            </div>
+          </article>
+          <article class="faculty-card">
+            <div class="faculty-photo"><img src="https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?auto=format&fit=crop&w=500&q=80" alt="Faculty portrait"></div>
+            <div class="faculty-meta">
+              <h3>Tasha W.</h3>
+              <p>Competition Choreographer</p>
+            </div>
+          </article>
+          <article class="faculty-card">
+            <div class="faculty-photo"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80" alt="Faculty portrait"></div>
+            <div class="faculty-meta">
+              <h3>Maya O.</h3>
+              <p>Music Theatre · Performance</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLASSES -->
+    <section class="section classes" id="classes">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">The class catalog</span>
+          <h2>Nine styles. <em>One studio.</em></h2>
+          <p>From your dancer's first plié to a national-stage solo, every style is taught by faculty who specialize in it.</p>
+        </div>
+        <div class="bento">
+          <div class="tile tile-hero">
+            <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 4 L18 14 L28 16 L18 18 L16 28 L14 18 L4 16 L14 14 Z"/></svg>
+            <div>
+              <h3>Ballet</h3>
+              <p>Classical technique from petite plié to pointework. Building the foundation every style draws from.</p>
+              <div class="ages">Ages 3 to 18 · Beginner to advanced</div>
+            </div>
+          </div>
+          <div class="tile tile-std">
+            <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 26 L26 6 M8 8 L24 24"/></svg>
+            <h3>Jazz</h3>
+            <div class="ages">Ages 6+</div>
+          </div>
+          <div class="tile tile-std">
+            <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="16" cy="16" r="10"/><path d="M16 6 V26 M6 16 H26"/></svg>
+            <h3>Tap</h3>
+            <div class="ages">Ages 5+</div>
+          </div>
+          <div class="tile tile-tall">
+            <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 24 C 10 12, 22 12, 26 24"/><circle cx="16" cy="10" r="3"/></svg>
+            <div>
+              <h3>Lyrical &amp; Contemporary</h3>
+              <p>Story-driven movement that builds artistry and emotional range.</p>
+              <div class="ages">Ages 8+ · Intermediate to advanced</div>
+            </div>
+          </div>
+          <div class="tile tile-std">
+            <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 18 L16 6 L28 18 L22 18 L22 26 L10 26 L10 18 Z"/></svg>
+            <h3>Hip Hop</h3>
+            <div class="ages">Ages 6+</div>
+          </div>
+          <div class="tile tile-std">
+            <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="16" r="4"/><circle cx="22" cy="16" r="4"/><path d="M14 16 H18"/></svg>
+            <h3>Acro &amp; Tumbling</h3>
+            <div class="ages">Ages 5+</div>
+          </div>
+          <div class="tile tile-wide">
+            <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 16 H28 M16 4 V28 M8 8 L24 24 M24 8 L8 24"/></svg>
+            <div>
+              <h3>Turns &amp; Leaps</h3>
+              <p>A dedicated technique class for dancers chasing cleaner pirouettes and bigger jumps.</p>
+              <div class="ages">Ages 8+ · By placement</div>
+            </div>
+          </div>
+          <div class="tile tile-wide">
+            <svg class="icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6 L16 26 L26 6 M10 14 H22"/></svg>
+            <div>
+              <h3>Tiny Royals (Pre-Dance)</h3>
+              <p>A gentle introduction to movement, music, and structure for ages three to five.</p>
+              <div class="ages">Ages 3 to 5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section class="section schedule" id="schedule">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Weekly schedule</span>
+          <h2>A snapshot of <em>this week</em>.</h2>
+          <p>The 2025 to 2026 season runs September through June. Browse the full timetable in the parent portal or call the studio to find the right placement.</p>
+        </div>
+        <div class="schedule-board">
+          <div class="schedule-row">
+            <div>Time</div>
+            <div>Monday</div>
+            <div>Tuesday</div>
+            <div>Wednesday</div>
+            <div>Thursday</div>
+            <div>Saturday</div>
+          </div>
+          <div class="schedule-row">
+            <div>4:00 to 5:00 PM</div>
+            <div><div class="blk">Tiny Royals<small>Ages 3 to 5</small></div></div>
+            <div><div class="blk">Beginner Ballet<small>Ages 6 to 8</small></div></div>
+            <div><div class="blk">Pre-Tap<small>Ages 5 to 7</small></div></div>
+            <div><div class="blk">Tiny Royals<small>Ages 3 to 5</small></div></div>
+            <div><div class="blk">Saturday Sampler<small>Ages 4 to 6</small></div></div>
+          </div>
+          <div class="schedule-row">
+            <div>5:00 to 6:30 PM</div>
+            <div><div class="blk">Jr Jazz<small>Ages 8 to 11</small></div></div>
+            <div><div class="blk">Intermediate Ballet<small>Ages 9 to 12</small></div></div>
+            <div><div class="blk">Hip Hop Crew<small>Ages 8 to 11</small></div></div>
+            <div><div class="blk">Acro 1<small>Ages 6 to 9</small></div></div>
+            <div><div class="blk">Turns &amp; Leaps<small>Ages 8+</small></div></div>
+          </div>
+          <div class="schedule-row">
+            <div>6:30 to 8:00 PM</div>
+            <div><div class="blk">Teen Contemporary<small>Ages 12+</small></div></div>
+            <div><div class="blk">Pointe<small>Placement</small></div></div>
+            <div><div class="blk">Lyrical<small>Ages 11+</small></div></div>
+            <div><div class="blk">Hip Hop Teens<small>Ages 12+</small></div></div>
+            <div><div class="blk">Competition Rehearsal<small>By team</small></div></div>
+          </div>
+          <div class="schedule-row">
+            <div>8:00 to 9:30 PM</div>
+            <div><div class="blk">Senior Ballet<small>Ages 14+</small></div></div>
+            <div><div class="blk">Acro 2<small>Ages 10+</small></div></div>
+            <div><div class="blk">Adult Tap<small>16+</small></div></div>
+            <div><div class="blk">Open Jazz<small>Ages 14+</small></div></div>
+            <div><div class="blk">Solo Coaching<small>Booked</small></div></div>
+          </div>
+        </div>
+        <p class="schedule-foot">Mobile view shows the first two days. Open the full schedule in the family portal for every class and instructor.</p>
+      </div>
+    </section>
+
+    <!-- RECITAL + TEAMS -->
+    <section class="section" id="recital" style="background: var(--paper);">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">On the stage</span>
+          <h2>A year that builds toward something <em>real</em>.</h2>
+          <p>Every dancer at Royalty performs. Some on the recital stage, some at conventions, some on national finals weekends.</p>
+        </div>
+        <div class="duo">
+          <article class="duo-card duo-recital">
+            <div class="inner">
+              <span class="tag">Spring Recital · June 2026</span>
+              <h3>"Coronation" at Riverside Center</h3>
+              <p>Our annual recital is a fully produced theatre show with professional lighting, costuming, and program design. Two performances, every class on stage, no audition needed to be part of it.</p>
+              <div class="duo-list">
+                <span>Costume reveal in February</span>
+                <span>Dress rehearsal one week prior</span>
+                <span>Family tickets on sale March</span>
+              </div>
+            </div>
+          </article>
+          <article class="duo-card duo-teams">
+            <div class="inner">
+              <span class="tag">Competitive Teams · Auditions May</span>
+              <h3>Royal Court Competition Team</h3>
+              <p>Mini, Junior, Teen, and Senior teams travel to five regionals and one nationals each season. Placement-based, audition each May, with year-round training.</p>
+              <div class="duo-list">
+                <span>5 regionals plus 1 nationals per season</span>
+                <span>Choreography by working pros</span>
+                <span>2025 national finalists three years running</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" style="background: var(--paper-warm);">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">From the families</span>
+          <h2>Parents in their <em>own words</em>.</h2>
+          <p>Real reviews from families currently dancing at Royalty.</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-feature">
+            <blockquote>The thing that won me over was how Yesenia knew my daughter's name on day three. By the end of the term she could tell me what Mila was working on that month and where she was getting stuck. That level of attention is rare anywhere, let alone in a studio with this many dancers.</blockquote>
+            <div class="author-row">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="Parent photo">
+              <div class="who">
+                <strong>Erin H.</strong>
+                <small>Mom to Mila, age 8 · Ballet &amp; Jazz</small>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <span class="stars">★★★★★</span>
+            <p>"Three kids, three different styles, one studio that actually communicates. I never wonder what's happening next."</p>
+            <div class="author-row">
+              <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=200&q=80" alt="Parent photo">
+              <div class="who">
+                <strong>Jessica P.</strong>
+                <small>Mom to Riley, Ava &amp; Noah</small>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <span class="stars">★★★★★</span>
+            <p>"My son was nervous about being the only boy in hip hop. He's now on the junior team and his sister joined a year later."</p>
+            <div class="author-row">
+              <img src="https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=200&q=80" alt="Parent photo">
+              <div class="who">
+                <strong>Marcus C.</strong>
+                <small>Dad to Caleb, age 10</small>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <span class="stars">★★★★★</span>
+            <p>"Recital was the most professional production I've seen at a studio. Lights, sound, costumes. My in-laws cried."</p>
+            <div class="author-row">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" alt="Parent photo">
+              <div class="who">
+                <strong>Brittany L.</strong>
+                <small>Mom to Sienna, age 11</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIONS BAND -->
+    <section class="section actions-band" id="trial">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Two ways in</span>
+          <h2>Already a family, or finding us <em>for the first time</em>?</h2>
+        </div>
+        <div class="actions-grid">
+          <div class="action-card" id="portal">
+            <span class="tag">For current families</span>
+            <h3>Open the Family Portal</h3>
+            <p>Manage your schedule, see costume updates, pay tuition, and message faculty without picking up the phone. Available to families enrolled in any class.</p>
+            <a class="btn btn-gold" href="#">Sign in to the portal</a>
+          </div>
+          <div class="action-card gold">
+            <span class="tag">New to Royalty</span>
+            <h3>Book a free trial class</h3>
+            <p>Pick the class, pick the day, walk in. We'll place your dancer with the right age and level, and you'll know within one class whether it's the right fit.</p>
+            <a class="btn btn-gold" href="#">Schedule the trial</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" style="background: var(--paper);">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Questions parents ask</span>
+          <h2>Answered before <em>you ask</em>.</h2>
+          <p>The questions we hear most often, with the answers we'd give if you called the front desk.</p>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>How does the free trial class work?</summary>
+            <div class="a">Pick a class on our schedule that matches your dancer's age and style interest. Show up ten minutes early so we can introduce your dancer to the teacher. If the fit isn't right, try a different style. There's no pressure to enroll.</div>
+          </details>
+          <details>
+            <summary>What should my child wear to the first class?</summary>
+            <div class="a">For ballet and Tiny Royals, any leotard and tights work. For jazz, lyrical, tap, hip hop, and acro, fitted athletic wear and hair tied back. Bare feet are fine for the first class in any style. Once enrolled, you'll get a style-specific uniform list.</div>
+          </details>
+          <details>
+            <summary>How long is a term and what does tuition cover?</summary>
+            <div class="a">Our season runs September through June. Monthly tuition covers all weekly classes, costume fittings, and access to the family portal. Recital costumes and tickets are billed separately and announced well in advance.</div>
+          </details>
+          <details>
+            <summary>What is the recital costume cost and when is it due?</summary>
+            <div class="a">Costumes typically run $75 to $95 per class, billed in November so deliveries arrive by April. Each costume includes accessories. Recital tickets are $25 per seat and go on sale in March.</div>
+          </details>
+          <details>
+            <summary>Do you offer sibling or multi-class discounts?</summary>
+            <div class="a">Yes. The second sibling receives a ten percent tuition discount, third sibling fifteen percent. A dancer enrolled in three or more classes receives a five percent discount on their total tuition.</div>
+          </details>
+          <details>
+            <summary>What happens if my child misses a class?</summary>
+            <div class="a">Tuition is not pro-rated for missed weeks, but we offer makeup classes in any equivalent age and style for the remainder of the term. Let the front desk know in advance and we'll place your dancer.</div>
+          </details>
+          <details>
+            <summary>How do I withdraw if it isn't working out?</summary>
+            <div class="a">Give us thirty days written notice through the family portal or by email. The thirty days covers your next month's tuition, then auto-pay stops. No penalties, no awkward conversations.</div>
+          </details>
+          <details>
+            <summary>What age should my child start dancing?</summary>
+            <div class="a">Three is a great age to start with Tiny Royals, which is built for short attention spans and lots of imaginative play. Five and up are ready for structured technique classes. Older starters are welcome at any age and any level.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section final">
+      <div class="wrap final-inner">
+        <h2>The first class is on us. <em>The rest is on her.</em></h2>
+        <p>Book a free trial in any style and any age group. Slots open the first week of every month.</p>
+        <div class="final-actions">
+          <a class="btn btn-gold" href="#">Book the trial class</a>
+          <a class="btn btn-ghost" href="#">Call (540) 642-5439</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo"><img src="../../assets/logo-light.svg" alt="Royalty Dance Company"></div>
+            <p style="margin-top: 16px;">A premier dance studio in Fredericksburg, Virginia. Ballet, jazz, tap, lyrical, contemporary, acro, and hip hop for ages 3 and up. Recreational classes and award-winning competitive teams.</p>
+          </div>
+          <div>
+            <h4>Visit the studio</h4>
+            <p>9833 Jefferson Davis Hwy<br>Fredericksburg, VA 22407</p>
+            <p style="margin-top: 8px;">(540) 642-5439<br>hello@royaltydanceva.com</p>
+          </div>
+          <div>
+            <h4>Studio hours</h4>
+            <ul>
+              <li>Mon to Thu · 4 PM to 9:30 PM</li>
+              <li>Friday · By appointment</li>
+              <li>Saturday · 9 AM to 2 PM</li>
+              <li>Sunday · Closed</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Follow along</h4>
+            <ul>
+              <li><a href="https://www.instagram.com/royalty1dance/">Instagram</a></li>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">TikTok</a></li>
+              <li><a href="#">YouTube</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-base">
+          <span>© 2026 Royalty Dance Company. All rights reserved.</span>
+          <span>Built with care for the families of Fredericksburg.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

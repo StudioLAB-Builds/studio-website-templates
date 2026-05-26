@@ -1,0 +1,63 @@
+{
+  "studio": {
+    "name": "Royalty Dance Company",
+    "location": "Fredericksburg, VA",
+    "pageTitle": "Royalty Dance Company Website Template Options",
+    "description": "Royalty Dance Company website template options prepared for review.",
+    "favicon": "assets/favicon.svg",
+    "logo": "assets/logo.svg",
+    "kicker": "Website template options",
+    "heading": "Royalty Dance Company website template options.",
+    "intro": "Open any homepage direction to review the layout, design language, and parent journey. Each option carries the same content and faculty across the page so the conversation can focus on the look and feel."
+  },
+  "templates": [
+    {
+      "id": "demo-1-premium-editorial",
+      "label": "Demo 1",
+      "title": "Premium Editorial",
+      "description": "An editorial luxury treatment that mirrors the royal brand metaphor. Cream paper, deep burgundy, antique gold, and large serif typography for a magazine-quality first impression.",
+      "path": "demos/demo-1-premium-editorial/",
+      "preview": "previews/demo-1-premium-editorial.png",
+      "previewAlt": "Demo 1 Premium Editorial preview",
+      "status": "visible",
+      "order": 10,
+      "source": "Claude-generated demo for new studio onboarding, 2026-05-26"
+    },
+    {
+      "id": "demo-2-performance-cinematic",
+      "label": "Demo 2",
+      "title": "Performance Cinematic",
+      "description": "A stage-energy direction built around the competitive side of the studio. Deep midnight navy, royal purple atmosphere, and crown gold accents with a spotlight aesthetic.",
+      "path": "demos/demo-2-performance-cinematic/",
+      "preview": "previews/demo-2-performance-cinematic.png",
+      "previewAlt": "Demo 2 Performance Cinematic preview",
+      "status": "visible",
+      "order": 20,
+      "source": "Claude-generated demo for new studio onboarding, 2026-05-26"
+    },
+    {
+      "id": "demo-3-community-warmth",
+      "label": "Demo 3",
+      "title": "Community Warmth",
+      "description": "A family-first direction with the studio cast as a second home. Warm blush, terracotta, deep plum, soft cream, and parent voices carrying the page.",
+      "path": "demos/demo-3-community-warmth/",
+      "preview": "previews/demo-3-community-warmth.png",
+      "previewAlt": "Demo 3 Community Warmth preview",
+      "status": "visible",
+      "order": 30,
+      "source": "Claude-generated demo for new studio onboarding, 2026-05-26"
+    },
+    {
+      "id": "demo-4-program-pathways",
+      "label": "Demo 4",
+      "title": "Program Pathways",
+      "description": "A hub layout organized around three clear parent decision pathways: Tiny Royals, recreational classes, and the Royal Court competition team. Soft lilac, royal purple, and warm gold.",
+      "path": "demos/demo-4-program-pathways/",
+      "preview": "previews/demo-4-program-pathways.png",
+      "previewAlt": "Demo 4 Program Pathways preview",
+      "status": "visible",
+      "order": 40,
+      "source": "Claude-generated demo for new studio onboarding, 2026-05-26"
+    }
+  ]
+}
