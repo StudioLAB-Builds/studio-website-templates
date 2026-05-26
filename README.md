@@ -1,8 +1,8 @@
 # Studio Website Templates
 
-A shareable demo library for StudioLAB-generated studio website concepts.
+A shareable template library for StudioLAB-generated studio website concepts.
 
-The root page is the internal StudioLAB hub. From there, select a studio folder and send that studio's gallery link to the client. Each studio gallery contains labelled demo previews, and each demo includes a return link back to the studio gallery.
+The root page is the internal StudioLAB hub. From there, select a studio folder and send that studio's clean gallery link to the client. Each studio gallery is generated from a `templates.json` manifest so drafts can be kept in the repo without being shown to the studio.
 
 ## Current Structure
 
@@ -14,6 +14,7 @@ The root page is the internal StudioLAB hub. From there, select a studio folder 
 ├── studios/
 │   └── absolute-dance/
 │       ├── index.html
+│       ├── templates.json
 │       ├── assets/
 │       ├── previews/
 │       └── demos/
@@ -29,22 +30,39 @@ The root page is the internal StudioLAB hub. From there, select a studio folder 
 
 1. Create a new folder under `studios/`, using a kebab-case studio name.
 2. Add shared studio assets to `studios/<studio>/assets/`.
-3. Add each design option under `studios/<studio>/demos/demo-n-<option-name>/index.html`.
-4. Generate a preview image into `studios/<studio>/previews/`.
-5. Create or update the studio's `index.html` gallery page so the demo appears as a labelled preview card.
-5. Add the studio card to the root `index.html`.
-6. Run `npm run validate`.
+3. Add a `templates.json` manifest for the studio.
+4. Add each design option under `studios/<studio>/demos/<template-slug>/index.html`.
+5. Generate a preview image into `studios/<studio>/previews/`.
+6. Add the template to `templates.json`.
+7. Add the studio card to the root `index.html`.
+8. Run `npm run build:galleries`.
+9. Run `npm run validate`.
 
 ## Current Absolute Dance Demos
 
-- Demo 1: Current Website Reference
-- Demo 2: Warm Modern Enrollment
-- Demo 3: Editorial Community
-- Demo 4: Bold Class Pathways
+- Visible: Demo 2, Warm Modern Enrollment. This is the prompt-built homepage redesign.
+- Hidden: Demo 1, Demo 3, and Demo 4. These stay out of the client-facing gallery because they are not approved template options.
+
+## Showing, Hiding, Or Removing Templates
+
+Each studio manifest uses a `status` field:
+
+- `visible` renders the template in the studio-facing gallery.
+- `hidden` keeps the file in the repo but removes it from the studio-facing gallery.
+
+To hide a template, change its status to `hidden` in `studios/<studio>/templates.json`, then run `npm run build:galleries` and `npm run validate`.
+
+To remove a template completely, delete the manifest entry, delete its demo folder and preview image, then run `npm run build:galleries` and `npm run validate`.
+
+## Uploading New Template Files
+
+For a finished template generated outside chat, upload the complete project folder into `studios/<studio>/demos/<template-slug>/`. The folder must contain an `index.html`. If it has its own images, keep them inside that same template folder, or use the studio-level shared assets in `studios/<studio>/assets/`.
+
+Add a matching preview image to `studios/<studio>/previews/`, then add a manifest entry with `status` set to `visible` when it is ready for the studio to see. Set it to `hidden` while it is still being reviewed internally.
 
 ## Style Shortlists
 
-Studio gallery pages include shortlist checkboxes. Selecting demos and choosing "View selected styles" opens the `styles/` page with those demos grouped together. This gives StudioLAB a place to start identifying reusable visual directions across studios.
+The `styles/` page remains an internal holding area for future reusable style groupings. Studio-facing galleries no longer show shortlist controls.
 
 ## Local Preview
 

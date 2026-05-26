@@ -21,14 +21,20 @@ function expect(condition, message) {
 const rootIndex = read("index.html");
 const studioIndex = read("studios/absolute-dance/index.html");
 const styleIndex = read("styles/index.html");
+const absoluteManifest = JSON.parse(read("studios/absolute-dance/templates.json"));
+const visibleAbsoluteTemplates = absoluteManifest.templates.filter((template) => template.status === "visible");
+const hiddenAbsoluteTemplates = absoluteManifest.templates.filter((template) => template.status === "hidden");
 
 expect(rootIndex.includes("StudioLAB Website Templates"), "Root index missing project title.");
 expect(rootIndex.includes("studios/absolute-dance/"), "Root index missing Absolute Dance link.");
 expect(rootIndex.includes("styles/"), "Root index missing style shortlist link.");
-expect(studioIndex.includes("Demo 1"), "Absolute Dance gallery missing Demo 1.");
-expect(studioIndex.includes("Demo 2"), "Absolute Dance gallery missing Demo 2.");
-expect(studioIndex.includes("Demo 3"), "Absolute Dance gallery missing Demo 3.");
-expect(studioIndex.includes("Demo 4"), "Absolute Dance gallery missing Demo 4.");
+expect(visibleAbsoluteTemplates.length === 1, "Absolute Dance should currently have exactly one visible template.");
+expect(visibleAbsoluteTemplates[0]?.id === "demo-2-warm-modern-enrollment", "Absolute Dance visible template should be the prompt-built Demo 2.");
+expect(hiddenAbsoluteTemplates.length === 3, "Absolute Dance should keep three rough concepts hidden.");
+expect(studioIndex.includes("Demo 2"), "Absolute Dance gallery missing visible Demo 2.");
+expect(!studioIndex.includes("Demo 1"), "Absolute Dance gallery still exposes hidden Demo 1.");
+expect(!studioIndex.includes("Demo 3"), "Absolute Dance gallery still exposes hidden Demo 3.");
+expect(!studioIndex.includes("Demo 4"), "Absolute Dance gallery still exposes hidden Demo 4.");
 expect(!studioIndex.includes("StudioLAB Website Templates"), "Absolute Dance gallery exposes the master template hub.");
 expect(!studioIndex.includes("styles/"), "Absolute Dance gallery exposes internal style tools.");
 expect(!studioIndex.includes("mailto:"), "Absolute Dance gallery exposes feedback email.");
@@ -36,20 +42,14 @@ expect(!/shortlist|selected|Clear selection|View demos/i.test(studioIndex), "Abs
 expect(styleIndex.includes("Style shortlists"), "Style shortlist page missing title.");
 expect(fs.existsSync(path.join(root, ".nojekyll")), "Missing .nojekyll for GitHub Pages.");
 
-const demos = [
-  ["demo-1-current-website", "Current Website Reference"],
-  ["demo-2-warm-modern-enrollment", "Warm Modern Enrollment"],
-  ["demo-3-editorial-community", "Editorial Community"],
-  ["demo-4-bold-class-pathways", "Bold Class Pathways"]
-];
-
-for (const [slug, label] of demos) {
-  const demoIndex = read(`studios/absolute-dance/demos/${slug}/index.html`);
-  expect(demoIndex.includes(label), `${slug} missing label: ${label}`);
-  expect(demoIndex.includes("Back to template options"), `${slug} missing same-gallery return link.`);
-  expect(!demoIndex.includes("StudioLAB Website Templates"), `${slug} exposes the master template hub.`);
-  expect(demoIndex.includes("../../assets/"), `${slug} does not use shared studio assets.`);
-  expect(fs.existsSync(path.join(root, `studios/absolute-dance/previews/${slug}.png`)), `Missing preview image for ${slug}.`);
+for (const template of absoluteManifest.templates) {
+  const demoIndex = read(`studios/absolute-dance/${template.path}index.html`);
+  expect(["visible", "hidden"].includes(template.status), `${template.id} has invalid status: ${template.status}`);
+  expect(demoIndex.includes(template.title), `${template.id} missing title: ${template.title}`);
+  expect(demoIndex.includes("Back to template options"), `${template.id} missing same-gallery return link.`);
+  expect(!demoIndex.includes("StudioLAB Website Templates"), `${template.id} exposes the master template hub.`);
+  expect(demoIndex.includes("../../assets/"), `${template.id} does not use shared studio assets.`);
+  expect(fs.existsSync(path.join(root, "studios/absolute-dance", template.preview)), `Missing preview image for ${template.id}.`);
 }
 
 const requiredAssets = [

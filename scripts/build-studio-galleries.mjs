@@ -1,11 +1,72 @@
-<!doctype html>
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const studiosRoot = path.join(root, "studios");
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function renderCards(templates) {
+  if (!templates.length) {
+    return `
+        <article class="empty-card">
+          <span class="demo-label">No visible demos</span>
+          <h2>Template options are being prepared.</h2>
+          <p>This studio folder is ready, but no templates are currently marked visible in the studio manifest.</p>
+        </article>`;
+  }
+
+  return templates
+    .map((template) => {
+      const label = escapeHtml(template.label);
+      const title = escapeHtml(template.title);
+      const description = escapeHtml(template.description);
+      const href = escapeHtml(template.path);
+      const preview = escapeHtml(template.preview);
+      const alt = escapeHtml(template.previewAlt || `${template.label} ${template.title} preview`);
+
+      return `
+        <article class="demo-card">
+          <a class="preview-link demo-link" href="${href}"><img src="${preview}" alt="${alt}"></a>
+          <div class="demo-copy">
+            <span class="demo-label">${label}</span>
+            <h2>${title}</h2>
+            <p>${description}</p>
+            <a class="button demo-link" href="${href}">View ${label}</a>
+          </div>
+        </article>`;
+    })
+    .join("\n");
+}
+
+function renderGallery(studioSlug, manifest) {
+  const visibleTemplates = manifest.templates
+    .filter((template) => template.status === "visible")
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+
+  const studio = manifest.studio;
+  const gridClass = visibleTemplates.length === 1 ? "demo-grid single" : "demo-grid";
+  const cards = renderCards(visibleTemplates);
+
+  return `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Absolute Dance Website Template Options</title>
-    <meta name="description" content="Absolute Dance website template options prepared for review.">
-    <link rel="icon" href="assets/favicon.png">
+    <title>${escapeHtml(studio.pageTitle)}</title>
+    <meta name="description" content="${escapeHtml(studio.description)}">
+    <link rel="icon" href="${escapeHtml(studio.favicon)}">
     <style>
       :root {
         --ink: #12383d;
@@ -231,25 +292,16 @@
   </head>
   <body>
     <main class="wrap">
-      <section class="intro" aria-label="Absolute Dance website template options">
-        <div class="studio-logo"><img src="assets/logo-2.png" alt="Absolute Dance"></div>
+      <section class="intro" aria-label="${escapeHtml(studio.name)} website template options">
+        <div class="studio-logo"><img src="${escapeHtml(studio.logo)}" alt="${escapeHtml(studio.name)}"></div>
         <div>
-          <span class="kicker">Website template options</span>
-          <h1>Absolute Dance website template options.</h1>
+          <span class="kicker">${escapeHtml(studio.kicker)}</span>
+          <h1>${escapeHtml(studio.heading)}</h1>
         </div>
-        <p>Open the available homepage direction to review the overall feel, layout, and parent journey. Additional options can be added here as they are prepared.</p>
+        <p>${escapeHtml(studio.intro)}</p>
       </section>
 
-      <section class="demo-grid single" aria-label="Absolute Dance demos">
-        <article class="demo-card">
-          <a class="preview-link demo-link" href="demos/demo-2-warm-modern-enrollment/"><img src="previews/demo-2-warm-modern-enrollment.png" alt="Demo 2 Warm Modern Enrollment preview"></a>
-          <div class="demo-copy">
-            <span class="demo-label">Demo 2</span>
-            <h2>Warm Modern Enrollment</h2>
-            <p>A family-centred redesign with a polished parent journey and real Absolute Dance imagery.</p>
-            <a class="button demo-link" href="demos/demo-2-warm-modern-enrollment/">View Demo 2</a>
-          </div>
-        </article>
+      <section class="${gridClass}" aria-label="${escapeHtml(studio.name)} demos">${cards}
       </section>
     </main>
 
@@ -264,9 +316,25 @@
         document.querySelectorAll('.demo-link').forEach((link) => {
           const url = new URL(link.getAttribute('href'), window.location.href);
           url.searchParams.set('hub', '1');
-          link.href = url.pathname.split('/studios/absolute-dance/')[1] + url.search;
+          link.href = url.pathname.split('/studios/${studioSlug}/')[1] + url.search;
         });
       }
     </script>
   </body>
 </html>
+`;
+}
+
+for (const studioSlug of fs.readdirSync(studiosRoot)) {
+  const studioDir = path.join(studiosRoot, studioSlug);
+  const manifestPath = path.join(studioDir, "templates.json");
+
+  if (!fs.statSync(studioDir).isDirectory() || !fs.existsSync(manifestPath)) {
+    continue;
+  }
+
+  const manifest = readJson(manifestPath);
+  const html = renderGallery(studioSlug, manifest);
+  fs.writeFileSync(path.join(studioDir, "index.html"), html);
+  console.log(`Built gallery: studios/${studioSlug}/index.html`);
+}

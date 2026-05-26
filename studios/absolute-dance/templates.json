@@ -1,0 +1,62 @@
+{
+  "studio": {
+    "name": "Absolute Dance",
+    "pageTitle": "Absolute Dance Website Template Options",
+    "description": "Absolute Dance website template options prepared for review.",
+    "favicon": "assets/favicon.png",
+    "logo": "assets/logo-2.png",
+    "kicker": "Website template options",
+    "heading": "Absolute Dance website template options.",
+    "intro": "Open the available homepage direction to review the overall feel, layout, and parent journey. Additional options can be added here as they are prepared."
+  },
+  "templates": [
+    {
+      "id": "demo-2-warm-modern-enrollment",
+      "label": "Demo 2",
+      "title": "Warm Modern Enrollment",
+      "description": "A family-centred redesign with a polished parent journey and real Absolute Dance imagery.",
+      "path": "demos/demo-2-warm-modern-enrollment/",
+      "preview": "previews/demo-2-warm-modern-enrollment.png",
+      "previewAlt": "Demo 2 Warm Modern Enrollment preview",
+      "status": "visible",
+      "order": 20,
+      "source": "Prompt-built homepage redesign"
+    },
+    {
+      "id": "demo-1-current-website",
+      "label": "Demo 1",
+      "title": "Current Website Reference",
+      "description": "A reference version of the current site direction. Hidden from the studio gallery because it is not a polished generated template option.",
+      "path": "demos/demo-1-current-website/",
+      "preview": "previews/demo-1-current-website.png",
+      "previewAlt": "Demo 1 Current Website Reference preview",
+      "status": "hidden",
+      "order": 10,
+      "source": "Reference only"
+    },
+    {
+      "id": "demo-3-editorial-community",
+      "label": "Demo 3",
+      "title": "Editorial Community",
+      "description": "A self-generated concept that is hidden until it is replaced or rebuilt from a proper prompt.",
+      "path": "demos/demo-3-editorial-community/",
+      "preview": "previews/demo-3-editorial-community.png",
+      "previewAlt": "Demo 3 Editorial Community preview",
+      "status": "hidden",
+      "order": 30,
+      "source": "Hidden self-generated concept"
+    },
+    {
+      "id": "demo-4-bold-class-pathways",
+      "label": "Demo 4",
+      "title": "Bold Class Pathways",
+      "description": "A self-generated concept that is hidden until it is replaced or rebuilt from a proper prompt.",
+      "path": "demos/demo-4-bold-class-pathways/",
+      "preview": "previews/demo-4-bold-class-pathways.png",
+      "previewAlt": "Demo 4 Bold Class Pathways preview",
+      "status": "hidden",
+      "order": 40,
+      "source": "Hidden self-generated concept"
+    }
+  ]
+}
