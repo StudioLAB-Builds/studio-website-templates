@@ -23,6 +23,18 @@
       "source": "Prompt-built homepage redesign"
     },
     {
+      "id": "demo-3-conversion-journey",
+      "label": "Demo 3",
+      "title": "Conversion Journey",
+      "description": "A conversion-focused homepage direction with a bolder stage hero, clear parent actions, and real Absolute Dance imagery.",
+      "path": "demos/demo-3-conversion-journey/",
+      "preview": "previews/demo-3-conversion-journey.png",
+      "previewAlt": "Demo 3 Conversion Journey preview",
+      "status": "visible",
+      "order": 30,
+      "source": "Earlier prompt-built conversion homepage"
+    },
+    {
       "id": "demo-1-current-website",
       "label": "Demo 1",
       "title": "Current Website Reference",
@@ -36,26 +48,26 @@
     },
     {
       "id": "demo-3-editorial-community",
-      "label": "Demo 3",
+      "label": "Hidden Draft 3",
       "title": "Editorial Community",
       "description": "A self-generated concept that is hidden until it is replaced or rebuilt from a proper prompt.",
       "path": "demos/demo-3-editorial-community/",
       "preview": "previews/demo-3-editorial-community.png",
-      "previewAlt": "Demo 3 Editorial Community preview",
+      "previewAlt": "Hidden Draft 3 Editorial Community preview",
       "status": "hidden",
-      "order": 30,
+      "order": 130,
       "source": "Hidden self-generated concept"
     },
     {
       "id": "demo-4-bold-class-pathways",
-      "label": "Demo 4",
+      "label": "Hidden Draft 4",
       "title": "Bold Class Pathways",
       "description": "A self-generated concept that is hidden until it is replaced or rebuilt from a proper prompt.",
       "path": "demos/demo-4-bold-class-pathways/",
       "preview": "previews/demo-4-bold-class-pathways.png",
-      "previewAlt": "Demo 4 Bold Class Pathways preview",
+      "previewAlt": "Hidden Draft 4 Bold Class Pathways preview",
       "status": "hidden",
-      "order": 40,
+      "order": 140,
       "source": "Hidden self-generated concept"
     }
   ]

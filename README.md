@@ -20,6 +20,7 @@ The root page is the internal StudioLAB hub. From there, select a studio folder 
 │       └── demos/
 │           ├── demo-1-current-website/
 │           ├── demo-2-warm-modern-enrollment/
+│           ├── demo-3-conversion-journey/
 │           ├── demo-3-editorial-community/
 │           └── demo-4-bold-class-pathways/
 └── scripts/
@@ -41,7 +42,8 @@ The root page is the internal StudioLAB hub. From there, select a studio folder 
 ## Current Absolute Dance Demos
 
 - Visible: Demo 2, Warm Modern Enrollment. This is the prompt-built homepage redesign.
-- Hidden: Demo 1, Demo 3, and Demo 4. These stay out of the client-facing gallery because they are not approved template options.
+- Visible: Demo 3, Conversion Journey. This is the cleaned earlier conversion-focused homepage build.
+- Hidden: Demo 1, Editorial Community, and Bold Class Pathways. These stay out of the client-facing gallery because they are not approved template options.
 
 ## Showing, Hiding, Or Removing Templates
 

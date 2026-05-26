@@ -28,13 +28,15 @@ const hiddenAbsoluteTemplates = absoluteManifest.templates.filter((template) => 
 expect(rootIndex.includes("StudioLAB Website Templates"), "Root index missing project title.");
 expect(rootIndex.includes("studios/absolute-dance/"), "Root index missing Absolute Dance link.");
 expect(rootIndex.includes("styles/"), "Root index missing style shortlist link.");
-expect(visibleAbsoluteTemplates.length === 1, "Absolute Dance should currently have exactly one visible template.");
-expect(visibleAbsoluteTemplates[0]?.id === "demo-2-warm-modern-enrollment", "Absolute Dance visible template should be the prompt-built Demo 2.");
+expect(visibleAbsoluteTemplates.length === 2, "Absolute Dance should currently have exactly two visible templates.");
+expect(visibleAbsoluteTemplates.some((template) => template.id === "demo-2-warm-modern-enrollment"), "Absolute Dance visible templates should include prompt-built Demo 2.");
+expect(visibleAbsoluteTemplates.some((template) => template.id === "demo-3-conversion-journey"), "Absolute Dance visible templates should include cleaned Demo 3.");
 expect(hiddenAbsoluteTemplates.length === 3, "Absolute Dance should keep three rough concepts hidden.");
 expect(studioIndex.includes("Demo 2"), "Absolute Dance gallery missing visible Demo 2.");
+expect(studioIndex.includes("Demo 3"), "Absolute Dance gallery missing visible Demo 3.");
 expect(!studioIndex.includes("Demo 1"), "Absolute Dance gallery still exposes hidden Demo 1.");
-expect(!studioIndex.includes("Demo 3"), "Absolute Dance gallery still exposes hidden Demo 3.");
-expect(!studioIndex.includes("Demo 4"), "Absolute Dance gallery still exposes hidden Demo 4.");
+expect(!studioIndex.includes("Hidden Draft 3"), "Absolute Dance gallery still exposes hidden draft 3.");
+expect(!studioIndex.includes("Hidden Draft 4"), "Absolute Dance gallery still exposes hidden draft 4.");
 expect(!studioIndex.includes("StudioLAB Website Templates"), "Absolute Dance gallery exposes the master template hub.");
 expect(!studioIndex.includes("styles/"), "Absolute Dance gallery exposes internal style tools.");
 expect(!studioIndex.includes("mailto:"), "Absolute Dance gallery exposes feedback email.");
@@ -61,6 +63,7 @@ const requiredAssets = [
   "gallery-2.jpeg",
   "team-hero-img.jpg",
   "competitive-team.jpg",
+  "video-overlay.jpg",
   "nancy-o.jpg",
   "edward-b.jpg",
   "map.png",
