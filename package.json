@@ -4,6 +4,8 @@
   "private": true,
   "description": "StudioLAB website template demo library.",
   "scripts": {
+    "generate": "node scripts/generate-studio.mjs",
+    "generate:all": "node scripts/generate-studio.mjs --all",
     "build:galleries": "node scripts/build-studio-galleries.mjs",
     "start": "python3 -m http.server 8765 --bind 127.0.0.1",
     "validate": "node scripts/validate-site.mjs"

@@ -1,0 +1,11 @@
+{
+  "id": "editorial-storyteller",
+  "label": "Demo 3",
+  "title": "Editorial Storyteller",
+  "description": "An editorial homepage direction with atmospheric stage-glow, sparkles, tessellated class bento, and story-driven copy. Premium, character-forward, family-warm.",
+  "previewAlt": "Editorial Storyteller — premium editorial homepage with stage atmosphere",
+  "demoNumber": 3,
+  "order": 30,
+  "ghlCompatible": true,
+  "notes": "Single self-contained index.html. Inline CSS. Vanilla JS only (intersection-reveal, count-up, accordion). Assets referenced relative to demo folder. GHL Sites/Funnels builder can import section-by-section."
+}

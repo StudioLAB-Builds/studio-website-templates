@@ -1,0 +1,193 @@
+{
+  "$schema": "../STUDIO-BRIEF-TEMPLATE.md",
+  "slug": "absolute-dance",
+  "identity": {
+    "name": "Absolute Dance",
+    "shortName": "Absolute",
+    "tagline": "Inspiring the dancer's heart",
+    "foundedYear": 2008,
+    "ownerSince": 2014,
+    "city": "Midland",
+    "state": "TX",
+    "region": "Permian Basin"
+  },
+  "contact": {
+    "address": "5109 Sunmore Circle",
+    "cityLine": "Midland, TX 79707",
+    "phone": "(432) 699-2190",
+    "phoneTel": "+14326992190",
+    "email": "info@absolutedance.org",
+    "hours": "Mon–Thu · 2:00–7:00pm"
+  },
+  "links": {
+    "portal": "https://app.thestudiodirector.com/absolutedance/portal.sd?page=Login",
+    "instagram": "https://instagram.com/absolutedancemidland",
+    "facebook": "https://facebook.com/AbsoluteDanceMidland"
+  },
+  "brand": {
+    "ink": "oklch(0.16 0.012 280)",
+    "cream": "oklch(0.965 0.018 80)",
+    "teal": "oklch(0.74 0.12 195)",
+    "pink": "oklch(0.62 0.27 350)",
+    "gold": "oklch(0.78 0.13 75)",
+    "fontDisplay": "\"Fraunces\", \"GT Sectra\", \"Tiempos Headline\", ui-serif, Georgia, serif",
+    "fontSans": "\"Geist\", \"Inter\", ui-sans-serif, system-ui, sans-serif",
+    "googleFontsHref": "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Geist:wght@400;500;600&display=swap"
+  },
+  "assets": {
+    "logo": "logo-2.png",
+    "favicon": "favicon.png",
+    "hero": "demo-3/hero-stage.jpg",
+    "mission": "demo-3/mission.jpg",
+    "events": "demo-3/events.jpg",
+    "classes": {
+      "ballet": "demo-3/class-ballet.jpg",
+      "jazz": "demo-3/class-jazz.jpg",
+      "hiphop": "demo-3/class-hiphop.jpg",
+      "tap": "demo-3/class-tap.jpg",
+      "contemporary": "demo-3/class-contemporary.jpg",
+      "tots": "demo-3/class-tots.jpg"
+    },
+    "faculty": [
+      "demo-3/faculty-1.jpg",
+      "demo-3/faculty-2.jpg",
+      "demo-3/faculty-3.jpg"
+    ],
+    "parents": [
+      "demo-3/parent-1.jpg",
+      "demo-3/parent-2.jpg",
+      "demo-3/parent-3.jpg"
+    ]
+  },
+  "hero": {
+    "eyebrow": "Midland's home for dancers since 2008",
+    "headlineLead": "Inspiring the dancer's",
+    "headlineAccent": "heart.",
+    "sub": "A studio in Midland, Texas where dancers ages two and up build skill, character, and confidence on the floor and beyond it.",
+    "primaryCta": "Register for classes",
+    "secondaryCta": "Meet the faculty",
+    "socialProof": "Trusted by 500+ Permian Basin families",
+    "imageAlt": "Young dancers performing on stage under warm spotlight"
+  },
+  "marquee": {
+    "eyebrow": "What we teach",
+    "items": ["Ballet", "Jazz", "Hip Hop", "Tap", "Contemporary", "Lyrical", "Pointe", "Acro", "Musical Theatre", "Pre-Dance"]
+  },
+  "mission": {
+    "eyebrow": "A studio with a heartbeat",
+    "headlineLead": "Dance is the lesson.",
+    "headlineAccent": "Character",
+    "headlineTail": "is the gift.",
+    "body": "For seventeen years, families across the Permian Basin have trusted Absolute Dance to shape young performers into kind, disciplined, confident people. Our floors are safe. Our standards are high. Our doors are open to every dancer ready to grow.",
+    "imageAlt": "Two young dancers laughing together in the studio",
+    "pullQuote": "She walks in nervous and walks out beaming. Every single week.",
+    "pullQuoteAuthor": "Studio parent, Midland",
+    "stats": [
+      { "label": "Years in Midland", "value": 17, "suffix": "" },
+      { "label": "Dancers enrolled", "value": 800, "suffix": "+" },
+      { "label": "Annual performances", "value": 2, "suffix": "" }
+    ]
+  },
+  "classesSection": {
+    "eyebrow": "From first plié to center stage",
+    "headlineLead": "Six disciplines.",
+    "headlineAccent": "One",
+    "headlineTail": "studio family.",
+    "body": "Classes are levelled by age and ability so every dancer is challenged, supported, and seen. Schedules run August through May with summer intensives.",
+    "primaryCta": "See full schedule",
+    "secondaryCta": "Studio policies"
+  },
+  "classes": [
+    { "id": "ballet", "title": "Ballet", "age": "Ages 5–18", "body": "Classical technique built on Vaganova foundations. Pre-ballet, graded levels, and pointe.", "featured": true, "tag": "Featured" },
+    { "id": "jazz", "title": "Jazz", "age": "Ages 6+", "body": "Sharp lines, big personality." },
+    { "id": "hiphop", "title": "Hip Hop", "age": "Ages 7+", "body": "Street style with studio polish." },
+    { "id": "tap", "title": "Tap", "age": "Ages 6+", "body": "Rhythm you can hear." },
+    { "id": "contemporary", "title": "Contemporary", "age": "Ages 9+", "body": "Story through movement." },
+    { "id": "tots", "title": "Pre-Dance", "age": "Ages 2–4", "body": "Where it all begins." }
+  ],
+  "whyUs": {
+    "eyebrow": "Why families stay for years",
+    "headlineLead": "The reason a dancer comes back",
+    "headlineAccent": "every",
+    "headlineTail": "season.",
+    "pillars": [
+      { "title": "A safe, positive floor", "body": "Encouragement before correction. Boundaries before pressure. Every dancer, every level." },
+      { "title": "Discipline that travels", "body": "The focus we build in class shows up at school, on the team, and at the dinner table." },
+      { "title": "Real stage time", "body": "Recitals, competitions, and community performances throughout the year." }
+    ]
+  },
+  "facultySection": {
+    "eyebrow": "The people on the floor with your dancer",
+    "headlineLead": "Trained teachers.",
+    "headlineAccent": "Warm",
+    "headlineTail": "humans.",
+    "cta": "Meet everyone"
+  },
+  "faculty": [
+    { "name": "Kristen Hollimon", "role": "Owner & Director", "bio": "Owner since 2014. A University of Tennessee Dance Team alum who turned a lifelong love of dance into Midland's most welcoming studio." },
+    { "name": "Chelsey Epperson", "role": "Artistic Director & Instructor", "bio": "Shapes the artistry on our stage, from first plié to senior solo, with the eye of a seasoned director." },
+    { "name": "Bonnie Baeza", "role": "Classroom Director & Instructor", "bio": "Keeps every classroom safe, structured, and joyful. The reason small dancers settle in fast." }
+  ],
+  "events": {
+    "eyebrow": "Mark your calendar",
+    "headlineLead": "Lights up. Curtains",
+    "headlineAccent": "part.",
+    "body": "From holiday showcases to the spring recital, our dancers spend the year working toward real moments on a real stage. Family-first, audience-warm, professionally produced.",
+    "imageAlt": "Packed theatre watching an Absolute Dance recital",
+    "badge": { "label": "Spring Recital", "value": "May 16–17, 2026" },
+    "schedule": [
+      ["Holiday Showcase", "December 13, 2025"],
+      ["Competition Season", "January – April"],
+      ["Spring Recital", "May 16 & 17, 2026"]
+    ],
+    "cta": "Open the calendar"
+  },
+  "testimonialsSection": {
+    "eyebrow": "From our studio families",
+    "headlineLead": "The words we hear most?",
+    "headlineAccent": "Thank you."
+  },
+  "testimonials": [
+    { "name": "Lauren M.", "role": "Mum of two dancers", "quote": "My girls have grown up on this floor. The teachers know them, push them, and love them. We will never go anywhere else." },
+    { "name": "Marco G.", "role": "Dad, ballet & jazz", "quote": "I expected a dance class. We got a community. The discipline she learned here shows up in everything she does." },
+    { "name": "Ava R.", "role": "Student, age 16", "quote": "I started at four and I am still here. Absolute is the reason I want to dance in college." }
+  ],
+  "faqSection": {
+    "eyebrow": "Before you register",
+    "headlineLead": "Answers for new",
+    "headlineAccent": "families.",
+    "intro": "Still wondering? Call the studio. A real person answers, every weekday."
+  },
+  "faq": [
+    { "q": "What ages do you accept?", "a": "We welcome dancers ages two and up. Pre-Dance is built for our smallest students, with age-levelled classes all the way through high school." },
+    { "q": "Can my dancer try a class first?", "a": "Yes. We offer a no-pressure trial visit so your dancer can meet the teacher and the room before you commit." },
+    { "q": "What does my dancer need to wear?", "a": "Each class has a simple dress code so dancers can move safely. We send the full list the moment you register." },
+    { "q": "What does tuition look like?", "a": "Monthly tuition is based on hours per week. Multi-class and family discounts apply automatically. Full pricing lives in the parent portal." },
+    { "q": "Are recital costumes extra?", "a": "Yes. Costume fees are billed in the fall so families have time to plan. We keep choices age-appropriate and reusable when possible." },
+    { "q": "What happens if we miss a class?", "a": "Life happens. Missed classes can be made up in any equivalent class within thirty days." }
+  ],
+  "finalCta": {
+    "eyebrow": "Your dancer's first step",
+    "headlineLead": "Begins on our",
+    "headlineAccent": "floor.",
+    "body": "Spots fill fast each season. Register today and reserve your dancer's place for the 2025 – 2026 year.",
+    "primaryCta": "Register for classes",
+    "secondaryCta": "Call the studio"
+  },
+  "footer": {
+    "blurb": "A Midland, Texas dance studio where dancers ages two and up grow into kind, confident performers and people.",
+    "studioLinks": [
+      { "label": "About", "anchor": "about" },
+      { "label": "Classes", "anchor": "classes" },
+      { "label": "Faculty", "anchor": "faculty" },
+      { "label": "Policies", "anchor": "faq" }
+    ],
+    "tagline": "Inspiring the dancer's heart since 2008."
+  },
+  "meta": {
+    "title": "Absolute Dance — Dance Lessons in Midland, TX",
+    "description": "Inspiring the dancer's heart in Midland, Texas since 2008. Ballet, jazz, hip hop, tap, contemporary and pre-dance for ages two and up.",
+    "ogTitle": "Absolute Dance — Midland, TX",
+    "ogDescription": "Where dancers ages two and up build skill, character and confidence."
+  }
+}
