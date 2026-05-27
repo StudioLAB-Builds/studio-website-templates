@@ -424,9 +424,82 @@
         font-weight: 700;
         gap: 5px;
         padding: 3px 10px;
+        white-space: nowrap;
       }
       .pill-visible { background: var(--ok-subtle); color: var(--ok); }
       .pill-hidden { background: var(--crit-subtle); color: var(--crit); }
+      .pill-enabled { background: var(--ok-subtle); color: var(--ok); }
+      .pill-disabled { background: var(--warn-subtle); color: var(--warn); }
+      .pill-archived { background: var(--gray-100); color: var(--gray-500); }
+      .pill-live { background: var(--info-subtle); color: var(--info); }
+
+      /* Status select (filter-bar pill pattern) */
+      .status-select {
+        appearance: none;
+        background: var(--card);
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%236B6D8A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+        background-position: right 8px center;
+        background-repeat: no-repeat;
+        background-size: 9px 9px;
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-full);
+        color: var(--foreground);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 11.5px;
+        font-weight: 600;
+        height: 28px;
+        padding: 0 22px 0 11px;
+        transition: border-color 120ms ease, background-color 120ms ease;
+      }
+      .status-select:hover { border-color: var(--indigo-300); }
+      .status-select:focus-visible {
+        outline: 2px solid var(--indigo-500);
+        outline-offset: 2px;
+      }
+      .status-select:disabled { cursor: not-allowed; opacity: 0.5; }
+
+      .control-group {
+        align-items: center;
+        display: inline-flex;
+        gap: 6px;
+      }
+      .control-group .control-label {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .btn-destructive {
+        border-color: rgba(185, 28, 28, 0.32);
+        color: var(--crit);
+      }
+      .btn-destructive:hover { background: var(--crit-subtle); border-color: var(--crit); }
+
+      /* Inline confirm overlay (no native confirm) */
+      .confirm-bar {
+        align-items: center;
+        background: var(--crit-subtle);
+        border: 1px solid rgba(185, 28, 28, 0.28);
+        border-radius: var(--radius);
+        color: var(--crit);
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 12px;
+        font-weight: 600;
+        gap: 10px;
+        margin-top: 10px;
+        padding: 8px 10px 8px 12px;
+      }
+      .confirm-bar .confirm-msg { flex: 1; min-width: 200px; }
+      .btn-confirm {
+        background: var(--crit);
+        border-color: var(--crit);
+        color: #ffffff;
+      }
+      .btn-confirm:hover { background: #951818; border-color: #951818; }
 
       .share-cell { align-items: center; display: flex; gap: 6px; }
       .share-url {
@@ -546,7 +619,63 @@
         padding: 14px 16px;
         transition: opacity 120ms ease, background 120ms ease;
       }
-      .template-item.is-hidden { background: var(--surface); opacity: 0.82; }
+      .template-item.is-hidden { background: var(--surface); opacity: 0.92; }
+      .template-item.is-disabled { background: var(--warn-subtle); border-color: rgba(180, 83, 9, 0.22); }
+      .template-item.is-archived {
+        background: var(--surface);
+        font-size: 12px;
+        opacity: 0.75;
+        padding: 10px 14px;
+      }
+      .template-item.is-archived .template-item-head h4 { font-size: 12.5px; }
+      .template-item.is-archived .label { font-size: 9px; }
+      .template-item.is-archived p { font-size: 11.5px; }
+
+      .template-meta {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .demo-url {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        color: var(--indigo-400);
+        display: block;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11.5px;
+        font-weight: 500;
+        margin-top: 10px;
+        overflow: hidden;
+        padding: 5px 9px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .archived-group {
+        margin-top: 22px;
+      }
+      .archived-group-head {
+        align-items: center;
+        color: var(--muted);
+        cursor: pointer;
+        display: flex;
+        font-size: 10px;
+        font-weight: 700;
+        gap: 6px;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        user-select: none;
+      }
+      .archived-group-head .chev {
+        transition: transform 160ms ease;
+      }
+      .archived-group.is-open .archived-group-head .chev { transform: rotate(90deg); }
+      .archived-group-body { display: none; gap: 8px; }
+      .archived-group.is-open .archived-group-body { display: grid; }
       .template-item-head {
         align-items: flex-start;
         display: flex;
@@ -1051,6 +1180,21 @@
         renderStudios();
       }
 
+      function normaliseTpl(t) {
+        // Back-compat with legacy manifests that may still be cached client-side.
+        if (t.visibility === undefined && (t.status === "visible" || t.status === "hidden")) {
+          t.visibility = t.status;
+          t.status = "enabled";
+        }
+        if (t.visibility === undefined) t.visibility = "visible";
+        if (!["enabled", "disabled", "archived"].includes(t.status)) t.status = "enabled";
+        return t;
+      }
+
+      function isLive(tpl) {
+        return tpl.status === "enabled" && tpl.visibility === "visible";
+      }
+
       async function loadStudiosStaticFallback() {
         const STUDIOS = [{ slug: "absolute-dance" }, { slug: "royalty-dance-company" }];
         const out = [];
@@ -1059,14 +1203,15 @@
             const res = await fetch(`studios/${slug}/templates.json`, { cache: "no-store" });
             if (!res.ok) continue;
             const manifest = await res.json();
-            const templates = Array.isArray(manifest.templates) ? manifest.templates : [];
+            const templates = (Array.isArray(manifest.templates) ? manifest.templates : []).map(normaliseTpl);
             out.push({
               slug,
               name: manifest.studio?.name || slug,
               location: manifest.studio?.location || "",
               shareUrl: `${state.publicBase}/studios/${slug}/`,
-              visibleCount: templates.filter((t) => t.status === "visible").length,
-              hiddenCount: templates.filter((t) => t.status === "hidden").length,
+              visibleCount: templates.filter((t) => t.visibility === "visible").length,
+              hiddenCount: templates.filter((t) => t.visibility === "hidden").length,
+              liveCount: templates.filter(isLive).length,
               totalCount: templates.length
             });
           } catch (err) {
@@ -1122,7 +1267,10 @@
             </tbody>
           </table>
         `;
-        body.addEventListener("click", onTableClick);
+        if (!body.dataset.listenersInstalled) {
+          body.addEventListener("click", onTableClick);
+          body.dataset.listenersInstalled = "1";
+        }
       }
 
       function renderStudioRow(studio) {
@@ -1210,14 +1358,15 @@
         const res = await fetch(`studios/${slug}/templates.json`, { cache: "no-store" });
         if (!res.ok) throw new Error(`Manifest unavailable (${res.status})`);
         const manifest = await res.json();
-        const templates = Array.isArray(manifest.templates) ? manifest.templates : [];
+        const templates = (Array.isArray(manifest.templates) ? manifest.templates : []).map(normaliseTpl);
         return {
           slug,
           name: manifest.studio?.name || slug,
           location: manifest.studio?.location || "",
           shareUrl: `${state.publicBase}/studios/${slug}/`,
-          visibleCount: templates.filter((t) => t.status === "visible").length,
-          hiddenCount: templates.filter((t) => t.status === "hidden").length,
+          visibleCount: templates.filter((t) => t.visibility === "visible").length,
+          hiddenCount: templates.filter((t) => t.visibility === "hidden").length,
+          liveCount: templates.filter(isLive).length,
           totalCount: templates.length,
           manifest
         };
@@ -1225,9 +1374,13 @@
 
       function renderDrawer(studio) {
         $("#drawer-title").textContent = studio.name;
-        $("#drawer-sub").textContent = `${studio.location || "Location not set"} · ${studio.visibleCount} visible · ${studio.hiddenCount} hidden`;
+        const liveCount = studio.liveCount ?? (studio.manifest?.templates || []).map(normaliseTpl).filter(isLive).length;
+        $("#drawer-sub").textContent = `${studio.location || "Location not set"} · ${liveCount} live in gallery · ${studio.totalCount} total`;
 
-        const templates = (studio.manifest?.templates || []).slice().sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+        const all = (studio.manifest?.templates || []).map(normaliseTpl).slice().sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+        const active = all.filter((t) => t.status !== "archived");
+        const archived = all.filter((t) => t.status === "archived");
+
         const body = $("#drawer-body");
         body.innerHTML = `
           <div class="drawer-section">
@@ -1240,8 +1393,8 @@
           </div>
 
           <div class="drawer-section">
-            <h3>Templates (${templates.length})</h3>
-            ${templates.length === 0
+            <h3>Demos (${all.length})</h3>
+            ${all.length === 0
               ? `<div class="empty is-inline">
                   <div class="icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1249,41 +1402,92 @@
                       <path d="M3 9h18"/>
                     </svg>
                   </div>
-                  <div class="heading">No templates in this manifest yet</div>
+                  <div class="heading">No demos in this manifest yet</div>
                 </div>`
-              : `<ul class="template-list">${templates.map((tpl) => renderTemplateItem(studio, tpl)).join("")}</ul>`
+              : `<ul class="template-list">${active.map((tpl) => renderTemplateItem(studio, tpl)).join("")}</ul>
+                 ${archived.length ? `
+                   <div class="archived-group" id="archived-group">
+                     <div class="archived-group-head" role="button" tabindex="0" aria-expanded="false" data-toggle-archived>
+                       <svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                       Archived (${archived.length})
+                     </div>
+                     <ul class="template-list archived-group-body">${archived.map((tpl) => renderTemplateItem(studio, tpl)).join("")}</ul>
+                   </div>
+                 ` : ""}`
             }
           </div>
         `;
 
-        body.addEventListener("click", onDrawerClick);
-        body.addEventListener("change", onDrawerChange);
+        if (!body.dataset.listenersInstalled) {
+          body.addEventListener("click", onDrawerClick);
+          body.addEventListener("change", onDrawerChange);
+          body.addEventListener("keydown", onDrawerKeydown);
+          body.dataset.listenersInstalled = "1";
+        }
       }
 
       function renderTemplateItem(studio, tpl) {
         const directUrl = `${state.publicBase}/studios/${studio.slug}/${tpl.path}`;
-        const isVisible = tpl.status === "visible";
-        const disabled = state.connected ? "" : "disabled";
+        const localPreviewHref = `studios/${esc(studio.slug)}/${esc(tpl.path)}`;
+        const isVisible = tpl.visibility === "visible";
+        const live = isLive(tpl);
+        const status = tpl.status;
+        const ro = state.connected ? "" : "disabled";
+
+        // Item-level visual state: archived takes priority over disabled/hidden
+        const itemClass = status === "archived"
+          ? "is-archived"
+          : status === "disabled"
+            ? "is-disabled"
+            : isVisible ? "" : "is-hidden";
+
         return `
-          <li class="template-item ${isVisible ? "" : "is-hidden"}" data-template="${esc(tpl.id)}">
+          <li class="template-item ${itemClass}" data-template="${esc(tpl.id)}">
             <div class="template-item-head">
               <div>
                 <div class="label">${esc(tpl.label || "")}</div>
                 <h4>${esc(tpl.title || tpl.id)}</h4>
+                <div class="template-meta" style="margin-top:6px;">
+                  <span class="pill pill-${status}">${status[0].toUpperCase()}${status.slice(1)}</span>
+                  <span class="pill ${isVisible ? "pill-visible" : "pill-hidden"}">${isVisible ? "Visible" : "Hidden"}</span>
+                  ${live ? `<span class="pill pill-live">Live in gallery</span>` : ""}
+                </div>
               </div>
               <label class="switch" title="Toggle visibility to the studio">
-                <input type="checkbox" data-toggle="${esc(tpl.id)}" ${isVisible ? "checked" : ""} ${disabled}>
+                <input type="checkbox" data-toggle-visibility="${esc(tpl.id)}" ${isVisible ? "checked" : ""} ${ro}>
                 <span class="track" aria-hidden="true"></span>
                 <span>${isVisible ? "Visible" : "Hidden"}</span>
               </label>
             </div>
             <p>${esc(tpl.description || "")}</p>
+            <span class="demo-url" title="${esc(directUrl)}">${esc(directUrl)}</span>
             <div class="item-actions">
-              <span class="pill ${isVisible ? "pill-visible" : "pill-hidden"}">${isVisible ? "On" : "Off"}</span>
-              <span class="share-url" title="${esc(directUrl)}">${esc(directUrl)}</span>
-              <button class="btn btn-sm" type="button" data-copy="${esc(directUrl)}">Copy URL</button>
-              <a class="btn btn-sm" href="studios/${esc(studio.slug)}/${esc(tpl.path)}" target="_blank" rel="noopener noreferrer">Preview ↗</a>
+              <a class="btn btn-sm" href="${esc(directUrl)}" target="_blank" rel="noopener noreferrer" title="Open the public URL in a new tab">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                View
+              </a>
+              <button class="btn btn-sm" type="button" data-copy="${esc(directUrl)}" title="Copy the public URL">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy link
+              </button>
+              <button class="btn btn-sm" type="button" data-edit="${esc(tpl.id)}" title="Copy the local file path of this demo's index.html so you can paste it into your editor" ${ro}>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                Edit
+              </button>
+              <div class="control-group" title="Change demo lifecycle state">
+                <span class="control-label">Status</span>
+                <select class="status-select" data-set-status="${esc(tpl.id)}" data-prev="${esc(status)}" ${ro}>
+                  <option value="enabled" ${status === "enabled" ? "selected" : ""}>Enabled</option>
+                  <option value="disabled" ${status === "disabled" ? "selected" : ""}>Disabled</option>
+                  <option value="archived" ${status === "archived" ? "selected" : ""}>Archived</option>
+                </select>
+              </div>
+              <button class="btn btn-sm btn-destructive" type="button" data-remove="${esc(tpl.id)}" title="Permanently delete this demo" ${ro}>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                Remove
+              </button>
             </div>
+            <div data-confirm-slot="${esc(tpl.id)}"></div>
           </li>
         `;
       }
@@ -1293,37 +1497,149 @@
         if (copyBtn) {
           event.preventDefault();
           copyToClipboard(copyBtn.dataset.copy);
+          return;
+        }
+        const editBtn = event.target.closest("[data-edit]");
+        if (editBtn) {
+          event.preventDefault();
+          handleEdit(editBtn.dataset.edit);
+          return;
+        }
+        const removeBtn = event.target.closest("[data-remove]");
+        if (removeBtn) {
+          event.preventDefault();
+          openRemoveConfirm(removeBtn.dataset.remove);
+          return;
+        }
+        const confirmYes = event.target.closest("[data-confirm-yes]");
+        if (confirmYes) {
+          event.preventDefault();
+          handleRemove(confirmYes.dataset.confirmYes);
+          return;
+        }
+        const confirmCancel = event.target.closest("[data-confirm-cancel]");
+        if (confirmCancel) {
+          event.preventDefault();
+          closeRemoveConfirm(confirmCancel.dataset.confirmCancel);
+          return;
+        }
+        const archHead = event.target.closest("[data-toggle-archived]");
+        if (archHead) {
+          event.preventDefault();
+          toggleArchivedGroup(archHead);
+          return;
         }
       }
 
+      function onDrawerKeydown(event) {
+        if ((event.key === "Enter" || event.key === " ") && event.target.matches?.("[data-toggle-archived]")) {
+          event.preventDefault();
+          toggleArchivedGroup(event.target);
+        }
+      }
+
+      function toggleArchivedGroup(headEl) {
+        const group = headEl.closest(".archived-group");
+        if (!group) return;
+        const open = group.classList.toggle("is-open");
+        headEl.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+
       async function onDrawerChange(event) {
-        const input = event.target.closest("input[data-toggle]");
-        if (!input) return;
+        const visToggle = event.target.closest("input[data-toggle-visibility]");
+        if (visToggle) {
+          await patchTemplate(visToggle.dataset.toggleVisibility, { visibility: visToggle.checked ? "visible" : "hidden" }, () => {
+            visToggle.checked = !visToggle.checked;
+          });
+          return;
+        }
+        const statusSel = event.target.closest("select[data-set-status]");
+        if (statusSel) {
+          const prev = statusSel.dataset.prev || "enabled";
+          await patchTemplate(statusSel.dataset.setStatus, { status: statusSel.value }, () => {
+            statusSel.value = prev;
+          });
+          return;
+        }
+      }
+
+      async function patchTemplate(templateId, body, revert) {
         if (!state.connected) {
-          input.checked = !input.checked;
+          revert?.();
           toast("Read only, start the admin server to make changes", "error");
           return;
         }
         const slug = state.openSlug;
-        const templateId = input.dataset.toggle;
-        const status = input.checked ? "visible" : "hidden";
-        const switchEl = input.closest(".switch");
-        switchEl?.classList.add("is-loading");
-        input.disabled = true;
         try {
           await api(`/api/studios/${encodeURIComponent(slug)}/templates/${encodeURIComponent(templateId)}`, {
             method: "PATCH",
-            body: JSON.stringify({ status })
+            body: JSON.stringify(body)
           });
-          toast(`${status === "visible" ? "Showing" : "Hiding"} ${templateId}`, "ok");
+          toast("Updated", "ok");
           await loadStudios();
           await openStudioDrawer(slug);
         } catch (err) {
-          input.checked = !input.checked;
+          revert?.();
           toast(err.message || "Update failed", "error");
-        } finally {
-          switchEl?.classList.remove("is-loading");
-          input.disabled = false;
+        }
+      }
+
+      async function handleEdit(templateId) {
+        if (!state.connected) {
+          toast("Read only, start the admin server to make changes", "error");
+          return;
+        }
+        const slug = state.openSlug;
+        try {
+          const data = await api(`/api/studios/${encodeURIComponent(slug)}/templates/${encodeURIComponent(templateId)}/local-path`);
+          if (!data.exists) {
+            toast(`File missing on disk: ${data.indexPath}`, "error");
+            return;
+          }
+          await copyToClipboard(data.indexPath);
+        } catch (err) {
+          toast(err.message || "Could not resolve path", "error");
+        }
+      }
+
+      function openRemoveConfirm(templateId) {
+        const slot = document.querySelector(`[data-confirm-slot="${cssEscape(templateId)}"]`);
+        if (!slot) return;
+        if (slot.firstChild) { closeRemoveConfirm(templateId); return; }
+        slot.innerHTML = `
+          <div class="confirm-bar" role="alertdialog" aria-live="assertive">
+            <span class="confirm-msg">Delete this demo and its files? This cannot be undone.</span>
+            <button class="btn btn-sm" type="button" data-confirm-cancel="${esc(templateId)}">Cancel</button>
+            <button class="btn btn-sm btn-confirm" type="button" data-confirm-yes="${esc(templateId)}">Delete demo</button>
+          </div>
+        `;
+        slot.querySelector("[data-confirm-yes]")?.focus();
+      }
+
+      function closeRemoveConfirm(templateId) {
+        const slot = document.querySelector(`[data-confirm-slot="${cssEscape(templateId)}"]`);
+        if (slot) slot.innerHTML = "";
+      }
+
+      function cssEscape(value) {
+        return String(value).replace(/[^a-z0-9_-]/gi, (c) => `\\${c}`);
+      }
+
+      async function handleRemove(templateId) {
+        if (!state.connected) {
+          toast("Read only, start the admin server to make changes", "error");
+          return;
+        }
+        const slug = state.openSlug;
+        try {
+          await api(`/api/studios/${encodeURIComponent(slug)}/templates/${encodeURIComponent(templateId)}`, {
+            method: "DELETE"
+          });
+          toast(`Removed ${templateId}`, "ok");
+          await loadStudios();
+          await openStudioDrawer(slug);
+        } catch (err) {
+          toast(err.message || "Remove failed", "error");
         }
       }
 
