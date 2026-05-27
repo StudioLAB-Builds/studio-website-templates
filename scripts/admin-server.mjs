@@ -3,6 +3,7 @@ import path from "node:path";
 import http from "node:http";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import open from "open";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STUDIOS_DIR = path.join(ROOT, "studios");
@@ -230,7 +231,17 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, "127.0.0.1", () => {
-  console.log(`\nStudioLAB admin running at http://localhost:${PORT}/`);
+  const url = `http://localhost:${PORT}/`;
+  console.log(`\nStudioLAB admin running at ${url}`);
   console.log(`Public share base: ${PUBLIC_BASE}`);
   console.log("Press Ctrl+C to stop.\n");
+
+  if (process.env.NO_OPEN !== "1") {
+    setTimeout(() => {
+      open(url).catch((err) => {
+        console.warn(`Could not auto-open browser: ${err.message}`);
+        console.warn(`Open ${url} manually.`);
+      });
+    }, 400);
+  }
 });
