@@ -172,12 +172,12 @@ Push to `main`. GitHub Pages picks up the change on the next deploy.
 Send the studio the per-studio gallery URL:
 
 ```
-https://studiolab-builds.github.io/studio-website-templates/studios/<studio-slug>/
+https://studiolab-builds.github.io/studio-demos/studios/<studio-slug>/
 ```
 
 That URL only shows variants with `status: visible`. Hidden variants stay invisible to the studio even though they remain in the repo.
 
-The internal hub at `https://studiolab-builds.github.io/studio-website-templates/` is for StudioLAB use only and should not be shared with studios.
+The internal hub at `https://studiolab-builds.github.io/studio-demos/` is for StudioLAB use only and should not be shared with studios.
 
 ---
 
@@ -206,5 +206,5 @@ Old variants stay in the repo as `hidden` for reference. Do not delete them. The
 | Manifest path | `studios/<studio-slug>/templates.json` |
 | New variant default status | `hidden` |
 | Visibility flip | `hidden` → `visible` only after internal review and merge to `main` |
-| Studio-facing URL | `https://studiolab-builds.github.io/studio-website-templates/studios/<studio-slug>/` |
-| Internal hub URL | `https://studiolab-builds.github.io/studio-website-templates/` (StudioLAB only, do not share with studios) |
+| Studio-facing URL | `https://studiolab-builds.github.io/studio-demos/studios/<studio-slug>/` |
+| Internal hub URL | `https://studiolab-builds.github.io/studio-demos/` (StudioLAB only, do not share with studios) |

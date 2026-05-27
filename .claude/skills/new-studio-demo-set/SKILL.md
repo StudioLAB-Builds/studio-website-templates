@@ -1,6 +1,6 @@
 ---
 name: new-studio-demo-set
-description: Generate a full set of 3-4 HTML website demos for a new dance studio prospect by scraping their live site, creating a studio folder in the studio-website-templates repo, applying the Master Design Brief, building distinct design directions, generating preview images, committing to GitHub, and outputting the live gallery URL. Use this whenever Gary mentions a new studio prospect, onboarding a studio, building demos for a studio, generating website mockups for a studio, creating a website pack, scraping a studio site to build demos, or any variation involving producing initial website options for a prospective StudioLAB client. Trigger even if Gary just provides a studio URL, a bare domain, or just a studio name and says something like "build demos for this one", "make me a set for this studio", "new prospect, can you do the demos", or pastes a studio link or name. The skill accepts any of: full URL (https://example.com), bare domain (example.com), or studio name only (Absolute Dance Brisbane). Do not use this skill for editing an existing studio's demos (use regenerate-studio-demo for that).
+description: Generate a full set of 3-4 HTML website demos for a new dance studio prospect by scraping their live site, creating a studio folder in the studio-demos repo, applying the Master Design Brief, building distinct design directions, generating preview images, committing to GitHub, and outputting the live gallery URL. Use this whenever Gary mentions a new studio prospect, onboarding a studio, building demos for a studio, generating website mockups for a studio, creating a website pack, scraping a studio site to build demos, or any variation involving producing initial website options for a prospective StudioLAB client. Trigger even if Gary just provides a studio URL, a bare domain, or just a studio name and says something like "build demos for this one", "make me a set for this studio", "new prospect, can you do the demos", or pastes a studio link or name. The skill accepts any of: full URL (https://example.com), bare domain (example.com), or studio name only (Absolute Dance Brisbane). Do not use this skill for editing an existing studio's demos (use regenerate-studio-demo for that).
 ---
 
 # New Studio Demo Set
@@ -39,7 +39,7 @@ Tone is professional, friendly, conversational, confident. Benefits before featu
 
 ## Working directory
 
-`/Users/gary/Claude_Projects/StudioLAB-Builds/studio-website-templates`
+`/Users/gary/Claude_Projects/StudioLAB-Builds/studio-demos`
 
 ## Required reading before generating
 
@@ -159,7 +159,7 @@ Wait 60 seconds for GitHub Pages to rebuild.
 
 ### 12. Output the gallery URL
 
-`https://studiolab-builds.github.io/studio-website-templates/studios/{studio-slug}/?hub=1`
+`https://studiolab-builds.github.io/studio-demos/studios/{studio-slug}/?hub=1`
 
 ## Final report
 

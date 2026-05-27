@@ -1,6 +1,6 @@
 ---
 name: regenerate-studio-demo
-description: Replace a single demo within an existing studio's gallery in the studio-website-templates repo. Keep what works, retry what does not. Use this whenever Gary asks to regenerate a demo, replace a demo, redo demo number N, swap out a demo, try a different direction for a specific demo, iterate on a demo, or any variation of targeted single-demo replacement for an existing studio. Trigger on phrases like "regenerate demo 3 for absolute-dance", "replace the editorial one", "redo demo 2", "the magazine direction is not working, try something else", "swap demo 4", or "iterate on the third demo". Do not use for generating a full new set of demos (use new-studio-demo-set for that) and do not use for studios that do not yet exist in the repo.
+description: Replace a single demo within an existing studio's gallery in the studio-demos repo. Keep what works, retry what does not. Use this whenever Gary asks to regenerate a demo, replace a demo, redo demo number N, swap out a demo, try a different direction for a specific demo, iterate on a demo, or any variation of targeted single-demo replacement for an existing studio. Trigger on phrases like "regenerate demo 3 for absolute-dance", "replace the editorial one", "redo demo 2", "the magazine direction is not working, try something else", "swap demo 4", or "iterate on the third demo". Do not use for generating a full new set of demos (use new-studio-demo-set for that) and do not use for studios that do not yet exist in the repo.
 ---
 
 # Regenerate Studio Demo
@@ -30,7 +30,7 @@ Follow every rule in the Master Design Brief.
 
 ## Working directory
 
-`/Users/gary/Claude_Projects/StudioLAB-Builds/studio-website-templates`
+`/Users/gary/Claude_Projects/StudioLAB-Builds/studio-demos`
 
 ## Required reading before generating
 
@@ -105,7 +105,7 @@ Wait 60 seconds for GitHub Pages to rebuild.
 
 ### 11. Output the gallery URL
 
-`https://studiolab-builds.github.io/studio-website-templates/studios/{studio-slug}/?hub=1`
+`https://studiolab-builds.github.io/studio-demos/studios/{studio-slug}/?hub=1`
 
 ## Final report
 

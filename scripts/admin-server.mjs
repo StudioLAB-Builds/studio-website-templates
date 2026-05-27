@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STUDIOS_DIR = path.join(ROOT, "studios");
 const PORT = Number(process.env.ADMIN_PORT || 4178);
-const PUBLIC_BASE = process.env.PUBLIC_BASE || "https://studiolab-builds.github.io/studio-website-templates";
+const PUBLIC_BASE = process.env.PUBLIC_BASE || "https://studiolab-builds.github.io/studio-demos";
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
