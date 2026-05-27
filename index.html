@@ -6,363 +6,437 @@
     <meta name="robots" content="noindex, nofollow">
     <title>StudioLAB Admin</title>
     <meta name="description" content="Internal admin dashboard.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
       :root {
-        --ink: #0c2a2f;
-        --muted: #5f767a;
-        --paper: #f7faf9;
-        --surface: #ffffff;
-        --mist: #eef6f4;
-        --aqua: #16c9b2;
-        --teal: #075b60;
-        --deep: #04333a;
-        --pink: #ed2d83;
-        --line: rgba(7, 91, 96, 0.16);
-        --line-strong: rgba(7, 91, 96, 0.28);
-        --shadow-sm: 0 1px 2px rgba(6, 51, 58, 0.06);
-        --shadow-md: 0 6px 18px rgba(6, 51, 58, 0.08);
-        --radius: 10px;
+        /* Brand palette (tokens from studiolab-design) */
+        --magenta-500: #E8197F;
+        --magenta-600: #CC1570;
+
+        --indigo-50: #EEEDF8;
+        --indigo-100: #D5D2F0;
+        --indigo-200: #ACA7E0;
+        --indigo-300: #8378CE;
+        --indigo-400: #6B60BF;
+        --indigo-500: #4A3F8A;
+        --indigo-600: #3C3274;
+        --indigo-700: #2D265C;
+        --indigo-900: #13102E;
+
+        --gray-50: #F2F3F7;
+        --gray-100: #EAEBF2;
+        --gray-200: #DFE0EC;
+        --gray-300: #C4C6DC;
+        --gray-400: #9B9DB8;
+        --gray-500: #6B6D8A;
+        --gray-700: #2E3050;
+        --gray-900: #13102E;
+
+        /* Semantic status tokens */
+        --ok: #047857;
+        --ok-subtle: #ECFDF5;
+        --warn: #B45309;
+        --warn-subtle: #FFFBEB;
+        --crit: #B91C1C;
+        --crit-subtle: #FEF2F2;
+        --info: #0284C7;
+        --info-subtle: #E0F2FE;
+
+        /* Semantic UI roles */
+        --background: var(--gray-50);
+        --card: #ffffff;
+        --surface: #F8F7FC;
+        --foreground: var(--indigo-900);
+        --muted-foreground: var(--gray-500);
+        --muted: var(--gray-400);
+        --border: var(--gray-200);
+        --border-strong: var(--gray-300);
+        --primary: var(--indigo-500);
+        --primary-hover: var(--indigo-600);
+        --action: var(--magenta-500);
+        --action-hover: var(--magenta-600);
+
         --radius-sm: 6px;
-        --green: #14a06a;
-        --red: #c8434a;
-        --amber: #b97a00;
-        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --radius: 10px;
+        --radius-xl: 14px;
+        --radius-2xl: 18px;
+        --radius-full: 999px;
+
+        --shadow-sm: 0 1px 2px rgba(19, 16, 46, 0.04);
+        --shadow-md: 0 6px 24px rgba(19, 16, 46, 0.08);
+        --shadow-drawer: -20px 0 40px rgba(19, 16, 46, 0.12);
+
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-feature-settings: "ss01", "cv11";
       }
 
       * { box-sizing: border-box; }
       html, body { margin: 0; min-height: 100%; }
       body {
-        background: var(--paper);
-        color: var(--ink);
+        background: var(--background);
+        color: var(--foreground);
         font-size: 14px;
         line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
       }
 
       a { color: inherit; text-decoration: none; }
       button { font: inherit; cursor: pointer; }
       h1, h2, h3, h4, p { margin: 0; }
-      code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
 
-      /* App shell */
-      .app {
-        display: grid;
-        grid-template-columns: 240px 1fr;
-        min-height: 100vh;
-      }
+      ::selection { background: var(--indigo-100); color: var(--indigo-900); }
 
-      .sidebar {
-        background: var(--deep);
-        color: #ffffff;
+      /* Top operator-tool chrome */
+      .topbar {
+        align-items: center;
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
         display: flex;
-        flex-direction: column;
-        padding: 22px 18px;
+        gap: 16px;
+        height: 56px;
+        padding: 0 28px;
         position: sticky;
         top: 0;
-        height: 100vh;
+        z-index: 30;
       }
 
-      .sidebar .brand {
-        display: grid;
-        gap: 2px;
-        margin-bottom: 28px;
+      .topbar-mark {
+        align-items: center;
+        background: var(--indigo-500);
+        border-radius: var(--radius);
+        color: #fff;
+        display: inline-flex;
+        font-size: 13px;
+        font-weight: 800;
+        height: 32px;
+        justify-content: center;
+        letter-spacing: -0.02em;
+        width: 32px;
       }
 
-      .sidebar .brand strong {
-        color: #ffffff;
-        font-size: 16px;
-        letter-spacing: 0.01em;
+      .topbar-brand { display: grid; gap: 1px; }
+      .topbar-brand strong {
+        color: var(--foreground);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: -0.005em;
       }
-
-      .sidebar .brand span {
-        color: rgba(255, 255, 255, 0.55);
-        font-size: 11px;
-        letter-spacing: 0.06em;
+      .topbar-brand span {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
       }
 
-      .sidebar nav {
-        display: grid;
-        gap: 2px;
-      }
-
-      .nav-item {
-        align-items: center;
-        border-radius: var(--radius-sm);
-        color: rgba(255, 255, 255, 0.75);
-        display: flex;
-        font-size: 13px;
-        font-weight: 600;
-        gap: 10px;
-        padding: 9px 11px;
-        transition: background 120ms ease, color 120ms ease;
-      }
-
-      .nav-item.active {
-        background: rgba(255, 255, 255, 0.10);
-        color: #ffffff;
-      }
-
-      .nav-item:not(.active):hover {
-        background: rgba(255, 255, 255, 0.06);
-        color: #ffffff;
-      }
-
-      .nav-item .dot {
-        background: currentColor;
-        border-radius: 50%;
-        height: 6px;
-        opacity: 0.5;
-        width: 6px;
-      }
-
-      .sidebar-spacer { flex: 1; }
+      .topbar-spacer { flex: 1; }
 
       .conn-pill {
         align-items: center;
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 999px;
-        color: #ffffff;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-full);
+        color: var(--muted-foreground);
         display: inline-flex;
         font-size: 11px;
-        font-weight: 700;
-        gap: 8px;
-        letter-spacing: 0.04em;
-        margin-bottom: 12px;
-        padding: 6px 11px;
-        text-transform: uppercase;
-        width: fit-content;
+        font-weight: 600;
+        gap: 7px;
+        padding: 4px 11px 4px 9px;
       }
 
       .conn-pill .conn-led {
-        background: var(--amber);
+        background: var(--warn);
         border-radius: 50%;
         height: 7px;
         width: 7px;
       }
 
-      .conn-pill[data-state="connected"] .conn-led { background: var(--green); }
-      .conn-pill[data-state="offline"] .conn-led { background: var(--red); }
+      .conn-pill[data-state="connected"] {
+        background: var(--ok-subtle);
+        border-color: rgba(4, 120, 87, 0.20);
+        color: var(--ok);
+      }
+      .conn-pill[data-state="connected"] .conn-led { background: var(--ok); }
 
-      .sidebar small {
-        color: rgba(255, 255, 255, 0.45);
-        display: block;
-        font-size: 11px;
-        line-height: 1.5;
+      .conn-pill[data-state="offline"] {
+        background: var(--crit-subtle);
+        border-color: rgba(185, 28, 28, 0.20);
+        color: var(--crit);
+      }
+      .conn-pill[data-state="offline"] .conn-led { background: var(--crit); }
+
+      /* Tab navigation (underline pill pattern, applied at page chrome level) */
+      .tabbar {
+        align-items: stretch;
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        gap: 2px;
+        padding: 0 28px;
+        position: sticky;
+        top: 56px;
+        z-index: 29;
       }
 
-      .sidebar small code {
-        background: rgba(255, 255, 255, 0.08);
+      .tab {
+        align-items: center;
+        background: transparent;
+        border: 0;
+        border-bottom: 2px solid transparent;
+        color: var(--muted-foreground);
+        cursor: pointer;
+        display: inline-flex;
+        font-size: 12px;
+        font-weight: 600;
+        gap: 8px;
+        height: 38px;
+        margin-bottom: -1px;
+        padding: 0 14px;
+        transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+      }
+      .tab:hover {
+        background: var(--gray-100);
+        color: var(--foreground);
+      }
+      .tab:focus-visible {
+        outline: 2px solid var(--indigo-500);
+        outline-offset: -2px;
         border-radius: 4px;
-        color: rgba(255, 255, 255, 0.85);
-        padding: 1px 5px;
+      }
+      .tab.is-active {
+        background: var(--indigo-50);
+        border-color: var(--indigo-500);
+        color: var(--indigo-500);
+        cursor: default;
+      }
+      .tab.is-active:hover {
+        background: var(--indigo-50);
+        color: var(--indigo-500);
+      }
+
+      .tab-count {
+        background: var(--gray-100);
+        border-radius: var(--radius-full);
+        color: var(--muted-foreground);
+        font-size: 10px;
+        font-weight: 700;
+        min-width: 18px;
+        padding: 1px 7px;
+        text-align: center;
+      }
+      .tab.is-active .tab-count {
+        background: rgba(74, 63, 138, 0.16);
+        color: var(--indigo-500);
       }
 
       /* Main */
       main {
-        padding: 28px 36px 56px;
+        margin: 0 auto;
+        max-width: 1280px;
         min-width: 0;
+        padding: 28px 28px 12px;
       }
 
-      .page-head {
-        align-items: flex-start;
+      .section-head {
+        align-items: flex-end;
         display: flex;
         gap: 18px;
         justify-content: space-between;
-        margin-bottom: 22px;
+        margin-bottom: 20px;
       }
-
-      .page-head h1 {
-        color: var(--deep);
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 30px;
-        font-weight: 500;
-        line-height: 1.1;
+      .section-head h1 {
+        color: var(--foreground);
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: -0.012em;
       }
-
-      .page-head p {
-        color: var(--muted);
-        font-size: 14px;
-        margin-top: 6px;
-        max-width: 540px;
+      .section-head p {
+        color: var(--muted-foreground);
+        font-size: 13px;
+        margin-top: 4px;
+        max-width: 580px;
       }
-
-      .page-actions {
-        align-items: center;
-        display: flex;
-        flex-shrink: 0;
-        gap: 8px;
-      }
+      .section-actions { display: flex; flex-shrink: 0; gap: 8px; }
 
       /* Buttons */
       .btn {
         align-items: center;
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: var(--radius-sm);
-        color: var(--ink);
+        background: var(--card);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-full);
+        color: var(--primary);
         display: inline-flex;
-        font-size: 12.5px;
+        font-size: 12px;
         font-weight: 600;
         gap: 6px;
-        min-height: 32px;
-        padding: 0 12px;
-        transition: background 120ms ease, border-color 120ms ease;
+        height: 32px;
+        padding: 0 14px;
+        transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+        white-space: nowrap;
       }
-
-      .btn:hover { background: var(--mist); border-color: var(--line-strong); }
+      .btn:hover { background: var(--indigo-50); }
+      .btn:focus-visible {
+        outline: 2px solid var(--indigo-500);
+        outline-offset: 2px;
+      }
       .btn:disabled { cursor: not-allowed; opacity: 0.5; }
 
-      .btn-primary {
-        background: var(--teal);
-        border-color: var(--teal);
+      .btn-action {
+        background: var(--action);
+        border-color: var(--action);
         color: #ffffff;
       }
-
-      .btn-primary:hover { background: var(--deep); border-color: var(--deep); }
+      .btn-action:hover { background: var(--action-hover); border-color: var(--action-hover); }
 
       .btn-ghost {
         background: transparent;
         border-color: transparent;
-        color: var(--teal);
+        color: var(--muted-foreground);
       }
+      .btn-ghost:hover { background: var(--gray-100); color: var(--foreground); }
 
-      .btn-ghost:hover { background: var(--mist); }
+      .btn-sm { font-size: 11.5px; height: 28px; padding: 0 11px; }
+      .btn-icon { justify-content: center; padding: 0; width: 32px; }
+      .btn-icon.btn-sm { width: 28px; }
 
-      .btn-small {
-        font-size: 11.5px;
-        min-height: 26px;
-        padding: 0 9px;
-      }
+      .btn svg { flex-shrink: 0; }
 
-      .btn-icon {
-        height: 28px;
-        justify-content: center;
-        padding: 0;
-        width: 28px;
-      }
-
-      /* Stats row */
+      /* Stats grid (KPI tile pattern, plain HTML translation) */
       .stats {
         display: grid;
         gap: 12px;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        margin-bottom: 24px;
+        margin-bottom: 22px;
       }
-
       .stat {
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        padding: 14px 16px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-2xl);
+        padding: 16px 18px 14px;
+        position: relative;
       }
+      .stat::before {
+        background: var(--stat-accent, var(--indigo-500));
+        border-radius: var(--radius-full);
+        content: "";
+        height: 6px;
+        left: 18px;
+        position: absolute;
+        top: 19px;
+        width: 6px;
+      }
+      .stat-indigo { --stat-accent: var(--indigo-500); }
+      .stat-magenta { --stat-accent: var(--magenta-500); }
+      .stat-ok { --stat-accent: var(--ok); }
+      .stat-crit { --stat-accent: var(--crit); }
 
-      .stat .label {
+      .stat .eyebrow {
         color: var(--muted);
-        font-size: 11px;
+        display: block;
+        font-size: 10px;
         font-weight: 700;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.08em;
+        padding-left: 14px;
         text-transform: uppercase;
       }
-
       .stat .value {
-        color: var(--deep);
-        font-family: Georgia, serif;
+        color: var(--foreground);
+        display: block;
         font-size: 28px;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        line-height: 1.05;
+        margin-top: 10px;
+      }
+      .stat .sub {
+        color: var(--muted);
+        display: block;
+        font-size: 11px;
         font-weight: 500;
-        line-height: 1.1;
         margin-top: 4px;
       }
 
-      /* Card / panel */
+      /* Panel */
       .panel {
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-xl);
         overflow: hidden;
       }
-
       .panel-head {
         align-items: center;
-        border-bottom: 1px solid var(--line);
+        border-bottom: 1px solid var(--border);
         display: flex;
         gap: 14px;
         justify-content: space-between;
         padding: 14px 18px;
       }
-
       .panel-head h2 {
-        color: var(--deep);
-        font-size: 15px;
+        color: var(--foreground);
+        font-size: 13px;
         font-weight: 700;
       }
-
       .panel-head .panel-meta {
         color: var(--muted);
-        font-size: 12px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
-      /* Studios table */
-      .studios-table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-
+      /* Studios table (layout preserved, chrome restyled) */
+      .studios-table { border-collapse: collapse; width: 100%; }
       .studios-table th,
       .studios-table td {
-        border-bottom: 1px solid var(--line);
+        border-bottom: 1px solid var(--border);
         padding: 12px 18px;
         text-align: left;
         vertical-align: middle;
       }
-
       .studios-table tbody tr:last-child td { border-bottom: none; }
-
       .studios-table th {
-        background: var(--mist);
+        background: var(--surface);
         color: var(--muted);
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 700;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
       }
+      .studios-table td.col-name { color: var(--foreground); font-weight: 600; }
+      .studios-table td.col-counts { color: var(--muted-foreground); font-size: 12.5px; }
+      .studios-table tr.studio-row {
+        cursor: pointer;
+        transition: background 120ms ease;
+      }
+      .studios-table tr.studio-row:hover td { background: rgba(74, 63, 138, 0.04); }
+      .studios-table tr.studio-row.is-open td { background: var(--indigo-50); }
 
-      .studios-table td.col-name { color: var(--deep); font-weight: 600; }
-      .studios-table td.col-counts { color: var(--muted); font-size: 12.5px; }
-
-      .studios-table tr.studio-row { cursor: pointer; transition: background 120ms ease; }
-      .studios-table tr.studio-row:hover td { background: rgba(238, 246, 244, 0.6); }
-      .studios-table tr.studio-row.is-open td { background: var(--mist); }
-
+      /* Status pills (semantic colour pairs) */
       .pill {
         align-items: center;
-        background: var(--mist);
-        border-radius: 999px;
-        color: var(--teal);
+        border-radius: var(--radius-full);
         display: inline-flex;
         font-size: 11px;
         font-weight: 700;
         gap: 5px;
-        letter-spacing: 0.04em;
-        padding: 3px 9px;
-        text-transform: uppercase;
+        padding: 3px 10px;
       }
+      .pill-visible { background: var(--ok-subtle); color: var(--ok); }
+      .pill-hidden { background: var(--crit-subtle); color: var(--crit); }
 
-      .pill.pill-visible { background: rgba(20, 160, 106, 0.12); color: var(--green); }
-      .pill.pill-hidden { background: rgba(200, 67, 74, 0.10); color: var(--red); }
-
-      .share-cell {
-        align-items: center;
-        display: flex;
-        gap: 6px;
-      }
-
+      .share-cell { align-items: center; display: flex; gap: 6px; }
       .share-url {
-        background: var(--mist);
-        border: 1px solid var(--line);
+        background: var(--surface);
+        border: 1px solid var(--border);
         border-radius: var(--radius-sm);
-        color: var(--teal);
+        color: var(--indigo-400);
         font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
         font-size: 11.5px;
+        font-weight: 500;
         max-width: 260px;
         overflow: hidden;
         padding: 4px 8px;
@@ -377,9 +451,9 @@
         justify-content: flex-end;
       }
 
-      /* Drawer */
+      /* Drawer (560px per design system spec) */
       .drawer-backdrop {
-        background: rgba(6, 35, 39, 0.32);
+        background: rgba(19, 16, 46, 0.32);
         inset: 0;
         opacity: 0;
         pointer-events: none;
@@ -387,12 +461,11 @@
         transition: opacity 180ms ease;
         z-index: 40;
       }
-
       .drawer {
-        background: var(--paper);
-        border-left: 1px solid var(--line);
+        background: var(--card);
+        border-left: 1px solid var(--border);
         bottom: 0;
-        box-shadow: -16px 0 40px rgba(6, 51, 58, 0.12);
+        box-shadow: var(--shadow-drawer);
         display: flex;
         flex-direction: column;
         max-width: 560px;
@@ -404,68 +477,56 @@
         width: 100%;
         z-index: 50;
       }
-
       .drawer.is-open { transform: translateX(0); }
       .drawer-backdrop.is-open { opacity: 1; pointer-events: auto; }
 
       .drawer-head {
-        align-items: center;
-        background: var(--surface);
-        border-bottom: 1px solid var(--line);
+        align-items: flex-start;
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
         display: flex;
         gap: 12px;
         justify-content: space-between;
-        padding: 16px 22px;
+        padding: 18px 22px 16px;
       }
-
       .drawer-head h2 {
-        color: var(--deep);
-        font-family: Georgia, serif;
-        font-size: 22px;
-        font-weight: 500;
-        line-height: 1.1;
+        color: var(--foreground);
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: -0.012em;
       }
-
       .drawer-head .sub {
-        color: var(--muted);
+        color: var(--muted-foreground);
         font-size: 12px;
-        margin-top: 2px;
+        margin-top: 4px;
       }
-
-      .drawer-body {
-        flex: 1;
-        overflow-y: auto;
-        padding: 18px 22px 28px;
-      }
-
-      .drawer-section {
-        margin-bottom: 20px;
-      }
-
+      .drawer-body { flex: 1; overflow-y: auto; padding: 18px 22px 28px; }
+      .drawer-section { margin-bottom: 22px; }
+      .drawer-section:last-child { margin-bottom: 0; }
       .drawer-section h3 {
         color: var(--muted);
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 700;
-        letter-spacing: 0.06em;
-        margin-bottom: 8px;
+        letter-spacing: 0.08em;
+        margin-bottom: 10px;
         text-transform: uppercase;
       }
 
       .share-block {
         align-items: center;
         background: var(--surface);
-        border: 1px solid var(--line);
+        border: 1px solid var(--border);
         border-radius: var(--radius);
         display: flex;
         gap: 8px;
-        padding: 8px 8px 8px 14px;
+        padding: 6px 6px 6px 14px;
       }
-
       .share-block .url {
-        color: var(--teal);
+        color: var(--indigo-500);
         flex: 1;
         font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
         font-size: 12px;
+        font-weight: 500;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -478,98 +539,91 @@
         margin: 0;
         padding: 0;
       }
-
       .template-item {
-        background: var(--surface);
-        border: 1px solid var(--line);
+        background: var(--card);
+        border: 1px solid var(--border);
         border-radius: var(--radius);
         padding: 14px 16px;
+        transition: opacity 120ms ease, background 120ms ease;
       }
-
-      .template-item.is-hidden { background: #fafbfb; opacity: 0.82; }
-
+      .template-item.is-hidden { background: var(--surface); opacity: 0.82; }
       .template-item-head {
-        align-items: center;
+        align-items: flex-start;
         display: flex;
-        gap: 10px;
+        gap: 12px;
         justify-content: space-between;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
       }
-
       .template-item-head h4 {
-        color: var(--deep);
+        color: var(--foreground);
         font-size: 14px;
         font-weight: 700;
+        letter-spacing: -0.005em;
       }
-
       .template-item-head .label {
         color: var(--muted);
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 700;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.08em;
         margin-bottom: 2px;
         text-transform: uppercase;
       }
-
       .template-item p {
-        color: var(--muted);
+        color: var(--muted-foreground);
         font-size: 12.5px;
         margin-top: 4px;
       }
-
       .template-item .item-actions {
         align-items: center;
         display: flex;
+        flex-wrap: wrap;
         gap: 8px;
-        margin-top: 10px;
+        margin-top: 12px;
       }
+      .template-item .item-actions .share-url { max-width: 320px; }
 
-      /* Toggle switch */
+      /* Toggle switch (operator tool semantic: ok = visible) */
       .switch {
         align-items: center;
+        color: var(--muted-foreground);
         cursor: pointer;
         display: inline-flex;
-        gap: 8px;
-        font-size: 11.5px;
+        font-size: 11px;
         font-weight: 700;
-        color: var(--muted);
+        gap: 8px;
         letter-spacing: 0.04em;
         text-transform: uppercase;
         user-select: none;
       }
-
-      .switch input { position: absolute; opacity: 0; pointer-events: none; }
-
+      .switch input { opacity: 0; pointer-events: none; position: absolute; }
       .switch .track {
-        background: rgba(7, 91, 96, 0.18);
-        border-radius: 999px;
-        height: 18px;
+        background: var(--gray-300);
+        border-radius: var(--radius-full);
+        height: 20px;
         position: relative;
         transition: background 140ms ease;
-        width: 32px;
+        width: 34px;
       }
-
       .switch .track::after {
         background: #ffffff;
         border-radius: 50%;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1px 2px rgba(19, 16, 46, 0.18);
         content: "";
-        height: 14px;
+        height: 16px;
         left: 2px;
         position: absolute;
         top: 2px;
         transition: left 140ms ease;
-        width: 14px;
+        width: 16px;
       }
-
-      .switch input:checked + .track { background: var(--green); }
+      .switch input:checked + .track { background: var(--ok); }
       .switch input:checked + .track::after { left: 16px; }
       .switch input:disabled + .track { opacity: 0.5; cursor: not-allowed; }
       .switch.is-loading .track { opacity: 0.6; }
 
       /* Toast */
       .toast-area {
-        bottom: 18px;
+        bottom: 24px;
         display: grid;
         gap: 8px;
         left: 50%;
@@ -577,129 +631,293 @@
         transform: translateX(-50%);
         z-index: 100;
       }
-
       .toast {
         animation: toast-in 180ms ease;
-        background: var(--deep);
-        border-radius: 999px;
+        background: var(--indigo-900);
+        border-radius: var(--radius-full);
+        box-shadow: var(--shadow-md);
         color: #ffffff;
         font-size: 12.5px;
         font-weight: 600;
-        padding: 9px 16px;
+        padding: 10px 18px;
       }
-
-      .toast.toast-error { background: var(--red); }
-      .toast.toast-ok { background: var(--green); }
-
+      .toast.toast-error { background: var(--crit); }
+      .toast.toast-ok { background: var(--ok); }
       @keyframes toast-in {
         from { opacity: 0; transform: translateY(8px); }
         to { opacity: 1; transform: translateY(0); }
       }
 
-      /* Banner */
+      /* Warn banner (semantic warn pair) */
       .banner {
         align-items: center;
-        background: rgba(185, 122, 0, 0.10);
-        border: 1px solid rgba(185, 122, 0, 0.30);
+        background: var(--warn-subtle);
+        border: 1px solid rgba(180, 83, 9, 0.22);
         border-radius: var(--radius);
-        color: var(--amber);
+        color: var(--warn);
         display: flex;
         font-size: 12.5px;
         font-weight: 600;
-        gap: 12px;
+        gap: 10px;
         margin-bottom: 18px;
         padding: 10px 14px;
       }
-
+      .banner svg { flex-shrink: 0; }
       .banner code {
-        background: rgba(185, 122, 0, 0.15);
+        background: rgba(180, 83, 9, 0.12);
         border-radius: 4px;
         padding: 1px 6px;
       }
 
+      /* Empty / loading / coming-soon state */
       .empty {
-        color: var(--muted);
-        font-size: 13px;
-        padding: 28px;
+        align-items: center;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-xl);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 56px 24px;
         text-align: center;
       }
+      .empty.is-inline {
+        background: transparent;
+        border: 0;
+        padding: 44px 16px;
+      }
+      .empty .icon {
+        align-items: center;
+        background: var(--indigo-50);
+        border-radius: var(--radius-full);
+        color: var(--indigo-500);
+        display: flex;
+        height: 56px;
+        justify-content: center;
+        width: 56px;
+      }
+      .empty .icon svg { height: 24px; width: 24px; }
+      .empty .heading {
+        color: var(--foreground);
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .empty .body {
+        color: var(--muted);
+        font-size: 12.5px;
+        max-width: 380px;
+      }
+      .empty .badge {
+        background: var(--info-subtle);
+        border-radius: var(--radius-full);
+        color: var(--info);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        padding: 4px 10px;
+        text-transform: uppercase;
+      }
+
+      /* Loading dots */
+      .dots { display: inline-flex; gap: 4px; }
+      .dots span {
+        animation: dot-bounce 1.2s ease-in-out infinite;
+        background: currentColor;
+        border-radius: 50%;
+        display: inline-block;
+        height: 6px;
+        width: 6px;
+      }
+      .dots span:nth-child(2) { animation-delay: 0.15s; }
+      .dots span:nth-child(3) { animation-delay: 0.3s; }
+      @keyframes dot-bounce {
+        0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
+        40% { opacity: 1; transform: translateY(-3px); }
+      }
+
+      /* App footer */
+      .app-footer {
+        color: var(--muted);
+        font-size: 11px;
+        margin: 24px auto 0;
+        max-width: 1280px;
+        padding: 18px 28px 36px;
+        text-align: center;
+      }
+      .app-footer code {
+        background: var(--gray-100);
+        border-radius: 4px;
+        color: var(--muted-foreground);
+        font-size: 11px;
+        padding: 2px 7px;
+      }
+
+      /* Tab panel visibility */
+      .tabpanel { display: none; }
+      .tabpanel.is-active { display: block; }
 
       @media (max-width: 900px) {
-        .app { grid-template-columns: 1fr; }
-        .sidebar { position: static; height: auto; padding: 16px 18px; }
-        .sidebar nav { grid-auto-flow: column; grid-auto-columns: max-content; overflow-x: auto; }
-        .sidebar-spacer { display: none; }
-        main { padding: 22px 18px 48px; }
+        main, .app-footer { padding-left: 18px; padding-right: 18px; }
+        .topbar, .tabbar { padding-left: 18px; padding-right: 18px; }
         .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .studios-table th:nth-child(4),
         .studios-table td:nth-child(4) { display: none; }
         .drawer { max-width: 100%; }
+        .section-head { align-items: flex-start; flex-direction: column; }
       }
     </style>
   </head>
   <body>
-    <div class="app">
-      <aside class="sidebar">
-        <div class="brand">
-          <strong>StudioLAB Admin</strong>
-          <span>Template management</span>
-        </div>
-        <nav aria-label="Sections">
-          <a class="nav-item active" href="#studios"><span class="dot"></span>Studios</a>
-          <a class="nav-item" href="#styles" data-disabled="true" title="Coming soon"><span class="dot"></span>Style Shortlists</a>
-          <a class="nav-item" href="#templates" data-disabled="true" title="Coming soon"><span class="dot"></span>Template Library</a>
-        </nav>
-        <div class="sidebar-spacer"></div>
-        <div class="conn-pill" id="conn-pill" data-state="checking">
-          <span class="conn-led"></span>
-          <span class="conn-label">Checking…</span>
-        </div>
-        <small>Local admin runs via <code>npm run admin</code> from this repo.</small>
-      </aside>
+    <header class="topbar" role="banner">
+      <span class="topbar-mark" aria-hidden="true">SL</span>
+      <div class="topbar-brand">
+        <strong>StudioLAB Admin</strong>
+        <span>Template management</span>
+      </div>
+      <div class="topbar-spacer"></div>
+      <div class="conn-pill" id="conn-pill" data-state="checking">
+        <span class="conn-led" aria-hidden="true"></span>
+        <span class="conn-label">Checking</span>
+      </div>
+    </header>
 
-      <main>
-        <div class="page-head">
+    <nav class="tabbar" role="tablist" aria-label="Admin sections">
+      <button class="tab is-active" role="tab" data-tab="studios" aria-selected="true" aria-controls="panel-studios" type="button">
+        Studios
+        <span class="tab-count" id="tab-count-studios">0</span>
+      </button>
+      <button class="tab" role="tab" data-tab="styles" aria-selected="false" aria-controls="panel-styles" type="button">
+        Style Shortlists
+      </button>
+      <button class="tab" role="tab" data-tab="templates" aria-selected="false" aria-controls="panel-templates" type="button">
+        Template Library
+      </button>
+    </nav>
+
+    <main>
+      <section class="tabpanel is-active" id="panel-studios" role="tabpanel" aria-labelledby="tab-studios">
+        <div class="section-head">
           <div>
             <h1>Studios</h1>
             <p>Manage which template demos each studio sees. Toggles write to the manifest and regenerate the studio gallery immediately.</p>
           </div>
-          <div class="page-actions">
-            <button class="btn" id="refresh-btn" type="button">Refresh</button>
+          <div class="section-actions">
+            <button class="btn" id="refresh-btn" type="button">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3.51-7.13"/><polyline points="21 4 21 10 15 10"/></svg>
+              Refresh
+            </button>
           </div>
         </div>
 
         <div id="banner-slot"></div>
 
         <section class="stats" aria-label="Summary stats">
-          <div class="stat"><span class="label">Studios</span><span class="value" id="stat-studios">—</span></div>
-          <div class="stat"><span class="label">Total templates</span><span class="value" id="stat-total">—</span></div>
-          <div class="stat"><span class="label">Visible</span><span class="value" id="stat-visible">—</span></div>
-          <div class="stat"><span class="label">Hidden</span><span class="value" id="stat-hidden">—</span></div>
+          <div class="stat stat-indigo">
+            <span class="eyebrow">Studios</span>
+            <span class="value" id="stat-studios">-</span>
+            <span class="sub">In the gallery</span>
+          </div>
+          <div class="stat stat-magenta">
+            <span class="eyebrow">Total templates</span>
+            <span class="value" id="stat-total">-</span>
+            <span class="sub">Across all studios</span>
+          </div>
+          <div class="stat stat-ok">
+            <span class="eyebrow">Visible</span>
+            <span class="value" id="stat-visible">-</span>
+            <span class="sub">Shown to studios</span>
+          </div>
+          <div class="stat stat-crit">
+            <span class="eyebrow">Hidden</span>
+            <span class="value" id="stat-hidden">-</span>
+            <span class="sub">Internal only</span>
+          </div>
         </section>
 
-        <section class="panel" id="studios" aria-label="Studios">
+        <section class="panel" id="studios" aria-label="All studios">
           <div class="panel-head">
             <h2>All studios</h2>
-            <span class="panel-meta" id="panel-meta">—</span>
+            <span class="panel-meta" id="panel-meta"></span>
           </div>
           <div id="studios-body">
-            <p class="empty">Loading studios…</p>
+            <div class="empty is-inline">
+              <div class="icon" style="color: var(--indigo-500);">
+                <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+              </div>
+              <div class="heading">Loading studios</div>
+              <div class="body">Reading each studio manifest.</div>
+            </div>
           </div>
         </section>
-      </main>
-    </div>
+      </section>
+
+      <section class="tabpanel" id="panel-styles" role="tabpanel" aria-labelledby="tab-styles" hidden>
+        <div class="section-head">
+          <div>
+            <h1>Style Shortlists</h1>
+            <p>Curated visual directions assembled per studio brief, ready for review before any demo is generated.</p>
+          </div>
+        </div>
+        <div class="empty">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+              <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+              <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+              <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+            </svg>
+          </div>
+          <span class="badge">Coming soon</span>
+          <div class="heading">Style shortlists are not wired up yet</div>
+          <div class="body">This is where curated style directions per studio brief will live, with side-by-side comparisons and approval flow before demo generation begins.</div>
+        </div>
+      </section>
+
+      <section class="tabpanel" id="panel-templates" role="tabpanel" aria-labelledby="tab-templates" hidden>
+        <div class="section-head">
+          <div>
+            <h1>Template Library</h1>
+            <p>The master catalogue of template archetypes that studios can be matched to. Build once, reuse across every studio brief.</p>
+          </div>
+        </div>
+        <div class="empty">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h7v7H4z"/>
+              <path d="M13 4h7v4h-7z"/>
+              <path d="M13 11h7v9h-7z"/>
+              <path d="M4 13h7v7H4z"/>
+            </svg>
+          </div>
+          <span class="badge">Coming soon</span>
+          <div class="heading">The template catalogue is not wired up yet</div>
+          <div class="body">Once enabled, every reusable template archetype lives here with its preview, brief field requirements, and the studios already using it.</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      Local admin runs via <code>npm run admin</code> from this repo.
+    </footer>
 
     <div class="drawer-backdrop" id="drawer-backdrop"></div>
-    <aside class="drawer" id="drawer" aria-hidden="true">
+    <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Studio detail">
       <div class="drawer-head">
         <div>
           <h2 id="drawer-title">Studio</h2>
           <div class="sub" id="drawer-sub"></div>
         </div>
-        <button class="btn btn-ghost btn-icon" id="drawer-close" aria-label="Close" type="button">✕</button>
+        <button class="btn btn-ghost btn-icon btn-sm" id="drawer-close" aria-label="Close studio detail" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
       </div>
       <div class="drawer-body" id="drawer-body">
-        <p class="empty">Loading…</p>
+        <div class="empty is-inline">
+          <div class="icon" style="color: var(--indigo-500);">
+            <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+          </div>
+          <div class="heading">Loading studio</div>
+        </div>
       </div>
     </aside>
 
@@ -737,7 +955,7 @@
           await navigator.clipboard.writeText(text);
           toast("Copied to clipboard", "ok");
         } catch (err) {
-          toast("Copy failed — select the URL manually", "error");
+          toast("Copy failed, select the URL manually", "error");
         }
       }
 
@@ -749,6 +967,20 @@
 
       function setBanner(html) {
         $("#banner-slot").innerHTML = html || "";
+      }
+
+      function setActiveTab(tab) {
+        $$(".tab").forEach((el) => {
+          const isActive = el.dataset.tab === tab;
+          el.classList.toggle("is-active", isActive);
+          el.setAttribute("aria-selected", isActive ? "true" : "false");
+        });
+        $$(".tabpanel").forEach((el) => {
+          const isActive = el.id === `panel-${tab}`;
+          el.classList.toggle("is-active", isActive);
+          if (isActive) el.removeAttribute("hidden");
+          else el.setAttribute("hidden", "");
+        });
       }
 
       async function api(path, opts) {
@@ -774,10 +1006,11 @@
           return true;
         } catch (err) {
           state.connected = false;
-          setConn("offline", "Read-only");
+          setConn("offline", "Read only");
           setBanner(`
             <div class="banner" role="status">
-              <span>Admin server isn't running. View is read-only. To make changes, run <code>npm run admin</code> and refresh.</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+              <span>Admin server isn&rsquo;t running, view is read only. To make changes, run <code>npm run admin</code> and refresh.</span>
             </div>
           `);
           return false;
@@ -785,7 +1018,15 @@
       }
 
       async function loadStudios() {
-        $("#studios-body").innerHTML = `<p class="empty">Loading studios…</p>`;
+        $("#studios-body").innerHTML = `
+          <div class="empty is-inline">
+            <div class="icon" style="color: var(--indigo-500);">
+              <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+            </div>
+            <div class="heading">Loading studios</div>
+            <div class="body">Reading each studio manifest.</div>
+          </div>
+        `;
         try {
           if (state.connected) {
             const data = await api("/api/studios");
@@ -795,7 +1036,15 @@
             state.studios = await loadStudiosStaticFallback();
           }
         } catch (err) {
-          $("#studios-body").innerHTML = `<p class="empty">Could not load studios: ${esc(err.message)}</p>`;
+          $("#studios-body").innerHTML = `
+            <div class="empty is-inline">
+              <div class="icon" style="color: var(--crit); background: var(--crit-subtle);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+              </div>
+              <div class="heading">Could not load studios</div>
+              <div class="body">${esc(err.message)}</div>
+            </div>
+          `;
           return;
         }
         renderStats();
@@ -836,13 +1085,24 @@
         $("#stat-total").textContent = total;
         $("#stat-visible").textContent = visible;
         $("#stat-hidden").textContent = hidden;
+        $("#tab-count-studios").textContent = s.length;
         $("#panel-meta").textContent = `${s.length} studio${s.length === 1 ? "" : "s"}`;
       }
 
       function renderStudios() {
         const body = $("#studios-body");
         if (!state.studios.length) {
-          body.innerHTML = `<p class="empty">No studios found.</p>`;
+          body.innerHTML = `
+            <div class="empty is-inline">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                </svg>
+              </div>
+              <div class="heading">No studios in the gallery yet</div>
+              <div class="body">Add a folder under <code>studios/</code> with a <code>templates.json</code> manifest and it will appear here.</div>
+            </div>
+          `;
           return;
         }
         body.innerHTML = `
@@ -869,19 +1129,19 @@
         return `
           <tr class="studio-row" data-slug="${esc(studio.slug)}">
             <td class="col-name">${esc(studio.name)}</td>
-            <td>${esc(studio.location || "—")}</td>
+            <td>${esc(studio.location || "Not set")}</td>
             <td class="col-counts">${studio.visibleCount}</td>
             <td class="col-counts">${studio.hiddenCount}</td>
             <td>
               <div class="share-cell">
                 <span class="share-url" title="${esc(studio.shareUrl)}">${esc(studio.shareUrl)}</span>
-                <button class="btn btn-small" type="button" data-copy="${esc(studio.shareUrl)}">Copy</button>
+                <button class="btn btn-sm" type="button" data-copy="${esc(studio.shareUrl)}">Copy</button>
               </div>
             </td>
             <td>
               <div class="row-actions">
-                <button class="btn btn-small" type="button" data-open-studio="${esc(studio.slug)}">Manage</button>
-                <a class="btn btn-small" href="studios/${esc(studio.slug)}/" target="_blank" rel="noopener noreferrer">Preview ↗</a>
+                <button class="btn btn-sm" type="button" data-open-studio="${esc(studio.slug)}">Manage</button>
+                <a class="btn btn-sm" href="studios/${esc(studio.slug)}/" target="_blank" rel="noopener noreferrer">Preview ↗</a>
               </div>
             </td>
           </tr>
@@ -915,8 +1175,18 @@
         backdrop.classList.add("is-open");
         drawer.setAttribute("aria-hidden", "false");
 
+        $("#drawer-title").textContent = "Studio";
+        $("#drawer-sub").textContent = "";
+
         const body = $("#drawer-body");
-        body.innerHTML = `<p class="empty">Loading…</p>`;
+        body.innerHTML = `
+          <div class="empty is-inline">
+            <div class="icon" style="color: var(--indigo-500);">
+              <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+            </div>
+            <div class="heading">Loading studio</div>
+          </div>
+        `;
 
         try {
           const studio = state.connected
@@ -924,7 +1194,15 @@
             : await loadStudioStaticFallback(slug);
           renderDrawer(studio);
         } catch (err) {
-          body.innerHTML = `<p class="empty">Failed to load: ${esc(err.message)}</p>`;
+          body.innerHTML = `
+            <div class="empty is-inline">
+              <div class="icon" style="color: var(--crit); background: var(--crit-subtle);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+              </div>
+              <div class="heading">Failed to load</div>
+              <div class="body">${esc(err.message)}</div>
+            </div>
+          `;
         }
       }
 
@@ -947,7 +1225,7 @@
 
       function renderDrawer(studio) {
         $("#drawer-title").textContent = studio.name;
-        $("#drawer-sub").textContent = `${studio.location || "—"} · ${studio.visibleCount} visible · ${studio.hiddenCount} hidden`;
+        $("#drawer-sub").textContent = `${studio.location || "Location not set"} · ${studio.visibleCount} visible · ${studio.hiddenCount} hidden`;
 
         const templates = (studio.manifest?.templates || []).slice().sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
         const body = $("#drawer-body");
@@ -956,16 +1234,25 @@
             <h3>Studio share link</h3>
             <div class="share-block">
               <span class="url" title="${esc(studio.shareUrl)}">${esc(studio.shareUrl)}</span>
-              <button class="btn btn-small" type="button" data-copy="${esc(studio.shareUrl)}">Copy</button>
-              <a class="btn btn-small" href="${esc(studio.shareUrl)}" target="_blank" rel="noopener noreferrer">Open ↗</a>
+              <button class="btn btn-sm" type="button" data-copy="${esc(studio.shareUrl)}">Copy</button>
+              <a class="btn btn-sm" href="${esc(studio.shareUrl)}" target="_blank" rel="noopener noreferrer">Open ↗</a>
             </div>
           </div>
 
           <div class="drawer-section">
             <h3>Templates (${templates.length})</h3>
-            <ul class="template-list">
-              ${templates.map((tpl) => renderTemplateItem(studio, tpl)).join("")}
-            </ul>
+            ${templates.length === 0
+              ? `<div class="empty is-inline">
+                  <div class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <path d="M3 9h18"/>
+                    </svg>
+                  </div>
+                  <div class="heading">No templates in this manifest yet</div>
+                </div>`
+              : `<ul class="template-list">${templates.map((tpl) => renderTemplateItem(studio, tpl)).join("")}</ul>`
+            }
           </div>
         `;
 
@@ -993,9 +1280,9 @@
             <p>${esc(tpl.description || "")}</p>
             <div class="item-actions">
               <span class="pill ${isVisible ? "pill-visible" : "pill-hidden"}">${isVisible ? "On" : "Off"}</span>
-              <span class="share-url" style="max-width: 320px;" title="${esc(directUrl)}">${esc(directUrl)}</span>
-              <button class="btn btn-small" type="button" data-copy="${esc(directUrl)}">Copy URL</button>
-              <a class="btn btn-small" href="studios/${esc(studio.slug)}/${esc(tpl.path)}" target="_blank" rel="noopener noreferrer">Preview ↗</a>
+              <span class="share-url" title="${esc(directUrl)}">${esc(directUrl)}</span>
+              <button class="btn btn-sm" type="button" data-copy="${esc(directUrl)}">Copy URL</button>
+              <a class="btn btn-sm" href="studios/${esc(studio.slug)}/${esc(tpl.path)}" target="_blank" rel="noopener noreferrer">Preview ↗</a>
             </div>
           </li>
         `;
@@ -1014,7 +1301,7 @@
         if (!input) return;
         if (!state.connected) {
           input.checked = !input.checked;
-          toast("Read-only — start the admin server to make changes", "error");
+          toast("Read only, start the admin server to make changes", "error");
           return;
         }
         const slug = state.openSlug;
@@ -1054,6 +1341,10 @@
       $("#refresh-btn").addEventListener("click", async () => {
         await checkConnection();
         await loadStudios();
+      });
+
+      $$(".tab").forEach((el) => {
+        el.addEventListener("click", () => setActiveTab(el.dataset.tab));
       });
 
       (async function init() {
