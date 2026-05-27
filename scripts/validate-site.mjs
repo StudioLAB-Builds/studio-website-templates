@@ -25,9 +25,12 @@ const absoluteManifest = JSON.parse(read("studios/absolute-dance/templates.json"
 const visibleAbsoluteTemplates = absoluteManifest.templates.filter((template) => template.status === "visible");
 const hiddenAbsoluteTemplates = absoluteManifest.templates.filter((template) => template.status === "hidden");
 
-expect(rootIndex.includes("StudioLAB Website Templates"), "Root index missing project title.");
-expect(rootIndex.includes("studios/absolute-dance/"), "Root index missing Absolute Dance link.");
-expect(rootIndex.includes("styles/"), "Root index missing style shortlist link.");
+expect(rootIndex.includes("StudioLAB Admin"), "Root index missing admin title.");
+expect(rootIndex.includes('name="robots"') && /noindex/i.test(rootIndex), "Root index missing noindex meta for search engines.");
+expect(/slug:\s*["']absolute-dance["']/.test(rootIndex), "Root index static fallback missing absolute-dance entry.");
+expect(!rootIndex.includes("github.com"), "Root index leaks external link to GitHub repo.");
+expect(!/href=["'][^"']*styles\//.test(rootIndex), "Root index leaks link to internal styles tool.");
+expect(absoluteManifest.studio.location && absoluteManifest.studio.location.length > 0, "Absolute Dance manifest missing studio.location field.");
 expect(visibleAbsoluteTemplates.length === 4, "Absolute Dance should currently have exactly four visible templates.");
 expect(visibleAbsoluteTemplates.some((template) => template.id === "demo-1-warm-modern-enrollment"), "Absolute Dance visible templates should include Demo 1 warm modern enrollment.");
 expect(visibleAbsoluteTemplates.some((template) => template.id === "demo-2-conversion-journey"), "Absolute Dance visible templates should include Demo 2 conversion journey.");

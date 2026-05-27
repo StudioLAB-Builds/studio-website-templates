@@ -55,28 +55,6 @@
         padding: 42px 24px 78px;
       }
 
-      .hub-bar {
-        align-items: center;
-        background: var(--deep);
-        color: #ffffff;
-        display: none;
-        gap: 16px;
-        justify-content: space-between;
-        padding: 11px 20px;
-      }
-
-      .hub-bar a,
-      .hub-bar span {
-        color: #ffffff;
-        font-size: 13px;
-        font-weight: 900;
-      }
-
-      .hub-bar span {
-        color: rgba(255, 255, 255, 0.68);
-        font-weight: 700;
-      }
-
       .intro {
         display: grid;
         gap: 28px;
@@ -282,21 +260,5 @@
         </article>
       </section>
     </main>
-
-    <script>
-      const hubMode = new URLSearchParams(window.location.search).get('hub') === '1';
-      if (hubMode) {
-        const hubBar = document.createElement('div');
-        hubBar.className = 'hub-bar';
-        hubBar.innerHTML = '<a href="../../">← StudioLAB studio hub</a><span>Internal navigation mode</span>';
-        hubBar.style.display = 'flex';
-        document.body.prepend(hubBar);
-        document.querySelectorAll('.demo-link').forEach((link) => {
-          const url = new URL(link.getAttribute('href'), window.location.href);
-          url.searchParams.set('hub', '1');
-          link.href = url.pathname.split('/studios/absolute-dance/')[1] + url.search;
-        });
-      }
-    </script>
   </body>
 </html>
