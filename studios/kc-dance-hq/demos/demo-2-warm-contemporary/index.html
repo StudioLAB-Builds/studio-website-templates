@@ -118,7 +118,7 @@
 
       /* Hero, full-bleed photographic */
       .hero { position: relative; min-height: 620px; display: flex; align-items: center; overflow: hidden; }
-      .hero-bg { position: absolute; inset: 0; background: url("../../assets/class-action.jpg") center 30% / cover no-repeat; transform: scale(1.06); }
+      .hero-bg { position: absolute; inset: 0; background: var(--ink) url("../../assets/class-action.jpg") center center / contain no-repeat; transform: none; }
       .hero-overlay { position: absolute; inset: 0; background:
         linear-gradient(105deg, rgba(36,42,51,0.92) 0%, rgba(36,42,51,0.72) 38%, rgba(36,42,51,0.28) 70%, rgba(214,47,124,0.18) 100%); }
       .hero-inner { position: relative; padding: 96px 0 104px; }
@@ -149,6 +149,9 @@
       .welcome-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
       .welcome-figure { position: relative; }
       .welcome-figure img { width: 100%; height: 500px; object-fit: cover; border-radius: var(--radius); box-shadow: 0 36px 70px var(--shadow-ink); }
+      .image-wide { aspect-ratio: 16 / 9; height: auto !important; object-fit: cover !important; object-position: center center; }
+      .image-facade { aspect-ratio: 1200 / 970; background: var(--ink); height: auto !important; object-fit: contain !important; object-position: center center; }
+      .image-portrait { aspect-ratio: 600 / 725; height: auto !important; object-fit: cover !important; object-position: center center; }
       .welcome-figure .tag { position: absolute; right: -16px; top: 28px; background: var(--pink); color: var(--white); border-radius: 16px; padding: 14px 20px; font-family: var(--font-display); font-style: italic; font-size: 1.2rem; box-shadow: 0 18px 38px var(--shadow); }
       .welcome-copy p + p { margin-top: 18px; }
       .welcome-copy .facility-list { list-style: none; padding: 0; margin: 26px 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px; }
@@ -156,12 +159,14 @@
       .welcome-copy .facility-list svg { width: 18px; height: 18px; color: var(--pink); flex: none; margin-top: 3px; }
 
       /* Classes */
-      .classes { background: var(--cream); }
+      .classes { background: var(--cream); overflow: hidden; position: relative; }
+      .classes::before { content: ""; position: absolute; inset: 0; background: url("../../assets/studio-bg.jpg") top right / min(820px, 92vw) auto no-repeat; opacity: 0.12; pointer-events: none; }
+      .classes .wrap { position: relative; }
       .class-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
       .class-card {
         position: relative; border-radius: var(--radius); overflow: hidden; min-height: 280px;
         display: flex; flex-direction: column; justify-content: flex-end; padding: 26px;
-        color: var(--white); background: var(--ink);
+        color: var(--white); background: var(--ink) url("../../assets/studio-bg.jpg") center / cover;
         transition: transform 280ms var(--ease), box-shadow 280ms var(--ease);
       }
       .class-card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px var(--shadow); }
@@ -201,6 +206,7 @@
       .community { position: relative; color: var(--white); overflow: hidden; }
       .community-bg { position: absolute; inset: 0; background: url("../../assets/hero-bg.jpg") center / cover no-repeat; }
       .community-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(36,42,51,0.94), rgba(36,42,51,0.74) 55%, rgba(214,47,124,0.4)); }
+      .community::after { content: ""; position: absolute; inset: 0; background: url("../../assets/studio-bg.jpg") center / cover; opacity: 0.2; mix-blend-mode: screen; pointer-events: none; }
       .community-inner { position: relative; padding: 104px 0; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
       .community .eyebrow { color: var(--pink-soft); }
       .community h2 { color: var(--white); }
@@ -218,6 +224,7 @@
       .adults { background: var(--pink-tint); }
       .adults-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: center; }
       .adults-figure img { width: 100%; height: 440px; object-fit: cover; border-radius: var(--radius); box-shadow: 0 30px 60px var(--shadow); }
+      .adults-figure img.image-portrait { aspect-ratio: 600 / 725; height: auto; object-fit: cover; }
       .adult-cards { display: grid; gap: 14px; margin-top: 26px; }
       .adult-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; background: var(--white); border-radius: var(--radius-sm); padding: 18px 22px; transition: transform 200ms ease, box-shadow 200ms ease; }
       .adult-row:hover { transform: translateX(4px); box-shadow: 0 18px 36px var(--shadow); }
@@ -241,9 +248,10 @@
       .voice-note { text-align: center; margin-top: 26px; font-size: 13px; color: var(--ink-soft); }
 
       /* Enrol */
-      .enrol { position: relative; overflow: hidden; background: var(--ink); color: var(--white); }
+      .enrol { position: relative; overflow: hidden; background: var(--ink) url("../../assets/studio-interior.jpg") center / cover; color: var(--white); }
+      .enrol::before { content: ""; position: absolute; inset: 0; background: rgba(36,42,51,0.72); }
       .enrol-glow { position: absolute; width: 620px; height: 620px; border-radius: 50%; background: radial-gradient(circle, rgba(238,70,146,0.5), transparent 62%); top: -180px; right: -140px; filter: blur(10px); }
-      .enrol .wrap { position: relative; text-align: center; padding: 100px 28px; }
+      .enrol .wrap { position: relative; text-align: center; padding: 100px 28px; z-index: 1; }
       .enrol h2 { color: var(--white); margin: 0 auto 16px; max-width: 18ch; }
       .enrol p { color: rgba(255,255,255,0.88); max-width: 46ch; margin: 0 auto 30px; }
       .enrol .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
@@ -262,7 +270,9 @@
       .faq-a { padding: 0 24px 24px; color: var(--ink-soft); font-size: 15.5px; line-height: 1.65; max-width: 64ch; }
 
       /* Footer */
-      .site-footer { background: var(--ink); color: rgba(255,255,255,0.78); padding: 72px 0 36px; }
+      .site-footer { background: var(--ink) url("../../assets/studio-interior.jpg") center / cover; color: rgba(255,255,255,0.78); overflow: hidden; padding: 72px 0 36px; position: relative; }
+      .site-footer::before { content: ""; position: absolute; inset: 0; background: rgba(36,42,51,0.86); }
+      .site-footer .wrap { position: relative; }
       .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
       .foot-brand img { height: 36px; margin-bottom: 18px; }
       .foot-brand p { font-size: 14.5px; max-width: 30ch; line-height: 1.6; }
@@ -373,7 +383,7 @@
           <a class="btn btn-primary" href="https://app.studiolabsoftware.com/familyregister/1b967ddc-3c5f-4a8b-a302-e5fb6b73787c" target="_blank" rel="noopener">Enrol for 2026</a>
         </div>
         <div class="welcome-figure reveal">
-          <img src="../../assets/studio-interior.jpg" alt="Inside the new KCDanceHQ studio at Bennetts Green">
+          <img class="image-facade" src="../../assets/class-action.jpg" alt="KCDanceHQ dancers outside the Bennetts Green studio facade">
           <span class="tag">Bennetts Green</span>
         </div>
       </div>
@@ -486,7 +496,7 @@
     <section class="block adults" id="adults">
       <div class="wrap adults-grid">
         <div class="adults-figure reveal">
-          <img src="../../assets/celebration-30yrs.jpg" alt="KCDanceHQ community celebrating together">
+          <img class="image-portrait" src="../../assets/celebration-30yrs.jpg" alt="KCDanceHQ community celebrating together">
         </div>
         <div class="adults-copy reveal">
           <span class="eyebrow">Something just for you</span>

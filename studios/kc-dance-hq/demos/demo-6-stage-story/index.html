@@ -274,12 +274,16 @@
       .poster-tile img {
         height: 100%;
         object-fit: cover;
+        object-position: center center;
         transition: transform 540ms var(--ease);
         width: 100%;
       }
 
       .poster-tile:hover img { transform: scale(1.05); }
-      .poster-large { min-height: 500px; }
+      .image-wide { aspect-ratio: 16 / 9; height: auto !important; object-fit: cover !important; object-position: center center; }
+      .image-facade { aspect-ratio: 1200 / 970; background: var(--ink); height: auto !important; object-fit: contain !important; object-position: center center; }
+      .image-portrait { aspect-ratio: 600 / 725; background: var(--ink); height: auto !important; object-fit: contain !important; object-position: center center; }
+      .poster-large { aspect-ratio: 16 / 9; min-height: 0; }
       .poster-stack { display: grid; gap: 14px; }
       .poster-small { min-height: 243px; }
 
@@ -345,7 +349,9 @@
       }
 
       .year-flow {
-        background: var(--white);
+        background:
+          linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.94)),
+          url("../../assets/studio-bg.jpg") top right / min(820px, 92vw) auto no-repeat;
       }
 
       .flow-grid {
@@ -412,7 +418,9 @@
       }
 
       .lane .swatch {
-        background: var(--pink-soft);
+        background:
+          linear-gradient(rgba(255,227,240,0.88), rgba(255,227,240,0.88)),
+          url("../../assets/studio-bg.jpg") center / cover;
         border-radius: var(--radius);
         color: var(--pink-deep);
         font-size: 12px;
@@ -435,10 +443,14 @@
       .lane .styles { color: var(--pink-deep); font-size: 12px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
 
       .stage-proof {
-        background: var(--ink);
+        background: var(--ink) url("../../assets/studio-bg.jpg") center / cover;
         color: var(--white);
         overflow: hidden;
+        position: relative;
       }
+
+      .stage-proof::before { content: ""; position: absolute; inset: 0; background: rgba(21,27,34,0.72); }
+      .stage-proof .wrap { position: relative; }
 
       .stage-proof h2 { color: var(--white); }
       .stage-proof .section-head p { color: rgba(255, 255, 255, 0.76); }
@@ -458,6 +470,7 @@
       }
 
       .proof-photo img { height: 100%; object-fit: cover; width: 100%; }
+      .proof-photo img.image-portrait { background: var(--ink); height: 100%; object-fit: contain; }
       .proof-photo::after {
         background: linear-gradient(0deg, rgba(21, 27, 34, 0.85), transparent 58%);
         content: "";
@@ -542,7 +555,9 @@
       .teacher-row .signal { color: var(--ink); font-weight: 900; white-space: nowrap; }
 
       .trial {
-        background: var(--cream);
+        background:
+          linear-gradient(rgba(249,246,240,0.9), rgba(249,246,240,0.9)),
+          url("../../assets/studio-interior.jpg") center / cover;
       }
 
       .trial-grid {
@@ -552,7 +567,9 @@
       }
 
       .trial-copy {
-        background: var(--pink);
+        background:
+          linear-gradient(rgba(238,70,146,0.88), rgba(238,70,146,0.88)),
+          url("../../assets/studio-bg.jpg") center / cover;
         border-radius: var(--radius);
         color: var(--white);
         display: grid;
@@ -618,7 +635,9 @@
       .voice-photo img {
         height: 100%;
         min-height: 430px;
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center center;
+        background: var(--pink-soft);
         width: 100%;
       }
 
@@ -641,7 +660,9 @@
       .who { color: var(--muted); font-size: 13px; font-weight: 900; }
 
       .faq {
-        background: var(--cream);
+        background:
+          linear-gradient(rgba(249,246,240,0.92), rgba(249,246,240,0.92)),
+          url("../../assets/studio-bg.jpg") center / cover;
       }
 
       .faq-list {
@@ -665,10 +686,15 @@
       details p { color: var(--muted); padding: 0 24px 22px; }
 
       .site-footer {
-        background: var(--ink);
+        background: var(--ink) url("../../assets/studio-interior.jpg") center / cover;
         color: var(--white);
+        overflow: hidden;
         padding: 48px 0;
+        position: relative;
       }
+
+      .site-footer::before { content: ""; position: absolute; inset: 0; background: rgba(36,42,51,0.86); }
+      .site-footer .wrap { position: relative; }
 
       .footer-grid {
         align-items: start;
@@ -782,16 +808,16 @@
         </div>
         <div class="poster-grid reveal">
           <figure class="poster-tile poster-large">
-            <img src="../../assets/hero-bg.jpg" alt="KCDanceHQ dancers and teachers in the studio">
+            <img class="image-wide" src="../../assets/hero-bg.jpg" alt="KCDanceHQ dancers and teachers in the studio">
             <figcaption class="poster-caption">The KC community</figcaption>
           </figure>
           <div class="poster-stack">
             <figure class="poster-tile poster-small">
-              <img src="../../assets/celebration-30yrs.jpg" alt="KCDanceHQ students celebrating 30 years">
+              <img class="image-portrait" src="../../assets/celebration-30yrs.jpg" alt="KCDanceHQ students celebrating 30 years">
               <figcaption class="poster-caption">30 years of memories</figcaption>
             </figure>
             <figure class="poster-tile poster-small">
-              <img src="../../assets/class-action.jpg" alt="KCDanceHQ dancers outside the studio">
+              <img class="image-facade" src="../../assets/class-action.jpg" alt="KCDanceHQ dancers outside the studio facade">
               <figcaption class="poster-caption">Bennetts Green studio</figcaption>
             </figure>
           </div>
@@ -849,7 +875,7 @@
           </div>
           <div class="proof-layout">
             <figure class="proof-photo reveal">
-              <img src="../../assets/celebration-30yrs.jpg" alt="KCDanceHQ students celebrating 30 years together">
+              <img class="image-portrait" src="../../assets/celebration-30yrs.jpg" alt="KCDanceHQ students celebrating 30 years together">
               <figcaption class="proof-caption">
                 <strong>KC30</strong>
                 <p>A performance story that parents instantly understand: the class builds the skill, the stage builds the memory.</p>
@@ -934,7 +960,7 @@
             <p>The story-led structure gives testimonials a job: reassure families that the feeling they want is already happening.</p>
           </div>
           <div class="voice-board">
-            <div class="voice-photo reveal"><img src="../../assets/enrolment.jpg" alt="Young KCDanceHQ dancers in costume"></div>
+            <div class="voice-photo reveal"><img class="image-portrait" src="../../assets/enrolment.jpg" alt="Young KCDanceHQ dancers in costume"></div>
             <div class="voice-list">
               <article class="voice reveal"><div class="stars">*****</div><blockquote>"The first class felt welcoming from the moment we arrived. My daughter knew she wanted to come back."</blockquote><div class="who">Sample parent review</div></article>
               <article class="voice reveal"><div class="stars">*****</div><blockquote>"KCDanceHQ feels organised for us and exciting for the kids. That combination matters."</blockquote><div class="who">Sample family feedback</div></article>

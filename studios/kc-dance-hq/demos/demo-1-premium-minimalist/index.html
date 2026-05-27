@@ -164,13 +164,18 @@
       .story { background: var(--white); }
       .story-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 56px; align-items: center; }
       .story-figure img { width: 100%; height: 480px; object-fit: cover; border-radius: 22px; box-shadow: 0 32px 64px var(--shadow); }
+      .image-wide { aspect-ratio: 16 / 9; height: auto !important; object-fit: cover !important; object-position: center center; }
+      .image-facade { aspect-ratio: 1200 / 970; background: var(--ink); height: auto !important; object-fit: contain !important; object-position: center center; }
+      .image-portrait { aspect-ratio: 600 / 725; height: auto !important; object-fit: cover !important; object-position: center center; }
       .story-copy p + p { margin-top: 18px; }
       .facility-list { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; }
       .facility-list li { display: flex; align-items: flex-start; gap: 11px; font-size: 15.5px; color: var(--text); }
       .facility-list svg { width: 19px; height: 19px; color: var(--pink); flex: none; margin-top: 2px; }
 
       /* Class catalogue, bento */
-      .classes { background: var(--cream); }
+      .classes { background: var(--cream); overflow: hidden; position: relative; }
+      .classes::before { content: ""; position: absolute; inset: 0; background: url("../../assets/studio-bg.jpg") top right / min(760px, 88vw) auto no-repeat; opacity: 0.1; pointer-events: none; }
+      .classes .wrap { position: relative; }
       .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 18px; }
       .ccard {
         background: var(--white); border: 1px solid var(--line-soft); border-radius: var(--radius);
@@ -183,7 +188,7 @@
       .ccard h3 { font-size: 1.35rem; }
       .ccard .ages { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--pink-deep); }
       .ccard p { font-size: 15px; color: var(--ink-soft); line-height: 1.55; }
-      .ccard.feature { grid-column: span 2; grid-row: span 2; background: var(--ink); color: var(--white); justify-content: space-between; padding: 36px; }
+      .ccard.feature { grid-column: span 2; grid-row: span 2; background: var(--ink) url("../../assets/studio-bg.jpg") center / cover; color: var(--white); justify-content: space-between; padding: 36px; }
       .ccard.feature h3 { color: var(--white); font-size: clamp(1.6rem, 2.4vw, 2.2rem); }
       .ccard.feature p { color: rgba(255,255,255,0.8); font-size: 16px; }
       .ccard.feature .ico { background: rgba(238,70,146,0.22); }
@@ -209,7 +214,9 @@
       .fac-join p { font-size: 15px; color: var(--ink-soft); }
 
       /* Community / recital */
-      .community { background: var(--ink); color: var(--white); }
+      .community { background: var(--ink) url("../../assets/studio-bg.jpg") center / cover; color: var(--white); overflow: hidden; position: relative; }
+      .community::before { content: ""; position: absolute; inset: 0; background: rgba(36,42,51,0.78); }
+      .community .wrap { position: relative; }
       .community .section-head h2 { color: var(--white); }
       .comm-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
       .comm-copy p { color: rgba(255,255,255,0.82); }
@@ -218,6 +225,7 @@
       .comm-points li { display: flex; gap: 12px; align-items: flex-start; color: rgba(255,255,255,0.9); font-size: 15.5px; }
       .comm-points svg { width: 20px; height: 20px; color: var(--pink); flex: none; margin-top: 2px; }
       .comm-figure img { width: 100%; height: 460px; object-fit: cover; border-radius: 22px; }
+      .comm-figure img.image-portrait { aspect-ratio: 600 / 725; height: auto; object-fit: cover; }
 
       /* Adults */
       .adults { background: var(--cream); }
@@ -244,8 +252,9 @@
       .voice-note { text-align: center; margin-top: 26px; font-size: 13px; color: var(--ink-soft); }
 
       /* Big CTA */
-      .enrol { background: var(--pink); color: var(--white); }
-      .enrol .wrap { text-align: center; padding-top: 96px; padding-bottom: 96px; }
+      .enrol { background: var(--pink); color: var(--white); overflow: hidden; position: relative; }
+      .enrol::after { content: ""; position: absolute; inset: 0; background: url("../../assets/studio-bg.jpg") center / cover; opacity: 0.18; mix-blend-mode: multiply; pointer-events: none; }
+      .enrol .wrap { position: relative; text-align: center; padding-top: 96px; padding-bottom: 96px; z-index: 1; }
       .enrol h2 { color: var(--white); margin: 0 auto 16px; max-width: 16ch; }
       .enrol p { color: rgba(255,255,255,0.92); max-width: 44ch; margin: 0 auto 30px; }
       .enrol .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
@@ -268,7 +277,9 @@
       details.faq-item summary::-webkit-details-marker { display: none; }
 
       /* Footer */
-      .site-footer { background: var(--ink); color: rgba(255,255,255,0.78); padding: 72px 0 36px; }
+      .site-footer { background: var(--ink) url("../../assets/studio-interior.jpg") center / cover; color: rgba(255,255,255,0.78); overflow: hidden; padding: 72px 0 36px; position: relative; }
+      .site-footer::before { content: ""; position: absolute; inset: 0; background: rgba(36,42,51,0.86); }
+      .site-footer .wrap { position: relative; }
       .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
       .foot-brand img { height: 34px; margin-bottom: 18px; }
       .foot-brand p { font-size: 14.5px; max-width: 30ch; line-height: 1.6; }
@@ -362,7 +373,7 @@
           </p>
         </div>
         <div class="hero-figure reveal">
-          <img src="../../assets/class-action.jpg" alt="KCDanceHQ dancers gathered outside the studio's new purpose-built home at Bennetts Green">
+          <img class="image-facade" src="../../assets/class-action.jpg" alt="KCDanceHQ dancers gathered outside the studio's new purpose-built home at Bennetts Green">
           <div class="hero-badge">
             <span class="num">30</span>
             <span class="lbl">years welcoming Lake Macquarie families to dance</span>
@@ -385,7 +396,7 @@
     <section class="block story" id="about">
       <div class="wrap story-grid">
         <div class="story-figure reveal">
-          <img src="../../assets/studio-interior.jpg" alt="Inside the KCDanceHQ studio with sprung floors and natural light">
+          <img class="image-wide" src="../../assets/hero-bg.jpg" alt="KCDanceHQ dancers and teachers together inside the studio">
         </div>
         <div class="story-copy reveal">
           <span class="eyebrow">A new chapter, the same heart</span>
@@ -526,7 +537,7 @@
           <a class="btn btn-primary" href="https://app.studiolabsoftware.com/events/KCDANCEHQ" target="_blank" rel="noopener">See what's coming up</a>
         </div>
         <div class="comm-figure reveal">
-          <img src="../../assets/celebration-30yrs.jpg" alt="KCDanceHQ dancers celebrating thirty years of the studio">
+          <img class="image-portrait" src="../../assets/celebration-30yrs.jpg" alt="KCDanceHQ dancers celebrating thirty years of the studio">
         </div>
       </div>
     </section>

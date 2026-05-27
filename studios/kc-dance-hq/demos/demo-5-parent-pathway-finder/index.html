@@ -338,11 +338,16 @@
 
       .path-detail img {
         aspect-ratio: 16 / 10;
+        background: var(--pink-soft);
         border-radius: var(--radius);
         height: auto;
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center center;
         width: 100%;
       }
+
+      .image-wide { aspect-ratio: 16 / 9; height: auto !important; object-fit: cover !important; object-position: center center; }
+      .image-facade { aspect-ratio: 1200 / 970; background: var(--ink); height: auto !important; object-fit: contain !important; object-position: center center; }
 
       .path-copy {
         display: grid;
@@ -450,7 +455,7 @@
       }
 
       .trial-photo {
-        background: var(--ink);
+        background: var(--ink) url("../../assets/studio-bg.jpg") center / cover;
         border-radius: var(--radius);
         color: var(--white);
         min-height: 100%;
@@ -459,10 +464,10 @@
       }
 
       .trial-photo img {
-        height: 100%;
-        min-height: 520px;
-        object-fit: cover;
-        opacity: 0.72;
+        display: block;
+        height: auto;
+        object-fit: contain;
+        opacity: 0.78;
         width: 100%;
       }
 
@@ -485,7 +490,9 @@
       .trial-note p { color: rgba(255, 255, 255, 0.86); }
 
       .trial-panel {
-        background: var(--cream);
+        background:
+          linear-gradient(rgba(249,246,240,0.92), rgba(249,246,240,0.92)),
+          url("../../assets/studio-interior.jpg") center / cover;
         border: 1px solid var(--line);
         border-radius: var(--radius);
         padding: 28px;
@@ -553,7 +560,9 @@
       .form-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
 
       .catalogue {
-        background: var(--cream);
+        background:
+          linear-gradient(rgba(249,246,240,0.94), rgba(249,246,240,0.94)),
+          url("../../assets/studio-bg.jpg") top right / min(820px, 92vw) auto no-repeat;
       }
 
       .catalogue-grid {
@@ -579,7 +588,7 @@
       .class-row .fit { color: var(--pink-deep); font-size: 12px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
 
       .faculty {
-        background: var(--ink);
+        background: var(--ink) url("../../assets/studio-bg.jpg") center / cover;
         color: var(--white);
       }
 
@@ -620,9 +629,10 @@
       }
 
       .community img {
+        aspect-ratio: 16 / 9;
         border-radius: var(--radius);
         box-shadow: 0 24px 54px rgba(36, 42, 51, 0.15);
-        max-height: 560px;
+        height: auto;
         object-fit: cover;
         width: 100%;
       }
@@ -652,7 +662,9 @@
       .mini span { color: var(--muted); display: block; font-size: 13px; margin-top: 4px; }
 
       .portal {
-        background: var(--cream);
+        background:
+          linear-gradient(rgba(249,246,240,0.9), rgba(249,246,240,0.9)),
+          url("../../assets/studio-bg.jpg") center / cover;
       }
 
       .portal-grid {
@@ -714,7 +726,9 @@
       .who { color: var(--muted); font-size: 13px; font-weight: 800; }
 
       .faq {
-        background: var(--cream);
+        background:
+          linear-gradient(rgba(249,246,240,0.92), rgba(249,246,240,0.92)),
+          url("../../assets/studio-interior.jpg") center / cover;
       }
 
       .faq-list {
@@ -739,10 +753,15 @@
       details p { color: var(--muted); padding: 0 22px 22px; }
 
       .site-footer {
-        background: var(--ink);
+        background: var(--ink) url("../../assets/studio-interior.jpg") center / cover;
         color: var(--white);
+        overflow: hidden;
         padding: 48px 0;
+        position: relative;
       }
+
+      .site-footer::before { content: ""; position: absolute; inset: 0; background: rgba(36,42,51,0.86); }
+      .site-footer .wrap { position: relative; }
 
       .footer-grid {
         align-items: start;
@@ -931,7 +950,7 @@
       <section class="trial" id="trial">
         <div class="wrap trial-grid">
           <div class="trial-photo reveal">
-            <img src="../../assets/class-action.jpg" alt="KCDanceHQ dancers outside the Bennetts Green studio">
+            <img class="image-facade" src="../../assets/class-action.jpg" alt="KCDanceHQ dancers outside the Bennetts Green studio facade">
             <div class="trial-note">
               <strong>A trial should feel simple.</strong>
               <p>Tell the team your dancer's age and interests, then arrive knowing where to go and what to expect.</p>
@@ -1009,7 +1028,7 @@
 
       <section class="community">
         <div class="wrap community-grid">
-          <img class="reveal" src="../../assets/hero-bg.jpg" alt="KCDanceHQ dancers and teachers in the studio">
+          <img class="reveal image-wide" src="../../assets/hero-bg.jpg" alt="KCDanceHQ dancers and teachers in the studio">
           <div class="community-copy reveal">
             <span class="rail">Beyond the weekly class</span>
             <h2>The bigger promise is belonging.</h2>
