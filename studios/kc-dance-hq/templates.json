@@ -1,0 +1,41 @@
+{
+  "studio": {
+    "name": "KC Dance HQ",
+    "location": "Bennetts Green, Lake Macquarie NSW",
+    "pageTitle": "KC Dance HQ Website Modernisation Study",
+    "description": "Two modernised homepage directions for KC Dance HQ, prepared for review.",
+    "favicon": "assets/favicon.png",
+    "logo": "assets/logo-dark.png",
+    "kicker": "Website modernisation study",
+    "heading": "KC Dance HQ, modernised.",
+    "intro": "Two directions that both modernise your current site rather than reinvent it. Same brand colours, same logo, same overall structure and photography style. Open each one to compare the feel, the typography, and the parent journey, then tell us which direction to take further."
+  },
+  "templates": [
+    {
+      "id": "demo-1-premium-minimalist",
+      "label": "Demo 1",
+      "title": "Premium Minimalist",
+      "description": "A refined, whitespace-led modernisation on a neutral cream canvas, with your brand pink used as a deliberate accent. Built to feel calm, premium and trustworthy for parents researching seriously.",
+      "path": "demos/demo-1-premium-minimalist/",
+      "preview": "previews/demo-1-premium-minimalist.png",
+      "previewAlt": "Demo 1 Premium Minimalist preview",
+      "status": "enabled",
+      "visibility": "visible",
+      "order": 10,
+      "source": "Claude-generated modernisation study for KC Dance HQ, 2026-05-28"
+    },
+    {
+      "id": "demo-2-warm-contemporary",
+      "label": "Demo 2",
+      "title": "Warm Contemporary",
+      "description": "Keeps the warmth and energy of your current site, refreshed with a full-bleed photographic hero, contemporary card and grid patterns, modern motion and tighter typography. Emotive, but polished.",
+      "path": "demos/demo-2-warm-contemporary/",
+      "preview": "previews/demo-2-warm-contemporary.png",
+      "previewAlt": "Demo 2 Warm Contemporary preview",
+      "status": "enabled",
+      "visibility": "visible",
+      "order": 20,
+      "source": "Claude-generated modernisation study for KC Dance HQ, 2026-05-28"
+    }
+  ]
+}
