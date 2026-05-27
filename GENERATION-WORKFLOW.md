@@ -77,6 +77,12 @@ studios/<studio-slug>/previews/<variant-slug>.png
 studios/<studio-slug>/templates.json      # updated with new entry, status: hidden
 ```
 
+Every demo page must set its browser tab title from the manifest label, studio name, and template title:
+
+```html
+<title>Demo X | Studio Name | Manifest Title</title>
+```
+
 Each AI's commit message should follow the pattern:
 
 ```

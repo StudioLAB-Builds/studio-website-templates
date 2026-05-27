@@ -165,6 +165,7 @@ These rules apply to every variant generated in this repo, regardless of tool:
 - **Benefits before features.** Lead with what the studio gains, then describe how the feature delivers it.
 - **Tone:** professional, friendly, conversational, confident, clear. Never breathless. Never corporate.
 - **No reference to underlying platforms** (GoHighLevel, GHL, Stripe internals, etc.) in studio-facing copy. The StudioLAB Growth product name is the only label that appears externally.
+- **Browser tab labels:** every demo page title must use the exact format `<title>Demo X | Studio Name | Manifest Title</title>`, matching the demo's `label`, studio `name`, and template `title` from `templates.json`.
 
 ---
 

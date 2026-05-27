@@ -18,6 +18,39 @@ function expect(condition, message) {
   if (!condition) failures.push(message);
 }
 
+function decodeHtmlEntities(value) {
+  return String(value)
+    .replaceAll("&amp;", "&")
+    .replaceAll("&lt;", "<")
+    .replaceAll("&gt;", ">")
+    .replaceAll("&quot;", '"')
+    .replaceAll("&#39;", "'");
+}
+
+function normaliseWhitespace(value) {
+  return String(value).replace(/\s+/g, " ").trim();
+}
+
+function extractBrowserTitle(html, relativePath) {
+  const titleMatch = html.match(/<title>([\s\S]*?)<\/title>/i);
+  if (!titleMatch) {
+    failures.push(`${relativePath} missing browser title.`);
+    return "";
+  }
+
+  return normaliseWhitespace(decodeHtmlEntities(titleMatch[1]));
+}
+
+function readStudioManifests() {
+  const studiosDir = path.join(root, "studios");
+  return fs.readdirSync(studiosDir)
+    .filter((slug) => fs.existsSync(path.join(studiosDir, slug, "templates.json")))
+    .map((slug) => ({
+      slug,
+      manifest: JSON.parse(read(`studios/${slug}/templates.json`))
+    }));
+}
+
 const rootIndex = read("index.html");
 const studioIndex = read("studios/absolute-dance/index.html");
 const styleIndex = read("styles/index.html");
@@ -47,6 +80,22 @@ expect(!studioIndex.includes("mailto:"), "Absolute Dance gallery exposes feedbac
 expect(!/shortlist|selected|Clear selection|View demos/i.test(studioIndex), "Absolute Dance gallery still includes internal selection or jump controls.");
 expect(styleIndex.includes("Style shortlists"), "Style shortlist page missing title.");
 expect(fs.existsSync(path.join(root, ".nojekyll")), "Missing .nojekyll for GitHub Pages.");
+
+for (const { slug, manifest } of readStudioManifests()) {
+  const studioName = manifest.studio?.name || slug;
+
+  for (const template of manifest.templates || []) {
+    const demoPath = `studios/${slug}/${template.path}index.html`;
+    const demoIndex = read(demoPath);
+    const browserTitle = extractBrowserTitle(demoIndex, demoPath);
+    const expectedTitle = `${template.label} | ${studioName} | ${template.title}`;
+
+    expect(
+      browserTitle === expectedTitle,
+      `${slug}/${template.id} browser tab title should be "${expectedTitle}".`
+    );
+  }
+}
 
 for (const template of absoluteManifest.templates) {
   const demoIndex = read(`studios/absolute-dance/${template.path}index.html`);
