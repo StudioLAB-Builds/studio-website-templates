@@ -1,26 +1,26 @@
 <!doctype html>
 <!--
-  KCDanceHQ, Demo 2: Warm-Contemporary Modernisation
+  KCDanceHQ, Demo 4: Warm-Contemporary Modernisation
   ----------------------------------------------------------------------------
   Brief frame: modernise the existing kcdancehq.com.au, do not reinvent it.
   Preserved from the live site: exact brand palette (pink #ee4692, charcoal
   #242a33, near-black ink #252827, warm cream #f9f6f0, white), the real
   bracketed "[KCDanceHQ]" wordmark, the same information architecture and
   hero intent, and the studio's own lifestyle dance photography.
-  Modernised: keeps the warmth and energy of the original but with a
-  full-bleed photographic hero, a contemporary card and grid system, a
-  moving class-style strip, refined Playfair Display headings over Inter body,
-  warmer pink-tinted section blocks, scroll-reveal motion and considered hover
-  states. Emotive, but polished.
-  Inspiration: contemporary family-brand sites that feel joyful and current
-  without losing personality.
+  Modernised: keeps the warmth and energy of the original, then sharpens the
+  presentation with a richer photo-led hero, stronger movement between
+  sections, a clearer faculty and class catalogue, and contemporary conversion
+  moments for trial booking and enrolment. Same KC colour palette, logo,
+  assets and site structure, just more polished and current.
+  Inspiration: warm family brands with lively photography, modern grids and
+  considered motion.
 -->
 <html lang="en-AU">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KCDanceHQ | Joyful Dance for Lake Macquarie Families</title>
-    <meta name="description" content="A warm, joyful dance community for families across Lake Macquarie. Ballet, jazz, tap, hip hop, acro and cheer for preschoolers through adults, in a purpose-built studio at Bennetts Green.">
+    <title>KCDanceHQ | Warm Contemporary Modernisation</title>
+    <meta name="description" content="A warm contemporary KCDanceHQ homepage modernisation, preserving the existing brand colours, logo, photography style and parent journey for Lake Macquarie families.">
     <link rel="icon" href="../../assets/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,8 +117,8 @@
       .menu-toggle svg { width: 26px; height: 26px; }
 
       /* Hero, full-bleed photographic */
-      .hero { position: relative; min-height: 620px; display: flex; align-items: center; overflow: hidden; }
-      .hero-bg { position: absolute; inset: 0; background: url("../../assets/class-action.jpg") center 30% / cover no-repeat; transform: scale(1.06); }
+      .hero { position: relative; min-height: 650px; display: flex; align-items: center; overflow: hidden; }
+      .hero-bg { position: absolute; inset: 0; background: url("../../assets/hero-bg.jpg") center 32% / cover no-repeat; transform: scale(1.06); }
       .hero-overlay { position: absolute; inset: 0; background:
         linear-gradient(105deg, rgba(36,42,51,0.92) 0%, rgba(36,42,51,0.72) 38%, rgba(36,42,51,0.28) 70%, rgba(214,47,124,0.18) 100%); }
       .hero-inner { position: relative; padding: 96px 0 104px; }
@@ -131,7 +131,7 @@
       .hero-reassure svg { width: 18px; height: 18px; color: var(--pink-soft); flex: none; }
 
       /* Marquee of class styles */
-      .marquee { background: var(--pink); color: var(--white); overflow: hidden; padding: 16px 0; }
+      .marquee { background: var(--pink); color: var(--white); overflow: hidden; padding: 17px 0; }
       .marquee-track { display: flex; gap: 0; width: max-content; animation: slide 28s linear infinite; }
       .marquee-track span { font-family: var(--font-display); font-style: italic; font-size: 1.35rem; padding: 0 26px; display: inline-flex; align-items: center; gap: 26px; }
       .marquee-track span::after { content: "\2022"; color: rgba(255,255,255,0.6); }
@@ -145,7 +145,7 @@
       .section-head h2 { margin-bottom: 16px; }
 
       /* Welcome / story */
-      .welcome { background: var(--white); }
+      .welcome { background: var(--white); background-image: radial-gradient(circle at 86% 18%, rgba(238,70,146,0.1), transparent 24rem); }
       .welcome-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
       .welcome-figure { position: relative; }
       .welcome-figure img { width: 100%; height: 500px; object-fit: cover; border-radius: var(--radius); box-shadow: 0 36px 70px var(--shadow-ink); }
@@ -331,9 +331,9 @@
       <div class="hero-bg"></div>
       <div class="hero-overlay"></div>
       <div class="wrap hero-inner">
-        <span class="eyebrow">A joyful dance community for Lake Mac &amp; Newy</span>
-        <h1>Where every child feels seen, <em class="accent">supported</em> and celebrated.</h1>
-        <p class="lead">From ballet and tap to hip hop, acro and cheer, there is a class your dancer will fall in love with. Come and feel the warmth of KC for yourself.</p>
+        <span class="eyebrow">The KC families know, brought forward</span>
+        <h1>Joyful dance with the warmth turned <em class="accent">all the way up</em>.</h1>
+        <p class="lead">This direction keeps the current site's energy, colour and community feel, then gives it a cleaner rhythm for parents comparing classes, teachers and next steps.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://app.studiolabsoftware.com/familyregister/1b967ddc-3c5f-4a8b-a302-e5fb6b73787c" target="_blank" rel="noopener">
             Book a trial class
@@ -343,7 +343,7 @@
         </div>
         <span class="hero-reassure">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
-          Your first class is relaxed and no-pressure, try a few styles to find the right fit.
+          Your first class is relaxed and no-pressure, with help choosing the right starting point.
         </span>
       </div>
     </section>
@@ -360,17 +360,17 @@
     <section class="block welcome" id="about">
       <div class="wrap welcome-grid">
         <div class="welcome-copy reveal">
-          <span class="eyebrow">Welcome to our new era</span>
-          <h2>A brand new home, with the heart that built it.</h2>
-          <p>For three decades, Lake Macquarie families have trusted KC for confidence-building, friendship-filled, joy-led dance. After outgrowing Belmont, we have moved into a purpose-built studio at Bennetts Green, minutes from Belmont, Warners Bay, Cardiff and Charlestown.</p>
-          <p>More room to grow, the same supportive, family-friendly environment your dancer will love walking into each week.</p>
+          <span class="eyebrow">A brighter version of the same story</span>
+          <h2>A brand new home, with the personality intact.</h2>
+          <p>For three decades, Lake Macquarie families have trusted KC for confidence-building, friendship-filled, joy-led dance. This version keeps that emotional centre and gives the new Bennetts Green chapter a more contemporary visual rhythm.</p>
+          <p>The page still moves in the same order families expect: welcome, classes, team, recitals, adults, enrolment and FAQ. The difference is clarity, polish and pace.</p>
           <ul class="facility-list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Three air-conditioned studios</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> A dedicated Dancers' Den</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Warm, welcoming reception</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> NSW Active Kids provider</li>
           </ul>
-          <a class="btn btn-primary" href="https://app.studiolabsoftware.com/familyregister/1b967ddc-3c5f-4a8b-a302-e5fb6b73787c" target="_blank" rel="noopener">Enrol for 2026</a>
+          <a class="btn btn-primary" href="https://app.studiolabsoftware.com/familyregister/1b967ddc-3c5f-4a8b-a302-e5fb6b73787c" target="_blank" rel="noopener">Book a trial</a>
         </div>
         <div class="welcome-figure reveal">
           <img src="../../assets/studio-interior.jpg" alt="Inside the new KCDanceHQ studio at Bennetts Green">
@@ -383,9 +383,9 @@
     <section class="block classes" id="classes">
       <div class="wrap">
         <div class="section-head reveal">
-          <span class="eyebrow">Fifteen plus styles to explore</span>
-          <h2>Find the class that lights your dancer up.</h2>
-          <p class="lead">Every class is built to grow confidence first and technique alongside it. Pick a style that sparks something, then book a relaxed trial to see how it feels.</p>
+          <span class="eyebrow">Classes with more visual energy</span>
+          <h2>Find the class that makes your dancer light up.</h2>
+          <p class="lead">The current site already has warmth. This catalogue turns that warmth into a scan-friendly pattern, so parents can recognise the right style quickly and keep moving toward a trial.</p>
         </div>
         <div class="class-grid">
           <article class="class-card pink reveal">
@@ -432,8 +432,8 @@
     <section class="block faculty" id="faculty">
       <div class="wrap">
         <div class="section-head center reveal">
-          <span class="eyebrow">The people behind the joy</span>
-          <h2>Teachers who know your dancer by name.</h2>
+          <span class="eyebrow">Warmth with credibility</span>
+          <h2>Teachers parents can trust, presented with more polish.</h2>
           <p class="lead">Qualified, experienced and genuinely warm, the KC team sets the tone for a studio where children feel safe to try and proud of how far they come.</p>
         </div>
         <div class="fac-grid">
@@ -464,9 +464,9 @@
       <div class="community-overlay"></div>
       <div class="wrap community-inner">
         <div class="community-copy reveal">
-          <span class="eyebrow">Memories that last a lifetime</span>
+          <span class="eyebrow">The community moment</span>
           <h2>A stage to shine on, and friends to share it with.</h2>
-          <p>From our celebrated annual recital to team events and milestone moments, KC dancers grow up sharing something special. Whether your child dances for fun or to take their skills further, there is a place for them here.</p>
+          <p>From the annual recital to team events and milestone moments, KC dancers grow up sharing something special. This section keeps performance close to the centre of the story, without making the page feel pressured or competitive.</p>
           <ul class="community-points">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/></svg> A beautifully run recital every dancer can join</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 .01"/></svg> Friendships that cross ages and years</li>
@@ -563,7 +563,7 @@
     <section class="enrol" id="enrol">
       <div class="enrol-glow"></div>
       <div class="wrap">
-        <h2>Ready to find your dancer's happy place?</h2>
+        <h2>Come and feel the KC energy in person.</h2>
         <p>Book a relaxed trial class for 2026, or request an info pack and we will help you choose the right class.</p>
         <div class="actions">
           <a class="btn btn-light" href="https://app.studiolabsoftware.com/familyregister/1b967ddc-3c5f-4a8b-a302-e5fb6b73787c" target="_blank" rel="noopener">

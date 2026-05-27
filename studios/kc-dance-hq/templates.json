@@ -1,14 +1,14 @@
 {
   "studio": {
-    "name": "KC Dance HQ",
+    "name": "KCDanceHQ",
     "location": "Bennetts Green, Lake Macquarie NSW",
-    "pageTitle": "KC Dance HQ Website Modernisation Study",
-    "description": "Two modernised homepage directions for KC Dance HQ, prepared for review.",
+    "pageTitle": "KCDanceHQ Website Modernisation Study",
+    "description": "Four modernised homepage directions for KCDanceHQ, prepared for review.",
     "favicon": "assets/favicon.png",
     "logo": "assets/logo-dark.png",
     "kicker": "Website modernisation study",
-    "heading": "KC Dance HQ, modernised.",
-    "intro": "Two directions that both modernise your current site rather than reinvent it. Same brand colours, same logo, same overall structure and photography style. Open each one to compare the feel, the typography, and the parent journey, then tell us which direction to take further."
+    "heading": "KCDanceHQ, modernised.",
+    "intro": "Four directions that modernise your current site rather than reinvent it. Same brand colours, same logo, same overall structure and photography style. Open each one to compare the feel, the typography, and the parent journey, then tell us which direction to take further."
   },
   "templates": [
     {
@@ -22,7 +22,7 @@
       "status": "enabled",
       "visibility": "visible",
       "order": 10,
-      "source": "Claude-generated modernisation study for KC Dance HQ, 2026-05-28"
+      "source": "Claude-generated modernisation study for KCDanceHQ, 2026-05-28"
     },
     {
       "id": "demo-2-warm-contemporary",
@@ -35,7 +35,33 @@
       "status": "enabled",
       "visibility": "visible",
       "order": 20,
-      "source": "Claude-generated modernisation study for KC Dance HQ, 2026-05-28"
+      "source": "Claude-generated modernisation study for KCDanceHQ, 2026-05-28"
+    },
+    {
+      "id": "demo-3-premium-minimalist-modernisation",
+      "label": "Demo 3",
+      "title": "Premium Minimalist Modernisation",
+      "description": "A quieter parent-research path that keeps KC's brand assets intact while refining typography, whitespace, class discovery and trial-booking flow.",
+      "path": "demos/demo-3-premium-minimalist-modernisation/",
+      "preview": "previews/demo-3-premium-minimalist-modernisation.png",
+      "previewAlt": "Demo 3 Premium Minimalist Modernisation preview",
+      "status": "enabled",
+      "visibility": "visible",
+      "order": 30,
+      "source": "Codex-generated modernisation study for KCDanceHQ, 2026-05-28"
+    },
+    {
+      "id": "demo-4-warm-contemporary-modernisation",
+      "label": "Demo 4",
+      "title": "Warm Contemporary Modernisation",
+      "description": "A warmer, more energetic refinement of the current site, with richer photography, contemporary grids, polished motion and clearer enrolment moments.",
+      "path": "demos/demo-4-warm-contemporary-modernisation/",
+      "preview": "previews/demo-4-warm-contemporary-modernisation.png",
+      "previewAlt": "Demo 4 Warm Contemporary Modernisation preview",
+      "status": "enabled",
+      "visibility": "visible",
+      "order": 40,
+      "source": "Codex-generated modernisation study for KCDanceHQ, 2026-05-28"
     }
   ]
 }
