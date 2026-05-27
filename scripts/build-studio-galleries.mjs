@@ -38,12 +38,12 @@ function renderCards(templates) {
 
       return `
         <article class="demo-card">
-          <a class="preview-link demo-link" href="${href}"><img src="${preview}" alt="${alt}"></a>
+          <a class="preview-link demo-link" href="${href}" target="_blank" rel="noopener"><img src="${preview}" alt="${alt}"></a>
           <div class="demo-copy">
             <span class="demo-label">${label}</span>
             <h2>${title}</h2>
             <p>${description}</p>
-            <a class="button demo-link" href="${href}">View ${label}</a>
+            <a class="button demo-link" href="${href}" target="_blank" rel="noopener">View ${label}</a>
           </div>
         </article>`;
     })

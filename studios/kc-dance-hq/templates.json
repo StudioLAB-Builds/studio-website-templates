@@ -3,12 +3,12 @@
     "name": "KCDanceHQ",
     "location": "Bennetts Green, Lake Macquarie NSW",
     "pageTitle": "KCDanceHQ Website Modernisation Study",
-    "description": "Four modernised homepage directions for KCDanceHQ, prepared for review.",
+    "description": "Six KCDanceHQ homepage directions prepared for review.",
     "favicon": "assets/favicon.png",
     "logo": "assets/logo-dark.png",
     "kicker": "Website modernisation study",
     "heading": "KCDanceHQ, modernised.",
-    "intro": "Four directions that modernise your current site rather than reinvent it. Same brand colours, same logo, same overall structure and photography style. Open each one to compare the feel, the typography, and the parent journey, then tell us which direction to take further."
+    "intro": "Six directions for comparing KCDanceHQ website options. The first four stay closer to the existing site structure, while Demo 5 and Demo 6 explore clearer alternative journeys for parents, class choice and stage storytelling. Open each option in a new tab to compare the structure, visual rhythm and enrolment path."
   },
   "templates": [
     {
@@ -62,6 +62,32 @@
       "visibility": "visible",
       "order": 40,
       "source": "Codex-generated modernisation study for KCDanceHQ, 2026-05-28"
+    },
+    {
+      "id": "demo-5-parent-pathway-finder",
+      "label": "Demo 5",
+      "title": "Parent Pathway Finder",
+      "description": "A guided parent-first structure that helps families choose the right starting point before booking a relaxed trial.",
+      "path": "demos/demo-5-parent-pathway-finder/",
+      "preview": "previews/demo-5-parent-pathway-finder.png",
+      "previewAlt": "Demo 5 Parent Pathway Finder preview",
+      "status": "enabled",
+      "visibility": "visible",
+      "order": 50,
+      "source": "Codex-generated structural variation for KCDanceHQ, 2026-05-28"
+    },
+    {
+      "id": "demo-6-stage-story",
+      "label": "Demo 6",
+      "title": "Stage Story",
+      "description": "A bolder story-led structure built around first classes, faculty trust, stage memories and the family journey.",
+      "path": "demos/demo-6-stage-story/",
+      "preview": "previews/demo-6-stage-story.png",
+      "previewAlt": "Demo 6 Stage Story preview",
+      "status": "enabled",
+      "visibility": "visible",
+      "order": 60,
+      "source": "Codex-generated structural variation for KCDanceHQ, 2026-05-28"
     }
   ]
 }
