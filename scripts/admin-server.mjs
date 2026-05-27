@@ -90,11 +90,27 @@ function rebuildGalleries() {
   };
 }
 
+function normaliseTemplate(t) {
+  // Back-compat: legacy schema had status=visible|hidden (visibility role).
+  // New schema: status=enabled|disabled|archived, visibility=visible|hidden.
+  if (t.visibility === undefined && (t.status === "visible" || t.status === "hidden")) {
+    t.visibility = t.status;
+    t.status = "enabled";
+  }
+  if (t.visibility === undefined) t.visibility = "visible";
+  if (!["enabled", "disabled", "archived"].includes(t.status)) t.status = "enabled";
+  return t;
+}
+
 function studioSummary(slug) {
   const manifest = readManifest(slug);
-  const templates = Array.isArray(manifest.templates) ? manifest.templates : [];
-  const visible = templates.filter((t) => t.status === "visible");
-  const hidden = templates.filter((t) => t.status === "hidden");
+  const templates = (Array.isArray(manifest.templates) ? manifest.templates : []).map(normaliseTemplate);
+  const visible = templates.filter((t) => t.visibility === "visible");
+  const hidden = templates.filter((t) => t.visibility === "hidden");
+  const enabled = templates.filter((t) => t.status === "enabled");
+  const disabled = templates.filter((t) => t.status === "disabled");
+  const archived = templates.filter((t) => t.status === "archived");
+  const live = templates.filter((t) => t.status === "enabled" && t.visibility === "visible");
   return {
     slug,
     name: manifest.studio?.name ?? slug,
@@ -102,9 +118,30 @@ function studioSummary(slug) {
     shareUrl: `${PUBLIC_BASE}/studios/${slug}/`,
     visibleCount: visible.length,
     hiddenCount: hidden.length,
+    enabledCount: enabled.length,
+    disabledCount: disabled.length,
+    archivedCount: archived.length,
+    liveCount: live.length,
     totalCount: templates.length,
     manifest
   };
+}
+
+function deleteDemoFolder(slug, demoPath) {
+  // demoPath is the manifest 'path' field, e.g. "demos/demo-1-foo/"
+  const studioDir = path.join(STUDIOS_DIR, slug);
+  const trimmed = String(demoPath).replace(/^\/+|\/+$/g, "");
+  if (!trimmed.startsWith("demos/")) {
+    throw new Error(`Refusing to delete path outside demos/: ${demoPath}`);
+  }
+  const absolute = path.resolve(studioDir, trimmed);
+  if (!absolute.startsWith(path.resolve(studioDir, "demos") + path.sep)) {
+    throw new Error("Path traversal blocked");
+  }
+  if (fs.existsSync(absolute)) {
+    fs.rmSync(absolute, { recursive: true, force: true });
+  }
+  return absolute;
 }
 
 function safeStaticPath(pathname) {
@@ -172,15 +209,30 @@ async function handleApi(req, res, url) {
     const manifest = readManifest(slug);
     const template = manifest.templates?.find((t) => t.id === templateId);
     if (!template) return errorResponse(res, 404, "Template not found");
+    normaliseTemplate(template);
 
+    if (body.visibility !== undefined) {
+      if (!["visible", "hidden"].includes(body.visibility)) {
+        return errorResponse(res, 400, "visibility must be 'visible' or 'hidden'");
+      }
+      template.visibility = body.visibility;
+    }
     if (body.status !== undefined) {
-      if (!["visible", "hidden"].includes(body.status)) {
-        return errorResponse(res, 400, "status must be 'visible' or 'hidden'");
+      if (!["enabled", "disabled", "archived"].includes(body.status)) {
+        return errorResponse(res, 400, "status must be 'enabled', 'disabled', or 'archived'");
       }
       template.status = body.status;
     }
     if (body.order !== undefined && Number.isFinite(body.order)) {
       template.order = body.order;
+    }
+
+    // Enabling a demo whose folder is missing on disk is a hard error.
+    if (body.status === "enabled" || body.visibility === "visible") {
+      const demoDir = path.join(STUDIOS_DIR, slug, String(template.path).replace(/\/+$/, ""));
+      if (!fs.existsSync(demoDir)) {
+        return errorResponse(res, 409, `Demo folder missing on disk: ${template.path}. Cannot enable.`);
+      }
     }
 
     writeManifest(slug, manifest);
@@ -193,6 +245,53 @@ async function handleApi(req, res, url) {
         return rest;
       })(),
       build
+    });
+  }
+
+  if (templateMatch && req.method === "DELETE") {
+    const [, slug, templateId] = templateMatch;
+    if (!listStudios().includes(slug)) return errorResponse(res, 404, "Studio not found");
+
+    const manifest = readManifest(slug);
+    const index = manifest.templates?.findIndex((t) => t.id === templateId);
+    if (index === undefined || index < 0) return errorResponse(res, 404, "Template not found");
+    const template = manifest.templates[index];
+
+    let deletedPath = null;
+    try {
+      deletedPath = deleteDemoFolder(slug, template.path);
+    } catch (err) {
+      return errorResponse(res, 500, `Folder deletion failed: ${err.message}. Manifest unchanged.`);
+    }
+
+    manifest.templates.splice(index, 1);
+    writeManifest(slug, manifest);
+    const build = rebuildGalleries();
+    return jsonResponse(res, 200, {
+      ok: true,
+      removed: { id: templateId, path: deletedPath },
+      summary: (() => {
+        const { manifest: _m, ...rest } = studioSummary(slug);
+        return rest;
+      })(),
+      build
+    });
+  }
+
+  const pathMatch = pathname.match(/^\/api\/studios\/([a-z0-9-]+)\/templates\/([a-z0-9-]+)\/local-path$/i);
+  if (pathMatch && req.method === "GET") {
+    const [, slug, templateId] = pathMatch;
+    if (!listStudios().includes(slug)) return errorResponse(res, 404, "Studio not found");
+    const manifest = readManifest(slug);
+    const template = manifest.templates?.find((t) => t.id === templateId);
+    if (!template) return errorResponse(res, 404, "Template not found");
+    const absoluteDir = path.join(STUDIOS_DIR, slug, String(template.path).replace(/\/+$/, ""));
+    const indexPath = path.join(absoluteDir, "index.html");
+    return jsonResponse(res, 200, {
+      ok: true,
+      dir: absoluteDir,
+      indexPath,
+      exists: fs.existsSync(indexPath)
     });
   }
 

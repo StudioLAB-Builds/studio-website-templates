@@ -19,7 +19,8 @@
       "path": "demos/demo-1-warm-modern-enrollment/",
       "preview": "previews/demo-1-warm-modern-enrollment.png",
       "previewAlt": "Demo 1 Warm Modern Enrollment preview",
-      "status": "visible",
+      "status": "enabled",
+      "visibility": "visible",
       "order": 10,
       "source": "Prompt-built homepage redesign"
     },
@@ -31,7 +32,8 @@
       "path": "demos/demo-2-conversion-journey/",
       "preview": "previews/demo-2-conversion-journey.png",
       "previewAlt": "Demo 2 Conversion Journey preview",
-      "status": "visible",
+      "status": "enabled",
+      "visibility": "visible",
       "order": 20,
       "source": "Earlier prompt-built conversion homepage"
     },
@@ -43,7 +45,8 @@
       "path": "demos/demo-3-editorial-feature/",
       "preview": "previews/demo-3-editorial-feature.png",
       "previewAlt": "Demo 3 Editorial Feature preview",
-      "status": "visible",
+      "status": "enabled",
+      "visibility": "visible",
       "order": 30,
       "source": "Claude-generated demo, 2026-05-26"
     },
@@ -55,7 +58,8 @@
       "path": "demos/demo-4-program-pathways/",
       "preview": "previews/demo-4-program-pathways.png",
       "previewAlt": "Demo 4 Program Pathways preview",
-      "status": "visible",
+      "status": "enabled",
+      "visibility": "visible",
       "order": 40,
       "source": "Claude-generated demo with kcdancehq.com.au as structural reference, 2026-05-26"
     }

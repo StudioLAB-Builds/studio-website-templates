@@ -22,8 +22,8 @@ const rootIndex = read("index.html");
 const studioIndex = read("studios/absolute-dance/index.html");
 const styleIndex = read("styles/index.html");
 const absoluteManifest = JSON.parse(read("studios/absolute-dance/templates.json"));
-const visibleAbsoluteTemplates = absoluteManifest.templates.filter((template) => template.status === "visible");
-const hiddenAbsoluteTemplates = absoluteManifest.templates.filter((template) => template.status === "hidden");
+const visibleAbsoluteTemplates = absoluteManifest.templates.filter((template) => template.visibility === "visible" && template.status === "enabled");
+const hiddenAbsoluteTemplates = absoluteManifest.templates.filter((template) => template.visibility === "hidden");
 
 expect(rootIndex.includes("StudioLAB Admin"), "Root index missing admin title.");
 expect(rootIndex.includes('name="robots"') && /noindex/i.test(rootIndex), "Root index missing noindex meta for search engines.");
@@ -50,7 +50,8 @@ expect(fs.existsSync(path.join(root, ".nojekyll")), "Missing .nojekyll for GitHu
 
 for (const template of absoluteManifest.templates) {
   const demoIndex = read(`studios/absolute-dance/${template.path}index.html`);
-  expect(["visible", "hidden"].includes(template.status), `${template.id} has invalid status: ${template.status}`);
+  expect(["enabled", "disabled", "archived"].includes(template.status), `${template.id} has invalid status: ${template.status}`);
+  expect(["visible", "hidden"].includes(template.visibility), `${template.id} has invalid visibility: ${template.visibility}`);
   expect(demoIndex.includes(template.title), `${template.id} missing title: ${template.title}`);
   expect(demoIndex.includes("Back to template options"), `${template.id} missing same-gallery return link.`);
   expect(!demoIndex.includes("StudioLAB Website Templates"), `${template.id} exposes the master template hub.`);

@@ -19,7 +19,8 @@
       "path": "demos/demo-1-premium-editorial/",
       "preview": "previews/demo-1-premium-editorial.png",
       "previewAlt": "Demo 1 Premium Editorial preview",
-      "status": "visible",
+      "status": "enabled",
+      "visibility": "visible",
       "order": 10,
       "source": "Claude-generated demo for new studio onboarding, 2026-05-26"
     },
@@ -31,7 +32,8 @@
       "path": "demos/demo-2-performance-cinematic/",
       "preview": "previews/demo-2-performance-cinematic.png",
       "previewAlt": "Demo 2 Performance Cinematic preview",
-      "status": "visible",
+      "status": "enabled",
+      "visibility": "visible",
       "order": 20,
       "source": "Claude-generated demo for new studio onboarding, 2026-05-26"
     },
@@ -43,7 +45,8 @@
       "path": "demos/demo-3-community-warmth/",
       "preview": "previews/demo-3-community-warmth.png",
       "previewAlt": "Demo 3 Community Warmth preview",
-      "status": "visible",
+      "status": "enabled",
+      "visibility": "visible",
       "order": 30,
       "source": "Claude-generated demo for new studio onboarding, 2026-05-26"
     },
@@ -55,7 +58,8 @@
       "path": "demos/demo-4-program-pathways/",
       "preview": "previews/demo-4-program-pathways.png",
       "previewAlt": "Demo 4 Program Pathways preview",
-      "status": "visible",
+      "status": "enabled",
+      "visibility": "visible",
       "order": 40,
       "source": "Claude-generated demo for new studio onboarding, 2026-05-26"
     }

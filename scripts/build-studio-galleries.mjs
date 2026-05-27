@@ -51,9 +51,28 @@ function renderCards(templates) {
 }
 
 function renderGallery(studioSlug, manifest) {
+  const excluded = [];
   const visibleTemplates = manifest.templates
-    .filter((template) => template.status === "visible")
+    .filter((template) => {
+      const status = template.status ?? "enabled";
+      const visibility = template.visibility ?? (template.status === "visible" || template.status === "hidden" ? template.status : "visible");
+      if (status === "disabled" || status === "archived") {
+        excluded.push({ id: template.id, reason: `status=${status}` });
+        return false;
+      }
+      if (visibility !== "visible") {
+        excluded.push({ id: template.id, reason: `visibility=${visibility}` });
+        return false;
+      }
+      return true;
+    })
     .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+
+  if (excluded.length) {
+    for (const { id, reason } of excluded) {
+      console.log(`  excluded ${studioSlug}/${id} (${reason})`);
+    }
+  }
 
   const studio = manifest.studio;
   const gridClass = visibleTemplates.length === 1 ? "demo-grid single" : "demo-grid";
