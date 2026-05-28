@@ -4,84 +4,511 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Demo 6 | KCDanceHQ | Family Journey Guide</title>
-    <meta name="description" content="A warm KCDanceHQ homepage concept that guides families through the venue, studio culture, class fit and no-pressure first enquiry.">
+    <meta name="description" content="A polished KCDanceHQ homepage for families choosing friendly recreational dance, professional teachers and a purpose-built Bennetts Green studio.">
     <link rel="icon" href="../../assets/favicon.png">
     <link rel="stylesheet" href="../../assets/kc-redesign.css">
     <style>
-      body.demo-family-guide { background: var(--cream); color: var(--ink); }
-      body.demo-family-guide .site-header { background: var(--white); color: var(--ink); }
-      body.demo-family-guide .site-header .brand img { filter: none; }
-      body.demo-family-guide .nav-links a { color: rgba(21,27,34,0.72); }
+      body.demo-family-guide {
+        background: var(--cream);
+        color: var(--ink);
+      }
+
+      body.demo-family-guide .site-header {
+        background: var(--white);
+        color: var(--ink);
+      }
+
+      body.demo-family-guide .site-header .brand img {
+        filter: none;
+      }
+
+      body.demo-family-guide .nav-links a {
+        color: rgba(21, 27, 34, 0.72);
+      }
+
       body.demo-family-guide .nav-links a:hover,
-      body.demo-family-guide .nav-links a:focus-visible { color: var(--ink); }
-      body.demo-family-guide .menu-toggle { border-color: var(--line); color: var(--ink); }
-      body.demo-family-guide .hero { background: var(--cream); color: var(--ink); }
-      body.demo-family-guide .hero-photo { background: var(--ink); overflow: hidden; }
-      body.demo-family-guide .hero-photo img { height: clamp(250px, 31vh, 310px); min-height: 250px; object-fit: cover; object-position: center center; width: 100%; }
-      body.demo-family-guide .masthead { background: radial-gradient(circle at 14% 20%, rgba(238,70,146,0.16), transparent 26rem), linear-gradient(135deg, var(--cream), var(--white)); padding: clamp(28px, 4vw, 62px) 0 64px; }
-      body.demo-family-guide .masthead-grid { align-items: end; display: grid; gap: clamp(26px, 5vw, 70px); grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr); }
-      body.demo-family-guide .masthead h1 { color: var(--ink); font-size: clamp(2.7rem, 5.6vw, 4.9rem); line-height: 1.1; max-width: 820px; }
-      body.demo-family-guide .masthead p { color: var(--text); font-size: clamp(1.05rem, 2vw, 1.25rem); max-width: 620px; }
-      body.demo-family-guide .hello-card { background: var(--ink); border-radius: var(--radius); color: var(--white); display: grid; gap: 18px; padding: clamp(24px, 4vw, 42px); position: relative; overflow: hidden; }
-      body.demo-family-guide .hello-card::before { background: url("../../assets/lycra-pattern.jpg") center / cover; content: ""; inset: 0; opacity: 0.18; position: absolute; }
-      body.demo-family-guide .hello-card > * { position: relative; }
-      body.demo-family-guide .hello-card p { color: rgba(255,255,255,0.78); }
-      body.demo-family-guide .guide-rail { background: var(--ink); color: var(--white); overflow: hidden; }
-      body.demo-family-guide .rail-track { display: flex; gap: 28px; min-width: max-content; padding: 22px 0; animation: railSlide 28s linear infinite; }
-      body.demo-family-guide .rail-track span { font-size: 0.84rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
-      @keyframes railSlide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-      body.demo-family-guide .story-grid { display: grid; gap: clamp(28px, 5vw, 70px); grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr); }
-      body.demo-family-guide .decision-board { border: 1px solid var(--line); border-radius: var(--radius); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); overflow: hidden; }
-      body.demo-family-guide .decision-card { align-content: end; background: var(--white); display: grid; gap: 14px; min-height: 260px; padding: 28px; }
-      body.demo-family-guide .decision-card:not(:last-child) { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-      body.demo-family-guide .decision-card.photo { grid-column: span 6; min-height: 520px; padding: 0; }
-      body.demo-family-guide .decision-card.photo img { height: 100%; object-fit: cover; object-position: center; width: 100%; }
-      body.demo-family-guide .decision-card.copy { grid-column: span 6; }
-      body.demo-family-guide .decision-card.small { grid-column: span 4; }
-      body.demo-family-guide .signal { align-items: center; background: var(--pink-soft); border-radius: 999px; color: var(--pink-deep); display: inline-flex; height: 42px; justify-content: center; width: 42px; }
-      body.demo-family-guide .signal svg { height: 21px; width: 21px; }
-      body.demo-family-guide .journey-steps { display: grid; gap: 18px; }
-      body.demo-family-guide .journey-step { align-items: start; background: rgba(255,255,255,0.72); border: 1px solid var(--line); border-radius: var(--radius-sm); display: grid; gap: 18px; grid-template-columns: 48px minmax(0, 1fr); padding: 22px; transition: transform 180ms var(--ease), box-shadow 180ms var(--ease); }
-      body.demo-family-guide .journey-step:hover { box-shadow: 0 24px 50px rgba(21,27,34,0.1); transform: translateY(-3px); }
-      body.demo-family-guide .soft-panel { background: linear-gradient(rgba(255,248,243,0.9), rgba(255,248,243,0.9)), url("../../assets/lycra-pattern.jpg") center / cover; }
-      body.demo-family-guide .programme-stack { display: grid; gap: 18px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      body.demo-family-guide .programme { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); display: grid; gap: 18px; overflow: hidden; }
-      body.demo-family-guide .programme img { aspect-ratio: 16 / 10; object-fit: cover; object-position: center; width: 100%; }
-      body.demo-family-guide .programme div { display: grid; gap: 12px; padding: 24px; }
-      body.demo-family-guide .faculty-feature { background: var(--ink); color: var(--white); }
-      body.demo-family-guide .faculty-feature p { color: rgba(255,255,255,0.76); }
-      body.demo-family-guide .faculty-layout { display: grid; gap: 24px; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); }
-      body.demo-family-guide .faculty-main { background: var(--white); border-radius: var(--radius); color: var(--ink); display: grid; overflow: hidden; }
-      body.demo-family-guide .faculty-main img { aspect-ratio: 5 / 5.6; object-fit: cover; object-position: center top; width: 100%; }
-      body.demo-family-guide .faculty-main div { display: grid; gap: 12px; padding: 26px; }
-      body.demo-family-guide .faculty-list { display: grid; gap: 16px; }
-      body.demo-family-guide .faculty-mini { align-items: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius); display: grid; gap: 18px; grid-template-columns: 110px minmax(0, 1fr); overflow: hidden; }
-      body.demo-family-guide .faculty-mini img { aspect-ratio: 1 / 1; object-fit: cover; object-position: center top; width: 100%; }
-      body.demo-family-guide .faculty-mini div { padding-right: 20px; }
-      body.demo-family-guide .reassure { background: var(--pink-soft); }
-      body.demo-family-guide .faq details { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 20px; }
-      body.demo-family-guide .faq details + details { margin-top: 12px; }
-      body.demo-family-guide .faq summary { color: var(--ink); cursor: pointer; font-weight: 900; }
-      body.demo-family-guide .faq p { margin-top: 12px; }
-      @media (prefers-reduced-motion: reduce) {
-        body.demo-family-guide .rail-track { animation: none; min-width: 0; flex-wrap: wrap; }
+      body.demo-family-guide .nav-links a:focus-visible {
+        color: var(--ink);
       }
+
+      body.demo-family-guide .menu-toggle {
+        border-color: var(--line);
+        color: var(--ink);
+      }
+
+      body.demo-family-guide .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      body.demo-family-guide .family-hero {
+        background:
+          radial-gradient(circle at 12% 18%, rgba(238, 70, 146, 0.18), transparent 30rem),
+          linear-gradient(145deg, var(--cream), var(--white));
+        padding: clamp(38px, 7vw, 84px) 0 clamp(48px, 8vw, 96px);
+      }
+
+      body.demo-family-guide .hero-grid {
+        align-items: center;
+        display: grid;
+        gap: clamp(34px, 5vw, 72px);
+        grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+      }
+
+      body.demo-family-guide .hero-copy {
+        display: grid;
+        gap: 24px;
+      }
+
+      body.demo-family-guide .hero-copy h1 {
+        color: var(--ink);
+        font-size: clamp(3rem, 6vw, 5.6rem);
+        line-height: 1.04;
+        max-width: 760px;
+      }
+
+      body.demo-family-guide .hero-copy p {
+        color: var(--text);
+        font-size: clamp(1.08rem, 1.9vw, 1.28rem);
+        line-height: 1.65;
+        max-width: 660px;
+      }
+
+      body.demo-family-guide .hero-actions {
+        margin-top: 4px;
+      }
+
+      body.demo-family-guide .venue-showcase {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: 0 34px 90px rgba(21, 27, 34, 0.14);
+        display: grid;
+        gap: 14px;
+        overflow: hidden;
+        padding: 14px;
+      }
+
+      body.demo-family-guide .venue-showcase img {
+        border-radius: 16px;
+        height: auto;
+        width: 100%;
+      }
+
+      body.demo-family-guide .venue-note {
+        align-items: center;
+        display: grid;
+        gap: 12px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        padding: 2px 6px 4px;
+      }
+
+      body.demo-family-guide .venue-note strong {
+        color: var(--ink);
+        display: block;
+        font-size: 1.05rem;
+      }
+
+      body.demo-family-guide .venue-note span {
+        color: var(--muted);
+        display: block;
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+
+      body.demo-family-guide .venue-pill {
+        background: var(--pink-soft);
+        border-radius: 999px;
+        color: var(--pink-deep);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        padding: 9px 12px;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      body.demo-family-guide .promise-band {
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      body.demo-family-guide .promise-grid {
+        align-items: stretch;
+        display: grid;
+        background: rgba(255, 255, 255, 0.14);
+        gap: 1px;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      body.demo-family-guide .promise-item {
+        background: var(--ink);
+        display: grid;
+        gap: 12px;
+        min-height: 190px;
+        padding: clamp(24px, 4vw, 36px);
+      }
+
+      body.demo-family-guide .promise-item p {
+        color: rgba(255, 255, 255, 0.74);
+      }
+
+      body.demo-family-guide .family-flow {
+        background: var(--white);
+      }
+
+      body.demo-family-guide .flow-grid {
+        align-items: start;
+        display: grid;
+        gap: clamp(28px, 5vw, 70px);
+        grid-template-columns: minmax(280px, 0.68fr) minmax(0, 1.32fr);
+      }
+
+      body.demo-family-guide .flow-list {
+        display: grid;
+        gap: 16px;
+      }
+
+      body.demo-family-guide .flow-item {
+        align-items: start;
+        background: var(--cream);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 44px minmax(0, 1fr);
+        padding: 20px;
+      }
+
+      body.demo-family-guide .flow-icon {
+        align-items: center;
+        background: var(--pink-soft);
+        border-radius: 14px;
+        color: var(--pink-deep);
+        display: inline-flex;
+        height: 44px;
+        justify-content: center;
+        width: 44px;
+      }
+
+      body.demo-family-guide .flow-icon svg {
+        height: 22px;
+        width: 22px;
+      }
+
+      body.demo-family-guide .tour-layout {
+        background:
+          linear-gradient(rgba(21, 27, 34, 0.9), rgba(21, 27, 34, 0.9)),
+          url("../../assets/lycra-pattern.jpg") center / cover;
+        color: var(--white);
+      }
+
+      body.demo-family-guide .tour-layout p {
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      body.demo-family-guide .tour-grid {
+        align-items: center;
+        display: grid;
+        gap: clamp(28px, 5vw, 68px);
+        grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+      }
+
+      body.demo-family-guide .tour-media {
+        display: grid;
+        gap: 16px;
+      }
+
+      body.demo-family-guide .tour-media img {
+        background: var(--ink);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 20px;
+        width: 100%;
+      }
+
+      body.demo-family-guide .tour-media .wide-photo {
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      body.demo-family-guide .room-strip {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      body.demo-family-guide .room-strip img {
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      body.demo-family-guide .tour-points {
+        display: grid;
+        gap: 12px;
+        margin-top: 8px;
+      }
+
+      body.demo-family-guide .tour-points li {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        padding: 14px 16px;
+      }
+
+      body.demo-family-guide .programme-section {
+        background: var(--pink-soft);
+      }
+
+      body.demo-family-guide .programme-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
+      }
+
+      body.demo-family-guide .cub-card,
+      body.demo-family-guide .school-card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        display: grid;
+        overflow: hidden;
+      }
+
+      body.demo-family-guide .cub-card img,
+      body.demo-family-guide .school-card img {
+        width: 100%;
+      }
+
+      body.demo-family-guide .cub-card > img {
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      body.demo-family-guide .school-card > img {
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      body.demo-family-guide .programme-copy {
+        display: grid;
+        gap: 14px;
+        padding: clamp(22px, 4vw, 32px);
+      }
+
+      body.demo-family-guide .path-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      body.demo-family-guide .path-list span {
+        background: var(--cream);
+        border-radius: 999px;
+        color: var(--ink);
+        display: inline-flex;
+        font-size: 0.9rem;
+        font-weight: 800;
+        padding: 10px 12px;
+        width: fit-content;
+      }
+
+      body.demo-family-guide .faculty-feature {
+        background: var(--white);
+      }
+
+      body.demo-family-guide .faculty-layout {
+        align-items: start;
+        display: grid;
+        gap: clamp(24px, 4vw, 48px);
+        grid-template-columns: minmax(260px, 0.62fr) minmax(0, 1.38fr);
+      }
+
+      body.demo-family-guide .principal-card {
+        background: var(--ink);
+        border-radius: var(--radius);
+        color: var(--white);
+        display: grid;
+        overflow: hidden;
+      }
+
+      body.demo-family-guide .principal-card img {
+        aspect-ratio: 5 / 5.8;
+        object-fit: cover;
+        object-position: center top;
+        width: 100%;
+      }
+
+      body.demo-family-guide .principal-card div {
+        display: grid;
+        gap: 12px;
+        padding: 24px;
+      }
+
+      body.demo-family-guide .principal-card p {
+        color: rgba(255, 255, 255, 0.74);
+      }
+
+      body.demo-family-guide .faculty-copy {
+        display: grid;
+        gap: 24px;
+      }
+
+      body.demo-family-guide .teacher-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      body.demo-family-guide .teacher-row {
+        align-items: center;
+        background: var(--cream);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 104px minmax(0, 1fr);
+        overflow: hidden;
+      }
+
+      body.demo-family-guide .teacher-row img {
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: center top;
+        width: 100%;
+      }
+
+      body.demo-family-guide .teacher-row div {
+        display: grid;
+        gap: 6px;
+        padding: 12px 18px 12px 0;
+      }
+
+      body.demo-family-guide .video-proof {
+        background: var(--cream);
+      }
+
+      body.demo-family-guide .video-grid {
+        align-items: center;
+        display: grid;
+        gap: clamp(28px, 5vw, 64px);
+        grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+      }
+
+      body.demo-family-guide .video-thumb {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: 0 30px 70px rgba(21, 27, 34, 0.12);
+        color: var(--ink);
+        display: grid;
+        overflow: hidden;
+      }
+
+      body.demo-family-guide .video-thumb img {
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+      }
+
+      body.demo-family-guide .video-thumb span {
+        align-items: center;
+        display: flex;
+        font-size: 0.92rem;
+        font-weight: 900;
+        justify-content: space-between;
+        letter-spacing: 0.04em;
+        padding: 18px 22px;
+        text-transform: uppercase;
+      }
+
+      body.demo-family-guide .faq-panel {
+        background: var(--white);
+      }
+
+      body.demo-family-guide .question-grid {
+        display: grid;
+        gap: 28px;
+        grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
+      }
+
+      body.demo-family-guide .faq details {
+        background: var(--cream);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        padding: 20px;
+      }
+
+      body.demo-family-guide .faq details + details {
+        margin-top: 12px;
+      }
+
+      body.demo-family-guide .faq summary {
+        color: var(--ink);
+        cursor: pointer;
+        font-weight: 900;
+      }
+
+      body.demo-family-guide .faq p {
+        margin-top: 12px;
+      }
+
+      body.demo-family-guide .enrol-panel {
+        background:
+          linear-gradient(rgba(238, 70, 146, 0.9), rgba(238, 70, 146, 0.92)),
+          url("../../assets/lycra-pattern.jpg") center / cover;
+      }
+
       @media (max-width: 980px) {
-        body.demo-family-guide .nav-links { background: var(--white); border-top: 1px solid var(--line); }
-        body.demo-family-guide .masthead-grid,
-        body.demo-family-guide .story-grid,
-        body.demo-family-guide .programme-stack,
-        body.demo-family-guide .faculty-layout { grid-template-columns: minmax(0, 1fr); }
-        body.demo-family-guide .decision-board { grid-template-columns: minmax(0, 1fr); }
-        body.demo-family-guide .decision-card.photo,
-        body.demo-family-guide .decision-card.copy,
-        body.demo-family-guide .decision-card.small { grid-column: auto; }
-        body.demo-family-guide .decision-card.photo { min-height: 420px; }
-        body.demo-family-guide .hero-photo img { min-height: 300px; }
+        body.demo-family-guide .nav-links {
+          background: var(--white);
+          border-top: 1px solid var(--line);
+        }
+
+        body.demo-family-guide .hero-grid,
+        body.demo-family-guide .flow-grid,
+        body.demo-family-guide .tour-grid,
+        body.demo-family-guide .programme-grid,
+        body.demo-family-guide .faculty-layout,
+        body.demo-family-guide .video-grid,
+        body.demo-family-guide .question-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        body.demo-family-guide .promise-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        body.demo-family-guide .venue-note,
+        body.demo-family-guide .room-strip {
+          grid-template-columns: minmax(0, 1fr);
+        }
       }
+
       @media (max-width: 640px) {
-        body.demo-family-guide .masthead h1 { font-size: clamp(2.6rem, 14vw, 4rem); }
-        body.demo-family-guide .faculty-mini { grid-template-columns: 92px minmax(0, 1fr); }
+        body.demo-family-guide .family-hero {
+          padding-top: 28px;
+        }
+
+        body.demo-family-guide .hero-copy h1 {
+          font-size: clamp(2.6rem, 13vw, 4rem);
+          line-height: 1.08;
+        }
+
+        body.demo-family-guide .venue-showcase {
+          border-radius: 18px;
+          padding: 10px;
+        }
+
+        body.demo-family-guide .flow-item {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        body.demo-family-guide .teacher-row {
+          grid-template-columns: 86px minmax(0, 1fr);
+        }
       }
     </style>
   </head>
@@ -93,9 +520,9 @@
           <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
           <div class="nav-links">
             <a href="#fit">Fit</a>
+            <a href="#venue">Venue</a>
             <a href="#programmes">Programmes</a>
             <a href="#teachers">Teachers</a>
-            <a href="#questions">Questions</a>
             <a href="#enrol">Enrol</a>
           </div>
         </nav>
@@ -103,139 +530,185 @@
     </header>
 
     <main id="top">
-      <section class="hero" aria-label="KCDanceHQ family guide">
-        <div class="hero-photo">
-          <img src="../../assets/venue-studio-floor.jpeg" alt="KCDanceHQ Bennetts Green venue with students outside the studio facade">
-        </div>
-        <div class="masthead">
-          <div class="wrap masthead-grid">
-            <div class="hero-content reveal">
-              <span class="kicker">For families choosing fit over pressure</span>
-              <h1>Friendly dance. Real teaching.</h1>
-              <p>This direction treats the homepage like a parent guide. It answers the big question first: will my child be taught well, welcomed warmly and spared the stress of a competition-first culture?</p>
-              <div class="hero-actions">
-                <a class="btn btn-primary" href="#enrol">Request info pack</a>
-                <a class="btn btn-line" href="#fit">See the fit</a>
-              </div>
+      <section class="family-hero" aria-label="KCDanceHQ family guide">
+        <div class="wrap hero-grid">
+          <div class="hero-copy reveal">
+            <span class="kicker">Friendly recreational dance in Bennetts Green</span>
+            <h1>A welcoming place to learn dance well.</h1>
+            <p>KCDanceHQ gives children, teens and adults the care of professional teachers, the confidence of a purpose-built studio and the relief of a dance culture that is not built around competition pressure.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#enrol">Request an info pack</a>
+              <a class="btn btn-line" href="#programmes">Find your pathway</a>
             </div>
-            <aside class="hello-card reveal">
-              <span class="kicker">What the page should feel like</span>
-              <h2>Clear, warm and useful from the first scroll.</h2>
-              <p>Parents should understand the studio promise without decoding a timetable, a competition story or a wall of class names.</p>
-            </aside>
           </div>
+          <figure class="venue-showcase reveal">
+            <img src="../../assets/venue-hero.png" alt="KCDanceHQ Bennetts Green venue with students outside the studio">
+            <figcaption class="venue-note">
+              <span><strong>Purpose-built studio home</strong>19 Groves Road, Bennetts Green, with branded spaces designed for families and dancers.</span>
+              <span class="venue-pill">Venue first</span>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
-      <section class="guide-rail" aria-label="KCDanceHQ promise highlights">
-        <div class="rail-track">
-          <span>Purpose-built Bennetts Green venue</span><span>Quality dance tuition</span><span>Friendly recreational culture</span><span>KCCubs preschool pathway</span><span>Professional teachers</span><span>No competition pressure</span>
-          <span>Purpose-built Bennetts Green venue</span><span>Quality dance tuition</span><span>Friendly recreational culture</span><span>KCCubs preschool pathway</span><span>Professional teachers</span><span>No competition pressure</span>
+      <section class="promise-band" aria-label="KCDanceHQ family promise">
+        <div class="wrap promise-grid reveal">
+          <article class="promise-item">
+            <span class="mini">For parents</span>
+            <h2>Know your child is being taught properly.</h2>
+            <p>Technique, structure and class care are presented clearly before families are asked to choose a timetable.</p>
+          </article>
+          <article class="promise-item">
+            <span class="mini">For dancers</span>
+            <h2>Feel welcomed from the first class.</h2>
+            <p>The tone stays warm and human, with real studio moments supporting the promise of belonging.</p>
+          </article>
+          <article class="promise-item">
+            <span class="mini">For the whole family</span>
+            <h2>Enjoy dance without competition stress.</h2>
+            <p>The message stays focused on quality recreational dance education and a positive weekly experience.</p>
+          </article>
         </div>
       </section>
 
-      <section class="block" id="fit">
-        <div class="wrap story-grid">
+      <section class="block family-flow" id="fit">
+        <div class="wrap flow-grid">
           <div class="section-head reveal">
-            <span class="kicker">Start with reassurance</span>
-            <h2>Parents are choosing the environment first.</h2>
-            <p>This design makes the first decision simple: KCDanceHQ is a professional, welcoming recreational studio with a strong facility and a clear culture.</p>
-            <div class="journey-steps">
-              <article class="journey-step">
-                <span class="signal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12c3-5 13-5 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 14c1.5 2 6.5 2 8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-                <div><h3>Feel welcomed.</h3><p>The venue and first copy create a calm, human arrival for new families.</p></div>
-              </article>
-              <article class="journey-step">
-                <span class="signal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"/></svg></span>
-                <div><h3>Find the right fit.</h3><p>The page separates preschool, school-age, teen and adult needs without making class choice feel clinical.</p></div>
-              </article>
-              <article class="journey-step">
-                <span class="signal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 14l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <div><h3>Book without pressure.</h3><p>The enquiry path asks for the useful details and invites guidance, not instant commitment.</p></div>
-              </article>
-            </div>
+            <span class="kicker">A calmer first decision</span>
+            <h2>Families need to feel the studio fit before they pick a class.</h2>
+            <p>This journey puts reassurance first: a professional venue, kind teachers, age-appropriate pathways and a simple enquiry that invites guidance.</p>
           </div>
-          <div class="decision-board reveal">
-            <article class="decision-card photo"><img src="../../assets/venue-reception.jpeg" alt="KCDanceHQ studio interior with mirrors, viewing spaces and branded details"></article>
-            <article class="decision-card copy"><span class="mini">Why it works</span><h3>The page behaves like a studio tour.</h3><p>Rather than stacking matching cards, this layout uses a board of real proof: the facility, the culture and the next step.</p></article>
-            <article class="decision-card small"><span class="mini">Facility</span><h3>Show the rooms clearly.</h3><p>Landscape images stay landscape so the venue reads properly.</p></article>
-            <article class="decision-card small"><span class="mini">Culture</span><h3>Keep pressure out.</h3><p>The copy says what families gain, then explains the teaching model.</p></article>
-            <article class="decision-card small"><span class="mini">Action</span><h3>Guide the enquiry.</h3><p>Trial booking becomes a calm conversation, not a pushy form.</p></article>
+          <div class="flow-list">
+            <article class="flow-item reveal">
+              <span class="flow-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20V8l8-4 8 4v12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 20v-6h8v6" stroke="currentColor" stroke-width="2"/></svg></span>
+              <div><h3>Start with the space.</h3><p>New families see the full KCDanceHQ venue first, including the facade, signage and branded studio environment.</p></div>
+            </article>
+            <article class="flow-item reveal">
+              <span class="flow-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.4 7-11V5l-7-3-7 3v5c0 6.6 7 11 7 11Z" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+              <div><h3>Name the difference.</h3><p>Professional teaching sits beside a friendly recreational culture, so parents understand the standard without fearing the pressure.</p></div>
+            </article>
+            <article class="flow-item reveal">
+              <span class="flow-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 5h12M6 12h12M6 19h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 5h.01M4 12h.01M4 19h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span>
+              <div><h3>Guide the next step.</h3><p>The enquiry path asks for age, experience and interests so the team can recommend the right class.</p></div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="block soft-panel" id="programmes">
+      <section class="block tour-layout" id="venue">
+        <div class="wrap tour-grid">
+          <div class="tour-media reveal">
+            <img class="wide-photo" src="../../assets/venue-reception.jpeg" alt="KCDanceHQ studio interior with mirrors, viewing spaces and branded KCCubs signage">
+            <div class="room-strip">
+              <img src="../../assets/studio-room-1.jpg" alt="KCDanceHQ studio room with mirrors and sprung dance floor">
+              <img src="../../assets/studio-room-2.jpg" alt="KCDanceHQ studio room ready for dance classes">
+            </div>
+          </div>
+          <div class="section-head reveal">
+            <span class="kicker">Inside the studio</span>
+            <h2>A clean, organised venue parents can trust.</h2>
+            <p>The Bennetts Green facility is a major part of the KCDanceHQ brand. This layout gives it generous room, using landscape images as landscape images so the rooms, signage and branded surfaces read properly.</p>
+            <ul class="tour-points">
+              <li>Purpose-built studios for weekly dance classes.</li>
+              <li>Clear reception and parent-facing spaces.</li>
+              <li>Brand pattern used as atmosphere, not decoration pasted over content.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="block programme-section" id="programmes">
         <div class="wrap">
           <div class="section-head reveal">
-            <span class="kicker">One school, different needs</span>
-            <h2>KCCubs is separate, but not the main story.</h2>
-            <p>This structure gives each family type a clear path while keeping KCDanceHQ as the primary school.</p>
+            <span class="kicker">Programmes with a clear place</span>
+            <h2>KCDanceHQ is the school, KCCubs is the preschool pathway.</h2>
+            <p>Families can quickly understand where their dancer fits without making KCCubs carry the whole school story.</p>
           </div>
-          <div class="programme-stack">
-            <article class="programme reveal"><img src="../../assets/kccubs-together.jpg" alt="KCCubs preschool dancers smiling in uniform"><div><img class="kccubs-logo" src="../../assets/kccubs-logo.png" alt="KCCubs"><h3>Preschool dancers need a smaller first step.</h3><p>KCCubs gets its own warm doorway for little movers aged 2 to 5, with reassurance around age-appropriate learning.</p></div></article>
-            <article class="programme reveal"><img src="../../assets/recreational-enrolment.webp" alt="KCDanceHQ dancers in costume for enrolment campaign"><div><span class="mini">School-age and teens</span><h3>Kids can train well and still enjoy the week.</h3><p>Ballet, jazz, tap, hip hop, acro, cheer, lyrical and contemporary sit under a recreational promise families can trust.</p></div></article>
+          <div class="programme-grid">
+            <article class="cub-card reveal">
+              <img src="../../assets/kccubs-together.jpg" alt="KCCubs preschool dancers smiling in KCDanceHQ uniforms">
+              <div class="programme-copy">
+                <img class="kccubs-logo" src="../../assets/kccubs-logo.png" alt="KCCubs">
+                <h3>A gentle first step for ages 2 to 5.</h3>
+                <p>KCCubs gives little dancers a warm introduction to music, movement, confidence and class routines.</p>
+                <a class="btn btn-primary" href="https://kcdancehq.com.au/kccubs/" target="_blank" rel="noopener">Explore KCCubs</a>
+              </div>
+            </article>
+            <article class="school-card reveal">
+              <img src="../../assets/recreational-enrolment.webp" alt="KCDanceHQ dancers in costume for enrolment campaign">
+              <div class="programme-copy">
+                <span class="mini">School-age, teens and adults</span>
+                <h3>Dance pathways that keep the week positive.</h3>
+                <p>Ballet, jazz, tap, hip hop, acro, cheer, lyrical, contemporary and adult classes sit under the same promise: learn well, feel welcome and avoid competition-first pressure.</p>
+                <div class="path-list" aria-label="KCDanceHQ class pathways">
+                  <span>Preschool foundations</span>
+                  <span>Kids and teen classes</span>
+                  <span>Adult and returning dancers</span>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
       <section class="block faculty-feature" id="teachers">
         <div class="wrap faculty-layout">
-          <article class="faculty-main reveal">
+          <article class="principal-card reveal">
             <img src="../../assets/faculty-kasey.jpg" alt="Kasey, Principal and Founder of KCDanceHQ">
             <div><span class="mini">Principal and founder</span><h3>Kasey</h3><p>Leads KCDanceHQ with a culture that is professional, positive and built around belonging.</p></div>
           </article>
-          <div>
+          <div class="faculty-copy">
             <div class="section-head reveal">
-              <span class="kicker">Professional teachers, human tone</span>
-              <h2>Show the adults parents are trusting.</h2>
-              <p>The faculty area should not be a samey card grid. It should feel considered, calm and correct.</p>
+              <span class="kicker">Teachers parents can recognise</span>
+              <h2>Professional instructors with a friendly studio tone.</h2>
+              <p>The faculty area helps families recognise the adults behind the classes: capable, approachable and correctly represented.</p>
             </div>
-            <div class="faculty-list">
-              <article class="faculty-mini reveal"><img src="../../assets/faculty-ashley.jpg" alt="Miss Ashley, KCDanceHQ teacher"><div><span class="mini">Teacher</span><h3>Miss Ashley</h3><p>Calm, caring and connected to the KC community.</p></div></article>
-              <article class="faculty-mini reveal"><img src="../../assets/faculty-katie.jpg" alt="Miss Katie, ballet and lyrical teacher at KCDanceHQ"><div><span class="mini">Ballet and lyrical</span><h3>Miss Katie</h3><p>Technical care for dancers building strong foundations.</p></div></article>
-              <article class="faculty-mini reveal"><img src="../../assets/faculty-meg.jpg" alt="Miss Meg, contemporary and lyrical teacher at KCDanceHQ"><div><span class="mini">Contemporary and lyrical</span><h3>Miss Meg</h3><p>Creative energy and supportive teaching for expressive dancers.</p></div></article>
+            <div class="teacher-list">
+              <article class="teacher-row reveal"><img src="../../assets/faculty-ashley.jpg" alt="Miss Ashley, KCDanceHQ teacher"><div><span class="mini">Teacher</span><h3>Miss Ashley</h3><p>Calm, caring and connected to the KC community.</p></div></article>
+              <article class="teacher-row reveal"><img src="../../assets/faculty-katie.jpg" alt="Miss Katie, ballet and lyrical teacher at KCDanceHQ"><div><span class="mini">Ballet and lyrical</span><h3>Miss Katie</h3><p>Builds strong foundations with technical care.</p></div></article>
+              <article class="teacher-row reveal"><img src="../../assets/faculty-meg.jpg" alt="Miss Meg, contemporary and lyrical teacher at KCDanceHQ"><div><span class="mini">Contemporary and lyrical</span><h3>Miss Meg</h3><p>Supports expressive dancers with warmth and creative energy.</p></div></article>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="block" aria-label="KCDanceHQ video proof">
-        <div class="wrap split">
-          <div class="video-frame reveal">
-            <iframe src="https://www.youtube.com/embed/qiycoYYzRck" title="KCDanceHQ studio video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
+      <section class="block video-proof" aria-label="KCDanceHQ video">
+        <div class="wrap video-grid">
+          <a class="video-thumb reveal" href="https://www.youtube.com/watch?v=qiycoYYzRck" target="_blank" rel="noopener" aria-label="Watch the KCDanceHQ studio video on YouTube">
+            <img src="../../assets/site-video-thumb.jpg" alt="KCDanceHQ students speaking backstage in the studio video">
+            <span>Watch the studio video</span>
+          </a>
           <div class="section-head reveal">
-            <span class="kicker">Show the feeling, then ask for action</span>
-            <h2>Video becomes proof, not decoration.</h2>
-            <p>The current site has usable motion. This version uses it as a decision support point after the parent has seen the venue, promise and programmes.</p>
-            <a class="btn btn-ink" href="https://www.youtube.com/watch?v=qiycoYYzRck" target="_blank" rel="noopener">Watch video</a>
+            <span class="kicker">See the studio energy</span>
+            <h2>The video gives families the feeling faster.</h2>
+            <p>Real footage helps parents understand the community, the class energy and the way dancers experience KCDanceHQ before they send an enquiry.</p>
+            <a class="btn btn-ink" href="https://www.youtube.com/watch?v=qiycoYYzRck" target="_blank" rel="noopener">Watch on YouTube</a>
           </div>
         </div>
       </section>
 
-      <section class="block reassure faq" id="questions">
-        <div class="wrap split top">
+      <section class="block faq-panel faq" id="questions">
+        <div class="wrap question-grid">
           <div class="section-head reveal">
-            <span class="kicker">Questions before the trial</span>
-            <h2>Reduce the mental load for families.</h2>
-            <p>Good conversion here is reassurance. The page should answer common concerns without creating fake urgency.</p>
+            <span class="kicker">Questions before a trial</span>
+            <h2>Reduce uncertainty before families make contact.</h2>
+            <p>These answers reduce the worries that slow parents down, then point them towards a guided first conversation.</p>
           </div>
           <div class="reveal">
-            <details><summary>Can we start if my child has never danced?</summary><p>Yes. The enquiry asks for age and experience so the team can recommend a suitable class.</p></details>
-            <details><summary>Do families need to join competitions?</summary><p>No. KCDanceHQ is positioned around quality recreational dance education, not compulsory competition pathways.</p></details>
-            <details><summary>What should a new dancer wear?</summary><p>The homepage can keep this simple and direct families to the info pack, where class-specific details can be confirmed.</p></details>
-            <details><summary>Where is the timetable?</summary><p>The homepage should link to a dedicated live timetable page instead of showing static schedule data that may go stale.</p></details>
+            <details><summary>Can we start if my child has never danced?</summary><p>Yes. Share your dancer's age and experience level, and the team can suggest a suitable starting point.</p></details>
+            <details><summary>Do families need to join competitions?</summary><p>No. KCDanceHQ is focused on quality recreational dance education, not compulsory competition pathways.</p></details>
+            <details><summary>Where does KCCubs fit?</summary><p>KCCubs is the preschool programme for ages 2 to 5, sitting clearly inside the wider KCDanceHQ school.</p></details>
+            <details><summary>How do we choose the right class?</summary><p>Start with an enquiry. The team can help match age, personality and experience to a class that feels right.</p></details>
           </div>
         </div>
       </section>
 
-      <section class="block pattern-pink" id="enrol">
+      <section class="block pattern-pink enrol-panel" id="enrol">
         <div class="wrap split">
           <div class="section-head reveal">
-            <span class="kicker">The next step is a conversation</span>
-            <h2>Request the info pack and ask where to begin.</h2>
-            <p>The same CTA appears here and in the hero, keeping the journey focused and low pressure.</p>
+            <span class="kicker">Start with guidance</span>
+            <h2>Request an info pack and ask where to begin.</h2>
+            <p>The best first step is a simple conversation about your dancer's age, confidence and interests.</p>
           </div>
           <form class="form-shell reveal">
             <div class="form-grid">
@@ -255,9 +728,9 @@
       <div class="wrap footer-grid">
         <div><img src="../../assets/logo-light.png" alt="KCDanceHQ"><p>A friendly recreational studio with professional teaching and a purpose-built home in Bennetts Green.</p></div>
         <div><h3>For families</h3><p><a href="#fit">Find the fit</a></p><p><a href="#programmes">Programmes</a></p><p><a href="#questions">Questions</a></p></div>
-        <div><h3>Visit</h3><p>19 Groves Rd, Bennetts Green NSW</p><p>Welcoming Lake Macquarie dancers.</p></div>
+        <div><h3>Visit</h3><p>19 Groves Road, Bennetts Green NSW</p><p>Welcoming Lake Macquarie dancers.</p></div>
       </div>
-      <div class="wrap fineprint">Demo 6 concept for KCDanceHQ.</div>
+      <div class="wrap fineprint">KCDanceHQ, Bennetts Green.</div>
     </footer>
 
     <script src="../../assets/kc-redesign.js"></script>
