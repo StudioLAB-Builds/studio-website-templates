@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Demo 3 | KCDanceHQ | New Home Showcase</title>
-    <meta name="description" content="A venue-led KCDanceHQ homepage concept for the new Bennetts Green studio.">
+    <meta name="description" content="A venue-led KCDanceHQ homepage for the Bennetts Green studio, friendly recreational dance and professional teaching.">
     <link rel="icon" href="../../assets/favicon.png">
     <link rel="stylesheet" href="../../assets/kc-redesign.css">
     <style>
@@ -15,14 +15,39 @@
       body.demo-new-home .hero h1 { font-size: clamp(3rem, 7vw, 6rem); max-width: 840px; }
       body.demo-new-home .hero p { max-width: 660px; }
       body.demo-new-home .hero-venue { inset: 0; position: absolute; z-index: 0; }
-      body.demo-new-home .hero-venue img { height: 100%; min-height: calc(100vh - 76px); object-fit: cover; object-position: center center; width: 100%; }
-      body.demo-new-home .home-strip { background: var(--pink); color: var(--white); padding: 22px 0; }
-      body.demo-new-home .home-strip .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      body.demo-new-home .facility-map { background: var(--white); }
-      body.demo-new-home .map-card { background: linear-gradient(135deg, var(--white), var(--pink-soft)); }
+      body.demo-new-home .hero-venue img { animation: venueSettle 18s var(--ease) both; height: 100%; min-height: calc(100vh - 76px); object-fit: cover; object-position: center center; width: 100%; }
+      body.demo-new-home .reveal { opacity: 1; transform: none; }
+      body.demo-new-home .home-strip { background: linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%); color: var(--white); padding: 0 0 42px; }
+      body.demo-new-home .home-strip .stats { gap: 16px; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: -38px; position: relative; z-index: 3; }
+      body.demo-new-home .home-strip .stat { background: linear-gradient(145deg, var(--white), var(--cream)); border: 1px solid rgba(255,255,255,0.72); border-radius: var(--radius); box-shadow: 0 28px 70px rgba(5,8,12,0.28); color: var(--ink); display: grid; gap: 12px; min-height: 168px; padding: 24px; position: relative; transition: box-shadow 220ms var(--ease), transform 220ms var(--ease); }
+      body.demo-new-home .home-strip .stat:hover { box-shadow: 0 34px 86px rgba(5,8,12,0.36); transform: translateY(-5px); }
+      body.demo-new-home .home-strip .stat::before { background: var(--pink); border-radius: 999px; content: ""; height: 10px; position: absolute; right: 22px; top: 22px; width: 10px; }
+      body.demo-new-home .home-strip .stat strong { color: var(--pink-deep); font-family: var(--font-display); font-size: clamp(3rem, 5.4vw, 5rem); line-height: 0.9; }
+      body.demo-new-home .home-strip .stat span { color: var(--ink); font-size: 0.92rem; font-weight: 900; letter-spacing: 0.04em; line-height: 1.38; max-width: 14rem; text-transform: uppercase; }
+      body.demo-new-home .facility-map { background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%); overflow: hidden; }
+      body.demo-new-home .facility-map .split { align-items: stretch; }
+      body.demo-new-home .facility-map .section-head { background: rgba(255,255,255,0.72); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 24px 70px rgba(21,27,34,0.08); margin-bottom: 0; padding: clamp(26px, 4vw, 42px); }
+      body.demo-new-home .facility-map .grid { align-content: center; gap: 18px; }
+      body.demo-new-home .map-card { background: linear-gradient(145deg, var(--ink) 0%, var(--ink-2) 100%); border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 28px 76px rgba(21,27,34,0.18); color: var(--white); min-height: 184px; overflow: hidden; position: relative; }
+      body.demo-new-home .map-card::after { background: linear-gradient(135deg, transparent 0%, rgba(238,70,146,0.14) 100%); content: ""; inset: 0; pointer-events: none; position: absolute; }
+      body.demo-new-home .map-card > * { position: relative; z-index: 1; }
+      body.demo-new-home .map-card:nth-child(2) { background: linear-gradient(145deg, var(--ink-2) 0%, var(--ink) 100%); transform: translateX(18px); }
+      body.demo-new-home .map-card:nth-child(2):hover { transform: translateX(18px) translateY(-4px); }
+      body.demo-new-home .map-card h3 { color: var(--white); }
+      body.demo-new-home .map-card p { color: rgba(255,255,255,0.76); }
+      body.demo-new-home .map-card .mini { color: var(--pink); }
+      body.demo-new-home .studio-video-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 28px 78px rgba(21,27,34,0.14); color: var(--ink); display: grid; overflow: hidden; }
+      body.demo-new-home .studio-video-card img { aspect-ratio: 16 / 9; object-fit: cover; object-position: center; transition: transform 380ms var(--ease); width: 100%; }
+      body.demo-new-home .studio-video-card:hover img { transform: scale(1.035); }
+      body.demo-new-home .studio-video-card span { align-items: center; display: flex; font-size: 0.82rem; font-weight: 900; justify-content: space-between; letter-spacing: 0.08em; padding: 18px 22px; text-transform: uppercase; }
       body.demo-new-home .room-grid { grid-template-columns: 1.15fr 0.85fr; }
       body.demo-new-home .room-grid .image-frame:first-child { grid-row: span 2; }
-      body.demo-new-home .tour-note { background: var(--pink-soft); border-radius: var(--radius); padding: 28px; }
+      body.demo-new-home .tour-note { background: linear-gradient(145deg, var(--pink-soft), var(--white)); border: 1px solid rgba(238,70,146,0.18); border-radius: var(--radius); box-shadow: 0 22px 60px rgba(21,27,34,0.1); padding: 28px; }
+      body.demo-new-home .class-card { background: linear-gradient(145deg, var(--white), var(--cream)); min-height: 240px; }
+      body.demo-new-home .class-card h3 { font-size: clamp(1.28rem, 2vw, 1.68rem); }
+      body.demo-new-home .class-card p { color: var(--text); }
+      body.demo-new-home .kccubs-panel { box-shadow: 0 30px 78px rgba(238,70,146,0.12); overflow: hidden; }
+      @keyframes venueSettle { from { transform: scale(1.035); } to { transform: scale(1); } }
       body.demo-new-home .cta-zone { background: var(--ink); color: var(--white); }
       body.demo-new-home .cta-zone p { color: rgba(255,255,255,0.78); }
       @media (max-width: 980px) {
@@ -33,6 +58,10 @@
         body.demo-new-home .hero-copy,
         body.demo-new-home .hero-venue img { min-height: 680px; }
         body.demo-new-home .hero-layout::before { background: linear-gradient(180deg, rgba(21,27,34,0.92) 0%, rgba(21,27,34,0.82) 52%, rgba(21,27,34,0.46) 100%); }
+        body.demo-new-home .map-card:nth-child(2),
+        body.demo-new-home .map-card:nth-child(2):hover { transform: none; }
+        body.demo-new-home .home-strip { padding-bottom: 28px; }
+        body.demo-new-home .home-strip .stats { margin-top: 0; padding-top: 22px; }
       }
     </style>
   </head>
@@ -78,7 +107,7 @@
           <div class="stat"><strong>3</strong><span>spacious air-conditioned studios</span></div>
           <div class="stat"><strong>19</strong><span>Groves Rd, Bennetts Green</span></div>
           <div class="stat"><strong>30</strong><span>years of KC community history</span></div>
-          <div class="stat"><strong>15+</strong><span>class types for every age and stage</span></div>
+          <div class="stat"><strong>2+</strong><span>preschool to adult dance pathways</span></div>
         </div>
       </section>
 
@@ -87,7 +116,7 @@
           <div class="section-head reveal">
             <span class="kicker">Purpose-built facility</span>
             <h2>A studio that answers parent questions before they need to ask.</h2>
-            <p>The current site already says it clearly: families get a welcoming full-time studio, beautiful amenities, a Dancers' Den, a reception area and more room to grow. This version makes the facility the organising idea from the first screen.</p>
+            <p>Families get a welcoming full-time studio, beautiful amenities, a Dancers' Den, a reception area and more room to grow. Parents see that quality early, before they need to compare class times or ask practical questions.</p>
           </div>
           <div class="grid">
             <article class="card pad reveal map-card">
@@ -101,9 +130,9 @@
               <p>Large studio rooms, mirrors, safe floors and a dedicated dancer environment help students settle in and enjoy class.</p>
             </article>
             <article class="card pad reveal map-card">
-              <span class="mini">For the brand</span>
-              <h3>The Lycra pattern becomes part of the building story.</h3>
-              <p>The line work appears in the actual venue, so this concept uses it as a subtle architectural layer, not just decoration.</p>
+              <span class="mini">For the venue</span>
+              <h3>The Lycra pattern connects the rooms to the brand.</h3>
+              <p>The linework appears through the actual studio, giving the digital page the same unmistakable KCDanceHQ character.</p>
             </article>
           </div>
         </div>
@@ -111,13 +140,14 @@
 
       <section class="block pattern-soft" id="tour">
         <div class="wrap split">
-          <div class="video-frame reveal">
-            <iframe src="https://www.youtube.com/embed/qiycoYYzRck" title="KCDanceHQ studio video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
+          <a class="studio-video-card reveal" href="https://www.youtube.com/watch?v=qiycoYYzRck" target="_blank" rel="noopener" aria-label="Watch the KCDanceHQ studio video on YouTube">
+            <img src="../../assets/site-video-thumb.jpg" alt="KCDanceHQ students speaking backstage in the studio video">
+            <span>Watch the studio video</span>
+          </a>
           <div class="section-head reveal">
             <span class="kicker">See the studio</span>
-            <h2>Use video as the proof point, not an afterthought.</h2>
-            <p>The current homepage already references a video. In this concept it sits high on the page so parents can feel the scale, warmth and energy of the studio before they read through every class option.</p>
+            <h2>See the energy before you visit.</h2>
+            <p>Real footage helps parents feel the scale, warmth and community of KCDanceHQ before they read through every class option.</p>
             <div class="actions">
               <a class="btn btn-ink" href="https://www.youtube.com/watch?v=qiycoYYzRck" target="_blank" rel="noopener">Open video</a>
               <a class="btn btn-line" href="#classes">View classes</a>
@@ -132,8 +162,8 @@
           <div class="image-frame ratio-landscape reveal"><img src="../../assets/studio-room-1.jpg" alt="KCDanceHQ studio room with mirrors and dance flooring"></div>
           <div class="tour-note reveal">
             <span class="kicker">Inside the new home</span>
-            <h3>Show the actual space, then support it with clear copy.</h3>
-            <p>Parents are choosing a place they will visit every week. This layout gives the studio images enough room to breathe and keeps landscape images in landscape frames.</p>
+            <h3>A clearer look at the place families visit every week.</h3>
+            <p>Reception, studio rooms and branded spaces are shown with room to breathe, so parents can picture arrival, class time and pick-up with less guesswork.</p>
           </div>
         </div>
       </section>
@@ -146,10 +176,10 @@
             <p>KCDanceHQ is not positioned as a competition-pressure studio. It is a friendly, family-centred place where dancers can learn well, belong and enjoy movement.</p>
           </div>
           <div class="grid four">
-            <article class="card pad reveal"><span class="mini">Preschool</span><h3>KCCubs</h3><p>A purpose-built preschool programme for little movers aged 2 to 5.</p></article>
-            <article class="card pad reveal"><span class="mini">Kids</span><h3>Ballet, jazz, tap and hip hop</h3><p>Confidence-building weekly classes with friendly teachers and clear pathways.</p></article>
-            <article class="card pad reveal"><span class="mini">Skill building</span><h3>Acro and cheerleading</h3><p>Strength, coordination and team spirit without a competition-heavy promise.</p></article>
-            <article class="card pad reveal"><span class="mini">Adults</span><h3>Dance for you</h3><p>Social adult classes for beginners, returning dancers and anyone ready to move again.</p></article>
+            <article class="card pad reveal class-card"><span class="mini">Preschool</span><h3>KCCubs</h3><p>A purpose-built preschool programme for little movers aged 2 to 5.</p></article>
+            <article class="card pad reveal class-card"><span class="mini">Kids</span><h3>Ballet, jazz, tap and hip hop</h3><p>Confidence-building weekly classes with friendly teachers and clear pathways.</p></article>
+            <article class="card pad reveal class-card"><span class="mini">Skill building</span><h3>Acro and cheerleading</h3><p>Strength, coordination and team spirit without a competition-heavy promise.</p></article>
+            <article class="card pad reveal class-card"><span class="mini">Adults</span><h3>Dance for you</h3><p>Social adult classes for beginners, returning dancers and anyone ready to move again.</p></article>
           </div>
         </div>
       </section>
@@ -160,7 +190,7 @@
           <div class="section-head reveal" style="padding: 34px;">
             <img class="kccubs-logo" src="../../assets/kccubs-logo.png" alt="KCCubs">
             <h2>KCCubs is a clear preschool pathway inside KCDanceHQ.</h2>
-            <p>It should feel distinct enough for preschool parents to recognise, while still sitting under the main KCDanceHQ brand and facility story.</p>
+            <p>Preschool families get a dedicated first step, while the wider page keeps KCCubs clearly connected to the main KCDanceHQ school.</p>
             <a class="btn btn-primary" href="https://kcdancehq.com.au/kccubs/" target="_blank" rel="noopener">Explore KCCubs</a>
           </div>
         </div>
@@ -171,7 +201,7 @@
           <div class="section-head reveal">
             <span class="kicker">Next step</span>
             <h2>Make the visit feel easy.</h2>
-            <p>For this concept, the conversion path is not a hard sell. It invites families to request the 2026 info pack, check the timetable or ask a question about the right class.</p>
+            <p>Families can request the 2026 info pack, check the timetable or ask a question about the right class without feeling pushed into a decision too early.</p>
           </div>
           <form class="form-shell reveal">
             <div class="form-grid">
@@ -193,7 +223,7 @@
         <div><h3>Explore</h3><p><a href="#new-home">New home</a></p><p><a href="#classes">Classes</a></p><p><a href="#kccubs">KCCubs</a></p></div>
         <div><h3>Visit</h3><p>19 Groves Rd, Bennetts Green NSW</p><p>Serving Lake Macquarie families.</p></div>
       </div>
-      <div class="wrap fineprint">Demo 3 concept for KCDanceHQ.</div>
+      <div class="wrap fineprint">KCDanceHQ, Bennetts Green.</div>
     </footer>
 
     <script src="../../assets/kc-redesign.js"></script>

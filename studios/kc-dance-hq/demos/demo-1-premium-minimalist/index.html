@@ -1,19 +1,4 @@
 <!doctype html>
-<!--
-  KCDanceHQ, Demo 1: Premium-Minimalist Modernisation
-  ----------------------------------------------------------------------------
-  Brief frame: modernise the existing kcdancehq.com.au, do not reinvent it.
-  Preserved from the live site: exact brand palette (pink #ee4692, charcoal
-  #242a33, near-black ink #252827, warm cream #f9f6f0, white), the real
-  bracketed "[KCDanceHQ]" wordmark, the same information architecture and
-  hero intent, and the studio's own lifestyle dance photography.
-  Modernised: a neutral cream-and-white canvas with pink used only as a
-  deliberate accent, a tighter editorial type hierarchy (Fraunces display over
-  Inter body), generous whitespace, a deliberate grid, scroll-reveal motion,
-  considered hover and focus states, and a clearer primary/secondary CTA split.
-  Inspiration: serious-but-warm independent-school and boutique-studio sites
-  that parents trust at a glance.
--->
 <html lang="en-AU">
   <head>
     <meta charset="utf-8">
@@ -112,7 +97,7 @@
       a:focus-visible, summary:focus-visible, .menu-toggle:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; border-radius: 6px; }
       summary:focus { outline: none; }
 
-      /* Header (intentionally not sticky, scrolls away with the page) */
+      /* Header */
       .site-header { background: var(--ink); }
       .header-inner { display: flex; align-items: center; justify-content: space-between; height: 78px; }
       .brand img { height: 34px; width: auto; }
@@ -295,7 +280,7 @@
       .foot-bottom .back:hover { color: var(--white); }
 
       /* Scroll reveal */
-      .reveal { opacity: 0; transform: translateY(22px); transition: opacity 700ms var(--ease), transform 700ms var(--ease); }
+      .reveal { opacity: 1; transform: none; transition: opacity 700ms var(--ease), transform 700ms var(--ease); }
       .reveal.in { opacity: 1; transform: none; }
 
       /* Responsive */
@@ -419,7 +404,7 @@
         <div class="section-head reveal">
           <span class="eyebrow">A style for every age and stage</span>
           <h2>Classes that build confidence as much as technique.</h2>
-          <p class="lead">From a toddler's first plie to a teen's competition routine, there is a class where your dancer belongs. Browse the styles, then book a trial in whichever feels right.</p>
+          <p class="lead">From a toddler's first plie to a teen's next confident routine, there is a class where your dancer belongs. Browse the styles, then book a trial in whichever feels right.</p>
         </div>
         <div class="bento">
           <article class="ccard feature reveal">
@@ -532,7 +517,7 @@
           <ul class="comm-points">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/></svg> A celebrated annual recital every dancer can be part of</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 .01M23 21v-2a4 4 0 0 0-3-3.87"/></svg> Friendships built across ages, classes and years</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5h20v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg> Pathways from recreational fun to competitive teams</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5h20v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg> Pathways that keep recreational dancers growing</li>
           </ul>
           <a class="btn btn-primary" href="https://app.studiolabsoftware.com/events/KCDANCEHQ" target="_blank" rel="noopener">See what's coming up</a>
         </div>
@@ -621,7 +606,7 @@
             </figcaption>
           </figure>
         </div>
-        <p class="voice-note">Sample family feedback shown for layout. Your real reviews drop straight in.</p>
+        <p class="voice-note">Families stay when the studio feels personal from week one.</p>
       </div>
     </section>
 
