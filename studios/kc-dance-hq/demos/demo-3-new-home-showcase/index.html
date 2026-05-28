@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo 3 | KCDanceHQ | New Home Showcase</title>
+    <meta name="description" content="A venue-led KCDanceHQ homepage concept for the new Bennetts Green studio.">
+    <link rel="icon" href="../../assets/favicon.png">
+    <link rel="stylesheet" href="../../assets/kc-redesign.css">
+    <style>
+      body.demo-new-home .hero { background: var(--ink); }
+      body.demo-new-home .hero-layout { display: grid; grid-template-columns: minmax(0, 1.14fr) minmax(390px, 0.86fr); min-height: calc(100vh - 76px); }
+      body.demo-new-home .hero-copy { align-content: center; display: grid; padding: clamp(34px, 6vw, 84px); }
+      body.demo-new-home .hero h1 { font-size: clamp(3rem, 7vw, 6rem); }
+      body.demo-new-home .hero-venue img { min-height: calc(100vh - 76px); object-fit: cover; object-position: center top; }
+      body.demo-new-home .home-strip { background: var(--pink); color: var(--white); padding: 22px 0; }
+      body.demo-new-home .home-strip .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      body.demo-new-home .facility-map { background: var(--white); }
+      body.demo-new-home .map-card { border-left: 6px solid var(--pink); }
+      body.demo-new-home .room-grid { grid-template-columns: 1.15fr 0.85fr; }
+      body.demo-new-home .room-grid .image-frame:first-child { grid-row: span 2; }
+      body.demo-new-home .tour-note { background: var(--pink-soft); border-radius: var(--radius); padding: 28px; }
+      body.demo-new-home .cta-zone { background: var(--ink); color: var(--white); }
+      body.demo-new-home .cta-zone p { color: rgba(255,255,255,0.78); }
+      @media (max-width: 980px) {
+        body.demo-new-home .hero-layout,
+        body.demo-new-home .room-grid,
+        body.demo-new-home .home-strip .stats { grid-template-columns: minmax(0, 1fr); }
+        body.demo-new-home .hero-copy { order: 2; }
+        body.demo-new-home .hero-venue img { min-height: 360px; }
+      }
+    </style>
+  </head>
+  <body class="demo-new-home">
+    <header class="site-header">
+      <div class="wrap nav-shell">
+        <a class="brand" href="#top" aria-label="KCDanceHQ home"><img src="../../assets/logo-light.png" alt="KCDanceHQ"></a>
+        <nav class="nav" aria-label="Primary">
+          <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
+          <div class="nav-links">
+            <a href="#new-home">New Home</a>
+            <a href="#tour">Video</a>
+            <a href="#classes">Classes</a>
+            <a href="#kccubs">KCCubs</a>
+            <a href="#enrol">Enrol</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="KCDanceHQ Bennetts Green studio">
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <div class="hero-content reveal">
+              <span class="kicker">Bennetts Green studio</span>
+              <h1>A new KC home, built for families to feel welcome.</h1>
+              <p>KCDanceHQ now welcomes Lake Macquarie families into a purpose-built studio with more room, more comfort and the same friendly recreational dance culture parents already trust.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#enrol">Request an info pack</a>
+                <a class="btn btn-line-light" href="#new-home">Explore the studio</a>
+              </div>
+            </div>
+          </div>
+          <div class="hero-venue">
+            <img src="../../assets/venue-studio-floor.jpeg" alt="KCDanceHQ Bennetts Green facade with dancers outside the venue">
+          </div>
+        </div>
+      </section>
+
+      <section class="home-strip">
+        <div class="wrap stats">
+          <div class="stat"><strong>3</strong><span>spacious air-conditioned studios</span></div>
+          <div class="stat"><strong>19</strong><span>Groves Rd, Bennetts Green</span></div>
+          <div class="stat"><strong>30</strong><span>years of KC community history</span></div>
+          <div class="stat"><strong>15+</strong><span>class types for every age and stage</span></div>
+        </div>
+      </section>
+
+      <section class="block facility-map" id="new-home">
+        <div class="wrap split top">
+          <div class="section-head reveal">
+            <span class="kicker">Purpose-built facility</span>
+            <h2>A studio that answers parent questions before they need to ask.</h2>
+            <p>The current site already says it clearly: families get a welcoming full-time studio, beautiful amenities, a Dancers' Den, a reception area and more room to grow. This version makes the facility the organising idea from the first screen.</p>
+          </div>
+          <div class="grid">
+            <article class="card pad reveal map-card">
+              <span class="mini">For parents</span>
+              <h3>Easy to understand, easy to arrive.</h3>
+              <p>Families from Belmont, Warners Bay, Cardiff and Charlestown can quickly see where the studio is and why the move matters.</p>
+            </article>
+            <article class="card pad reveal map-card">
+              <span class="mini">For dancers</span>
+              <h3>More space to feel confident.</h3>
+              <p>Large studio rooms, mirrors, safe floors and a dedicated dancer environment help students settle in and enjoy class.</p>
+            </article>
+            <article class="card pad reveal map-card">
+              <span class="mini">For the brand</span>
+              <h3>The Lycra pattern becomes part of the building story.</h3>
+              <p>The line work appears in the actual venue, so this concept uses it as a subtle architectural layer, not just decoration.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block pattern-soft" id="tour">
+        <div class="wrap split">
+          <div class="video-frame reveal">
+            <iframe src="https://www.youtube.com/embed/qiycoYYzRck" title="KCDanceHQ studio video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="section-head reveal">
+            <span class="kicker">See the studio</span>
+            <h2>Use video as the proof point, not an afterthought.</h2>
+            <p>The current homepage already references a video. In this concept it sits high on the page so parents can feel the scale, warmth and energy of the studio before they read through every class option.</p>
+            <div class="actions">
+              <a class="btn btn-ink" href="https://www.youtube.com/watch?v=qiycoYYzRck" target="_blank" rel="noopener">Open video</a>
+              <a class="btn btn-line" href="#classes">View classes</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="wide grid room-grid">
+          <div class="image-frame ratio-landscape reveal"><img src="../../assets/venue-reception.jpeg" alt="KCDanceHQ studio interior with mirrors, cubbies and KCCubs signage"></div>
+          <div class="image-frame ratio-landscape reveal"><img src="../../assets/studio-room-1.jpg" alt="KCDanceHQ studio room with mirrors and dance flooring"></div>
+          <div class="tour-note reveal">
+            <span class="kicker">Inside the new home</span>
+            <h3>Show the actual space, then support it with clear copy.</h3>
+            <p>Parents are choosing a place they will visit every week. This layout gives the studio images enough room to breathe and keeps landscape images in landscape frames.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="block pattern-band" id="classes">
+        <div class="wrap">
+          <div class="section-head center reveal">
+            <span class="kicker">Every age and stage</span>
+            <h2>Recreational dance with professional care.</h2>
+            <p>KCDanceHQ is not positioned as a competition-pressure studio. It is a friendly, family-centred place where dancers can learn well, belong and enjoy movement.</p>
+          </div>
+          <div class="grid four">
+            <article class="card pad reveal"><span class="mini">Preschool</span><h3>KCCubs</h3><p>A purpose-built preschool programme for little movers aged 2 to 5.</p></article>
+            <article class="card pad reveal"><span class="mini">Kids</span><h3>Ballet, jazz, tap and hip hop</h3><p>Confidence-building weekly classes with friendly teachers and clear pathways.</p></article>
+            <article class="card pad reveal"><span class="mini">Skill building</span><h3>Acro and cheerleading</h3><p>Strength, coordination and team spirit without a competition-heavy promise.</p></article>
+            <article class="card pad reveal"><span class="mini">Adults</span><h3>Dance for you</h3><p>Social adult classes for beginners, returning dancers and anyone ready to move again.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="kccubs">
+        <div class="wrap kccubs-panel split">
+          <div class="image-frame ratio-landscape reveal"><img src="../../assets/kccubs-together.jpg" alt="KCCubs preschool dancers in KCDanceHQ uniforms"></div>
+          <div class="section-head reveal" style="padding: 34px;">
+            <img class="kccubs-logo" src="../../assets/kccubs-logo.png" alt="KCCubs">
+            <h2>KCCubs is a clear preschool pathway inside KCDanceHQ.</h2>
+            <p>It should feel distinct enough for preschool parents to recognise, while still sitting under the main KCDanceHQ brand and facility story.</p>
+            <a class="btn btn-primary" href="https://kcdancehq.com.au/kccubs/" target="_blank" rel="noopener">Explore KCCubs</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="block cta-zone" id="enrol">
+        <div class="wrap split">
+          <div class="section-head reveal">
+            <span class="kicker">Next step</span>
+            <h2>Make the visit feel easy.</h2>
+            <p>For this concept, the conversion path is not a hard sell. It invites families to request the 2026 info pack, check the timetable or ask a question about the right class.</p>
+          </div>
+          <form class="form-shell reveal">
+            <div class="form-grid">
+              <label>First name<input type="text" name="first-name"></label>
+              <label>Email<input type="email" name="email"></label>
+              <label>Student age<input type="text" name="student-age"></label>
+              <label>Interest<select name="interest"><option>KCDanceHQ classes</option><option>KCCubs preschool</option><option>Adult classes</option></select></label>
+            </div>
+            <label>Message<textarea name="message"></textarea></label>
+            <button class="btn btn-primary" type="button">Request info pack</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div><img src="../../assets/logo-light.png" alt="KCDanceHQ"><p>Friendly recreational dance classes from a purpose-built studio in Bennetts Green.</p></div>
+        <div><h3>Explore</h3><p><a href="#new-home">New home</a></p><p><a href="#classes">Classes</a></p><p><a href="#kccubs">KCCubs</a></p></div>
+        <div><h3>Visit</h3><p>19 Groves Rd, Bennetts Green NSW</p><p>Serving Lake Macquarie families.</p></div>
+      </div>
+      <div class="wrap fineprint">Demo 3 concept for KCDanceHQ.</div>
+    </footer>
+
+    <script src="../../assets/kc-redesign.js"></script>
+  </body>
+</html>

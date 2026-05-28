@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo 4 | KCDanceHQ | Friendly Recreational Studio</title>
+    <meta name="description" content="A friendly recreational KCDanceHQ homepage concept focused on quality tuition without competition pressure.">
+    <link rel="icon" href="../../assets/favicon.png">
+    <link rel="stylesheet" href="../../assets/kc-redesign.css">
+    <style>
+      body.demo-community { background: var(--white); }
+      body.demo-community .hero { background: var(--cream); color: var(--ink); }
+      body.demo-community .hero-wrap { display: grid; gap: 34px; grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr); padding: 34px 0 64px; }
+      body.demo-community .hero-content { align-content: center; padding: 44px 0 44px 24px; }
+      body.demo-community .hero h1 { font-size: clamp(2.8rem, 5vw, 4.8rem); }
+      body.demo-community .hero p { color: var(--muted); }
+      body.demo-community .hero-venue { border-radius: 0 0 0 54px; box-shadow: 0 30px 80px rgba(21,27,34,0.18); }
+      body.demo-community .hero-venue img { min-height: 480px; object-fit: cover; object-position: center top; }
+      body.demo-community .promise { background: var(--ink); color: var(--white); }
+      body.demo-community .promise p { color: rgba(255,255,255,0.78); }
+      body.demo-community .no-pressure { background: var(--cream); }
+      body.demo-community .class-ribbon { background: var(--pink); color: var(--white); overflow: hidden; padding: 20px 0; white-space: nowrap; }
+      body.demo-community .class-ribbon span { display: inline-block; font-weight: 900; letter-spacing: 0.08em; padding-right: 28px; text-transform: uppercase; }
+      body.demo-community .teacher-callout { background: var(--white); }
+      body.demo-community .kccubs-slice { background: var(--pink-soft); }
+      body.demo-community .final-cta { background: var(--pink); color: var(--white); }
+      body.demo-community .final-cta p { color: rgba(255,255,255,0.86); }
+      @media (max-width: 980px) {
+        body.demo-community .hero-wrap { grid-template-columns: minmax(0, 1fr); padding-top: 0; }
+        body.demo-community .hero-content { padding: 36px 18px; }
+        body.demo-community .hero-venue { border-radius: 0; }
+        body.demo-community .hero-venue img { min-height: 360px; }
+      }
+    </style>
+  </head>
+  <body class="demo-community">
+    <header class="site-header">
+      <div class="wrap nav-shell">
+        <a class="brand" href="#top" aria-label="KCDanceHQ home"><img src="../../assets/logo-light.png" alt="KCDanceHQ"></a>
+        <nav class="nav" aria-label="Primary">
+          <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
+          <div class="nav-links">
+            <a href="#promise">Promise</a>
+            <a href="#classes">Classes</a>
+            <a href="#teachers">Teachers</a>
+            <a href="#kccubs">KCCubs</a>
+            <a href="#enrol">Enrol</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="wide hero-wrap">
+          <div class="hero-content reveal">
+            <span class="kicker">Friendly recreational studio</span>
+            <h1>Quality dance education, without the competition pressure.</h1>
+            <p>KCDanceHQ gives families the professional teaching, structure and care they want, without the competition headaches, travel load and extra costs that do not suit every child.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#enrol">Start with a class</a>
+              <a class="btn btn-line" href="#promise">Why KC feels different</a>
+            </div>
+          </div>
+          <div class="hero-venue reveal">
+            <img src="../../assets/venue-studio-floor.jpeg" alt="KCDanceHQ Bennetts Green venue with the studio facade and student group">
+          </div>
+        </div>
+      </section>
+
+      <section class="class-ribbon" aria-label="KCDanceHQ class styles">
+        <div>
+          <span>Ballet</span><span>Jazz</span><span>Tap</span><span>Hip hop</span><span>Acro</span><span>Cheerleading</span><span>KCCubs</span><span>Adult classes</span><span>Dance Cirque</span>
+        </div>
+      </section>
+
+      <section class="block promise" id="promise">
+        <div class="wrap split">
+          <div class="section-head reveal">
+            <span class="kicker">The real positioning</span>
+            <h2>A safe, fun and inspiring place to love dance.</h2>
+            <p>The site language is strongest when it talks about confidence, friendship, kindness, self belief and a genuine love of dance. This concept turns that into the main journey.</p>
+          </div>
+          <div class="grid">
+            <article class="card pad reveal"><span class="mini">Professional</span><h3>Experienced teachers guide the room.</h3><p>Dancers still receive thoughtful training, technique and care from a team parents can trust.</p></article>
+            <article class="card pad reveal"><span class="mini">Recreational</span><h3>No competition pathway needed to belong.</h3><p>Families can enjoy dance as part of their week without pressure to chase trophies, travel or extra costs.</p></article>
+            <article class="card pad reveal"><span class="mini">Welcoming</span><h3>Every dancer is seen and supported.</h3><p>The studio feels like a second home, not a high-stress performance pipeline.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block no-pressure">
+        <div class="wrap split top">
+          <div class="video-frame reveal">
+            <iframe src="https://www.youtube.com/embed/qiycoYYzRck" title="KCDanceHQ studio video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="section-head reveal">
+            <span class="kicker">Feel the community</span>
+            <h2>Let families see the vibe before they choose a class.</h2>
+            <p>Video and warm facility imagery work together here. The parent does not need a complicated finder, they need to feel that this is a friendly studio with professional standards.</p>
+            <ul class="feature-list">
+              <li>Purpose-built Bennetts Green studio with room to move.</li>
+              <li>Dance for preschoolers, kids, teens and adults.</li>
+              <li>Supportive teachers who build confidence alongside technique.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="classes">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Classes</span>
+            <h2>Choice without making parents work too hard.</h2>
+            <p>This version keeps the class range easy to scan while the bigger story stays focused on the friendly studio environment.</p>
+          </div>
+          <div class="grid three">
+            <article class="card pad reveal"><span class="mini">Core dance</span><h3>Ballet, jazz, tap and hip hop</h3><p>Weekly classes that build technique, rhythm and confidence in a positive environment.</p></article>
+            <article class="card pad reveal"><span class="mini">Energy and strength</span><h3>Acro, cheerleading and Dance Cirque</h3><p>Students develop coordination, flexibility and teamwork with safety and encouragement built in.</p></article>
+            <article class="card pad reveal"><span class="mini">Adults</span><h3>Social classes for grown-ups</h3><p>Adult ballet and tap make dance feel welcoming again, whether you are new or returning.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block teacher-callout pattern-soft" id="teachers">
+        <div class="wrap">
+          <div class="section-head center reveal">
+            <span class="kicker">Professional teachers</span>
+            <h2>Warm people, serious care.</h2>
+            <p>The teacher presentation should reassure families that friendly does not mean casual. It means structured, experienced and kind.</p>
+          </div>
+          <div class="teacher-grid">
+            <article class="teacher reveal"><img src="../../assets/faculty-kasey.jpg" alt="Kasey, Principal and Founder of KCDanceHQ"><div><span>Principal and founder</span><h3>Kasey</h3></div></article>
+            <article class="teacher reveal"><img src="../../assets/faculty-ashley.jpg" alt="Miss Ashley, teacher at KCDanceHQ"><div><span>Teacher</span><h3>Miss Ashley</h3></div></article>
+            <article class="teacher reveal"><img src="../../assets/faculty-katie.jpg" alt="Miss Katie, ballet and lyrical teacher at KCDanceHQ"><div><span>Ballet and lyrical</span><h3>Miss Katie</h3></div></article>
+            <article class="teacher reveal"><img src="../../assets/faculty-meg.jpg" alt="Miss Meg, contemporary and lyrical teacher at KCDanceHQ"><div><span>Contemporary and lyrical</span><h3>Miss Meg</h3></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block kccubs-slice" id="kccubs">
+        <div class="wrap split">
+          <div class="section-head reveal">
+            <img class="kccubs-logo" src="../../assets/kccubs-logo.png" alt="KCCubs">
+            <h2>Preschool has its own little world.</h2>
+            <p>KCCubs is treated as a distinct programme for little movers aged 2 to 5, while still belonging clearly to the KCDanceHQ family.</p>
+            <a class="btn btn-primary" href="https://kcdancehq.com.au/kccubs/" target="_blank" rel="noopener">See KCCubs</a>
+          </div>
+          <div class="image-frame ratio-landscape reveal"><img src="../../assets/kccubs-class-1.jpg" alt="KCCubs preschool dance class at KCDanceHQ"></div>
+        </div>
+      </section>
+
+      <section class="block final-cta" id="enrol">
+        <div class="wrap split">
+          <div class="section-head reveal">
+            <span class="kicker">Enrolment</span>
+            <h2>Help families take the calm next step.</h2>
+            <p>The call to action is friendly and practical: ask about a class, request the info pack or view the 2026 timetable.</p>
+            <div class="actions">
+              <a class="btn btn-light" href="https://kcdancehq.com.au/contact-us/" target="_blank" rel="noopener">Request info pack</a>
+              <a class="btn btn-line-light" href="https://kcdancehq.com.au/classes/" target="_blank" rel="noopener">View class types</a>
+            </div>
+          </div>
+          <div class="image-frame ratio-landscape reveal"><img src="../../assets/venue-reception.jpeg" alt="KCDanceHQ dance studio interior with mirrors and parent viewing spaces"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div><img src="../../assets/logo-light.png" alt="KCDanceHQ"><p>Quality dance tuition without the pressure of competition.</p></div>
+        <div><h3>Programmes</h3><p>KCDanceHQ classes</p><p>KCCubs preschool</p><p>Adult dance</p></div>
+        <div><h3>Location</h3><p>19 Groves Rd, Bennetts Green NSW</p><p>Friendly recreational dance in Lake Macquarie.</p></div>
+      </div>
+      <div class="wrap fineprint">Demo 4 concept for KCDanceHQ.</div>
+    </footer>
+
+    <script src="../../assets/kc-redesign.js"></script>
+  </body>
+</html>

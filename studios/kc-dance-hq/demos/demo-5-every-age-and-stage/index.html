@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo 5 | KCDanceHQ | Every Age And Stage</title>
+    <meta name="description" content="A KCDanceHQ homepage concept organised around preschool, kids, teens and adult dancers.">
+    <link rel="icon" href="../../assets/favicon.png">
+    <link rel="stylesheet" href="../../assets/kc-redesign.css">
+    <style>
+      body.demo-age-stage { background: var(--cream); }
+      body.demo-age-stage .hero { background: var(--white); color: var(--ink); }
+      body.demo-age-stage .hero-venue { border-bottom: 10px solid var(--pink); }
+      body.demo-age-stage .hero h1 { font-size: clamp(2.5rem, 4.8vw, 3.9rem); }
+      body.demo-age-stage .hero-venue img { min-height: 285px; max-height: 300px; object-fit: cover; object-position: center top; }
+      body.demo-age-stage .intro-panel { background: var(--white); border-bottom: 1px solid var(--line); padding: 30px 0; }
+      body.demo-age-stage .intro-grid { align-items: end; display: grid; gap: 28px; grid-template-columns: 1.15fr 0.85fr; }
+      body.demo-age-stage .age-nav { background: var(--ink); color: var(--white); padding: 24px 0; }
+      body.demo-age-stage .age-nav .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      body.demo-age-stage .age-link { border: 1px solid rgba(255,255,255,0.18); border-radius: var(--radius-sm); display: grid; gap: 8px; padding: 18px; transition: background 180ms var(--ease), transform 180ms var(--ease); }
+      body.demo-age-stage .age-link:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+      body.demo-age-stage .age-link strong { color: var(--white); font-size: 1.1rem; }
+      body.demo-age-stage .age-link span { color: rgba(255,255,255,0.7); font-size: 0.88rem; }
+      body.demo-age-stage .path-section:nth-of-type(even) { background: var(--white); }
+      body.demo-age-stage .path-card { display: grid; gap: 22px; grid-template-columns: 0.92fr 1.08fr; }
+      body.demo-age-stage .path-copy { align-content: center; display: grid; gap: 18px; padding: 34px; }
+      body.demo-age-stage .catalogue { background: var(--ink); color: var(--white); }
+      body.demo-age-stage .catalogue p { color: rgba(255,255,255,0.76); }
+      body.demo-age-stage .catalogue .card { box-shadow: none; }
+      body.demo-age-stage .adult-price { color: var(--pink-deep); font-weight: 900; }
+      @media (max-width: 980px) {
+        body.demo-age-stage .intro-grid,
+        body.demo-age-stage .age-nav .grid,
+        body.demo-age-stage .path-card { grid-template-columns: minmax(0, 1fr); }
+        body.demo-age-stage .hero-venue img { min-height: 320px; max-height: none; }
+      }
+    </style>
+  </head>
+  <body class="demo-age-stage">
+    <header class="site-header">
+      <div class="wrap nav-shell">
+        <a class="brand" href="#top" aria-label="KCDanceHQ home"><img src="../../assets/logo-light.png" alt="KCDanceHQ"></a>
+        <nav class="nav" aria-label="Primary">
+          <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
+          <div class="nav-links">
+            <a href="#preschool">Preschool</a>
+            <a href="#kids">Kids</a>
+            <a href="#teens">Teens</a>
+            <a href="#adults">Adults</a>
+            <a href="#enrol">Enrol</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="KCDanceHQ every age and stage">
+        <div class="hero-venue">
+          <img src="../../assets/venue-studio-floor.jpeg" alt="KCDanceHQ Bennetts Green venue facade with dancers outside the studio">
+        </div>
+        <div class="intro-panel">
+          <div class="wrap intro-grid">
+            <div class="hero-content reveal">
+              <span class="kicker">Classes for every age and stage</span>
+              <h1>One studio, clear pathways for the whole family.</h1>
+              <p>KCDanceHQ is the main school. KCCubs is its preschool programme. From there, dancers can keep growing through recreational classes for kids, teens and adults in the same friendly environment.</p>
+            </div>
+            <div class="actions reveal">
+              <a class="btn btn-primary" href="#preschool">Start by age</a>
+              <a class="btn btn-line" href="#catalogue">Scan class types</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="age-nav" aria-label="Age pathways">
+        <div class="wrap grid">
+          <a class="age-link" href="#preschool"><strong>Preschool</strong><span>KCCubs for ages 2 to 5</span></a>
+          <a class="age-link" href="#kids"><strong>Primary years</strong><span>Ballet, jazz, tap, hip hop, acro and cheer</span></a>
+          <a class="age-link" href="#teens"><strong>Teens</strong><span>Technique, confidence and creative expression</span></a>
+          <a class="age-link" href="#adults"><strong>Adults</strong><span>Social classes for beginners and returning dancers</span></a>
+        </div>
+      </section>
+
+      <section class="block path-section" id="preschool">
+        <div class="wrap panel path-card">
+          <div class="image-frame ratio-landscape reveal"><img src="../../assets/kccubs-together.jpg" alt="KCCubs preschool dancers smiling in uniform"></div>
+          <div class="path-copy reveal">
+            <img class="kccubs-logo" src="../../assets/kccubs-logo.png" alt="KCCubs">
+            <h2 class="display">A playful preschool start.</h2>
+            <p>KCCubs deserves a clear, separated space because preschool parents are looking for reassurance, warmth and age-appropriate learning. It still sits inside the KCDanceHQ family, not above it.</p>
+            <ul class="feature-list">
+              <li>For little movers aged 2 to 5.</li>
+              <li>Movement, music, imagination and confidence.</li>
+              <li>Trial classes help families feel the fit first.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="block path-section" id="kids">
+        <div class="wrap panel path-card">
+          <div class="path-copy reveal">
+            <span class="kicker">Primary years</span>
+            <h2 class="display">Build skills without losing the joy.</h2>
+            <p>For school-aged dancers, the message is simple: learn properly, make friends and feel encouraged. This concept avoids competition-heavy language and keeps the benefit front and centre.</p>
+            <div class="grid two">
+              <article class="card pad"><h3>Ballet and lyrical</h3><p>Poise, technique and confidence with careful teaching.</p></article>
+              <article class="card pad"><h3>Jazz, tap and hip hop</h3><p>Energy, rhythm and musicality in a friendly class room.</p></article>
+            </div>
+          </div>
+          <div class="image-frame ratio-portrait reveal"><img src="../../assets/recreational-enrolment.webp" alt="KCDanceHQ recreational dancers in costume for enrolment campaign"></div>
+        </div>
+      </section>
+
+      <section class="block path-section pattern-soft" id="teens">
+        <div class="wrap split">
+          <div class="image-frame ratio-landscape reveal"><img src="../../assets/hero-bg.jpg" alt="KCDanceHQ students and teachers together in the studio"></div>
+          <div class="section-head reveal">
+            <span class="kicker">Teens</span>
+            <h2>Room to keep growing.</h2>
+            <p>Teen dancers need high-quality teaching and a place where they can stay connected, not only a competition pathway. This version positions technique, confidence and friendship as the reason to continue.</p>
+            <ul class="feature-list">
+              <li>Supportive teaching for dancers who want to progress.</li>
+              <li>Creative classes for expression and confidence.</li>
+              <li>A studio culture that celebrates growth without unnecessary pressure.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="block path-section" id="adults">
+        <div class="wrap split">
+          <div class="section-head reveal">
+            <span class="kicker">Adults</span>
+            <h2>Dance can be for you too.</h2>
+            <p>The current site has a lovely adult dance message. This concept gives it a cleaner home so adults can quickly see that they are welcome, even if they are starting fresh.</p>
+          </div>
+          <div class="grid">
+            <article class="card pad reveal"><span class="mini">Monday 7:30pm</span><h3>Adult Ballet</h3><p><span class="adult-price">AUD $18</span> for a supportive weekly class.</p></article>
+            <article class="card pad reveal"><span class="mini">Thursday 6:30pm</span><h3>Beginner Tap</h3><p><span class="adult-price">AUD $15</span> for adults finding their rhythm.</p></article>
+            <article class="card pad reveal"><span class="mini">Thursday 7:15pm</span><h3>Experienced Tap</h3><p><span class="adult-price">AUD $15</span> for dancers returning to the floor.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block catalogue pattern-band" id="catalogue">
+        <div class="wrap">
+          <div class="section-head center reveal">
+            <span class="kicker">Class catalogue</span>
+            <h2>Make the full range feel organised, not overwhelming.</h2>
+            <p>Families can still scan the big list of class types, but the structure keeps each option connected to a clear age or need.</p>
+          </div>
+          <div class="grid four">
+            <article class="card pad reveal"><h3>KCCubs</h3><p>Preschool dance, jazz, tap, acro and ballet foundations.</p></article>
+            <article class="card pad reveal"><h3>Dance foundations</h3><p>Ballet, jazz, tap, contemporary, lyrical and hip hop.</p></article>
+            <article class="card pad reveal"><h3>Strength and energy</h3><p>Acrodance, cheerleading, Dance Cirque and FlexAbility.</p></article>
+            <article class="card pad reveal"><h3>Extra pathways</h3><p>Singing, drama, musical theatre, boys-only classes and adults.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="video">
+        <div class="wrap split">
+          <div class="section-head reveal">
+            <span class="kicker">Studio video</span>
+            <h2>Show the environment before the family commits.</h2>
+            <p>This placement lets parents move from age pathway to real studio proof without losing momentum.</p>
+          </div>
+          <div class="video-frame reveal">
+            <iframe src="https://www.youtube.com/embed/qiycoYYzRck" title="KCDanceHQ studio video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="block pattern-pink" id="enrol">
+        <div class="wrap split">
+          <div class="section-head reveal">
+            <span class="kicker">Enrolment</span>
+            <h2>Start with age, then choose the right class.</h2>
+            <p>The page has already reduced the decision. The enquiry form can now ask the useful questions instead of making parents decode every class first.</p>
+          </div>
+          <form class="form-shell reveal">
+            <div class="form-grid">
+              <label>Parent name<input type="text" name="parent-name"></label>
+              <label>Email<input type="email" name="email"></label>
+              <label>Dancer age<input type="text" name="age"></label>
+              <label>Pathway<select name="pathway"><option>Preschool</option><option>Primary years</option><option>Teens</option><option>Adults</option></select></label>
+            </div>
+            <button class="btn btn-primary" type="button">Request guidance</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div><img src="../../assets/logo-light.png" alt="KCDanceHQ"><p>Preschool, kids, teen and adult dance from one friendly KCDanceHQ home.</p></div>
+        <div><h3>Pathways</h3><p>Preschool</p><p>Kids</p><p>Teens</p><p>Adults</p></div>
+        <div><h3>Venue</h3><p>Purpose-built studio in Bennetts Green.</p><p>Servicing Lake Macquarie families.</p></div>
+      </div>
+      <div class="wrap fineprint">Demo 5 concept for KCDanceHQ.</div>
+    </footer>
+
+    <script src="../../assets/kc-redesign.js"></script>
+  </body>
+</html>
