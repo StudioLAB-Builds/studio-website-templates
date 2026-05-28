@@ -8,7 +8,7 @@
     "logo": "assets/logo-dark.png",
     "kicker": "Website modernisation study",
     "heading": "KCDanceHQ, modernised.",
-    "intro": "Six directions for comparing KCDanceHQ website options. Demo 3 to Demo 6 now explore distinct venue, community, age-stage and teacher-culture structures while keeping the friendly recreational studio promise clear. Open each option in a new tab to compare the structure, visual rhythm and enrolment path."
+    "intro": "Six directions for comparing KCDanceHQ website options. Demo 3 to Demo 6 now explore distinct venue, community, facility sport and family journey structures while keeping the friendly recreational studio promise clear. Open each option in a new tab to compare the structure, visual rhythm and enrolment path."
   },
   "templates": [
     {
@@ -64,30 +64,30 @@
       "source": "Codex regenerated demo, 2026-05-28, recreational community KCDanceHQ redesign"
     },
     {
-      "id": "demo-5-every-age-and-stage",
+      "id": "demo-5-facility-sport-luxe",
       "label": "Demo 5",
-      "title": "Every Age And Stage",
-      "description": "A pathway-led direction that presents KCDanceHQ as the main school for preschool, kids, teens and adults, with KCCubs clearly separated as the preschool programme.",
-      "path": "demos/demo-5-every-age-and-stage/",
-      "preview": "previews/demo-5-every-age-and-stage.png",
-      "previewAlt": "Demo 5 Every Age And Stage preview",
+      "title": "Facility Sport Luxe",
+      "description": "A modern athletic direction that leads with the Bennetts Green facility, Lycra pattern, professional teaching and a strong recreational promise without competition pressure.",
+      "path": "demos/demo-5-facility-sport-luxe/",
+      "preview": "previews/demo-5-facility-sport-luxe.png",
+      "previewAlt": "Demo 5 Facility Sport Luxe preview",
       "status": "enabled",
       "visibility": "visible",
       "order": 50,
-      "source": "Codex regenerated demo, 2026-05-28, age and stage KCDanceHQ redesign"
+      "source": "Codex regenerated demo, 2026-05-28, facility sport KCDanceHQ redesign"
     },
     {
-      "id": "demo-6-professional-teachers-joyful-culture",
+      "id": "demo-6-family-journey-guide",
       "label": "Demo 6",
-      "title": "Professional Teachers Joyful Culture",
-      "description": "A trust-led direction that balances professional teachers, joyful culture and the low-pressure recreational promise, with performance proof kept as supporting context.",
-      "path": "demos/demo-6-professional-teachers-joyful-culture/",
-      "preview": "previews/demo-6-professional-teachers-joyful-culture.png",
-      "previewAlt": "Demo 6 Professional Teachers Joyful Culture preview",
+      "title": "Family Journey Guide",
+      "description": "A warm parent-guided direction that leads with the venue, then walks families through fit, programmes, teachers, video proof and a calm first enquiry.",
+      "path": "demos/demo-6-family-journey-guide/",
+      "preview": "previews/demo-6-family-journey-guide.png",
+      "previewAlt": "Demo 6 Family Journey Guide preview",
       "status": "enabled",
       "visibility": "visible",
       "order": 60,
-      "source": "Codex regenerated demo, 2026-05-28, teacher and culture KCDanceHQ redesign"
+      "source": "Codex regenerated demo, 2026-05-28, family journey KCDanceHQ redesign"
     }
   ]
 }

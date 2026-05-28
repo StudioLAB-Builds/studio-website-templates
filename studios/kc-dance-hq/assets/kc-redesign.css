@@ -16,7 +16,9 @@
   --radius: 18px;
   --radius-sm: 12px;
   --ease: cubic-bezier(.2, .8, .2, 1);
-  font-family: "Montserrat", "Avenir Next", "Segoe UI", sans-serif;
+  --font-body: "Sohne", "Helvetica Now", "Avenir Next", "Segoe UI", sans-serif;
+  --font-display: "Tiempos Headline", "GT Sectra", Georgia, "Times New Roman", serif;
+  font-family: var(--font-body);
 }
 
 * {
@@ -78,10 +80,7 @@ p {
 .site-header {
   background: rgba(21, 27, 34, 0.96);
   color: var(--white);
-  left: 0;
-  position: sticky;
-  right: 0;
-  top: 0;
+  position: relative;
   z-index: 80;
 }
 
@@ -249,10 +248,10 @@ p {
 .section-head h2,
 .display {
   color: inherit;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: 0;
-  line-height: 0.96;
+  line-height: 1.08;
 }
 
 .hero h1 {
@@ -288,9 +287,10 @@ p {
 
 .kicker::before {
   background: currentColor;
+  border-radius: 999px;
   content: "";
-  height: 2px;
-  width: 30px;
+  height: 8px;
+  width: 8px;
 }
 
 .hero-actions,

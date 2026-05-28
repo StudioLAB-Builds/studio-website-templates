@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo 5 | KCDanceHQ | Facility Sport Luxe</title>
+    <meta name="description" content="A modern athletic KCDanceHQ homepage concept focused on the Bennetts Green facility, professional teaching and friendly recreational culture.">
+    <link rel="icon" href="../../assets/favicon.png">
+    <link rel="stylesheet" href="../../assets/kc-redesign.css">
+    <style>
+      body.demo-sport-luxe { background: var(--ink); }
+      body.demo-sport-luxe .site-header { background: var(--ink); }
+      body.demo-sport-luxe .hero { background: var(--ink); color: var(--white); }
+      body.demo-sport-luxe .sport-hero { display: grid; min-height: calc(100vh - 76px); position: relative; }
+      body.demo-sport-luxe .sport-hero::after { background: linear-gradient(90deg, rgba(21,27,34,0.92), rgba(21,27,34,0.35) 54%, rgba(21,27,34,0.86)); content: ""; inset: 0; position: absolute; }
+      body.demo-sport-luxe .sport-hero img { height: 100%; min-height: calc(100vh - 76px); object-fit: cover; object-position: center center; width: 100%; }
+      body.demo-sport-luxe .hero-copy { display: grid; gap: 28px; left: 50%; max-width: 1180px; padding: 0 24px; position: absolute; top: clamp(140px, 22vh, 220px); transform: translateX(-50%); width: 100%; z-index: 2; }
+      body.demo-sport-luxe .hero h1 { font-family: var(--font-body); font-size: clamp(3rem, 6.1vw, 5.7rem); font-weight: 900; letter-spacing: 0; line-height: 1.04; max-width: 980px; text-transform: uppercase; }
+      body.demo-sport-luxe .hero p { color: rgba(255,255,255,0.84); max-width: 680px; }
+      body.demo-sport-luxe .tag-row { display: flex; flex-wrap: wrap; gap: 10px; }
+      body.demo-sport-luxe .tag-row span { background: rgba(255,255,255,0.11); border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; color: rgba(255,255,255,0.86); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.08em; padding: 9px 12px; text-transform: uppercase; }
+      body.demo-sport-luxe .performance-strip { background: var(--white); color: var(--ink); }
+      body.demo-sport-luxe .strip-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      body.demo-sport-luxe .strip-card { align-content: start; display: grid; gap: 14px; min-height: 190px; padding: 28px; }
+      body.demo-sport-luxe .strip-icon { align-items: center; background: var(--pink-soft); border-radius: 16px; color: var(--pink-deep); display: inline-flex; height: 48px; justify-content: center; width: 48px; }
+      body.demo-sport-luxe .strip-icon svg { height: 24px; width: 24px; }
+      body.demo-sport-luxe .strip-card strong { font-size: clamp(1.18rem, 2vw, 1.5rem); line-height: 1.12; }
+      body.demo-sport-luxe .facility-stage { background: linear-gradient(rgba(21,27,34,0.9), rgba(21,27,34,0.92)), url("../../assets/lycra-pattern.jpg") center / cover; color: var(--white); }
+      body.demo-sport-luxe .facility-stage p { color: rgba(255,255,255,0.76); }
+      body.demo-sport-luxe .facility-grid { display: grid; gap: 0; grid-template-columns: repeat(12, minmax(0, 1fr)); overflow: hidden; border-radius: var(--radius); }
+      body.demo-sport-luxe .facility-media { background: var(--ink); grid-column: span 7; min-height: 560px; }
+      body.demo-sport-luxe .facility-media img { height: 100%; object-fit: cover; object-position: center; width: 100%; }
+      body.demo-sport-luxe .facility-copy { align-content: end; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); display: grid; gap: 18px; grid-column: span 5; padding: clamp(28px, 5vw, 54px); }
+      body.demo-sport-luxe .facility-points { display: grid; gap: 12px; }
+      body.demo-sport-luxe .facility-points li { background: rgba(255,255,255,0.08); border-radius: 14px; padding: 14px 16px; }
+      body.demo-sport-luxe .no-pressure { background: var(--cream); }
+      body.demo-sport-luxe .pressure-board { display: grid; gap: 18px; grid-template-columns: 0.95fr 1.05fr; }
+      body.demo-sport-luxe .pressure-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); display: grid; gap: 16px; min-height: 290px; padding: 30px; transition: transform 180ms var(--ease), box-shadow 180ms var(--ease); }
+      body.demo-sport-luxe .pressure-card:hover { box-shadow: 0 26px 60px rgba(21,27,34,0.12); transform: translateY(-4px); }
+      body.demo-sport-luxe .pressure-card.featured { background: var(--ink); color: var(--white); }
+      body.demo-sport-luxe .pressure-card.featured p { color: rgba(255,255,255,0.78); }
+      body.demo-sport-luxe .class-lanes { background: var(--white); }
+      body.demo-sport-luxe .lane-grid { display: grid; gap: 18px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      body.demo-sport-luxe .lane { background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); display: grid; gap: 16px; min-height: 300px; padding: 28px; }
+      body.demo-sport-luxe .lane .mini { color: var(--pink-deep); }
+      body.demo-sport-luxe .kccubs-zone { background: var(--pink-soft); overflow: hidden; }
+      body.demo-sport-luxe .faculty-run { background: var(--ink); color: var(--white); }
+      body.demo-sport-luxe .faculty-run p { color: rgba(255,255,255,0.76); }
+      body.demo-sport-luxe .coach-grid { display: grid; gap: 18px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      body.demo-sport-luxe .coach { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius); display: grid; overflow: hidden; }
+      body.demo-sport-luxe .coach img { aspect-ratio: 5 / 6; object-fit: cover; object-position: center top; width: 100%; }
+      body.demo-sport-luxe .coach div { display: grid; gap: 8px; padding: 18px; }
+      body.demo-sport-luxe .faq details { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 22px; }
+      body.demo-sport-luxe .faq details + details { margin-top: 12px; }
+      body.demo-sport-luxe .faq summary { color: var(--ink); cursor: pointer; font-weight: 900; }
+      body.demo-sport-luxe .faq p { margin-top: 12px; }
+      @media (max-width: 980px) {
+        body.demo-sport-luxe .sport-hero,
+        body.demo-sport-luxe .sport-hero img { min-height: 660px; }
+        body.demo-sport-luxe .strip-grid,
+        body.demo-sport-luxe .pressure-board,
+        body.demo-sport-luxe .lane-grid,
+        body.demo-sport-luxe .coach-grid { grid-template-columns: minmax(0, 1fr); }
+        body.demo-sport-luxe .facility-grid { grid-template-columns: minmax(0, 1fr); }
+        body.demo-sport-luxe .facility-media,
+        body.demo-sport-luxe .facility-copy { grid-column: auto; }
+        body.demo-sport-luxe .facility-media { min-height: 420px; }
+      }
+      @media (max-width: 640px) {
+        body.demo-sport-luxe .hero h1 { font-size: clamp(2.4rem, 13vw, 3.7rem); line-height: 1.08; }
+        body.demo-sport-luxe .hero-copy { top: 112px; }
+      }
+    </style>
+  </head>
+  <body class="demo-sport-luxe">
+    <header class="site-header">
+      <div class="wrap nav-shell">
+        <a class="brand" href="#top" aria-label="KCDanceHQ home"><img src="../../assets/logo-light.png" alt="KCDanceHQ"></a>
+        <nav class="nav" aria-label="Primary">
+          <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
+          <div class="nav-links">
+            <a href="#facility">Facility</a>
+            <a href="#classes">Classes</a>
+            <a href="#kccubs">KCCubs</a>
+            <a href="#teachers">Teachers</a>
+            <a href="#enrol">Enrol</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero sport-hero" aria-label="KCDanceHQ facility sport luxe concept">
+        <img src="../../assets/venue-studio-floor.jpeg" alt="KCDanceHQ Bennetts Green venue facade with dancers outside the studio">
+        <div class="hero-copy">
+          <div class="tag-row" aria-label="KCDanceHQ strengths"><span>Purpose-built venue</span><span>Recreational culture</span><span>Professional teachers</span></div>
+          <h1>Train well. Belong fully.</h1>
+          <p>A modern KCDanceHQ homepage should make the facility feel strong, the teaching feel serious and the culture feel welcoming, while keeping dance enjoyable and free from competition-first pressure.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#enrol">Request info pack</a>
+            <a class="btn btn-line-light" href="#facility">See the facility</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="performance-strip" aria-label="KCDanceHQ proof points">
+        <div class="wrap strip-grid reveal">
+          <article class="strip-card"><span class="strip-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20V8l8-4 8 4v12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 20v-6h8v6" stroke="currentColor" stroke-width="2"/></svg></span><strong>Purpose-built Bennetts Green studio</strong><p>Show the building first so families understand the scale and professionalism immediately.</p></article>
+          <article class="strip-card"><span class="strip-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.4 7-11V5l-7-3-7 3v5c0 6.6 7 11 7 11Z" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><strong>Quality without pressure</strong><p>Parents see a clear alternative to competition-heavy dance culture.</p></article>
+          <article class="strip-card"><span class="strip-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 5h12M6 12h12M6 19h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 5h.01M4 12h.01M4 19h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span><strong>Clear programme paths</strong><p>KCCubs, school-age dancers, teens and adults can each find the right doorway.</p></article>
+          <article class="strip-card"><span class="strip-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M8 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM16 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/><path d="M3 21c.8-4 8.2-4 9 0M12 21c.8-4 8.2-4 9 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><strong>Teachers parents can trust</strong><p>Real faculty photos and short, correct labels build confidence faster than generic profile cards.</p></article>
+        </div>
+      </section>
+
+      <section class="block facility-stage" id="facility">
+        <div class="wrap facility-grid reveal">
+          <div class="facility-media"><img src="../../assets/venue-reception.jpeg" alt="KCDanceHQ studio interior with mirrors, cubbies and branded KCCubs signage"></div>
+          <div class="facility-copy">
+            <span class="kicker">The facility becomes the proof</span>
+            <h2>Clean, branded, ready for families.</h2>
+            <p>The Lycra pattern becomes an atmospheric layer around real venue photography. It supports the brand without turning into stripes or template decoration.</p>
+            <ul class="facility-points">
+              <li>Three spacious air-conditioned studios.</li>
+              <li>Reception and parent viewing spaces.</li>
+              <li>Branded rooms that feel intentional, not generic.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="block no-pressure">
+        <div class="wrap pressure-board">
+          <article class="pressure-card featured reveal">
+            <span class="kicker">The positioning</span>
+            <h2>Recreational does not mean casual teaching.</h2>
+            <p>KCDanceHQ can own a stronger message: dancers learn properly, families avoid competition stress and the weekly experience stays positive.</p>
+          </article>
+          <div class="grid two">
+            <article class="pressure-card reveal"><span class="mini">For parents</span><h3>Less pressure around the whole experience.</h3><p>No competition-heavy promise, no false urgency and no timetable clutter on the homepage.</p></article>
+            <article class="pressure-card reveal"><span class="mini">For dancers</span><h3>More room to enjoy the work.</h3><p>Students still build technique, confidence and performance skills in a friendly studio culture.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block class-lanes" id="classes">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Class choices without the overwhelm</span>
+            <h2>Group the programmes by what families need.</h2>
+            <p>This avoids a static schedule while still helping parents see the breadth of the school.</p>
+          </div>
+          <div class="lane-grid">
+            <article class="lane reveal"><span class="mini">Tiny first steps</span><h3>KCCubs preschool</h3><p>Movement, music and confidence for little dancers aged 2 to 5.</p></article>
+            <article class="lane reveal"><span class="mini">Strong foundations</span><h3>Ballet, jazz, tap and lyrical</h3><p>Technique, rhythm and performance confidence taught with care.</p></article>
+            <article class="lane reveal"><span class="mini">Energy and strength</span><h3>Hip hop, acro, cheer and Dance Cirque</h3><p>Active classes for coordination, teamwork and creative movement.</p></article>
+            <article class="lane reveal"><span class="mini">Keep dancing</span><h3>Teen and adult classes</h3><p>Welcoming pathways for older dancers, beginners and returning adults.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block kccubs-zone" id="kccubs">
+        <div class="wrap split">
+          <div class="section-head reveal">
+            <img class="kccubs-logo" src="../../assets/kccubs-logo.png" alt="KCCubs">
+            <h2>KCCubs gets a bright, separate doorway.</h2>
+            <p>It is a preschool programme inside KCDanceHQ, not the whole school. This treatment makes that clear without shrinking its importance for early-years families.</p>
+            <a class="btn btn-primary" href="https://kcdancehq.com.au/kccubs/" target="_blank" rel="noopener">Explore KCCubs</a>
+          </div>
+          <div class="image-frame ratio-landscape reveal"><img src="../../assets/kccubs-together.jpg" alt="KCCubs preschool dancers smiling in KCDanceHQ uniforms"></div>
+        </div>
+      </section>
+
+      <section class="block" aria-label="KCDanceHQ studio video">
+        <div class="wrap split">
+          <div class="video-frame reveal">
+            <iframe src="https://www.youtube.com/embed/qiycoYYzRck" title="KCDanceHQ studio video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="section-head reveal">
+            <span class="kicker">Proof in motion</span>
+            <h2>Use video to sell the feeling.</h2>
+            <p>The current video gives parents a better read on the studio energy than another generic class block would.</p>
+            <a class="btn btn-ink" href="https://www.youtube.com/watch?v=qiycoYYzRck" target="_blank" rel="noopener">Watch video</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="block faculty-run" id="teachers">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Professional instructors, friendly culture</span>
+            <h2>Real teachers, correctly framed.</h2>
+            <p>The roster stays clean and modern, with real photos and concise labels instead of oversized card profiles.</p>
+          </div>
+          <div class="coach-grid">
+            <article class="coach reveal"><img src="../../assets/faculty-kasey.jpg" alt="Kasey, Principal and Founder of KCDanceHQ"><div><span class="mini">Principal and founder</span><h3>Kasey</h3><p>Leads the studio with professionalism, inclusivity and heart.</p></div></article>
+            <article class="coach reveal"><img src="../../assets/faculty-ashley.jpg" alt="Miss Ashley, KCDanceHQ teacher"><div><span class="mini">Teacher</span><h3>Miss Ashley</h3><p>Known for calm, caring guidance.</p></div></article>
+            <article class="coach reveal"><img src="../../assets/faculty-katie.jpg" alt="Miss Katie, ballet and lyrical teacher at KCDanceHQ"><div><span class="mini">Ballet and lyrical</span><h3>Miss Katie</h3><p>Brings structure and care to classical training.</p></div></article>
+            <article class="coach reveal"><img src="../../assets/faculty-meg.jpg" alt="Miss Meg, contemporary and lyrical teacher at KCDanceHQ"><div><span class="mini">Contemporary and lyrical</span><h3>Miss Meg</h3><p>Supports creative dancers with patience and warmth.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="block faq" aria-label="Common KCDanceHQ questions">
+        <div class="wrap split top">
+          <div class="section-head reveal">
+            <span class="kicker">Clear before contact</span>
+            <h2>Answer the questions that slow parents down.</h2>
+            <p>The homepage gives reassurance without pretending to be the live timetable or a policy portal.</p>
+          </div>
+          <div class="reveal">
+            <details><summary>Can my child try a class first?</summary><p>Yes. The enquiry path helps the team recommend a suitable first class before you commit.</p></details>
+            <details><summary>Is this a competition studio?</summary><p>No. KCDanceHQ is positioned around quality recreational dance education without competition pressure.</p></details>
+            <details><summary>Where does KCCubs fit?</summary><p>KCCubs is the preschool programme for little dancers aged 2 to 5, sitting clearly inside the wider KCDanceHQ school.</p></details>
+            <details><summary>Where is the timetable?</summary><p>The homepage should link to a dedicated live timetable page so schedule information stays accurate.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="block pattern-pink" id="enrol">
+        <div class="wrap split">
+          <div class="section-head reveal">
+            <span class="kicker">Start with guidance</span>
+            <h2>Request the info pack and find the right class.</h2>
+            <p>The call to action stays steady from hero to footer: ask for information, then book a trial with help from the team.</p>
+          </div>
+          <form class="form-shell reveal">
+            <div class="form-grid">
+              <label>Parent name<input type="text" name="parent-name"></label>
+              <label>Email<input type="email" name="email"></label>
+              <label>Dancer age<input type="text" name="age"></label>
+              <label>Interest<select name="interest"><option>Unsure, please guide me</option><option>KCDanceHQ classes</option><option>KCCubs preschool</option><option>Adult classes</option></select></label>
+            </div>
+            <button class="btn btn-primary" type="button">Request info pack</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div><img src="../../assets/logo-light.png" alt="KCDanceHQ"><p>Quality recreational dance education from a purpose-built studio in Bennetts Green.</p></div>
+        <div><h3>Explore</h3><p><a href="#facility">Facility</a></p><p><a href="#classes">Classes</a></p><p><a href="#teachers">Teachers</a></p></div>
+        <div><h3>Visit</h3><p>19 Groves Rd, Bennetts Green NSW</p><p>Serving Lake Macquarie families.</p></div>
+      </div>
+      <div class="wrap fineprint">Demo 5 concept for KCDanceHQ.</div>
+    </footer>
+
+    <script src="../../assets/kc-redesign.js"></script>
+  </body>
+</html>
